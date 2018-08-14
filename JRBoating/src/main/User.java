@@ -5,6 +5,7 @@ public class User {
 	private String username;
 	private String password;
 	private String passwordConfirmation;
+	private String userType;
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -20,12 +21,6 @@ public class User {
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-	}
-
-	public User(String username, String password, String passwordConfirmation) {
-		this.username = username;
-		this.password = password;
-		this.passwordConfirmation = passwordConfirmation;
 	}
 
 	public Boolean passwordsMatch() {
@@ -59,6 +54,14 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
