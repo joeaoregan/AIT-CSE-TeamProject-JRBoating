@@ -93,40 +93,18 @@ class UserBeanTest {
 		assertEquals("manager",userBean.userLogin());
 	}
 
-	// =======
-	//
-	// @Test
-	// void testUserLoginTrueManagerLogged() {
-	// userBean.setManagerLoddgedIn(true);
-	// assertTrue(userBean.userLogin());
-	// >>>>>>> branch 'master' of
-	// https://a00212817@bitbucket.org/boating/jrboating.git
-	// }
-	//
-	// @Test
-	// void testUserLoginFalse() {
-	// userBean.setManagerLoddgedIn(false);
-	// userBean.setCustomerLoggedIn(false);
-	// userBean.setFrontDeskLoggedIn(false);
-	// userBean.setSkipperLoggedIn(false);
-	// assertFalse(userBean.userLogin());
-	// }
-	//
-	// @Test
-	// void testUserLoginTrueCustomerLoggedIn() {
-	// userBean.setCustomerLoggedIn(true);
-	// assertTrue(userBean.userLogin());
-	// }
-	//
-	// @Test
-	// void testUserLoginTrueFrontDeskLoggedIn() {
-	// userBean.setFrontDeskLoggedIn(true);
-	// assertTrue(userBean.userLogin());
-	// }
-	//
-	// @Test
-	// void testUserLoginTrueSkipperLoggedIn() {
-	// userBean.setSkipperLoggedIn(true);
-	// assertTrue(userBean.userLogin());
-	// }
+	void testCustomerRegister() {
+		userBean.setUsername("Test");
+		userBean.setFirstName("Jbloggs");
+		userBean.setLastName("Test");
+		userBean.setPassword("Test");
+		userBean.setPasswordConfirmation("Test");
+		userBean.setAddress("Test");
+		userBean.setPhoneNumber("Test");
+		assertEquals("OK", userBean.registerCustomer());
+	}
+
+
+
+
 }

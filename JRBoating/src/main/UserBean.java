@@ -12,9 +12,9 @@ public class UserBean implements Serializable {
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 	JrBoatingBean jrBoatingDB;
-	
+
 	public UserBean() {
-		jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
+
 		isManagerLoddgedIn = false;
 		isCustomerLoggedIn = false;
 		isFrontDeskLoggedIn = false;
@@ -119,59 +119,41 @@ public class UserBean implements Serializable {
 
 	public String registerCustomer() {
 		String msg = "ERROR";
-		if (username == null || username.equals("") || password == null || password.equals("")
-				|| passwordConfirmation == null || passwordConfirmation.equals("") || firstName == null
-				|| firstName.equals("") || lastName == null || lastName.equals("") || address == null
-				|| address.equals("") || phoneNumber == null || phoneNumber.equals("")) {
-			msg = "All input must be filled";
-		} else {
-		
-			if (!jrBoatingDB.checkUniqueUsername(username)) {
-				User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-				jrBoatingDB.addCustomer(user);
-				msg = "OK";
-
-			}
+		System.out.println(username);
+		jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
+		// jrBoatingDB = new JrBoatingBean();
+		if (!jrBoatingDB.checkUniqueUsername(username)) {
+			User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
+			jrBoatingDB.addCustomer(user);
+			msg = "OK";
 
 		}
+
 		return msg;
 	}
 
 	public String userLogin() {
 		String msg = null;
 		if (username.equals("root")) {
-			if(jrBoatingDB.login(username, password)) {
+			if (jrBoatingDB.login(username, password)) {
 				msg = "manager";
 				isManagerLoddgedIn = true;
-			}	
+			}
 		} else if (username.equals("fd")) {
-			if(jrBoatingDB.login(username, password)) {
+			if (jrBoatingDB.login(username, password)) {
 				isFrontDeskLoggedIn = true;
 				msg = "frontdesk";
 			}
-		}
-		else if (username.equals("sk")) {
-			if(jrBoatingDB.login(username, password)) {
+		} else if (username.equals("sk")) {
+			if (jrBoatingDB.login(username, password)) {
 				isSkipperLoggedIn = true;
 				msg = "skipper";
-			}	
-		}
-		else {
+			}
+		} else {
 			jrBoatingDB.login(username, password);
 			msg = "customer";
+
 		}
 		return msg;
 	}
-	//// boolean isUserLoggedIn=false;
-	//// if(isManagerLoddgedIn)
-	//// isUserLoggedIn= true;
-	//// else if(isFrontDeskLoggedIn) {
-	//// isUserLoggedIn= true;
-	//// }else if(isCustomerLoggedIn) {
-	//// isUserLoggedIn= true;
-	//// }else if(isSkipperLoggedIn) {
-	//// isUserLoggedIn= true;
-	//// }
-	// return isUserLoggedIn;
-	// }
 }
