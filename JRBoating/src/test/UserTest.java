@@ -13,14 +13,13 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		user = new User("root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "manager");
+		user = new User("root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "manager");
 	}
 
 	@Test
 	void testUserConstructor() {
 		assertEquals("root", user.getUsername());
 		assertEquals("admin", user.getPassword());
-		assertEquals("admin", user.getPasswordConfirmation());
 		assertEquals("Joe", user.getFirstName());
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
@@ -40,11 +39,6 @@ class UserTest {
 		assertEquals("pass", user.getPassword());
 	}
 	
-	@Test
-	void testPasswordConfirmationChanged() {
-		user.setPasswordConfirmation("password");
-		assertEquals("password", user.getPasswordConfirmation());
-	}
 	
 	@Test
 	void testFirstNameChanged() {
@@ -75,15 +69,4 @@ class UserTest {
 		assertEquals("frontDesk", user.getUserType());
 	}
 	
-	@Test
-	void testUserPasswordsMatchTrue() {
-		assertTrue(user.passwordsMatch());
-	}
-	
-	@Test
-	void testUserPasswordsMatchFalse(){
-		user.setPasswordConfirmation("password");
-		assertFalse(user.passwordsMatch());
-	}
-
 }
