@@ -45,10 +45,10 @@ public class BoatBean {
 		Boat boat = new Boat(boatID,boatType,price,image);
 		jrBoatingBeanDB.addBoat(boat);
 	}
-	public String removeBoat() {
+	public void removeBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		Boat boat = new Boat(boatID,boatType,price,image);
-		return null;
+		jrBoatingBeanDB.removeBoat(boat);
 				
 	}
 
