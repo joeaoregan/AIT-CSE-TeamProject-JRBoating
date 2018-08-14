@@ -136,9 +136,6 @@ public class UserBean implements Serializable {
 		return msg;
 	}
 
-<<<<<<< HEAD
-
-=======
 	public String userLogin() {
 		String msg = null;
 		if (username.equals("root")) {
@@ -162,19 +159,7 @@ public class UserBean implements Serializable {
 			jrBoatingDB.login(username, password);
 			msg = "customer";
 		}
-		//// boolean isUserLoggedIn=false;
-		//// if(isManagerLoddgedIn)
-		//// isUserLoggedIn= true;
-		//// else if(isFrontDeskLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }else if(isCustomerLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }else if(isSkipperLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }
-		// return isUserLoggedIn;
-		// }
+	
 		return msg;
 	}
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
 }

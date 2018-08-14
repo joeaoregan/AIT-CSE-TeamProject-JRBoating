@@ -99,10 +99,6 @@ class UserBeanTest {
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
 	@Test
 	void testRegisterUserEmptyFirstName() {
 		userBean.setUsername("Test");
@@ -175,9 +171,8 @@ class UserBeanTest {
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
 
-<<<<<<< HEAD
-}
-=======
+
+
 	@Test
 	void testUserLoginManager() {
 		userBean.setUsername("root");
@@ -221,4 +216,3 @@ class UserBeanTest {
 	// assertTrue(userBean.userLogin());
 	// }
 }
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
