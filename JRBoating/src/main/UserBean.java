@@ -149,5 +149,4 @@ public class UserBean implements Serializable {
 		return isUserLoggedIn;
 	}
 	
-
 }
