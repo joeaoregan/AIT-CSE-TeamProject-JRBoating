@@ -87,6 +87,7 @@ class UserBeanTest {
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
 
+	@Test
 	void testCustomerRegister() {
 		userBean.setUsername("Test");
 		userBean.setFirstName("Jbloggs");
@@ -104,6 +105,14 @@ class UserBeanTest {
 		userBean.setPassword("admin");		
 		assertEquals("manager", userBean.userLogin());
 	}
+	
+	@Test
+	void testUserLoginAsManagerWrongPassword() {
+		userBean.setUsername("root");
+		userBean.setPassword("password");		
+		assertEquals("error", userBean.userLogin());
+	}
+	
 
 	@Test
 	void testUserLoginAsFrontDesk() {
