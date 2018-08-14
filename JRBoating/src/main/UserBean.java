@@ -133,28 +133,29 @@ public class UserBean implements Serializable {
 	}
 
 	public String userLogin() {
-		String msg = null;
+		String msg = "error";
 		if (username.equals("root") && password.equals("admin")) {
-			
 				msg = "manager";
 				isManagerLoddgedIn = true;
 			
-		} else if (username.equals("fd")) {
+		}
+		if (username.equals("fd")) {
 			msg = "frontdesk";
 //			if (jrBoatingDB.login(username, password)) {
 //				isFrontDeskLoggedIn = true;
 //				msg = "frontdesk";
 //			}
-		} else if (username.equals("sk")) {
+		} 
+		if (username.equals("sk")) {
 			msg = "skipper";
 //			if (jrBoatingDB.login(username, password)) {
 //				isSkipperLoggedIn = true;
 //				msg = "skipper";
 //			}
-		} else {
+		} 
+		if(username.equals("any")){	
 			//jrBoatingDB.login(username, password);
 			msg = "customer";
-
 		}
 		return msg;
 	}
