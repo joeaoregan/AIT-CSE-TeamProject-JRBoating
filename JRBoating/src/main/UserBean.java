@@ -9,8 +9,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String username, password, passwordConfirmation, firstName, lastName, address, userType;
-	private int phoneNumber;
+	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
 	public UserBean() {
@@ -76,11 +75,11 @@ public class UserBean implements Serializable {
 		this.userType = userType;
 	}
 
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 
@@ -116,19 +115,24 @@ public class UserBean implements Serializable {
 		this.isSkipperLoggedIn = isSkipperLoggedIn;
 	}
 
-	public String registerUser() {
-		String msg;
-		if (username.equals("") || password.equals("") || passwordConfirmation.equals("") || firstName.equals("")
-				|| lastName.equals("") || address.equals("") || userType.equals("")
-				|| Integer.toString(phoneNumber).equals("")) {
-			msg ="All input must be filled";
-		}
-		else {
-			msg = "OK";
-		}
+	public String registerCustomer() {
+		String msg = "ERROR";
+		if (username == null || username.equals("") || password == null || password.equals("")
+				|| passwordConfirmation == null || passwordConfirmation.equals("") || firstName == null
+				|| firstName.equals("") || lastName == null || lastName.equals("") || address == null
+				|| address.equals("") || phoneNumber == null || phoneNumber.equals("")) {
+			msg = "All input must be filled";
+		} else {
+			JrBoatingBean jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
+			if (!jrBoatingDB.checkUniqueUsername(username)) {
+				User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
+				jrBoatingDB.addCustomer(user);
+				msg = "OK";
 
+			}
+
+		}
 		return msg;
-
 	}
 
 }
