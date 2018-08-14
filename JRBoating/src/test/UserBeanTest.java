@@ -87,12 +87,6 @@ class UserBeanTest {
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
 
-	@Test
-	void testUserLoginAsManager() {
-		userBean.setUsername("root");
-		assertEquals("manager",userBean.userLogin());
-	}
-
 	void testCustomerRegister() {
 		userBean.setUsername("Test");
 		userBean.setFirstName("Jbloggs");
@@ -104,7 +98,27 @@ class UserBeanTest {
 		assertEquals("OK", userBean.registerCustomer());
 	}
 
+	@Test
+	void testUserLoginAsManager() {
+		userBean.setUsername("root");
+		userBean.setPassword("admin");		
+		assertEquals("manager", userBean.userLogin());
+	}
 
+	@Test
+	void testUserLoginAsFrontDesk() {
+		userBean.setUsername("fd");
+		assertEquals("frontdesk", userBean.userLogin());
+	}
+	@Test
+	void testUserLoginAsCustomer() {
+		userBean.setUsername("any");
+		assertEquals("customer", userBean.userLogin());
+	}
 
-
+	@Test
+	void testUserLoginAsSkipper() {
+		userBean.setUsername("sk");
+		assertEquals("skipper", userBean.userLogin());
+	}
 }
