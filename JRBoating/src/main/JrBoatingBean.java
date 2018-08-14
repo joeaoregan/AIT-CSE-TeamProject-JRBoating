@@ -1,3 +1,4 @@
+
 package main;
 
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ public class JrBoatingBean {
 
 	public void removeBoat(Boat boat) {
 		boats.remove(boat);
+	}
+	public int boatCount() {
+		return boats.size();
 	}
 
 	public boolean checkUniqueUsername(String username) {

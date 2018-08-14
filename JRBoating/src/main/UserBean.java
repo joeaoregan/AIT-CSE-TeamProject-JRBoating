@@ -133,27 +133,36 @@ public class UserBean implements Serializable {
 	}
 
 	public String userLogin() {
+<<<<<<< HEAD
 		System.out.println(username);
 		String msg = null;
 		if (username.equals("root")) {
 			if (jrBoatingDB.login(username, password)) {
+=======
+		String msg = "error";
+		if (username.equals("root") && password.equals("admin")) {
+>>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
 				msg = "manager";
 				isManagerLoddgedIn = true;
-			}
-		} else if (username.equals("fd")) {
-			if (jrBoatingDB.login(username, password)) {
-				isFrontDeskLoggedIn = true;
-				msg = "frontdesk";
-			}
-		} else if (username.equals("sk")) {
-			if (jrBoatingDB.login(username, password)) {
-				isSkipperLoggedIn = true;
-				msg = "skipper";
-			}
-		} else {
-			jrBoatingDB.login(username, password);
+			
+		}
+		if (username.equals("fd")) {
+			msg = "frontdesk";
+//			if (jrBoatingDB.login(username, password)) {
+//				isFrontDeskLoggedIn = true;
+//				msg = "frontdesk";
+//			}
+		} 
+		if (username.equals("sk")) {
+			msg = "skipper";
+//			if (jrBoatingDB.login(username, password)) {
+//				isSkipperLoggedIn = true;
+//				msg = "skipper";
+//			}
+		} 
+		if(username.equals("any")){	
+			//jrBoatingDB.login(username, password);
 			msg = "customer";
-
 		}
 		return msg;
 	}

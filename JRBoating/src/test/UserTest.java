@@ -46,7 +46,7 @@ class UserTest {
 		assertEquals("David", user.getFirstName());
 	}
 
-	@Test
+	@Test 
 	void testLastNameChanged() {
 		user.setLastName("David");
 		assertEquals("David", user.getLastName());
