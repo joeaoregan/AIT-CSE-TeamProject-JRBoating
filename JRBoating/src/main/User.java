@@ -5,15 +5,14 @@ public class User {
 	private String username;
 	private String password;
 	private String passwordConfirmation;
-	private String userType;
 	private String firstName;
 	private String lastName;
 	private String address;
-	private int phone;
-
+	private String phone;
+	private String userType;
 	
 	public User(String username, String password, String passwordConfirmation, String firstName, String lastName,
-			String address, int phone) {
+			String address, String phone, String userType) {
 		this.username = username;
 		this.password = password;
 		this.passwordConfirmation = passwordConfirmation;
@@ -21,6 +20,7 @@ public class User {
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
+		this.userType = userType;
 	}
 
 	public Boolean passwordsMatch() {
@@ -86,11 +86,11 @@ public class User {
 		this.address = address;
 	}
 	
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 }

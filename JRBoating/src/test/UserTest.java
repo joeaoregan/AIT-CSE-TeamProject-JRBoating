@@ -13,7 +13,7 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		user = new User("root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", 123456);
+		user = new User("root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "manager");
 	}
 
 	@Test
@@ -24,7 +24,7 @@ class UserTest {
 		assertEquals("Joe", user.getFirstName());
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
-		assertEquals(123456, user.getPhone());
+		assertEquals("123456", user.getPhone());
 
 	}
 
@@ -34,10 +34,57 @@ class UserTest {
 		assertEquals("manager", user.getUsername());
 	}
 
+	@Test
+	void testPasswordChanged() {
+		user.setPassword("pass");
+		assertEquals("pass", user.getPassword());
+	}
+	
+	@Test
+	void testPasswordConfirmationChanged() {
+		user.setPasswordConfirmation("password");
+		assertEquals("password", user.getPasswordConfirmation());
+	}
+	
+	@Test
+	void testFirstNameChanged() {
+		user.setFirstName("David");
+		assertEquals("David", user.getFirstName());
+	}
+	
+	@Test
+	void testLastNameChanged() {
+		user.setLastName("David");
+		assertEquals("David", user.getLastName());
+	}
+	
+	@Test
+	void testAddressChanged() {
+		user.setAddress("1 Athlone Street, Athlone");
+		assertEquals("1 Athlone Street, Athlone", user.getAddress());
+	}
+	
+	@Test
+	void testPhoneChanged() {
+		user.setPhone("67890");
+		assertEquals("67890", user.getPhone());
+	}
+	
+	@Test
+	void testUserTypeChanged() {
+		user.setUserType("frontDesk");
+		assertEquals("frontDesk", user.getUserType());
+	}
 	
 	@Test
 	void testUserPasswordsMatchTrue() {
 		assertTrue(user.passwordsMatch());
+	}
+	
+	@Test
+	void testUserPasswordsMatchFalse(){
+		user.setPasswordConfirmation("password");
+		assertFalse(user.passwordsMatch());
 	}
 
 }
