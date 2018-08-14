@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">   
+<h:head>
+	<title>JR Boating Home</title>
+	<h:outputStylesheet name="style.css" library="css"/>
+</h:head>
+
+<h:body>
+	<f:view>	
+	    <h:form>
+			<h1>JR Boating</h1>
+	        <h2 class="heading"><h:outputText value="User Authentication"/></h2>
+	        
+			<h:outputText value="#{userAuthenticationBean.uiValidationMessage}"/>
+	        <br />
+	        
+			<h:outputLabel>Username:</h:outputLabel>
+			<h:inputText id="username" 
+						 value="#{userAuthenticationBean.username}" 
+						 title="Enter your username" 
+						 required="true" 
+						 requiredMessage="Please inform the username"/>
+			<h:message for="username" />
+			<br/>
+			
+			<h:outputLabel>Password:</h:outputLabel>
+			<h:inputSecret id="password" 
+						   value="#{userAuthenticationBean.password}" 
+						   title="Enter your password"  
+						   required="true" 
+						   requiredMessage="Please inform the password"/>
+			<h:message for="password" />
+			<br />
+			
+	        <h:commandButton value="Authenticate" 
+	        				 action="#{userAuthenticationBean.doAuthentication}" 
+	        				 styleClass="ActionButton"/>
+	    </h:form>
+	</f:view>
+	
+</h:body>
+</html>

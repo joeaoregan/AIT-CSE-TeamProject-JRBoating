@@ -12,7 +12,9 @@
 	<div id="header">
 		<h1>JR Boating</h1>
 	</div>
-	
-	
+	<h:form>
+		<h:commandLink action="#{userAuthenticationBean.showLoginPage()}" value="Login" rendered="#{userAuthenticationBean.loggedUser == null}"/>
+		<h:outputText value="Welcome, #{userAuthenticationBean.loggedUser.firstName}!" rendered="#{userAuthenticationBean.loggedUser != null}"/>
+	</h:form>
 </body>
 </html>
