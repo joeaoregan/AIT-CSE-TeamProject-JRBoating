@@ -18,6 +18,7 @@ public class User {
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
+		this.userType = userType;
 	}
 
 	public String getUsername() {

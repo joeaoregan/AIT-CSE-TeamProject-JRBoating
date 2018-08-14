@@ -12,6 +12,7 @@ public class UserBean implements Serializable {
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 	JrBoatingBean jrBoatingDB;
+	
 	public UserBean() {
 		jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
 		isManagerLoddgedIn = false;
@@ -159,18 +160,18 @@ public class UserBean implements Serializable {
 			jrBoatingDB.login(username, password);
 			msg = "customer";
 		}
-		//// boolean isUserLoggedIn=false;
-		//// if(isManagerLoddgedIn)
-		//// isUserLoggedIn= true;
-		//// else if(isFrontDeskLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }else if(isCustomerLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }else if(isSkipperLoggedIn) {
-		//// isUserLoggedIn= true;
-		//// }
-		// return isUserLoggedIn;
-		// }
 		return msg;
 	}
+	//// boolean isUserLoggedIn=false;
+	//// if(isManagerLoddgedIn)
+	//// isUserLoggedIn= true;
+	//// else if(isFrontDeskLoggedIn) {
+	//// isUserLoggedIn= true;
+	//// }else if(isCustomerLoggedIn) {
+	//// isUserLoggedIn= true;
+	//// }else if(isSkipperLoggedIn) {
+	//// isUserLoggedIn= true;
+	//// }
+	// return isUserLoggedIn;
+	// }
 }
