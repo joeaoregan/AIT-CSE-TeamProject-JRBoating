@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<title>JR Boating</title>
@@ -12,7 +13,47 @@
 	<div id="header">
 		<h1>JR Boating</h1>
 	</div>
-	
-	
+	<div id="main">
+		<div class="logReg">
+			<div id="logDiv">
+				<h:form>
+					<h3>Already a member?</h3>
+					<hr />
+					<h:inputText id="lUsername" a:placeholder="username"/>
+					<h:inputText id="lPassword" a:placeholder="password"/>
+
+					<h:commandButton value="Sign In" />
+				</h:form>
+			</div>
+		</div>
+		<div id="searchDiv">
+			<h1>Search for Boat</h1>
+			<hr />
+			<h:form>
+				<h:inputText required="true" a:placeholder="enter boat type"/>
+				<br />
+				<h:commandButton value="Search" class="registerbtn" />
+			</h:form>
+
+		</div>
+		<div  class="Reg">
+		<div id="regForm">
+			<h:form>
+				<h3>New member?</h3>
+				<hr />
+				<h:inputText id="firstname" reqired="true" a:placeholder="firstname" />
+				<h:inputText id="lastname" reqired="true" a:placeholder="lastname"/>
+				<h:inputText id="rUsername" reqired="true" a:placeholder="username"/>
+				<h:inputText id="rpassword" reqired="true" a:placeholder="password"/>
+				<h:inputText id="confirmpassword" reqired="true" a:placeholder="confirm password"/>
+				<h:inputText id="address" reqired="true" a:placeholder="address"/>
+				<h:inputText id="phonenumber" reqired="true"  a:placeholder="username"/>
+				<h:commandButton value="Sign up" />
+			</h:form>
+		</div>
+		</div>
+	</div>
+
+
 </body>
 </html>
