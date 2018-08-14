@@ -93,5 +93,36 @@ class UserBeanTest {
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
 
+	@Test
+	void testUserLoginTrueManagerLogged() {
+		userBean.setManagerLoddgedIn(true);
+		assertTrue(userBean.userLogin());
+	}
 
+	@Test
+	void testUserLoginFalse() {
+		userBean.setManagerLoddgedIn(false);
+		userBean.setCustomerLoggedIn(false);
+		userBean.setFrontDeskLoggedIn(false);
+		userBean.setSkipperLoggedIn(false);
+		assertFalse(userBean.userLogin());
+	}
+	
+	@Test
+	void testUserLoginTrueCustomerLoggedIn() {
+		userBean.setCustomerLoggedIn(true);
+		assertTrue(userBean.userLogin());
+	}
+	
+	@Test
+	void testUserLoginTrueFrontDeskLoggedIn() {
+		userBean.setFrontDeskLoggedIn(true);
+		assertTrue(userBean.userLogin());
+	}
+	
+	@Test
+	void testUserLoginTrueSkipperLoggedIn() {
+		userBean.setSkipperLoggedIn(true);
+		assertTrue(userBean.userLogin());
+	}
 }
