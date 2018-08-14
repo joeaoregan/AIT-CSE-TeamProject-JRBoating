@@ -44,12 +44,19 @@ public class BoatBean {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		Boat boat = new Boat(boatID,boatType,price,image);
 		jrBoatingBeanDB.addBoat(boat);
+		
 	}
 	public void removeBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		Boat boat = new Boat(boatID,boatType,price,image);
-		jrBoatingBeanDB.removeBoat(boat);
-				
+		jrBoatingBeanDB.removeBoat(boat);			
 	}
+	
+
+	/*public void viewBoat() {
+		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		Boat boat = new Boat(boatID,boatType,price,image);
+		jrBoatingBeanDB.viewBoat(boat);
+	}*/
 
 }
