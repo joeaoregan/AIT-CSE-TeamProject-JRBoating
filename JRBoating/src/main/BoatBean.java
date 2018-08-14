@@ -40,8 +40,6 @@ public class BoatBean {
 		this.image = image;
 	}
 	
-	
-	
 	public void addBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		Boat boat = new Boat(boatID,boatType,price,image);
