@@ -88,14 +88,7 @@ class UserBeanTest {
 	}
 
 	@Test
-<<<<<<< HEAD
-	void testUserLoginAsManager() {
-		userBean.setUsername("root");
-		assertEquals("manager",userBean.userLogin());
-	}
-	@Test
-=======
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
+
 	void testCustomerRegister() {
 		userBean.setUsername("Test");
 		userBean.setFirstName("Jbloggs");
@@ -107,8 +100,6 @@ class UserBeanTest {
 		assertEquals("OK", userBean.registerCustomer());
 		
 	}
-<<<<<<< HEAD
-=======
 
 	@Test
 	void testUserLoginAsManager() {
@@ -141,5 +132,5 @@ class UserBeanTest {
 		userBean.setUsername("sk");
 		assertEquals("skipper", userBean.userLogin());
 	}
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
+
 }
