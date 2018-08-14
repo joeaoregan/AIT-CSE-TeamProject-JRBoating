@@ -5,13 +5,14 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import com.ait.nav.Helper;
+
 @ManagedBean
 @RequestScoped
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
-	JrBoatingBean jrBoatingDB;
 
 	public UserBean() {
 
@@ -117,17 +118,30 @@ public class UserBean implements Serializable {
 		this.isSkipperLoggedIn = isSkipperLoggedIn;
 	}
 
-	public String registerCustomer() {
+	public String registerCustomerHandler() {
 		String msg = "ERROR";
-		System.out.println(username);
-		// jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
-		jrBoatingDB = new JrBoatingBean();
-		if (!jrBoatingDB.checkUniqueUsername(username)) {
-			User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-			jrBoatingDB.addCustomer(user);
-			msg = "OK";
-
-		}
+		
+		JrBoatingBean jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
+		//JrBoatingBean jrBoatingDB  = new JrBoatingBean(); 
+		User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
+		//jrBoatingDB.checkUniqueUsername(user.getUsername());
+		
+		System.out.println("-------------> "+firstName);
+		System.out.println("-------------> "+lastName);
+		System.out.println("-------------> "+username);
+		System.out.println("-------------> "+password);
+		System.out.println("-------------> "+address);
+		System.out.println("-------------> "+phoneNumber);
+		//jrBoatingDB.addCustomer(user);
+		boolean res=jrBoatingDB.checkUniqueUsername(username);
+		System.out.println(res);
+//		if (!jrBoatingDB.checkUniqueUsername(username)) {
+//			
+//			
+//			jrBoatingDB.addCustomer(user);
+//			msg = "OK";
+//
+//		}
 
 		return msg;
 	}

@@ -1,10 +1,16 @@
 
 package main;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class JrBoatingBean {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+@ManagedBean
+@SessionScoped
+public class JrBoatingBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	ArrayList<Boat> boats;
 	ArrayList<User> users;
 
@@ -25,6 +31,7 @@ public class JrBoatingBean {
 	}
 
 	public boolean checkUniqueUsername(String username) {
+		System.out.println("In DBBBBB "+username);
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				return true;
@@ -34,8 +41,8 @@ public class JrBoatingBean {
 		return false;
 	}
 	
-	public void addCustomer(User user) {
-		users.add(user);
+	public boolean addCustomer(User user) {
+		return users.add(user);
 		
 	}
 	

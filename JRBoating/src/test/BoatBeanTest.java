@@ -56,4 +56,5 @@ JrBoatingBean jrBoatingBean;
 		jrBoatingBean.removeBoat(boat);
 		assertEquals(0,jrBoatingBean.boatCount());
 	}
+	
 }

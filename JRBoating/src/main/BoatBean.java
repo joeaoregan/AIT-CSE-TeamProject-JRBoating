@@ -2,6 +2,8 @@ package main;
 
 import java.util.ArrayList;
 
+import com.ait.nav.Helper;
+
 public class BoatBean {
 	private int boatID;
 	private String boatType;
