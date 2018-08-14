@@ -69,7 +69,6 @@ class UserTest {
 		user.setPhone("67890");
 		assertEquals("67890", user.getPhone());
 	}
-	
 	@Test
 	void testUserTypeChanged() {
 		user.setUserType("frontDesk");
