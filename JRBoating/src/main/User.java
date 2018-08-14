@@ -74,8 +74,12 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+<<<<<<< HEAD
 	}
 
 
 
 }
+=======
+	}}
+>>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git

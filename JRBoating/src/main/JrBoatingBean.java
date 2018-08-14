@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class JrBoatingBean {
 
 	ArrayList<Boat> boats;
-	ArrayList<User> customer;
+	ArrayList<User> users;
 
 	public JrBoatingBean() {
 		boats = new ArrayList<Boat>();
-		customer = new ArrayList<User>();
+		users = new ArrayList<User>();
 	}
 
 	public void addBoat(Boat boat) {
@@ -21,7 +21,7 @@ public class JrBoatingBean {
 	}
 
 	public boolean checkUniqueUsername(String username) {
-		for (User user : customer) {
+		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				return true;
 			}
@@ -31,7 +31,19 @@ public class JrBoatingBean {
 	}
 	
 	public void addCustomer(User user) {
-		customer.add(user);
+		users.add(user);
+		
+	}
+	
+	public boolean login(String username, String password) {
+		for(User user : users) {
+			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				return true;
+			}
+			
+		}
+		
+		return false;
 		
 	}
 

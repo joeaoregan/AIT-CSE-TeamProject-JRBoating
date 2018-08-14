@@ -99,7 +99,10 @@ class UserBeanTest {
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
 	@Test
 	void testRegisterUserEmptyFirstName() {
 		userBean.setUsername("Test");
@@ -111,7 +114,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
-	
+
 	@Test
 	void testRegisterUserEmptyLastName() {
 		userBean.setUsername("Test");
@@ -123,7 +126,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
-	
+
 	@Test
 	void testRegisterUserEmptyPassword() {
 		userBean.setUsername("Test");
@@ -135,6 +138,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
+
 	@Test
 	void testRegisterUserEmptyPasswordConfirmation() {
 		userBean.setUsername("Test");
@@ -146,6 +150,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
+
 	@Test
 	void testRegisterUserEmptyAddress() {
 		userBean.setUsername("Test");
@@ -157,7 +162,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
-	
+
 	@Test
 	void testRegisterUserEmptyPhoneNumber() {
 		userBean.setUsername("Test");
@@ -170,4 +175,50 @@ class UserBeanTest {
 		assertEquals("All input must be filled", userBean.registerCustomer());
 	}
 
+<<<<<<< HEAD
 }
+=======
+	@Test
+	void testUserLoginManager() {
+		userBean.setUsername("root");
+		assertEquals("manager",userBean.userLogin());
+	}
+
+	// =======
+	//
+	// @Test
+	// void testUserLoginTrueManagerLogged() {
+	// userBean.setManagerLoddgedIn(true);
+	// assertTrue(userBean.userLogin());
+	// >>>>>>> branch 'master' of
+	// https://a00212817@bitbucket.org/boating/jrboating.git
+	// }
+	//
+	// @Test
+	// void testUserLoginFalse() {
+	// userBean.setManagerLoddgedIn(false);
+	// userBean.setCustomerLoggedIn(false);
+	// userBean.setFrontDeskLoggedIn(false);
+	// userBean.setSkipperLoggedIn(false);
+	// assertFalse(userBean.userLogin());
+	// }
+	//
+	// @Test
+	// void testUserLoginTrueCustomerLoggedIn() {
+	// userBean.setCustomerLoggedIn(true);
+	// assertTrue(userBean.userLogin());
+	// }
+	//
+	// @Test
+	// void testUserLoginTrueFrontDeskLoggedIn() {
+	// userBean.setFrontDeskLoggedIn(true);
+	// assertTrue(userBean.userLogin());
+	// }
+	//
+	// @Test
+	// void testUserLoginTrueSkipperLoggedIn() {
+	// userBean.setSkipperLoggedIn(true);
+	// assertTrue(userBean.userLogin());
+	// }
+}
+>>>>>>> branch 'master' of https://a00212817@bitbucket.org/boating/jrboating.git
