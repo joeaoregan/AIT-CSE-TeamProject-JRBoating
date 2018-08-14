@@ -92,7 +92,7 @@ class UserBeanTest {
 		userBean.setUsername("root");
 		assertEquals("manager",userBean.userLogin());
 	}
-
+	@Test
 	void testCustomerRegister() {
 		userBean.setUsername("Test");
 		userBean.setFirstName("Jbloggs");
@@ -102,9 +102,6 @@ class UserBeanTest {
 		userBean.setAddress("Test");
 		userBean.setPhoneNumber("Test");
 		assertEquals("OK", userBean.registerCustomer());
+		
 	}
-
-
-
-
 }

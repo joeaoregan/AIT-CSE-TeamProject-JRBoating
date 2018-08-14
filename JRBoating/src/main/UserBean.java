@@ -120,8 +120,8 @@ public class UserBean implements Serializable {
 	public String registerCustomer() {
 		String msg = "ERROR";
 		System.out.println(username);
-		jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
-		// jrBoatingDB = new JrBoatingBean();
+		//jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
+		 jrBoatingDB = new JrBoatingBean();
 		if (!jrBoatingDB.checkUniqueUsername(username)) {
 			User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
 			jrBoatingDB.addCustomer(user);
@@ -133,6 +133,7 @@ public class UserBean implements Serializable {
 	}
 
 	public String userLogin() {
+		System.out.println(username);
 		String msg = null;
 		if (username.equals("root")) {
 			if (jrBoatingDB.login(username, password)) {
