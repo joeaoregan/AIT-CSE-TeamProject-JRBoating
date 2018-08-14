@@ -88,96 +88,24 @@ class UserBeanTest {
 	}
 
 	@Test
-	void testRegisterUserEmptyUsername() {
-		userBean.setUsername("");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("Test");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyFirstName() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("");
-		userBean.setLastName("Test");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyLastName() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyPassword() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("Test");
-		userBean.setPassword("");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyPasswordConfirmation() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("Test");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyAddress() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("Test");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("");
-		userBean.setPhoneNumber("123456");
-		assertEquals("All input must be filled", userBean.registerCustomer());
-	}
-
-	@Test
-	void testRegisterUserEmptyPhoneNumber() {
+	void testCustomerRegister() {
 		userBean.setUsername("Test");
 		userBean.setFirstName("Jbloggs");
 		userBean.setLastName("Test");
 		userBean.setPassword("Test");
 		userBean.setPasswordConfirmation("Test");
 		userBean.setAddress("Test");
-		userBean.setPhoneNumber("");
-		assertEquals("All input must be filled", userBean.registerCustomer());
+		userBean.setPhoneNumber("Test");
+		assertEquals("OK", userBean.registerCustomer());
 	}
 
 
 
-	@Test
-	void testUserLoginManager() {
-		userBean.setUsername("root");
-		assertEquals("manager",userBean.userLogin());
-	}
+//	@Test
+//	void testUserLoginManager() {
+//		userBean.setUsername("root");
+//		assertEquals("manager",userBean.userLogin());
+//	}
 
 	// =======
 	//

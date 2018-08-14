@@ -25,7 +25,6 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-
 	}
 
 	@Test
