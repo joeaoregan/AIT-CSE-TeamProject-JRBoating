@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">   
+<h:head>
+	<title>JR Boating Home</title>
+	<h:outputStylesheet name="stylesheet.css" library="css"/>
+</h:head>
+
+<h:body>
+	<f:view>	
+
+		<h1>JR Boating</h1>
+        <h2 class="heading"><h:outputText value="Home"/></h2>
+		
+		<!-- Top Menu: Customer -->	
+		<h:form>
+		    <h:commandButton value="Home" action="Home" styleClass="ActionButton"/>&nbsp;
+	        <h:commandButton value="Register" action="CustomerRegister" styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="Additional Info" action="CustomerInfo" styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="Cart" action="CustomerCart" styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="Account" action="CustomerAccount" styleClass="ActionButton" rendered="#{loginBean.loggedInCustomer}"/>&nbsp;
+	       	<h:commandButton value="Login" action="Home" styleClass="ActionButton" rendered="#{!loginBean.loggedInCustomer}"/>
+	       	<h:commandButton value="Logout" action="#{loginBean.resetUsersLoggedIn}" styleClass="ActionButton" rendered="#{loginBean.loggedInCustomer}"/>
+	        <br/>
+	    </h:form>
+	    
+        <h2 class="heading"><h:outputText value="User Login"/></h2>
+
+	        
+	    <h:form>
+			<h:outputLabel>Username:</h:outputLabel>
+			<h:inputText id="name" value="#{loginBean.username}" title="Enter Username" />
+			<br />
+			<h:outputLabel>Password:</h:outputLabel>
+			<h:inputSecret id="address" value="#{loginBean.password}" title="Enter Password" />
+			<br />
+
+	    </h:form>
+	</f:view>
+	
+	<div>     
+	    <h:form>	    
+			<!-- h:commandLink action="AdditionalInfo">Additional Info</h:commandLink -->  
+
+	    </h:form>	    
+	</div>
+</h:body>
+</html>
