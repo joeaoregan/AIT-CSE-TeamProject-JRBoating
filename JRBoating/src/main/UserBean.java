@@ -116,4 +116,19 @@ public class UserBean implements Serializable {
 		this.isSkipperLoggedIn = isSkipperLoggedIn;
 	}
 
+	public String registerUser() {
+		String msg;
+		if (username.equals("") || password.equals("") || passwordConfirmation.equals("") || firstName.equals("")
+				|| lastName.equals("") || address.equals("") || userType.equals("")
+				|| Integer.toString(phoneNumber).equals("")) {
+			msg ="All input must be filled";
+		}
+		else {
+			msg = "OK";
+		}
+
+		return msg;
+
+	}
+
 }
