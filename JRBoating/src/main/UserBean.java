@@ -134,19 +134,6 @@ public class UserBean implements Serializable {
 		}
 		return msg;
 	}
-	
-	public boolean userLogin() {
-		boolean isUserLoggedIn=false;
-		if(isManagerLoddgedIn)
-		isUserLoggedIn= true;
-		else if(isFrontDeskLoggedIn) {
-			isUserLoggedIn= true;
-		}else if(isCustomerLoggedIn) {
-			isUserLoggedIn= true;
-		}else if(isSkipperLoggedIn) {
-			isUserLoggedIn= true;
-		}
-		return isUserLoggedIn;
-	}
-	
+
+
 }
