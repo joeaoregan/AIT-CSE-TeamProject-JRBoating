@@ -12,14 +12,15 @@ class BoatTest {
 	Boat boat;
 	@BeforeEach
 	void setUp() {
-		boat = new Boat(123, "Cruiser", 1.23, "image");
+		boat = new Boat(123, "Cruiser", 1.23, "image", 1);
 	}
 
 	@Test
 	void testBoatConstructor() {
 		assertEquals(123, boat.getBoatID());
 		assertEquals("Cruiser", boat.getBoatType());
-		assertEquals(1.23, 1.23);
+		assertEquals(Double.valueOf(1.23), boat.getPrice());
+		assertEquals(1, boat.getQuantity());
 	}
 	@Test
 	void changeBoatID() {
@@ -41,5 +42,11 @@ class BoatTest {
 		boat.setImage("Test image");
 		assertEquals("Test image", boat.getImage());
 	}
+	@Test
+	void testChangeQuantity() {
+		boat.setQuantity(1);
+		assertEquals(1, boat.getQuantity());
+	}
+
 
 }

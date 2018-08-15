@@ -5,19 +5,23 @@ public class Boat {
 	private String boatType;
 	private Double price;
 	private String image;
+	private int quantity;
 	
-	public Boat() {
-		this.boatType= boatType;
-		this.boatID = boatID;
-		this.price = price;
-		this.image = image;
+	public int getQuantity() {
+		return quantity;
 	}
-	
-	public Boat(int boatID, String boatType, Double price, String image) {
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Boat(int boatID, String boatType, Double price, String image, int quantity) {
 		this.boatType= boatType;
 		this.boatID = boatID;
 		this.price = price;
 		this.image = image;
+		this.quantity=quantity;
+	
 
 	}
 	public String getBoatType() {

@@ -9,7 +9,8 @@ public class BoatBean {
 	private String boatType;
 	private Double price;
 	private String image;
-	
+	private int quantity;
+
 	public String getBoatType() {
 		return boatType;
 	}
@@ -41,23 +42,28 @@ public class BoatBean {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 	public void addBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID,boatType,price,image);
+		Boat boat = new Boat(boatID, boatType, price, image, quantity);
 		jrBoatingBeanDB.addBoat(boat);
-		
 	}
+
 	public void removeBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID,boatType,price,image);
-		jrBoatingBeanDB.removeBoat(boat);			
-	}
-	
+	JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean",JrBoatingBean.class);
+	Boat boat = new Boat(boatID, boatType, price, image, quantity);
+	 jrBoatingBeanDB.removeBoat(boat);
+	 }
 
 	public void viewBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		jrBoatingBeanDB.viewBoat(boatType);
+	}
+
+	public void availableBoat() {
+		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		Boat boat = new Boat(boatID, boatType, price, image, quantity);
+		jrBoatingBeanDB.boatTypeAvailable(boatType);
 	}
 
 }

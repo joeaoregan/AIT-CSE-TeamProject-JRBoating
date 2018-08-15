@@ -41,7 +41,6 @@ public class JrBoatingBean implements Serializable {
 	}
 
 	public boolean checkUniqueUsername(String username) {
-		System.out.println("In DBBBBB " + username);
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				return true;
@@ -65,5 +64,14 @@ public class JrBoatingBean implements Serializable {
 			}
 		}
 		return false;
+	}
+	
+	
+	public boolean boatTypeAvailable(String boatType) {
+		for (Boat aBoat: boats) {
+			if(aBoat.getBoatType().equalsIgnoreCase(boatType)){
+				return true;
+			}
+		}return false;
 	}
 }
