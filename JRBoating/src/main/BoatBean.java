@@ -84,7 +84,6 @@ public class BoatBean implements Serializable{
 		Boat boat = new Boat(437,"canon",234.4,"hello");
 		jrBoatingBeanDB.addBoat(boat);
 		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
-		
 		return searchBoat;
 	}
 	

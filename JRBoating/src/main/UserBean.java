@@ -11,7 +11,8 @@ import com.ait.nav.Helper;
 @RequestScoped
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,lUsername,lPassword;
+	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,
+			lUsername, lPassword;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
 	public UserBean() {
@@ -142,13 +143,13 @@ public class UserBean implements Serializable {
 			jrBoatingDB.addCustomer(user);
 			msg = "OK";
 		}
-		System.out.println("User count = "+jrBoatingDB.userCount());
+		System.out.println("User count = " + jrBoatingDB.userCount());
 		return msg;
 	}
 
 	public String userLogin() {
 		String msg = "error";
-		//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 
 		if (lUsername.equals("root")) {
 			if (lUsername.equals("root") && lPassword.equals("admin")) {
@@ -174,12 +175,11 @@ public class UserBean implements Serializable {
 //		}
 		}
 
-		else  {
-			// jrBoatingDB.login(lUsername, lPassword);
+		else {
+			jrBoatingDB.login(lUsername, lPassword);
 			msg = "customer";
 		}
 		return msg;
 
 	}
 }
-
