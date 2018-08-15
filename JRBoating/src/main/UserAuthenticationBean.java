@@ -11,7 +11,7 @@ public class UserAuthenticationBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	// The user constant that represents the manager
+	// The user that represents the manager
 	private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", "MANAGER");
 
 	private String username;
@@ -19,7 +19,7 @@ public class UserAuthenticationBean implements Serializable {
 	private String uiValidationMessage;
 	private User loggedUser;
 
-	//clears the current state of the bean and shows the login page
+	//clears the bean and shows the login page
 	public String showLoginPage() {
 		username = "";
 		password = "";
@@ -30,9 +30,9 @@ public class UserAuthenticationBean implements Serializable {
 
 	public String doAuthentication() {
 		User authenticatingUser = validateUser();
-		if (authenticatingUser == null) {
-			uiValidationMessage = "Pair username/password do not match any known user.";
-			return "login";
+		if (authenticatingUser == MANAGER) {
+			uiValidationMessage = "Welcome Manager.";
+			return "boatAdmin";
 		}
 		loggedUser = authenticatingUser;
 		return "index";
