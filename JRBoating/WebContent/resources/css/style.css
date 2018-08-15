@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #home {
 	background-image: url("/JRBoating/resources/image/boatWallpaper.jpg");
 	background-repeat: no repeat;
+=======
+body {
+	background-color: lightBlue;
+>>>>>>> branch 'Sorcha' of https://a00212817@bitbucket.org/aitcse4/jrboating.git
 	margin: 0px;
 	width: 100%;
 }
@@ -84,6 +89,7 @@ input[type=text]{
 	margin-right:20px;
 	text-align: center;
 }
+<<<<<<< HEAD
 
 .boatTable {   
    border-collapse:collapse;
@@ -113,3 +119,9 @@ input[type=text]{
 #tableDiv{
 	text-align: center;
 }
+=======
+.ActionButton {
+	width: 140px;
+	
+}
+>>>>>>> branch 'Sorcha' of https://a00212817@bitbucket.org/aitcse4/jrboating.git
