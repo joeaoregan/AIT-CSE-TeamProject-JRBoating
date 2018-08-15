@@ -1,0 +1,85 @@
+body {
+	background-color: White;
+	margin: 0px;
+	width: 100%;
+}
+
+#header {
+	border: 1px solid black;
+	text-align: center;
+	background-color: #4CAF50;
+}
+#main{
+		margin-top:50px;
+		width:100%;
+}
+#searchDiv{
+	
+	width:400px;
+	float:left;
+	text-align: center;
+	border: 1px solid black;
+	margin:150px 0px 0px 150px;
+	background-color: #4CAF50;
+}
+input[type=text]{
+  width: 350px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.registerbtn {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  padding: 10px 2px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  opacity: 0.9;
+}
+.logReg{
+	border:1px solid black;
+	width:300px;
+	float: left;
+	margin-left:20px;
+	text-align: center;
+}
+.logReg input[type=text],.Reg input[type=text]{
+  width: 250px;
+  padding: 10px;
+  margin: 5px 0 2px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.logReg input[type=submit],.Reg input[type=submit]{
+ background-color: red;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 60%;
+  opacity: 0.9;
+}
+#logDiv{
+	border: 1px solid black;
+	background-color: #4CAF50;
+}
+#regForm{
+	border: 1px solid black;
+	background-color: #4CAF50;
+		
+}
+.Reg{
+	border:1px solid black;
+	width:300px;
+	float: right;
+	margin-right:20px;
+	text-align: center;
+}

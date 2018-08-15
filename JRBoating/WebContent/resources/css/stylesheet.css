@@ -1,0 +1,28 @@
+
+body {
+	background-color: White;
+	margin: 0px;
+	width: 100%;
+}
+
+#header {
+	border: 1px solid black;
+	text-align: center;
+	background-color: #4CAF50;
+}
+
+label {
+	width: 10em;
+	padding-right: 1em;
+	float: left;
+}
+
+input {
+	margin-bottom: .5em;
+}
+
+.ActionButton {
+	width: 140px;
+	background-color: yellow;
+}
+
