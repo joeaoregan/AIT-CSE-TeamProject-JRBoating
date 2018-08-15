@@ -145,8 +145,9 @@ public class UserBean implements Serializable {
 		System.out.println("User count = "+jrBoatingDB.userCount());
 		return msg;
 	}
-
-	public String userLogin() {
+	
+}
+	/*public String userLogin() {
 		String msg = "error";
 		//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 
@@ -182,7 +183,8 @@ public class UserBean implements Serializable {
 
 	}
 }
-
+*/
+	/*
 //	public String userLogin() {
 //		System.out.println(username);
 //		String msg = null;
@@ -215,3 +217,4 @@ public class UserBean implements Serializable {
 //		}
 //		return msg;
 //	}
+*/
