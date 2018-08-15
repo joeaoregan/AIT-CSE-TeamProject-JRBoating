@@ -55,10 +55,9 @@ public class BoatBean {
 	}
 	
 
-	/*public void viewBoat() {
+	public void viewBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID,boatType,price,image);
-		jrBoatingBeanDB.viewBoat(boat);
-	}*/
+		jrBoatingBeanDB.viewBoat(boatType);
+	}
 
 }
