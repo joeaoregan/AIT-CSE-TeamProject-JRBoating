@@ -56,6 +56,7 @@ JrBoatingBean jrBoatingBean;
 		jrBoatingBean.removeBoat(boat);
 		assertEquals(0,jrBoatingBean.boatCount());
 	}
+<<<<<<< HEAD
 	@Test
 	void testViewBoat() {
 		boat = new Boat(1234,"Cruiser",100.25,"image");
@@ -64,4 +65,7 @@ JrBoatingBean jrBoatingBean;
 		jrBoatingBean.viewBoat("Cruiser");
 		assertEquals(boat,jrBoatingBean.viewBoat("Cruiser"));
 	}
+=======
+	
+>>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating.git
 }
