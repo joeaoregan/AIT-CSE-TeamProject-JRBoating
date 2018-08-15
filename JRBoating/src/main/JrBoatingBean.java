@@ -4,7 +4,7 @@ package main;
 import java.util.ArrayList;
 
 public class JrBoatingBean {
-
+	Boat boat;
 	ArrayList<Boat> boats;
 	ArrayList<User> users;
 
@@ -23,13 +23,20 @@ public class JrBoatingBean {
 	public int boatCount() {
 		return boats.size();
 	}
+	
+	public Boat viewBoat(String boatType) {
+		for (Boat aBoat: boats) {
+			if(aBoat.getBoatType().equalsIgnoreCase(boatType)) {
+				return aBoat;
+			}
+		}return null;
+	}
 
 	public boolean checkUniqueUsername(String username) {
 		for (User user : users) {
 			if (user.getUsername().equals(username)) {
 				return true;
 			}
-
 		}
 		return false;
 	}
