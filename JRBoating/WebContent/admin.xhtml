@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>JR Boating</title>
 	<h:outputStylesheet name="style.css" library="css" />
@@ -11,12 +12,14 @@
 
 <h:body>
 <div id="main">
-<h1>Administrator HomePage</h1>
-
+<h1 class="ui-widget-header ui-corner-all" align="center">Administrator Homepage</h1>
+<br/>
 </div>
-
+ 
 <p:tabView>
-<p:tab title="Boat" /> 
+<p:tab title="Boat">
+ <ui:include src="/snippets/boatAdmin.xhtml"/>
+</p:tab>
 <p:tab title="Employee" />
 </p:tabView>
 
