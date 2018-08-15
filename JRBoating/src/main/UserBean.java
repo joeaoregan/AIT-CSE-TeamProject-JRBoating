@@ -11,7 +11,7 @@ import com.ait.nav.Helper;
 @RequestScoped
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber;
+	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,lUsername,lPassword;
 	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
 	public UserBean() {
@@ -20,6 +20,22 @@ public class UserBean implements Serializable {
 		isCustomerLoggedIn = false;
 		isFrontDeskLoggedIn = false;
 		isSkipperLoggedIn = false;
+	}
+
+	public String getlUsername() {
+		return lUsername;
+	}
+
+	public void setlUsername(String lUsername) {
+		this.lUsername = lUsername;
+	}
+
+	public String getlPassword() {
+		return lPassword;
+	}
+
+	public void setlPassword(String lPassword) {
+		this.lPassword = lPassword;
 	}
 
 	public String getUsername() {
@@ -119,45 +135,26 @@ public class UserBean implements Serializable {
 	}
 
 	public String registerCustomerHandler() {
-		String msg = "ERROR";
-		
-		JrBoatingBean jrBoatingDB = Helper.getBean("jrboatingBean", JrBoatingBean.class);
-		//JrBoatingBean jrBoatingDB  = new JrBoatingBean(); 
+		String msg = "Username Already Exist";
+		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-		//jrBoatingDB.checkUniqueUsername(user.getUsername());
-		
-		System.out.println("-------------> "+firstName);
-		System.out.println("-------------> "+lastName);
-		System.out.println("-------------> "+username);
-		System.out.println("-------------> "+password);
-		System.out.println("-------------> "+address);
-		System.out.println("-------------> "+phoneNumber);
-		//jrBoatingDB.addCustomer(user);
-		boolean res=jrBoatingDB.checkUniqueUsername(username);
-		System.out.println(res);
-//		if (!jrBoatingDB.checkUniqueUsername(username)) {
-//			
-//			
-//			jrBoatingDB.addCustomer(user);
-//			msg = "OK";
-//
-//		}
-
+		if (!jrBoatingDB.checkUniqueUsername(username)) {
+			jrBoatingDB.addCustomer(user);
+			msg = "OK";
+		}
+		System.out.println("User count = "+jrBoatingDB.userCount());
 		return msg;
 	}
 
 	public String userLogin() {
 		String msg = "error";
+		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 
 		if (username.equals("root")) {
-			// if (jrBoatingDB.login(username, password)) {
-
-			if (username.equals("root") && password.equals("admin")) {
+			if (lUsername.equals("root") && lPassword.equals("admin")) {
 				msg = "manager";
 				isManagerLoddgedIn = true;
-
 			}
-
 		}
 
 		if (username.equals("fd")) {

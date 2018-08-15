@@ -20,9 +20,9 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 					<h3>Already a member?</h3>
 					<hr />
 					<h:inputText id="lUsername" a:placeholder="username"
-						value="#{userBean.username}" />
+						value="#{userBean.lUsername}" />
 					<h:inputText id="lPassword" a:placeholder="password"
-						value="#{userBean.password}" />
+						value="#{userBean.lPassword}" />
 
 					<h:commandButton value="Sign In" />
 				</h:form>
@@ -36,35 +36,32 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 				<br />
 				<h:commandButton value="Search" class="registerbtn" />
 			</h:form>
-
 		</div>
 		<div class="Reg">
 			<div id="regForm">
 				<h:form>
 					<h3>New member?</h3>
 					<hr />
-					<h:inputText id="firstname" reqired="true"
+					<h:inputText id="firstname" required="true"
 						a:placeholder="firstname" value="#{userBean.firstName}" />
-					<h:inputText id="lastname" reqired="true" a:placeholder="lastname"
+					<h:inputText id="lastname" required="true" a:placeholder="lastname"
 						value="#{userBean.lastName}" />
-					<h:inputText id="username" reqired="true" a:placeholder="username"
+					<h:inputText id="username" required="true" a:placeholder="username"
 						value="#{userBean.username}" />
-					<h:inputText id="password" reqired="true" a:placeholder="password"
+					<h:inputText id="password" required="true" a:placeholder="password"
 						value="#{userBean.password}" />
-					<h:inputText id="passwordConfirmation" reqired="true"
+					<h:inputText id="passwordConfirmation" required="true"
 						a:placeholder="confirm password"
 						value="#{userBean.passwordConfirmation}" />
-					<h:inputText id="address" reqired="true" a:placeholder="address"
+					<h:inputText id="address" required="true" a:placeholder="address"
 						value="#{userBean.address}" />
-					<h:inputText id="phonenumber" reqired="true"
+					<h:inputText id="phonenumber" required="true"
 						a:placeholder="phone no." value="#{userBean.phoneNumber}" />
 					<h:commandButton value="Sign up"
-						action="#{userBean.registerCustomerHandler}" />
+						 action="#{userBean.registerCustomerHandler}" />
 				</h:form>
 			</div>
 		</div>
 	</div>
-
-
 </body>
 </html>
