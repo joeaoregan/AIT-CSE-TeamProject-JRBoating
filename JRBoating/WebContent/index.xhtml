@@ -66,25 +66,3 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	</div>
 </body>
 </html>
-=======
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-
-<h:head>
-	<title>JR Boating</title>
-	<h:outputStylesheet name="style.css" library="css" />
-</h:head>
-<body>
-	<div id="header">
-		<h1>JR Boating</h1>
-	</div>
-	<h:form>
-		<h:commandLink action="#{userAuthenticationBean.showLoginPage()}" value="Login" rendered="#{userAuthenticationBean.loggedUser == null}"/>
-		<h:outputText value="Welcome, #{userAuthenticationBean.loggedUser.firstName}!" rendered="#{userAuthenticationBean.loggedUser != null}"/>
-	</h:form>
-</body>
-</html>
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating.git
