@@ -4,10 +4,6 @@ package main;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-public class JrBoatingBean {
-	Boat boat;
-=======
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -16,7 +12,6 @@ import javax.faces.bean.SessionScoped;
 public class JrBoatingBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating.git
 	ArrayList<Boat> boats;
 	ArrayList<User> users;
 
