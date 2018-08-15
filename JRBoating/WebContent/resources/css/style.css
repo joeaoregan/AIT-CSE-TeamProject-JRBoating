@@ -1,5 +1,6 @@
 body {
-	background-color: White;
+	background-image: url("/JRBoating/resources/image/boatWallpaper.jpg");
+	background-repeat: no repeat;
 	margin: 0px;
 	width: 100%;
 }

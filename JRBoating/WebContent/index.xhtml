@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
@@ -24,7 +23,6 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 						value="#{userBean.lUsername}" />
 					<h:inputText id="lPassword" a:placeholder="password"
 						value="#{userBean.lPassword}" />
-
 					<h:commandButton value="Sign In" action="#{userBean.userLogin}"/>
 				</h:form>
 			</div>
@@ -33,9 +31,9 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 			<h1>Search for Boat</h1>
 			<hr />
 			<h:form>
-				<h:inputText required="true" a:placeholder="enter boat type" />
+				<h:inputText required="true" a:placeholder="enter boat type" value="#{boatBean.sboatType}" />
 				<br />
-				<h:commandButton value="Search" class="registerbtn" />
+				<h:commandButton value="Search" class="registerbtn" action="CustomerBoat" />
 			</h:form>
 		</div>
 		<div class="Reg">

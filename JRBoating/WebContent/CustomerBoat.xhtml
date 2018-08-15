@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+
+
+	<f:view>
+		<div id="tableDiv">
+			<h2 class="heading">Boat In the System</h2>
+			<h:dataTable value="#{boatBean.searchBoats()}" var="row"
+				styleClass="boatTable" headerClass="boatTableHeader"
+				rowClasses="boatTableOddRow,employeeTableEvenRow">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+				#{row.boatID}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Type</f:facet>
+				#{row.boatType}
+				</h:column>
+				<h:column>
+					<f:facet name="header">Price</f:facet>
+				#{row.price}
+				</h:column>
+			</h:dataTable>
+		</div>
+	</f:view>
+
+</body>
+</html>

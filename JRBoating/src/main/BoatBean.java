@@ -1,15 +1,33 @@
 package main;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import com.ait.nav.Helper;
 
-public class BoatBean {
+@ManagedBean
+@RequestScoped
+public class BoatBean implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int boatID;
 	private String boatType;
+	private String sboatType;
 	private Double price;
 	private String image;
 	
+	
+	public String getSboatType() {
+		return sboatType;
+	}
+
+	public void setSboatType(String sboatType) {
+		this.sboatType = sboatType;
+	}
+
 	public String getBoatType() {
 		return boatType;
 	}
@@ -57,7 +75,19 @@ public class BoatBean {
 
 	public void viewBoat() {
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		jrBoatingBeanDB.viewBoat(boatType);
+		jrBoatingBeanDB.viewBoat(boatType);		
 	}
+	
+	public List<Boat> searchBoats() {
+		ArrayList<Boat> searchBoat = new ArrayList<Boat>();
+		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		Boat boat = new Boat(437,"canon",234.4,"hello");
+		jrBoatingBeanDB.addBoat(boat);
+		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
+		
+		return searchBoat;
+	}
+	
+	
 
 }

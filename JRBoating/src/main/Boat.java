@@ -6,12 +6,6 @@ public class Boat {
 	private Double price;
 	private String image;
 	
-	public Boat() {
-		this.boatType= boatType;
-		this.boatID = boatID;
-		this.price = price;
-		this.image = image;
-	}
 	
 	public Boat(int boatID, String boatType, Double price, String image) {
 		this.boatType= boatType;
