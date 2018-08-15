@@ -3,7 +3,8 @@
 xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>JR Boating</title>
@@ -42,8 +43,8 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 				<h:form>
 					<h3>New member?</h3>
 					<hr />
-					<h:inputText id="firstname" required="true"
-						a:placeholder="firstname" value="#{userBean.firstName}" />
+					<p:inputText value="#{userBean.firstName}" id="firstName" required="true" requiredMessage="First Name Required" />
+						<p:message for= "firstName"/>
 					<h:inputText id="lastname" required="true" a:placeholder="lastname"
 						value="#{userBean.lastName}" />
 					<h:inputText id="username" required="true" a:placeholder="username"
