@@ -24,7 +24,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 					<h:inputText id="lPassword" a:placeholder="password"
 						value="#{userBean.lPassword}" />
 
-					<h:commandButton value="Sign In" />
+					<h:commandButton value="Sign In" action="#{userBean.userLogin}"/>
 				</h:form>
 			</div>
 		</div>
@@ -47,7 +47,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 					<h:inputText id="lastname" required="true" a:placeholder="lastname"
 						value="#{userBean.lastName}" />
 					<h:inputText id="username" required="true" a:placeholder="username"
-						value="#{userBean.username}" />
+						value="#{userBean.username}" a:minlength="5"/>
 					<h:inputText id="password" required="true" a:placeholder="password"
 						value="#{userBean.password}" />
 					<h:inputText id="passwordConfirmation" required="true"
@@ -57,7 +57,7 @@ xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 						value="#{userBean.address}" />
 					<h:inputText id="phonenumber" required="true"
 						a:placeholder="phone no." value="#{userBean.phoneNumber}" />
-					<h:commandButton value="Sign up"
+					<h:commandButton value="Sign up" id="regCustomer"
 						 action="#{userBean.registerCustomerHandler}" />
 				</h:form>
 			</div>

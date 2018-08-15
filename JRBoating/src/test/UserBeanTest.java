@@ -87,49 +87,49 @@ class UserBeanTest {
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
 
-	@Test
-
-	void testCustomerRegister() {
-		userBean.setUsername("Test");
-		userBean.setFirstName("Jbloggs");
-		userBean.setLastName("Test");
-		userBean.setPassword("Test");
-		userBean.setPasswordConfirmation("Test");
-		userBean.setAddress("Test");
-		userBean.setPhoneNumber("Test");
-		//assertEquals("OK", userBean.registerCustomer());
-		
-	}
+//	@Test
+//
+//	void testCustomerRegister() {
+//		userBean.setUsername("Test");
+//		userBean.setFirstName("Jbloggs");
+//		userBean.setLastName("Test");
+//		userBean.setPassword("Test");
+//		userBean.setPasswordConfirmation("Test");
+//		userBean.setAddress("Test");
+//		userBean.setPhoneNumber("Test");
+//		assertEquals("OK", userBean.registerCustomerHandler());
+//		
+//	}
 
 	@Test
 	void testUserLoginAsManager() {
-		userBean.setUsername("root");
-		userBean.setPassword("admin");		
+		userBean.setlUsername("root");
+		userBean.setlPassword("admin");		
 		assertEquals("manager", userBean.userLogin());
 	}
 	
 	@Test
 	void testUserLoginAsManagerWrongPassword() {
-		userBean.setUsername("root");
-		userBean.setPassword("password");		
+		userBean.setlUsername("root");
+		userBean.setlPassword("password");		
 		assertEquals("error", userBean.userLogin());
 	}
 	
 
 	@Test
 	void testUserLoginAsFrontDesk() {
-		userBean.setUsername("fd");
+		userBean.setlUsername("fd");
 		assertEquals("frontdesk", userBean.userLogin());
 	}
 	@Test
 	void testUserLoginAsCustomer() {
-		userBean.setUsername("any");
+		userBean.setlUsername("any");
 		assertEquals("customer", userBean.userLogin());
 	}
 
 	@Test
 	void testUserLoginAsSkipper() {
-		userBean.setUsername("sk");
+		userBean.setlUsername("sk");
 		assertEquals("skipper", userBean.userLogin());
 	}
 
