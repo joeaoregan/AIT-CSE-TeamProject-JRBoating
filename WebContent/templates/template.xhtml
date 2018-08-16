@@ -16,10 +16,11 @@
 </h:head>
 
 <h:body id="home">
-	<div  id="header" style="border-width: 2px; border-color: green; border-style: solid;">
+	<div id="header" class="ui-widget-header ui-corner-all" 
+		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
 		<h1 class="heading">JR Boating</h1>
 		<h2 class="heading">#{heading}</h2>
-		
+
 		<ui:insert name="header">
 			<ui:include src="/templates/header.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
@@ -28,7 +29,7 @@
 	</div>
 	<br />
 
-	<div
+	<div id="main"
 		style="border-width: 2px; border-color: black; border-style: solid;">
 		<ui:insert name="content">
 			<ui:include src="/templates/contents.xhtml" />

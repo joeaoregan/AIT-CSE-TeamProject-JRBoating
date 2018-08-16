@@ -231,7 +231,4 @@ public class UserBean implements Serializable {
 //		return msg;
 >>>>>>> refs/remotes/origin/master
 //	}
-<<<<<<< HEAD
 }
-=======
-*/

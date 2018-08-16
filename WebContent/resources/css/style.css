@@ -7,87 +7,98 @@ body {
 #header {
 	border: 1px solid black;
 	text-align: center;
+	background-color: Blue;
+	color: white;
+	border-radius: 15px;
+}
+
+#main {
+	width: 100%;
+	backgound: linear-gradient(to right,#2193b0,#6dd5ed );
+}
+
+input[type=text] {
+	width: 350px;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.logReg {
+	border: 1px solid black;
+	width: 300px;
+	float: left;
+	margin-left: 20px;
+	text-align: center;
+}
+
+.logReg input[type=text], .Reg input[type=text] {
+	width: 250px;
+	padding: 10px;
+	margin: 5px 0 2px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+.logReg input[type=submit], .Reg input[type=submit] {
+	background-color: grey;
+	color: white;
+	padding: 16px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 60%;
+	opacity: 0.9;
+	border-radius: 15px;
+}
+
+/* index.xhtml */
+#searchDiv {
+    margin: auto;
+	width: 400px;
+	text-align: center;
+	border: 1px solid black;
 	background-color: #0080ff;
+	border-radius: 15px;
+	color: white;
+}
+.registerbtn {
+	background-color: grey;
+	color: white;
+	font-size: 20px;
+	padding: 10px 2px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 60%;
+	opacity: 0.9;
+	border-radius: 15px;
 	color: white;
 }
 
-#main{
-		margin-top:50px;
-		width:100%;
-}
-
-#searchDiv{	
-	width:400px;
-	float:left;
-	text-align: center;
+/* login.xhtml */
+#logDiv {
 	border: 1px solid black;
-	margin:150px 0px 0px 150px;
-	background-color: #4CAF50;
+	background-color: #0080ff;
+	border-radius: 15px;
+	color: white;
 }
-input[type=text]{
-  width: 350px;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-.registerbtn {
-  background-color: red;
-  color: white;
-  font-size: 20px;
-  padding: 10px 2px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 60%;
-  opacity: 0.9;
-}
-
-.logReg{
-	border:1px solid black;
-	width:300px;
-	float: left;
-	margin-left:20px;
-	text-align: center;
-}
-
-.logReg input[type=text],.Reg input[type=text]{
-  width: 250px;
-  padding: 10px;
-  margin: 5px 0 2px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-.logReg input[type=submit],.Reg input[type=submit]{
- background-color: red;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 60%;
-  opacity: 0.9;
-}
-
-#logDiv{
+/* register.xhtml */
+#regForm {
 	border: 1px solid black;
-	background-color: #4CAF50;
+	background-color: #0080ff;
+	border-radius: 15px;
+	color: white;
 }
 
-#regForm{
+.Reg {
 	border: 1px solid black;
-	background-color: #4CAF50;
-		
-}
-.Reg{
-	border:1px solid black;
-	width:300px;
+	width: 300px;
 	float: right;
-	margin-right:20px;
+	margin-right: 20px;
 	text-align: center;
 }
 
@@ -95,4 +106,5 @@ input[type=text]{
 	width: 200px;
 	background-color: grey;
 	color: white;
+	border-radius: 5px;
 }

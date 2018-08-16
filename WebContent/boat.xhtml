@@ -1,52 +1,92 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<title>JR Boating</title>
-	<h:outputStylesheet name="stylesheet.css" library="css" />
+	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
 
 <h:body>
 	<div id="main">
 
-		<h2>Boats</h2>
+		<h1 class="ui-widget-header ui-corner-all" align="center">Boats</h1>
 
 		<h:form>
-			<h:selectOneRadio id="boatListBox" layout="pageDirection"
-				value="#{boatBean.boatID}" onchange="this.form.submit();"
+			<p:selectOneRadio id="boatListBox" layout="pageDirection"
+				value="#{shopBean.cartBoatType}" onchange="this.form.submit();"
 				title="Boats you can book online today">
-				<f:selectItem itemLabel="Cruiser" itemValue="0" />
-				<f:selectItem itemLabel="Paddle Boat" itemValue="1" />
-				<f:selectItem itemLabel="Sail Boat" itemValue="2" />
-				<f:selectItem itemLabel="Canoe" itemValue="3" />
-			</h:selectOneRadio>
+				<f:selectItem itemLabel="Cruiser" itemValue="Cruiser" />
+				<f:selectItem itemLabel="Sail Boat" itemValue="Sail Boat" />
+				<f:selectItem itemLabel="Paddle Boat" itemValue="Paddle Boat" />
+				<f:selectItem itemLabel="Canoe" itemValue="Canoe" />
+			</p:selectOneRadio>
 		</h:form>
 	</div>
-	<h2>Manage My Cart</h2>
 
-	<h:outputLabel for="boatId" value="Boat ID :" />
+	<h:inputText id="cartBoatType" size="3"
+		value="#{shopBean.cartBoatType}" readonly="true"
+		title="Id for your selected product" />
 	<br />
-	<h:inputText id="boatId" size="3" value="#{boatBean.productID}"
-		readonly="true" title="Id for your selected boat" />
+	<p:outputLabel for="quantity" value="Qunatity :" />
 	<br />
-	<h:outputLabel for="quantity" value="Qunatity :" />
-	<br />
-	<h:inputText id="quantity" size="3" value="#{boatBean.quantity}"
+	<p:inputText id="quantity" size="3" value="#{boatBean.quantity}"
 		title="Tell us how many you want!" />
 	<br />
 
 	<h:form>
-		<h:commandButton id="add" styleClass="ActionButton"
-			action="#{boatBean.addHandler}" value="Add to Cart"
+		<p:commandButton id="add" styleClass="ActionButton"
+			action="#{shopBean.addToCart}" value="Add to Cart"
 			title="Add boat to your shopping cart" /> &nbsp;&nbsp;
-		<h:commandButton id="remove" styleClass="ActionButton"
-			action="#{boatBean.removeHandler}" value="Remove"
-			title="Remove boat from your shopping cart" /> &nbsp;&nbsp;
-		<h:commandButton id="checkout" value="Checkout"
+ &nbsp;&nbsp;
+</h:form>
+
+	<h2 class="ui-widget-header ui-corner-all" align="center">
+		Contents of Cart</h2>
+
+
+	<div>
+		<f:view>
+			<div id="tableDiv">
+				<h2 class="heading">Boat In the System</h2>
+				<h:dataTable value="#{shopBean.searchBoats()}" var="row"
+					styleClass="boatTable" headerClass="boatTableHeader"
+					rowClasses="boatTableOddRow,employeeTableEvenRow">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+				#{row.boatID}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Type</f:facet>
+				#{row.boatType}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+				#{row.price}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+				#{row.quantity}
+				</h:column>
+
+				</h:dataTable>
+			</div>
+		</f:view>
+	</div>
+
+
+
+	<h:form>
+		<p:commandButton id="checkout" value="Checkout"
 			styleClass="ActionButton" />
 	</h:form>
+
+
+
 
 </h:body>
 
