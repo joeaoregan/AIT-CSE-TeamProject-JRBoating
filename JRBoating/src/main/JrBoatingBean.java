@@ -13,13 +13,8 @@ import javax.faces.bean.SessionScoped;
 public class JrBoatingBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	ArrayList<Boat> boats;
-	ArrayList<User> users;
-
-	public JrBoatingBean() {
-		boats = new ArrayList<Boat>();
-		users = new ArrayList<User>();
-	}
+	private static  ArrayList<Boat> boats = new ArrayList<Boat>();
+	private static  ArrayList<User> users = new ArrayList<User>();
 
 	public String addBoat(Boat boat) {
 

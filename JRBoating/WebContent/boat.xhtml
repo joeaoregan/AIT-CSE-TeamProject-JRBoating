@@ -10,36 +10,46 @@
 </h:head>
 
 <h:body>
-<div id="main">
+	<div id="main">
+		<div id="header">
+			<h1>JR Boating</h1>
+		</div>
 
-<h2>Boats</h2>
+		<h2>Boats</h2>
 
-<h:form>
-<p:selectOneRadio id="boatListBox" layout="pageDirection" value ="#{boatBean.boatId}"
-onchange="this.form.submit();"
-title="Boats you can book online today">
-<f:selectItem itemLabel= "Cruiser" itemValue="0"/>
-<f:selectItem itemLabel= "Paddle Boat" itemValue="1"/>
-<f:selectItem itemLabel= "Sail Boat" itemValue="2"/>
-<f:selectItem itemLabel= "Canoe" itemValue="3"/>
-</p:selectOneRadio>
-</h:form>
-</div>
+		<h:form>
+			<p:selectOneRadio id="boatListBox" layout="pageDirection"
+				value="#{boatBean.boatID}" onchange="this.form.submit();"
+				title="Boats you can book online today">
+				<f:selectItem itemLabel="Cruiser" itemValue="0" />
+				<f:selectItem itemLabel="Paddle Boat" itemValue="1" />
+				<f:selectItem itemLabel="Sail Boat" itemValue="2" />
+				<f:selectItem itemLabel="Canoe" itemValue="3" />
+			</p:selectOneRadio>
+		</h:form>
+	</div>
 
-<p:outputLabel for="boatId" value ="Boat ID :"/><br/>
-<p:inputText id="boatId" size="3" value="#{boatBean.productId}" readonly="true"
-title="Id for your selected boat"/><br/>
-<p:outputLabel for="quantity" value ="Qunatity :"/><br/>
-<p:inputText id="quantity" size="3" value="#{boatBean.quantity}"
-title="Tell us how many you want!"/><br/>
+	<p:outputLabel for="boatId" value="Boat ID :" />
+	<br />
+	<p:inputText id="boatId" size="3" value="#{boatBean.boatType}"
+		readonly="true" title="Id for your selected boat" />
+	<br />
+	<p:outputLabel for="quantity" value="Qunatity :" />
+	<br />
+	<p:inputText id="quantity" size="3" value="#{boatBean.quantity}"
+		title="Tell us how many you want!" />
+	<br />
 
-<h:form>
-<p:commandButton id="add" styleClass="ActionButton" action="#{boatBean.addHandler}"
-value="Add to Cart" title="Add boat to your shopping cart"/> &nbsp;&nbsp;
-<p:commandButton id="remove" styleClass="ActionButton" action="#{boatBean.removeHandler}"
-value="Remove" title="Remove boat from your shopping cart"/> &nbsp;&nbsp;
-<p:commandButton id="checkout" value = "Checkout" styleClass="ActionButton"/>
-</h:form>
+	<h:form>
+		<p:commandButton id="add" styleClass="ActionButton"
+			action="#{boatBean.addHandler}" value="Add to Cart"
+			title="Add boat to your shopping cart" /> &nbsp;&nbsp;
+<p:commandButton id="remove" styleClass="ActionButton"
+			action="#{boatBean.removeHandler}" value="Remove"
+			title="Remove boat from your shopping cart" /> &nbsp;&nbsp;
+<p:commandButton id="checkout" value="Checkout"
+			styleClass="ActionButton" />
+	</h:form>
 
 
 

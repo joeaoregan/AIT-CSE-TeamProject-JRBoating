@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 import com.ait.nav.Helper;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,
@@ -190,10 +190,10 @@ public class UserBean implements Serializable {
 		return msg;
 
 	}
-	public String logout() {
-		isManagerLoddgedIn = false;
-		System.out.println("here");
-		return "index.xhtml";
-		
-	}
+//	public String logout() {
+//		isManagerLoddgedIn = false;
+//		System.out.println("here");
+//		return "index.xhtml";
+//		
+//	}
 }
