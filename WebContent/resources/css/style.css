@@ -7,14 +7,16 @@ body {
 #header {
 	border: 1px solid black;
 	text-align: center;
-	background-color: #4CAF50;
+	background-color: #0080ff;
+	color: white;
 }
+
 #main{
 		margin-top:50px;
 		width:100%;
 }
-#searchDiv{
-	
+
+#searchDiv{	
 	width:400px;
 	float:left;
 	text-align: center;
@@ -30,6 +32,7 @@ input[type=text]{
   border: none;
   background: #f1f1f1;
 }
+
 .registerbtn {
   background-color: red;
   color: white;
@@ -41,6 +44,7 @@ input[type=text]{
   width: 60%;
   opacity: 0.9;
 }
+
 .logReg{
 	border:1px solid black;
 	width:300px;
@@ -48,6 +52,7 @@ input[type=text]{
 	margin-left:20px;
 	text-align: center;
 }
+
 .logReg input[type=text],.Reg input[type=text]{
   width: 250px;
   padding: 10px;
@@ -67,10 +72,12 @@ input[type=text]{
   width: 60%;
   opacity: 0.9;
 }
+
 #logDiv{
 	border: 1px solid black;
 	background-color: #4CAF50;
 }
+
 #regForm{
 	border: 1px solid black;
 	background-color: #4CAF50;
@@ -82,4 +89,10 @@ input[type=text]{
 	float: right;
 	margin-right:20px;
 	text-align: center;
+}
+
+.ActionButton {
+	width: 200px;
+	background-color: grey;
+	color: white;
 }

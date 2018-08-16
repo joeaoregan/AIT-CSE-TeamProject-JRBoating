@@ -1,7 +1,8 @@
 package com.ait.jrb;
 
 public class Boat {
-	private String boatID;
+	//private String boatID;
+	private String id;	// shorten
 	private String boatType;
 	private Double price;
 	private String image;
@@ -15,9 +16,9 @@ public class Boat {
 		this.quantity = quantity;
 	}
 
-	public Boat(String boatID, String boatType, Double price, String image, int quantity) {
+	public Boat(String id, String boatType, Double price, String image, int quantity) {
 		this.boatType= boatType;
-		this.boatID = boatID;
+		this.id = id;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
@@ -31,12 +32,11 @@ public class Boat {
 		this.boatType = boatType;
 	}
 
-	public String getBoatID() {
-		return boatID;
+	public String getId() {
+		return id;
 	}
-
-	public void setBoatID(String boatID) {
-		this.boatID = boatID;
+	public void setBoatID(String id) {
+		this.id = id;
 	}
 
 	public Double getPrice() {

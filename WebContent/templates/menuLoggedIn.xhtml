@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+		<h1>#{defaultHeader}: Menu 1 Customer Logged In</h1>
+
+		<!-- Top Menu: Customer Logged In -->
+		<h:form>
+			<h:commandButton value="Shop" action="CustomerBooking"
+				styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="Account" action="CustomerAccount"
+				styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="Cart" action="CustomerCart"
+				styleClass="ActionButton" />&nbsp;		
+	       	<h:commandButton value="Additional Info" action="CustomerInfo"
+				styleClass="ActionButton" />&nbsp;
+			<h:commandButton value="Logout"
+				action="#{loginBean.resetUsersLoggedIn}" styleClass="ActionButton" />
+			<br />
+		</h:form>
+	</ui:composition>
+
+</body>
+</html>

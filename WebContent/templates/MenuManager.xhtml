@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+		<h1>#{defaultHeader}: Menu Manager Logged In (MenuManager.xhtml)</h1>
+
+		<!-- Top Menu: Manager Logged In -->
+		<h:form>
+			<h:commandButton value="Manager Home" action="LandingPageManager"
+				styleClass="ActionButton" />&nbsp;
+        	<h:commandButton value="Manage Users" action="ManageUsers"
+				styleClass="ActionButton" />&nbsp;			
+        	<h:commandButton value="Manage Inventory"
+				action="ManageInventory" styleClass="ActionButton" />&nbsp;			
+        	<h:commandButton value="Manage Pricing"
+				action="ManagePricingStructures" styleClass="ActionButton" />&nbsp;			
+        	<h:commandButton value="Manage Reports" action="ManageReports"
+				styleClass="ActionButton" />&nbsp;
+        	<h:commandButton value="Log Out"
+				action="#{loginBean.resetUsersLoggedIn}" styleClass="ActionButton" />
+		</h:form>
+	</ui:composition>
+</body>
+</html>

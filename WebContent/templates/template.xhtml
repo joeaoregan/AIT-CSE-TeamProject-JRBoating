@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- This file contains 3 other files for separate header, body, footer -->
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{title}</title>
+	<h:outputStylesheet name="stylesheet.css" library="css" />
+	<h:outputStylesheet name="style.css" library="css" />
+</h:head>
+
+<h:body id="home">
+	<div  id="header" style="border-width: 2px; border-color: green; border-style: solid;">
+		<h1 class="heading">JR Boating</h1>
+		<h2 class="heading">#{heading}</h2>
+		
+		<ui:insert name="header">
+			<ui:include src="/templates/header.xhtml">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:insert>
+	</div>
+	<br />
+
+	<div
+		style="border-width: 2px; border-color: black; border-style: solid;">
+		<ui:insert name="content">
+			<ui:include src="/templates/contents.xhtml" />
+		</ui:insert>
+	</div>
+	<br />
+
+	<div style="border-width: 2px; border-color: red; border-style: solid;">
+		<ui:insert name="footer">
+			<ui:include src="/templates/footer.xhtml" />
+		</ui:insert>
+	</div>
+
+</h:body>
+</html>
