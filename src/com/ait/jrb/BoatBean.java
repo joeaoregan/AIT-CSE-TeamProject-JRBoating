@@ -13,6 +13,7 @@ import javax.faces.bean.RequestScoped;
 public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String boatID;
+	private String productID; // Used in boat.xhtml but not declared
 	private String boatType;
 	private String sboatType;
 	private Double price;
@@ -67,12 +68,13 @@ public class BoatBean implements Serializable {
 		this.image = image;
 	}
 
-	public void addBoat() {
+	public String addBoat() {
 		if (UserBean.isManagerLoddgedIn()) {
 			JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 			Boat boat = new Boat(boatID, boatType, price, image, quantity);
 			jrBoatingBeanDB.addBoat(boat);
 		}
+		return null;	// warning must have String return type
 	}
 
 	public void removeBoat() {
@@ -83,15 +85,25 @@ public class BoatBean implements Serializable {
 		}
 	}
 
-	public List<Boat> viewBoats() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);	
-		return jrBoatingBeanDB.getBoatList();
-	}
+	// Not needed can just call JrBoatingBean.getBoats() in any file
+//	public List<Boat> viewBoats() {
+//		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);	
+//		//return jrBoatingBeanDB.getBoatList();
+//		return jrBoatingBeanDB.getBoats();
+//	}
 
 	public List<Boat> searchBoats() {
 		ArrayList<Boat> searchBoat = new ArrayList<Boat>();
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
 		return searchBoat;
+	}
+
+	public String getProductID() {
+		return productID;
+	}
+
+	public void setProductID(String productID) {
+		this.productID = productID;
 	}
 }

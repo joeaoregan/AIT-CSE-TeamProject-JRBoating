@@ -13,7 +13,7 @@
 		<f:view>
 			<div id="tableDiv">
 				<h2 class="heading">Boat In the System</h2>
-				<h:dataTable value="#{boatBean.viewBoats()}" var="row"
+				<h:dataTable value="#{JrBoatingBean.getBoats()}" var="row"
 					styleClass="boatTable" headerClass="boatTableHeader"
 					rowClasses="boatTableOddRow,employeeTableEvenRow">
 					<h:column>
@@ -37,8 +37,6 @@
 						<h:form>
 							<h:commandButton value="Book" />
 						</h:form>
-
-
 					</h:column>
 
 				</h:dataTable>

@@ -7,7 +7,7 @@
 *.project
 .tern-project
 /WebContent/WEB-INF/faces-config.xml
-/WebContent/WEB-INF/MANIFEST.MF
+/WebContent/META-INF/MANIFEST.MF
 *.jsdtscope
 *.prefs
 *.component
