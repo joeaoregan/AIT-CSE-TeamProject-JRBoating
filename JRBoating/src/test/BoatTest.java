@@ -12,7 +12,7 @@ class BoatTest {
 	Boat boat;
 	@BeforeEach
 	void setUp() {
-		boat = new Boat(123, "Cruiser", 1.23, "image", 1);
+		boat = new Boat("D1234", "Cruiser", 1.23, "image", 1);
 	}
 
 	@Test
@@ -24,7 +24,7 @@ class BoatTest {
 	}
 	@Test
 	void changeBoatID() {
-		boat.setBoatID(555);
+		boat.setBoatID("D1234");
 		assertEquals(555, boat.getBoatID());
 	}
 	@Test

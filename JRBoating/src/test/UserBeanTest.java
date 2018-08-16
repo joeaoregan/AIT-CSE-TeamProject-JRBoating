@@ -65,13 +65,13 @@ class UserBeanTest {
 
 	@Test
 	void testChangeIsManagerLoggedIn() {
-		userBean.setManagerLoddgedIn(true);
-		assertTrue(userBean.isManagerLoddgedIn());
+		UserBean.setManagerLoddgedIn(true);
+		assertTrue(UserBean.isManagerLoddgedIn());
 	}
 
 	@Test
 	void testChangeIsCustomerLoggedIn() {
-		userBean.setCustomerLoggedIn(false);
+		UserBean.setCustomerLoggedIn(false);
 		assertFalse(userBean.isCustomerLoggedIn());
 	}
 
@@ -83,7 +83,7 @@ class UserBeanTest {
 
 	@Test
 	void testChangeIsSkipperLoggedIn() {
-		userBean.setSkipperLoggedIn(true);
+		UserBean.setSkipperLoggedIn(true);
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
 

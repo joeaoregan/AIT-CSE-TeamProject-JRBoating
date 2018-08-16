@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.ait.nav.Helper;
 
@@ -14,7 +15,7 @@ public class UserBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,
 			lUsername, lPassword;
-	private boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
+	private static boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
 	public UserBean() {
 
@@ -22,6 +23,18 @@ public class UserBean implements Serializable {
 		isCustomerLoggedIn = false;
 		isFrontDeskLoggedIn = false;
 		isSkipperLoggedIn = false;
+	}
+
+	public static void setManagerLoddgedIn(boolean isManagerLoddgedIn) {
+		UserBean.isManagerLoddgedIn = isManagerLoddgedIn;
+	}
+
+	public static void setCustomerLoggedIn(boolean isCustomerLoggedIn) {
+		UserBean.isCustomerLoggedIn = isCustomerLoggedIn;
+	}
+
+	public static void setSkipperLoggedIn(boolean isSkipperLoggedIn) {
+		UserBean.isSkipperLoggedIn = isSkipperLoggedIn;
 	}
 
 	public String getlUsername() {
@@ -104,20 +117,12 @@ public class UserBean implements Serializable {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public boolean isManagerLoddgedIn() {
+	public static boolean isManagerLoddgedIn() {
 		return isManagerLoddgedIn;
-	}
-
-	public void setManagerLoddgedIn(boolean isManagerLoddgedIn) {
-		this.isManagerLoddgedIn = isManagerLoddgedIn;
 	}
 
 	public boolean isCustomerLoggedIn() {
 		return isCustomerLoggedIn;
-	}
-
-	public void setCustomerLoggedIn(boolean isCustomerLoggedIn) {
-		this.isCustomerLoggedIn = isCustomerLoggedIn;
 	}
 
 	public boolean isFrontDeskLoggedIn() {
@@ -125,26 +130,25 @@ public class UserBean implements Serializable {
 	}
 
 	public void setFrontDeskLoggedIn(boolean isFrontDeskLoggedIn) {
-		this.isFrontDeskLoggedIn = isFrontDeskLoggedIn;
+		UserBean.isFrontDeskLoggedIn = isFrontDeskLoggedIn;
 	}
 
 	public boolean isSkipperLoggedIn() {
 		return isSkipperLoggedIn;
 	}
 
-	public void setSkipperLoggedIn(boolean isSkipperLoggedIn) {
-		this.isSkipperLoggedIn = isSkipperLoggedIn;
-	}
-
 	public String registerCustomerHandler() {
 		String msg = "Username Already Exist";
 		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-		if (!jrBoatingDB.checkUniqueUsername(username)) {
+		System.out.println("Reg " + password);
+		System.out.println("CReg " + passwordConfirmation);
+		if (!password.equals(passwordConfirmation)) {
+			msg = "PasswordDon't match";
+		} else if (!jrBoatingDB.checkUniqueUsername(username)) {
+			User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
 			jrBoatingDB.addCustomer(user);
 			msg = "OK";
 		}
-		System.out.println("User count = " + jrBoatingDB.userCount());
 		return msg;
 	}
 
@@ -177,10 +181,19 @@ public class UserBean implements Serializable {
 		}
 
 		else {
-			jrBoatingDB.login(lUsername, lPassword);
-			msg = "customer";
+			if (jrBoatingDB.login(lUsername, lPassword)) {
+				isCustomerLoggedIn = true;
+				return "CustomerBoat.xhtml";
+			}
+
 		}
 		return msg;
 
+	}
+	public String logout() {
+		isManagerLoddgedIn = false;
+		System.out.println("here");
+		return "index.xhtml";
+		
 	}
 }

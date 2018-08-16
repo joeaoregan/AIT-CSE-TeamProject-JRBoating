@@ -21,8 +21,19 @@ public class JrBoatingBean implements Serializable {
 		users = new ArrayList<User>();
 	}
 
-	public void addBoat(Boat boat) {
+	public String addBoat(Boat boat) {
+
+		for (Boat aboat : boats) {
+			System.out.println();
+			if (aboat.getBoatType().equalsIgnoreCase(boat.getBoatType())) {
+				aboat.setQuantity(aboat.getQuantity() + boat.getQuantity());
+				return "OK";
+			}
+		}
+		System.out.println("Not equal");
 		boats.add(boat);
+		return null;
+
 	}
 
 	public void removeBoat(Boat boat) {
@@ -32,13 +43,18 @@ public class JrBoatingBean implements Serializable {
 	public int boatCount() {
 		return boats.size();
 	}
-	
+
+	public List<Boat> getBoatList() {
+		return boats;
+	}
+
 	public Boat viewBoat(String boatType) {
-		for (Boat aBoat: boats) {
-			if(aBoat.getBoatType().equalsIgnoreCase(boatType)) {
+		for (Boat aBoat : boats) {
+			if (aBoat.getBoatType().equalsIgnoreCase(boatType)) {
 				return aBoat;
 			}
-		}return null;
+		}
+		return null;
 	}
 
 	public boolean checkUniqueUsername(String username) {
@@ -51,6 +67,7 @@ public class JrBoatingBean implements Serializable {
 	}
 
 	public boolean addCustomer(User user) {
+		System.out.println("Customer "+ users.size());
 		return users.add(user);
 	}
 
@@ -59,6 +76,7 @@ public class JrBoatingBean implements Serializable {
 	}
 
 	public boolean login(String username, String password) {
+		System.out.println("Customer "+ users.size());
 		for (User user : users) {
 			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
 				return true;
@@ -66,17 +84,13 @@ public class JrBoatingBean implements Serializable {
 		}
 		return false;
 	}
-	
-<<<<<<< HEAD
 
-=======
-	
 	public boolean boatTypeAvailable(String boatType) {
-		for (Boat aBoat: boats) {
-			if(aBoat.getBoatType().equalsIgnoreCase(boatType)){
+		for (Boat aBoat : boats) {
+			if (aBoat.getBoatType().equalsIgnoreCase(boatType)) {
 				return true;
 			}
-		}return false;
+		}
+		return false;
 	}
->>>>>>> branch 'Sorcha' of https://a00212817@bitbucket.org/aitcse4/jrboating.git
 }

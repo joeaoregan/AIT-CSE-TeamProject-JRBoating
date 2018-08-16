@@ -28,7 +28,7 @@ JrBoatingBean jrBoatingBean;
 	}
 	@Test
 	void changeBoatID() {
-		boatBean.setBoatID(555);
+		boatBean.setBoatID("D1234");
 		assertEquals(555, boatBean.getBoatID());
 	}
 
@@ -44,13 +44,13 @@ JrBoatingBean jrBoatingBean;
 	}
 	@Test
 	void testAddBoat() {
-		boat = new Boat(1234,"Cruiser",100.25,"image",1);
+		boat = new Boat("D1234","Cruiser",100.25,"image",1);
 		jrBoatingBean.addBoat(boat);
 		assertEquals(1,jrBoatingBean.boatCount());
 	}
 	@Test
 	void testRemoveBoat() {
-		boat = new Boat(1234,"Cruiser",100.25,"image",1);
+		boat = new Boat("D1234","Cruiser",100.25,"image",1);
 		jrBoatingBean.addBoat(boat);
 		assertEquals(1,jrBoatingBean.boatCount());
 		jrBoatingBean.removeBoat(boat);
@@ -59,7 +59,7 @@ JrBoatingBean jrBoatingBean;
 
 	@Test
 	void testViewBoat() {
-		boat = new Boat(1234,"Cruiser",100.25,"image",1);
+		boat = new Boat("D1234","Cruiser",100.25,"image",1);
 		jrBoatingBean.addBoat(boat);
 		assertEquals(1,jrBoatingBean.boatCount());
 		jrBoatingBean.viewBoat("Cruiser");
@@ -67,8 +67,8 @@ JrBoatingBean jrBoatingBean;
 	}
 	@Test
 	void testBoatTypeAvailable() {
-		boat = new Boat(1234,"Canoe",100.25,"image",1);	
-		Boat boat2 = new Boat(1234,"Canoe",100.25,"image",1);
+		boat = new Boat("D1234","Canoe",100.25,"image",1);	
+		Boat boat2 = new Boat("D1234","Canoe",100.25,"image",1);
 		jrBoatingBean.addBoat(boat);
 		jrBoatingBean.addBoat(boat2);
 		assertEquals(true,jrBoatingBean.boatTypeAvailable("Canoe"));

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package main;
 
 import java.io.Serializable;
@@ -7,20 +7,29 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.ait.nav.Helper;
 
 @ManagedBean
 @RequestScoped
-public class BoatBean implements Serializable{
+public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int boatID;
+	private String boatID;
 	private String boatType;
 	private String sboatType;
 	private Double price;
-	private String image;
-	
-	
+	private String image=null;
+	private int quantity;
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	public String getSboatType() {
 		return sboatType;
 	}
@@ -37,11 +46,11 @@ public class BoatBean implements Serializable{
 		this.boatType = boatType;
 	}
 
-	public int getBoatID() {
+	public String getBoatID() {
 		return boatID;
 	}
 
-	public void setBoatID(int boatID) {
+	public void setBoatID(String boatID) {
 		this.boatID = boatID;
 	}
 
@@ -60,105 +69,33 @@ public class BoatBean implements Serializable{
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	public void addBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID,boatType,price,image);
-		jrBoatingBeanDB.addBoat(boat);
-		
-	}
-	public void removeBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID,boatType,price,image);
-		jrBoatingBeanDB.removeBoat(boat);			
-	}
-	
 
-	public void viewBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		jrBoatingBeanDB.viewBoat(boatType);		
+	public void addBoat() {
+		if (UserBean.isManagerLoddgedIn()) {
+			JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+			Boat boat = new Boat(boatID, boatType, price, image, quantity);
+			jrBoatingBeanDB.addBoat(boat);
+		}
 	}
-	
+
+	public void removeBoat() {
+		if (UserBean.isManagerLoddgedIn()) {
+//			JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+//			Boat boat = new Boat(boatID, boatType, price, image);
+//			jrBoatingBeanDB.removeBoat(boat);
+		}
+	}
+
+	public List<Boat> viewBoats() {
+		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);	
+		return jrBoatingBeanDB.getBoatList();
+	}
+
 	public List<Boat> searchBoats() {
 		ArrayList<Boat> searchBoat = new ArrayList<Boat>();
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(437,"canon",234.4,"hello");
-		jrBoatingBeanDB.addBoat(boat);
 		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
 		return searchBoat;
 	}
-	
-	
 
 }
-=======
-package main;
-
-import java.util.ArrayList;
-
-import com.ait.nav.Helper;
-
-public class BoatBean {
-	private int boatID;
-	private String boatType;
-	private Double price;
-	private String image;
-	private int quantity;
-
-	public String getBoatType() {
-		return boatType;
-	}
-
-	public void setBoatType(String boatType) {
-		this.boatType = boatType;
-	}
-
-	public int getBoatID() {
-		return boatID;
-	}
-
-	public void setBoatID(int boatID) {
-		this.boatID = boatID;
-	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public void addBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID, boatType, price, image, quantity);
-		jrBoatingBeanDB.addBoat(boat);
-	}
-
-	public void removeBoat() {
-	JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean",JrBoatingBean.class);
-	Boat boat = new Boat(boatID, boatType, price, image, quantity);
-	 jrBoatingBeanDB.removeBoat(boat);
-	 }
-
-	public void viewBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		jrBoatingBeanDB.viewBoat(boatType);
-	}
-
-	public void availableBoat() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		Boat boat = new Boat(boatID, boatType, price, image, quantity);
-		jrBoatingBeanDB.boatTypeAvailable(boatType);
-	}
-
-}
->>>>>>> branch 'Sorcha' of https://a00212817@bitbucket.org/aitcse4/jrboating.git

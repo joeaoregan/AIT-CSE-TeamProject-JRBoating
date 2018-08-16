@@ -1,65 +1,31 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui">
-<h:panelGrid columns="2" cellspacing="10">
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+	<h:panelGrid columns="2" cellspacing="1">
 
-<p:panelGrid columns="2"  >
-  <f:facet name="header">Add A Boat</f:facet>
- 
- <h:form>
- <p:outputLabel value ="Boat ID :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat Type:"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat price :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Quantity :"/>
- <h:inputText></h:inputText><br/>
- <h:commandButton value= "Add Boat"/>
- </h:form>
+		<p:panelGrid columns="1">
+			<f:facet name="header">Boat Options</f:facet>
+			<h:form>
+				<h:inputText value="#{boatBean.boatID}" a:placeholder="Boat ID" />
+				<br />
 
-</p:panelGrid>
+				<h:inputText value="#{boatBean.boatType}" a:placeholder="Boat Type" />
+				<br />
 
-<p:panelGrid columns="2"  >
-  <f:facet name="header">Delete A Boat</f:facet>
- <h:form>
- <p:outputLabel value ="Boat ID :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat Type:"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat price :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Quantity :"/>
- <h:inputText></h:inputText><br/>
- 
- </h:form>
+				<h:inputText value="#{boatBean.price}" a:placeholder="Boat Price" />
+				<br />
 
- </p:panelGrid>
- 
- 
-<p:panelGrid columns="2"  >
-  <f:facet name="header">Edit A Boat</f:facet>
- <h:form>
- <p:outputLabel value ="Boat ID :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat Type:"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Boat price :"/>
- <h:inputText></h:inputText><br/>
- <p:outputLabel value ="Quantity :"/>
- <h:inputText></h:inputText><br/>
- </h:form>
- </p:panelGrid>
- 
- <p:panelGrid columns="2"  >
-  <f:facet name="header">View A Boat</f:facet>
-<h:form>
-  <p:outputLabel value ="Boat Type:"/>
- <h:inputText></h:inputText><br/>
- </h:form>
- </p:panelGrid>
+				<h:inputText value="#{boatBean.quantity}" a:placeholder="Boat qty" />
+				<br />
+				<h:commandButton value="Add Boat" action="#{boatBean.addBoat}" />
+			</h:form>
+		</p:panelGrid>
 
-</h:panelGrid>
+		
+	</h:panelGrid>
 </ui:composition>
