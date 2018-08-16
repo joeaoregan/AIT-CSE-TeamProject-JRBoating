@@ -10,6 +10,7 @@
 	<title>JR Boating</title>
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
+
 <body id="home">
 	<div id="header">
 		<h1>JR Boating</h1>
@@ -25,7 +26,8 @@
 					<h:inputText id="lPassword" a:placeholder="password"
 						value="#{userAuthenticationBean.password}" />
 
-					<h:commandButton value="Sign In" action="#{userAuthenticationBean.doAuthentication}"/>
+					<h:commandButton value="Sign In"
+						action="#{userAuthenticationBean.doAuthentication}" />
 				</h:form>
 			</div>
 		</div>
@@ -45,15 +47,16 @@
 				<h:form>
 					<h3>New member?</h3>
 					<hr />
-					<p:inputText value="#{userBean.firstName}" id="firstName" required="true" requiredMessage="First Name Required" />
-						<p:message for= "firstName"/>
+					<p:inputText value="#{userBean.firstName}" id="firstName"
+						required="true" requiredMessage="First Name Required" />
+					<p:message for="firstName" />
 					<h:inputText id="lastname" required="true" a:placeholder="lastname"
 						value="#{userBean.lastName}" />
 					<h:inputText id="username" required="true" a:placeholder="username"
 						value="#{userBean.username}" a:minlength="5" />
-					<h:inputSecret id="password" required="true"
-						a:placeholder="password" value="#{userBean.password}" />
-					<h:inputSecret id="passwordConfirmation" required="true"
+					<h:inputText id="password" required="true" a:placeholder="password"
+						value="#{userBean.password}" />
+					<h:inputText id="passwordConfirmation" required="true"
 						a:placeholder="confirm password"
 						value="#{userBean.passwordConfirmation}" />
 					<h:inputText id="address" required="true" a:placeholder="address"
