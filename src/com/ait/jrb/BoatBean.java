@@ -1,5 +1,5 @@
 
-package main;
+package com.ait.jrb;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,9 +7,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-
-import com.ait.nav.Helper;
 
 @ManagedBean
 @RequestScoped
@@ -97,5 +94,4 @@ public class BoatBean implements Serializable {
 		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
 		return searchBoat;
 	}
-
 }

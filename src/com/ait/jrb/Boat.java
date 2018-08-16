@@ -1,5 +1,4 @@
-
-package main;
+package com.ait.jrb;
 
 public class Boat {
 	private String boatID;
@@ -22,9 +21,8 @@ public class Boat {
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
-	
-
 	}
+	
 	public String getBoatType() {
 		return boatType;
 	}
@@ -56,5 +54,4 @@ public class Boat {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 }

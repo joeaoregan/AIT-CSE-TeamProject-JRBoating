@@ -1,13 +1,13 @@
-package test;
+package com.ait.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.Boat;
-import main.BoatBean;
-import main.JrBoatingBean;
+import com.ait.jrb.Boat;
+import com.ait.jrb.BoatBean;
+import com.ait.jrb.JrBoatingBean;
 
 class BoatBeanTest {
 

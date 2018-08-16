@@ -1,13 +1,12 @@
 
-package main;
+package com.ait.jrb;
 
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
-import com.ait.nav.Helper;
+import com.ait.jrb.Helper;
 
 @ManagedBean
 @SessionScoped
@@ -186,21 +185,19 @@ public class UserBean implements Serializable {
 				isCustomerLoggedIn = true;
 				return "CustomerBoat.xhtml";
 			}
-
 		}
 		return msg;
 
 	}
-<<<<<<< HEAD
-//	public String logout() {
-//		isManagerLoddgedIn = false;
-//		System.out.println("here");
-//		return "index.xhtml";
-//		
-=======
+	
+	public String logout() {
+		isManagerLoddgedIn = false;
+		System.out.println("here");
+		return "index.xhtml";
+	}
 }
 
-	/*
+/*
 //	public String userLogin() {
 //		System.out.println(username);
 //		String msg = null;
@@ -238,4 +235,3 @@ public class UserBean implements Serializable {
 }
 =======
 */
->>>>>>> refs/remotes/origin/master

@@ -1,5 +1,5 @@
 
-package main;
+package com.ait.jrb;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -1,11 +1,11 @@
-package test;
+package com.ait.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.UserBean;
+import com.ait.jrb.UserBean;
 
 class UserBeanTest {
 	UserBean userBean;

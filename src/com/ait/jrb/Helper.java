@@ -1,4 +1,4 @@
-package com.ait.nav;
+package com.ait.jrb;
 
 import javax.faces.application.Application;
 import javax.faces.context.FacesContext;

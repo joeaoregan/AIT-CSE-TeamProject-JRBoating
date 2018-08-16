@@ -1,11 +1,11 @@
-package test;
+package com.ait.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import main.Boat;
+import com.ait.jrb.Boat;
 
 
 class BoatTest {
