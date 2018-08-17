@@ -8,15 +8,27 @@
 
 <body>
 	<ui:composition>
-		<h1>Default Footer (footer.xhtml)</h1>
-		<h:form>
-			<!-- h:commandLink action="AdditionalInfo">Additional Info</h:commandLink -->
-			<h:commandLink action="Index">Home</h:commandLink>&nbsp;&nbsp;
-			<h:commandLink action="#{additionalInfoBean.back}">Additional Info</h:commandLink>
+		<div align="center">
+			<h:form>
+				<table>
+					<tr>
+						<td><h:commandLink action="index">Home</h:commandLink>
+							&nbsp;&nbsp; <br /> <h:commandLink action="register">Register</h:commandLink>
+						</td>
+						<td><b>Phone:</b> (090) 6412345 <br /> <b>Email:</b>
+							info@jrboating.ie</td>
+					</tr>
+				</table>				
+				<br />
+				
+				<div align="center">
+					&copy;JRBoating (2018)<br /> <a
+						href="${additionalInfoBean.originalPage}">Back to
+						${additionalInfoBean.originalPage}</a><br />
+				</div>
 
-			<a href="${additionalInfoBean.originalPage}">Back to
-				${additionalInfoBean.originalPage}</a>
-		</h:form>
+			</h:form>
+		</div>
 	</ui:composition>
 </body>
 </html>

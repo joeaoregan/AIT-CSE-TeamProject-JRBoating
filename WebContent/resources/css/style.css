@@ -12,6 +12,14 @@ body {
 	border-radius: 15px;
 }
 
+#footer {
+	border: 1px solid black;
+	text-align: center;
+	background-color: DarkSlateGrey;
+	color: LightGrey;
+	border-radius: 15px;
+}
+
 #main {
 	width: 100%;
 	backgound: linear-gradient(to right,#2193b0,#6dd5ed );
