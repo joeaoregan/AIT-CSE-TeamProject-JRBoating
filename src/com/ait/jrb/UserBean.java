@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.ait.jrb.Helper;
+//import com.ait.jrb.Helper;
 
 @ManagedBean
 @SessionScoped
@@ -177,7 +177,7 @@ public class UserBean implements Serializable {
 
 	public String registerCustomerHandler() {
 		String msg = "Username Already Exist";
-		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		System.out.println("Reg " + password);
 		System.out.println("CReg " + passwordConfirmation);
 		if (!password.equals(passwordConfirmation)) {
