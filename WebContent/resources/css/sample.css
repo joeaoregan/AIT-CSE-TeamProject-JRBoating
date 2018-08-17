@@ -1,4 +1,15 @@
 @charset "ISO-8859-1";
+
+
+body{
+    font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+    background: linear-gradient(#2193b0,#6dd5ed );
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
 .button {
   font: bold 11px Arial;
   text-decoration: none;
