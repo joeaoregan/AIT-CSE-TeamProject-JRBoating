@@ -1,24 +1,30 @@
 package com.ait.jrb;
 
 public class User {
+	// Use to set type integer, access with User.CUSTOMER_ID etc
+	public final static int CUSTOMER_ID = 0;
+	public final static int MANAGER_ID = 1;
+	public final static int SKIPPER_ID = 2;
+	public final static int FRONT_DESK_STAFF_ID = 3;
 
 	private String username;
 	private String password;
-	private String userType;
+	//private String userType;	// ints work faster
+	private int type;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String phone;
 
 	public User(String firstName, String lastName, String username, String password, String address, String phone,
-			String userType) {
+			int type) {
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-		this.userType = userType;
+		this.type = type;
 	}
 
 	public String getUsername() {
@@ -36,7 +42,7 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
+/*
 	public String getUserType() {
 		return userType;
 	}
@@ -44,7 +50,7 @@ public class User {
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
-
+*/
 	public String getFirstName() {
 		return firstName;
 	}
@@ -75,7 +81,13 @@ public class User {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-
 	}
 
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
 }

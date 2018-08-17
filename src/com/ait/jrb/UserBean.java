@@ -144,7 +144,8 @@ public class UserBean implements Serializable {
 		if (!password.equals(passwordConfirmation)) {
 			msg = "PasswordDon't match";
 		} else if (!jrBoatingDB.checkUniqueUsername(username)) {
-			User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
+			//User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
+			User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
 			jrBoatingDB.addCustomer(user);
 			msg = "OK";
 		}

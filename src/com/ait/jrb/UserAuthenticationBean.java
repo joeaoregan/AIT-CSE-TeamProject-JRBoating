@@ -12,7 +12,8 @@ public class UserAuthenticationBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// The user that represents the manager
-	private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", "MANAGER");
+	//private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", "MANAGER");
+	private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", User.MANAGER_ID);
 
 	private String username;
 	private String password;

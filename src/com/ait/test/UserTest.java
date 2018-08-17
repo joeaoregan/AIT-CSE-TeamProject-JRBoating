@@ -12,7 +12,8 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", "manager");
+		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", "manager");
+		user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", User.MANAGER_ID);
 	}
 
 	@Test
@@ -23,7 +24,8 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-		assertEquals("manager", user.getUserType());
+		//assertEquals("manager", user.getUserType());
+		assertEquals("manager", user.getType());
 	}
 
 	@Test
@@ -64,8 +66,10 @@ class UserTest {
 
 	@Test
 	void testUserTypeChanged() {
-		user.setUserType("frontDesk");
-		assertEquals("frontDesk", user.getUserType());
+		//user.setUserType("frontDesk");
+		user.setType(User.FRONT_DESK_STAFF_ID);
+		//assertEquals("frontDesk", user.getUserType());
+		assertEquals("frontDesk", user.getType());
 	}
 
 }

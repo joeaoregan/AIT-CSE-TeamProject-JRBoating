@@ -38,7 +38,6 @@ public class ShopBean implements Serializable {
 	}
 
 	public void addToCart() {
-System.out.println("Here");
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		searchBoat.add(jrBoatingBeanDB.viewBoat(cartBoatType));
 	}

@@ -70,9 +70,9 @@ public class BoatBean implements Serializable {
 
 	public String addBoat() {
 		if (UserBean.isManagerLoddgedIn()) {
-			JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-			Boat boat = new Boat(boatID, boatType, price, image, quantity);
-			jrBoatingBeanDB.addBoat(boat);
+			JrBoatingBean jrBoatingBean = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+			Boat item = new Boat(boatID, boatType, price, image, quantity);
+			jrBoatingBean.addBoat(item);
 		}
 		return null;	// warning must have String return type
 	}
@@ -92,7 +92,7 @@ public class BoatBean implements Serializable {
 //		return jrBoatingBeanDB.getBoats();
 //	}
 
-	public List<Boat> searchBoats() {
+	public ArrayList<Boat> searchBoats() {
 		ArrayList<Boat> searchBoat = new ArrayList<Boat>();
 		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
