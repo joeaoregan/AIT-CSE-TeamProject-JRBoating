@@ -24,7 +24,8 @@ body {
 #footer.a:link {
     color: hotpink;
 }
-#footer.a:visited {
+
+.a:visited {
     color: green;
 }
 
