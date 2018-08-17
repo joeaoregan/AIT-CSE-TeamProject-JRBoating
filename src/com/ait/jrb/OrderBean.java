@@ -11,17 +11,19 @@ import com.ait.jrb.Helper;
 
 @ManagedBean
 @RequestScoped
-public class ShopBean implements Serializable {
+public class OrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String cartBoatType;
 	private int quantity;
-	private ArrayList<Boat> searchBoat;
+	
+	private ArrayList<Boat> boatList;
 
-	public ShopBean() {
-		searchBoat = new ArrayList<Boat>();
+	public OrderBean() {
+		boatList = new ArrayList<Boat>();
+		boatList.add(new Boat("1", "destroyer", 20.0, "destroy.jpg", 4));
+		boatList.add(new Boat("2", "yacht", 10.0, "yacht.jpg", 8));
 	}
 
-	
 	public String getCartBoatType() {
 		return cartBoatType;
 	}
@@ -31,22 +33,24 @@ public class ShopBean implements Serializable {
 	}
 
 	public int getQuantity() {
-		return quantity;
+		return quantity;		
 	}
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	public void addToCart() {
+	public String addToCart() {
 		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		searchBoat.add(boatBean.findBoat(cartBoatType));
+		Boat boat = boatBean.findBoat(cartBoatType);
+		boatList.add(boat);
+		return null;
 	}
 
 	public List<Boat> searchBoats() {
 		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		searchBoat.add(boatBean.findBoat(cartBoatType));
-		return searchBoat;
+		boatList.add(boatBean.findBoat(cartBoatType));
+		return boatList;
 	}
 //	
 //	public String removeHandler() {
@@ -56,4 +60,13 @@ public class ShopBean implements Serializable {
 //		
 //	}
 
+
+	public ArrayList<Boat> getBoatList() {
+		return boatList;
+	}
+
+
+	public void setBoatList(ArrayList<Boat> boatList) {
+		this.boatList = boatList;
+	}
 }

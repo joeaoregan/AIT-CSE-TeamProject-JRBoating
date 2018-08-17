@@ -14,25 +14,26 @@
 <h:body>
 	<div id="main">
 
-		<h1 class="ui-widget-header ui-corner-all" align="center">Boats</h1>
+		<h1 class="ui-widget-header ui-corner-all" align="center">Reserve
+			A Boat</h1>
 
 		<h:form>
 			<p:selectOneRadio id="boatListBox" layout="pageDirection"
-				value="#{shopBean.cartBoatType}" onchange="this.form.submit();"
+				value="#{orderBean.cartBoatType}" onchange="this.form.submit();"
 				title="Boats you can book online today">
-				<f:selectItem itemLabel="Cruiser" itemValue="Cruiser" />
-				<f:selectItem itemLabel="Sail Boat" itemValue="Sail Boat" />
-				<f:selectItem itemLabel="Paddle Boat" itemValue="Paddle Boat" />
-				<f:selectItem itemLabel="Canoe" itemValue="Canoe" />
+
+				<f:selectItems value="#{boatBean.boatInventory}" var="boat"
+					itemValue="#{boat.type}" itemLabel="#{boat.type}" />
+
 			</p:selectOneRadio>
 		</h:form>
 	</div>
 
 	<h:inputText id="cartBoatType" size="3"
-		value="#{shopBean.cartBoatType}" readonly="true"
+		value="#{orderBean.cartBoatType}" readonly="true"
 		title="Id for your selected product" />
 	<br />
-	<p:outputLabel for="quantity" value="Qunatity :" />
+	<p:outputLabel for="quantity" value="Quantity :" />
 	<br />
 	<p:inputText id="quantity" size="3" value="#{boatBean.quantity}"
 		title="Tell us how many you want!" />
@@ -40,38 +41,38 @@
 
 	<h:form>
 		<p:commandButton id="add" styleClass="ActionButton"
-			action="#{shopBean.addToCart}" value="Add to Cart"
+			action="#{orderBean.addToCart}" value="Add to Cart"
 			title="Add boat to your shopping cart" /> &nbsp;&nbsp;
- &nbsp;&nbsp;
-</h:form>
+ 			&nbsp;&nbsp;
+	</h:form>
+
 
 	<h2 class="ui-widget-header ui-corner-all" align="center">
 		Contents of Cart</h2>
 
-
 	<div>
 		<f:view>
 			<div id="tableDiv">
-				<h2 class="heading">Boat In the System</h2>
-				<h:dataTable value="#{shopBean.searchBoats()}" var="row"
+				<h2 class="heading">Boat In the Cart</h2>
+				<h:dataTable value="#{orderBean.boatList}" var="boat"
 					styleClass="boatTable" headerClass="boatTableHeader"
 					rowClasses="boatTableOddRow,employeeTableEvenRow">
 					<h:column>
 						<f:facet name="header">ID</f:facet>
-				#{row.boatID}
-				</h:column>
+						#{boat.id}
+					</h:column>
 					<h:column>
 						<f:facet name="header">Type</f:facet>
-				#{row.boatType}
-				</h:column>
+						#{boat.type}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{boat.price}
+						</h:column>
 					<h:column>
 						<f:facet name="header">Quantity</f:facet>
-				#{row.price}
-				</h:column>
-					<h:column>
-						<f:facet name="header">Quantity</f:facet>
-				#{row.quantity}
-				</h:column>
+						#{boat.quantity}
+					</h:column>
 
 				</h:dataTable>
 			</div>
@@ -79,15 +80,10 @@
 	</div>
 
 
-
 	<h:form>
 		<p:commandButton id="checkout" value="Checkout"
 			styleClass="ActionButton" />
 	</h:form>
 
-
-
-
 </h:body>
-
 </html>
