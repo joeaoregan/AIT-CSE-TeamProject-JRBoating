@@ -19,91 +19,123 @@ public class BoatBean implements Serializable {
 	private Double price;
 	private String image=null;
 	private int quantity;
+	
+	private ArrayList<Boat> boatInventory = new ArrayList<Boat>();
+	
+	public String addBoat(Boat boat) {
+		for (Boat aboat : boatInventory) {
+			if (aboat.getType().equalsIgnoreCase(boat.getType())) {
+				return "BOAT TYPE EXISTS";				
+			}
+		}
+		
+		boatInventory.add(boat);
+		return "OK";
+	}
+	
+/*
+	public String addBoat() {
 
-	public int getQuantity() {
-		return quantity;
+		if (UserBean.isManagerLoddgedIn()) {
+			Boat boat = new Boat(boatID, boatType, price, image, quantity);
+			addBoat(boat);
+		}
+		
+		return null;	// warning must have String return type
+	}
+*/
+	
+	public void removeBoat(Boat boat) {
+		System.out.println("before remove " + boatInventory.size());
+		boatInventory.remove(boat);
+		System.out.println("after remove " + boatInventory.size());
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public int boatCount() {
+		return boatInventory.size();
+	}
+	
+	
+	
+	public boolean boatTypeAvailable(String boatType) {
+		for (Boat aBoat : boatInventory) {
+			if (aBoat.getType().equalsIgnoreCase(boatType)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+
+	public ArrayList<Boat> getBoatInventory() {
+		return boatInventory;
+	}
+	
+	public Boat findBoat(String boatType) {
+		for (Boat aBoat : boatInventory) {
+			if (aBoat.getType().equalsIgnoreCase(boatType)) {
+				return aBoat;
+			}
+		}
+		return null;
 	}
 
-	public String getSboatType() {
-		return sboatType;
+/*
+	public ArrayList<Boat> searchBoats(String type) {
+		ArrayList<Boat> searchBoatList = new ArrayList<Boat>();
+		//JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		for (Boat boat : boatInventory) {
+			if (boat.getType().equalsIgnoreCase(type) ) {
+				searchBoatList.add(boat);				
+			}
+		}
+		
+		return searchBoatList;
 	}
-
-	public void setSboatType(String sboatType) {
-		this.sboatType = sboatType;
-	}
-
-	public String getBoatType() {
-		return boatType;
-	}
-
-	public void setBoatType(String boatType) {
-		this.boatType = boatType;
-	}
-
+	*/
 	public String getBoatID() {
 		return boatID;
 	}
-
 	public void setBoatID(String boatID) {
 		this.boatID = boatID;
 	}
-
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public String addBoat() {
-		if (UserBean.isManagerLoddgedIn()) {
-			JrBoatingBean jrBoatingBean = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-			Boat item = new Boat(boatID, boatType, price, image, quantity);
-			jrBoatingBean.addBoat(item);
-		}
-		return null;	// warning must have String return type
-	}
-
-	public void removeBoat() {
-		if (UserBean.isManagerLoddgedIn()) {
-//			JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-//			Boat boat = new Boat(boatID, boatType, price, image);
-//			jrBoatingBeanDB.removeBoat(boat);
-		}
-	}
-
-	// Not needed can just call JrBoatingBean.getBoats() in any file
-//	public List<Boat> viewBoats() {
-//		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);	
-//		//return jrBoatingBeanDB.getBoatList();
-//		return jrBoatingBeanDB.getBoats();
-//	}
-
-	public ArrayList<Boat> searchBoats() {
-		ArrayList<Boat> searchBoat = new ArrayList<Boat>();
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		searchBoat.add(jrBoatingBeanDB.viewBoat(sboatType));
-		return searchBoat;
-	}
-
 	public String getProductID() {
 		return productID;
 	}
-
 	public void setProductID(String productID) {
 		this.productID = productID;
+	}
+	public String getBoatType() {
+		return boatType;
+	}
+	public void setBoatType(String boatType) {
+		this.boatType = boatType;
+	}
+	public String getSboatType() {
+		return sboatType;
+	}
+	public void setSboatType(String sboatType) {
+		this.sboatType = sboatType;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	public void setBoatInventory(ArrayList<Boat> boatInventory) {
+		this.boatInventory = boatInventory;
 	}
 }

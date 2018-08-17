@@ -12,47 +12,17 @@ import javax.faces.bean.SessionScoped;
 public class JrBoatingBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static  ArrayList<Boat> boats = new ArrayList<Boat>();
 	private static  ArrayList<User> users = new ArrayList<User>();
 
-	public String addBoat(Boat boat) {
+	
+	
 
-		for (Boat aboat : boats) {
-			System.out.println();
-			if (aboat.getBoatType().equalsIgnoreCase(boat.getBoatType())) {
-				aboat.setQuantity(aboat.getQuantity() + boat.getQuantity());
-				return "OK";
-			}
-		}
-		System.out.println("Not equal");
-		boats.add(boat);
-		return null;
-
-	}
-
-	public void removeBoat(Boat boat) {
-		boats.remove(boat);
-	}
-
-	public int boatCount() {
-		return boats.size();
-	}
 
 	// Return type ArrayList because it is an ArrayList
 	// getBoats() because it is a getter for boats (This is the naming convention)
 	//public ArrayList<Boat> getBoatList() {
-	public ArrayList<Boat> getBoats() {
-		return boats;
-	}
 
-	public Boat viewBoat(String boatType) {
-		for (Boat aBoat : boats) {
-			if (aBoat.getBoatType().equalsIgnoreCase(boatType)) {
-				return aBoat;
-			}
-		}
-		return null;
-	}
+	
 
 	public boolean checkUniqueUsername(String username) {
 		for (User user : users) {
@@ -82,12 +52,5 @@ public class JrBoatingBean implements Serializable {
 		return false;
 	}
 
-	public boolean boatTypeAvailable(String boatType) {
-		for (Boat aBoat : boats) {
-			if (aBoat.getBoatType().equalsIgnoreCase(boatType)) {
-				return true;
-			}
-		}
-		return false;
-	}
+	
 }

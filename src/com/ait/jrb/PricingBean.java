@@ -26,6 +26,7 @@ public class PricingBean implements Serializable {
 		this.discount = 0.0;
 		prices = new ArrayList<PricingStructure>();
 	}
+	
 /*
 	public void getValues(int id, String name) {
 		this.id = id;
@@ -56,10 +57,10 @@ public class PricingBean implements Serializable {
 		//		this.name = item.getName();
 		//	}
 		//}
-		JrBoatingBean jrBoatingBean = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		for (Boat boat : jrBoatingBean.getBoats()) {
+		BoatBean boatBean = Helper.getBean("jrBoatingBean", BoatBean.class);
+		for (Boat boat : boatBean.getBoatInventory()) {
 			if (boat.equals(id)) {
-				this.name = boat.getBoatType();
+				this.name = boat.getType();
 			}
 		}
 		//prices.add(new PricingStructure(id, name, amount, discount));
