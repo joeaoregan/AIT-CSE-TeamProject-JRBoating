@@ -232,3 +232,4 @@ public class UserBean implements Serializable {
 >>>>>>> refs/remotes/origin/master
 //	}
 }
+*/
