@@ -3,7 +3,7 @@ package com.ait.jrb;
 public class Boat {
 	//private String boatID;
 	private String id;	// shorten
-	private String boatType;
+	private String type;
 	private Double price;
 	private String image;
 	private int quantity;
@@ -16,20 +16,20 @@ public class Boat {
 		this.quantity = quantity;
 	}
 
-	public Boat(String id, String boatType, Double price, String image, int quantity) {
-		this.boatType= boatType;
+	public Boat(String id, String type, Double price, String image, int quantity) {
+		this.type= type;
 		this.id = id;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
 	}
 	
-	public String getBoatType() {
-		return boatType;
+	public String getType() {
+		return type;
 	}
 
-	public void setBoatType(String boatType) {
-		this.boatType = boatType;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public String getId() {

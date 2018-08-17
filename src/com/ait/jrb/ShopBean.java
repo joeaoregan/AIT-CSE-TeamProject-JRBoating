@@ -21,6 +21,7 @@ public class ShopBean implements Serializable {
 		searchBoat = new ArrayList<Boat>();
 	}
 
+	
 	public String getCartBoatType() {
 		return cartBoatType;
 	}
@@ -38,13 +39,13 @@ public class ShopBean implements Serializable {
 	}
 
 	public void addToCart() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		searchBoat.add(jrBoatingBeanDB.viewBoat(cartBoatType));
+		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		searchBoat.add(boatBean.findBoat(cartBoatType));
 	}
 
 	public List<Boat> searchBoats() {
-		JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		searchBoat.add(jrBoatingBeanDB.viewBoat(cartBoatType));
+		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		searchBoat.add(boatBean.findBoat(cartBoatType));
 		return searchBoat;
 	}
 //	
