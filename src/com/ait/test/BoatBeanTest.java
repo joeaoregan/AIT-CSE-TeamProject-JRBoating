@@ -20,7 +20,7 @@ class BoatBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		boat = new Boat("D1234", "Cruiser", 100.25, "image", 1);
+		boat = new Boat("Cruiser", 100.25, "image", 1);
 		boatBean = new BoatBean();
 		jrBoatingBean = new JrBoatingBean();
 	}
