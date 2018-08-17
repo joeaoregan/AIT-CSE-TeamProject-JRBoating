@@ -7,11 +7,12 @@ body {
 #header {
 	border: 1px solid black;
 	text-align: center;
-	background-color: Blue;
+	background-color: #0080ff; /*type of blue*/
 	color: white;
 	border-radius: 15px;
 }
 
+/* Footer at bottom of each page */
 #footer {
 	border: 1px solid black;
 	text-align: center;
@@ -112,7 +113,13 @@ input[type=text] {
 
 .ActionButton {
 	width: 200px;
-	background-color: grey;
+	background-color: #0080ff; /*type of blue*/
+
 	color: white;
 	border-radius: 5px;
+}
+
+.ActionButton:hover {
+    background-color: white;
+    color: #0080ff;
 }
