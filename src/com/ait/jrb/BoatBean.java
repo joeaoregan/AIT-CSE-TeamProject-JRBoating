@@ -23,10 +23,10 @@ public class BoatBean implements Serializable {
 	private ArrayList<Boat> boatInventory = new ArrayList<Boat>();
 
 	public BoatBean() {
-		boatInventory.add(new Boat("Boat1", "Cruiser", 250.0, "cruiser.jpg", 10));
-		boatInventory.add(new Boat("Boat2", "Canal Barge", 200.0, "canalbarge.jpg", 10));
-		boatInventory.add(new Boat("Boat3", "Sailing Boat", 100.0, "sailingboat.jpg", 10));
-		boatInventory.add(new Boat("Boat4", "Canoes", 50.0, "canoe.jpg", 10));
+		boatInventory.add(new Boat("Cruiser", 250.0, "cruiser.jpg", 10));
+		boatInventory.add(new Boat("Canal Barge", 200.0, "canalbarge.jpg", 10));
+		boatInventory.add(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10));
+		boatInventory.add(new Boat("Canoes", 50.0, "canoe.jpg", 10));
 	}
 	
 	public String addBoat(Boat boat) {

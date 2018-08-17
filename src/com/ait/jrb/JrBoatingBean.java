@@ -12,7 +12,6 @@ import javax.faces.bean.SessionScoped;
 public class JrBoatingBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static  ArrayList<User> users = new ArrayList<User>();
 
 	
 	
@@ -24,33 +23,6 @@ public class JrBoatingBean implements Serializable {
 
 	
 
-	public boolean checkUniqueUsername(String username) {
-		for (User user : users) {
-			if (user.getUsername().equals(username)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean addCustomer(User user) {
-		System.out.println("Customer "+ users.size());
-		return users.add(user);
-	}
-
-	public int userCount() {
-		return users.size();
-	}
-
-	public boolean login(String username, String password) {
-		System.out.println("Customer "+ users.size());
-		for (User user : users) {
-			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-				return true;
-			}
-		}
-		return false;
-	}
 
 	
 }

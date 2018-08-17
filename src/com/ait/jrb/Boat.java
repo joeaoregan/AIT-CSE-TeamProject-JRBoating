@@ -16,9 +16,9 @@ public class Boat {
 		this.quantity = quantity;
 	}
 
-	public Boat(String id, String type, Double price, String image, int quantity) {
+	public Boat(String type, Double price, String image, int quantity) {
+		this.id = ""; // id will be set in add boat
 		this.type= type;
-		this.id = id;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;

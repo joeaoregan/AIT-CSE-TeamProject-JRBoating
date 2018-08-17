@@ -2,6 +2,7 @@
 package com.ait.jrb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -16,14 +17,52 @@ public class UserBean implements Serializable {
 			lUsername, lPassword;
 	private static boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
+	private static  ArrayList<User> users = new ArrayList<User>();
+	
 	public UserBean() {
-
 		isManagerLoddgedIn = false;
 		isCustomerLoggedIn = false;
 		isFrontDeskLoggedIn = false;
 		isSkipperLoggedIn = false;
+
+		User joe = new User("Joe", "O'Regan", "joe", "asdf", "Thurles", "0861234567", User.MANAGER_ID);	
+		User elaine = new User("Elaine", "Santos", "elaine", "asdf", "Athlone", "0860246810", User.CUSTOMER_ID);
+		addUser(joe);
+		addUser(elaine);
 	}
 
+	public boolean checkUniqueUsername(String username) {
+		for (User user : users) {
+			if (user.getUsername().equals(username)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean addUser(User user) {
+		//System.out.println("Customer "+ users.size());
+		return users.add(user);
+	}
+
+	public int userCount() {
+		return users.size();
+	}
+
+	public boolean login(String username, String password) {
+		System.out.println("Customer "+ users.size());
+		for (User user : users) {
+			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
 	public static void setManagerLoddgedIn(boolean isManagerLoddgedIn) {
 		UserBean.isManagerLoddgedIn = isManagerLoddgedIn;
 	}
@@ -143,10 +182,10 @@ public class UserBean implements Serializable {
 		System.out.println("CReg " + passwordConfirmation);
 		if (!password.equals(passwordConfirmation)) {
 			msg = "PasswordDon't match";
-		} else if (!jrBoatingDB.checkUniqueUsername(username)) {
+		} else if (!checkUniqueUsername(username)) {
 			//User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
 			User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
-			jrBoatingDB.addCustomer(user);
+			addUser(user);
 			msg = "OK";
 		}
 		return msg;
@@ -155,7 +194,7 @@ public class UserBean implements Serializable {
 
 	public String userLogin() {
 		String msg = "error";
-		JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
+		//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
 
 		if (lUsername.equals("root")) {
 			if (lUsername.equals("root") && lPassword.equals("admin")) {
@@ -182,7 +221,7 @@ public class UserBean implements Serializable {
 		}
 
 		else {
-			if (jrBoatingDB.login(lUsername, lPassword)) {
+			if (login(lUsername, lPassword)) {
 				isCustomerLoggedIn = true;
 				return "CustomerBoat.xhtml";
 			}

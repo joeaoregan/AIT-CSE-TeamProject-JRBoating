@@ -14,8 +14,7 @@
 <h:body>
 	<div id="main">
 
-		<h1 class="ui-widget-header ui-corner-all" align="center">Reserve
-			A Boat</h1>
+		<h1 class="ui-widget-header ui-corner-all" align="center">Boats</h1>
 
 		<h:form>
 			<p:selectOneRadio id="boatListBox" layout="pageDirection"
@@ -24,7 +23,6 @@
 
 				<f:selectItems value="#{boatBean.boatInventory}" var="boat"
 					itemValue="#{boat.type}" itemLabel="#{boat.type}" />
-
 			</p:selectOneRadio>
 		</h:form>
 	</div>
@@ -33,54 +31,47 @@
 		value="#{orderBean.cartBoatType}" readonly="true"
 		title="Id for your selected product" />
 	<br />
-	<p:outputLabel for="quantity" value="Quantity :" />
+	<p:outputLabel for="quantity" value="Qunatity :" />
 	<br />
+
 	<p:inputText id="quantity" size="3" value="#{boatBean.quantity}"
 		title="Tell us how many you want!" />
 	<br />
 
-
-
 	<h:form>
 		<p:commandButton id="add" styleClass="ActionButton"
-			action="#{orderBean.addToCart()}" value="Add to Cart"
+			action="#{orderBean.addToCart}" value="Add to Cart"
 			title="Add boat to your shopping cart" /> &nbsp;&nbsp;
  			&nbsp;&nbsp;
 	</h:form>
 
-
-
-
-
-
-
-
 	<h2 class="ui-widget-header ui-corner-all" align="center">
 		Contents of Cart</h2>
+
 
 	<div>
 		<f:view>
 			<div id="tableDiv">
-				<h2 class="heading">Boat In the Cart</h2>
-				<h:dataTable value="#{orderBean.boatList}" var="boat"
+				<h2 class="heading">Boat In the System</h2>
+				<h:dataTable value="#{orderBean.searchBoats()}" var="row"
 					styleClass="boatTable" headerClass="boatTableHeader"
 					rowClasses="boatTableOddRow,employeeTableEvenRow">
 					<h:column>
 						<f:facet name="header">ID</f:facet>
-						#{boat.id}
-					</h:column>
+				#{row.boatID}
+				</h:column>
 					<h:column>
 						<f:facet name="header">Type</f:facet>
-						#{boat.type}
-					</h:column>
-					<h:column>
-						<f:facet name="header">Price</f:facet>
-						#{boat.price}
-						</h:column>
+				#{row.boatType}
+				</h:column>
 					<h:column>
 						<f:facet name="header">Quantity</f:facet>
-						#{boat.quantity}
-					</h:column>
+				#{row.price}
+				</h:column>
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+				#{row.quantity}
+				</h:column>
 
 				</h:dataTable>
 			</div>
@@ -88,10 +79,15 @@
 	</div>
 
 
+
 	<h:form>
 		<p:commandButton id="checkout" value="Checkout"
 			styleClass="ActionButton" />
 	</h:form>
 
+
+
+
 </h:body>
+
 </html>

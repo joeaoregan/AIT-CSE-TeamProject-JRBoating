@@ -20,8 +20,8 @@ public class OrderBean implements Serializable {
 
 	public OrderBean() {
 		boatList = new ArrayList<Boat>();
-		boatList.add(new Boat("1", "destroyer", 20.0, "destroy.jpg", 4));
-		boatList.add(new Boat("2", "yacht", 10.0, "yacht.jpg", 8));
+		boatList.add(new Boat("destroyer", 20.0, "destroy.jpg", 4));
+		boatList.add(new Boat("yacht", 10.0, "yacht.jpg", 8));
 	}
 
 	public String getCartBoatType() {
@@ -41,15 +41,18 @@ public class OrderBean implements Serializable {
 	}
 
 	public String addToCart() {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		Boat boat = boatBean.findBoat(cartBoatType);
-		boatList.add(boat);
+		//BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		//Boat boat = boatBean.findBoat(cartBoatType);
+		boatList.add(new Boat("test", 20.0, "destroy.jpg", 4));
+		//boatList.add(boat);
 		return null;
 	}
 
 	public List<Boat> searchBoats() {
 		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		//Boat boatToAdd = new Boat(cartBoatType, 20.0, "cruiser.jpg", quantity);
 		boatList.add(boatBean.findBoat(cartBoatType));
+		//boatList.add(boatToAdd);
 		return boatList;
 	}
 //	
