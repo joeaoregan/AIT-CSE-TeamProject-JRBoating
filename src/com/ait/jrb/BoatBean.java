@@ -25,7 +25,7 @@ public class BoatBean implements Serializable {
 	public BoatBean() {
 		boatInventory.add(new Boat("Boat1", "Cruiser", 250.0, "cruiser.jpg", 10));
 		boatInventory.add(new Boat("Boat2", "Canal Barge", 200.0, "canalbarge.jpg", 10));
-		boatInventory.add(new Boat("Boat3", "Sailing Boat", 100.0, "sailingboat.jpg", 10));
+		boatInventory.add(new Boat("Boat3", "Yacht", 100.0, "sailingboat.jpg", 10));
 		boatInventory.add(new Boat("Boat4", "Canoes", 50.0, "canoe.jpg", 10));
 	}
 	
