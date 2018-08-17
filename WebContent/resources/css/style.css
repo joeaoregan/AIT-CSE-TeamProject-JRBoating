@@ -21,6 +21,13 @@ body {
 	border-radius: 15px;
 }
 
+#footer.a:link {
+    color: hotpink;
+}
+#footer.a:visited {
+    color: green;
+}
+
 #main {
 	width: 100%;
 	backgound: linear-gradient(to right,#2193b0,#6dd5ed );
@@ -123,3 +130,4 @@ input[type=text] {
     background-color: white;
     color: #0080ff;
 }
+
