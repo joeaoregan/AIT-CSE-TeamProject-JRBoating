@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Cart" />
+		<ui:param name="heading" value="Shopping Cart" />
+
+		<ui:define name="header">
+			<ui:include
+				src="#{loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'}">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<h2 class="heading">Your Order</h2>
+
+			<h2 class="heading">XXX Contents of cart go here XXX</h2>
+
+			<h:dataTable value="#{orderBean.boatList}" var="row">
+				<h:column>
+					<h:outputText value="ID: #{row.id}" />
+				</h:column>
+				<h:column>
+					<h:outputText value="Number of Days: #{row.price}" />
+				</h:column>
+			</h:dataTable>
+
+			<h:form>
+				<h:commandButton value="Place Order" action="CustomerCheckout"
+					styleClass="ActionButton" />&nbsp;
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
