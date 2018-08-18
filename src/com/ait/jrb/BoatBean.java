@@ -20,6 +20,7 @@ public class BoatBean implements Serializable {
 
 	private String productID; // Used in boat.xhtml but not declared
 	private String sboatType;
+	private String infoMessage;
 
 	private ArrayList<Boat> boatInventory = new ArrayList<Boat>();
 
@@ -29,12 +30,28 @@ public class BoatBean implements Serializable {
 		price = 0.0;
 		image = "";
 		quantity = 0;
+		
+		infoMessage = "Add a new boat";
 
 		// Add boats to boat list
 		addNewBoat(new Boat("Cruiser", 250.0, "cruiser.jpg", 10));
 		addNewBoat(new Boat("Canal Barge", 200.0, "canalbarge.jpg", 10));
 		addNewBoat(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10));
 		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10));
+	}
+	
+	/*
+	 * Manage inventory edit/save form details
+	 */
+	public String editItem(Boat boat) {
+		boat.setCanEdit(true);
+		return null;
+	}
+	public String saveAction() {		
+		for (Boat boat : boatInventory) {
+			boat.setCanEdit(false);
+		}
+		return null;
 	}
 
 	public String boatDetails(String type) {
@@ -44,7 +61,13 @@ public class BoatBean implements Serializable {
 		}
 		return null;
 	}
-
+	
+	public String addBoatHandler() {
+		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity));
+		
+		return null;
+	}
+	
 	public String addNewBoat(Boat boat) {
 		if (boat == null) {
 			return "INVALID BOAT";
@@ -62,9 +85,9 @@ public class BoatBean implements Serializable {
 	}
 
 	public void removeBoat(Boat boat) {
-		System.out.println("before remove " + boatInventory.size());
+		//System.out.println("before remove " + boatInventory.size());
 		boatInventory.remove(boat);
-		System.out.println("after remove " + boatInventory.size());
+		//System.out.println("after remove " + boatInventory.size());
 	}
 
 	public int boatCount() {
@@ -82,6 +105,9 @@ public class BoatBean implements Serializable {
 
 	public ArrayList<Boat> getBoatInventory() {
 		return boatInventory;
+	}
+	public void setBoatInventory(ArrayList<Boat> boatInventory) {
+		this.boatInventory = boatInventory;
 	}
 
 	public Boat findBoat(String boatType) {
@@ -159,7 +185,12 @@ public class BoatBean implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public void setBoatInventory(ArrayList<Boat> boatInventory) {
-		this.boatInventory = boatInventory;
+
+	public String getInfoMessage() {
+		return infoMessage;
+	}
+
+	public void setInfoMessage(String infoMessage) {
+		this.infoMessage = infoMessage;
 	}
 }

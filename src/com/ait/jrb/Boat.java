@@ -7,14 +7,16 @@ public class Boat {
 	private Double price;
 	private String image;
 	private int quantity;
+	private boolean canEdit;
 	
-	
-	//@Override
-	//public String toString() {
-	//	return "ID: " + id + ", Type: " + type + ", Price: " + price;
-	//}
-	
-	
+	public Boat(String type, Double price, String image, int quantity) {
+		this.id = ""; // id will be set in add boat
+		this.type= type;
+		this.price = price;
+		this.image = image;
+		this.quantity=quantity;
+	}
+		
 	public int getQuantity() {
 		return quantity;
 	}
@@ -23,13 +25,6 @@ public class Boat {
 		this.quantity = quantity;
 	}
 
-	public Boat(String type, Double price, String image, int quantity) {
-		this.id = ""; // id will be set in add boat
-		this.type= type;
-		this.price = price;
-		this.image = image;
-		this.quantity=quantity;
-	}
 	
 	public String getType() {
 		return type;
@@ -60,5 +55,17 @@ public class Boat {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+	//@Override
+	//public String toString() {
+	//	return "ID: " + id + ", Type: " + type + ", Price: " + price;
+	//}
+
+	public boolean isCanEdit() {
+		return canEdit;
+	}
+
+	public void setCanEdit(boolean canEdit) {
+		this.canEdit = canEdit;
 	}
 }
