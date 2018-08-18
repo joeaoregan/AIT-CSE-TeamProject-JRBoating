@@ -25,7 +25,7 @@ class BoatTest {
 	}
 	@Test
 	void changeBoatID() {
-		boat.setBoatID("D1234");
+		boat.setId("D1234");
 		//assertEquals(555, boat.getBoatID());
 		assertEquals(555, boat.getId());
 	}

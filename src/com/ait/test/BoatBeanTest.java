@@ -54,21 +54,21 @@ class BoatBeanTest {
 
 	@Test
 	void testAddBoat() {
-		assertEquals("OK", boatBean.addBoat(boat));
+		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(1, boatBean.boatCount());
 	}
 
 	@Test
 	void testAddSameBoatAgain() {
-		assertEquals("OK", boatBean.addBoat(boat));
+		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(1, boatBean.boatCount());
-		assertEquals("BOAT TYPE EXISTS", boatBean.addBoat(boat));
+		assertEquals("BOAT TYPE EXISTS", boatBean.addNewBoat(boat));
 		assertEquals(1, boatBean.boatCount());
 	}
 
 	@Test
 	void testRemoveBoat() {
-		assertEquals("OK", boatBean.addBoat(boat));
+		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(1, boatBean.boatCount());
 		boatBean.removeBoat(boat);
 		assertEquals(0, boatBean.boatCount());
@@ -77,7 +77,7 @@ class BoatBeanTest {
 	@Test
 	void testFindBoat() {
 		boat = new Boat("Cruiser", 100.25, "image", 1);
-		boatBean.addBoat(boat);
+		boatBean.addNewBoat(boat);
 		assertEquals(1, boatBean.boatCount());
 		assertEquals(boat, boatBean.findBoat("Cruiser"));
 	}
@@ -86,7 +86,7 @@ class BoatBeanTest {
 	@Test
 	void testFindBoatFailed() {
 		boat = new Boat("Cruiser", 100.25, "image", 1);
-		boatBean.addBoat(boat);
+		boatBean.addNewBoat(boat);
 		boatBean.removeBoat(boat);
 		//assertEquals(0, boatBean.boatCount());
 		assertEquals(null, boatBean.findBoat("Cruiser"));
@@ -97,8 +97,8 @@ class BoatBeanTest {
 	void testBoatTypeAvailable() {
 		boat = new Boat("Canoe", 100.25, "image", 1);
 		Boat boat2 = new Boat("Canoe", 100.25, "image", 1);
-		boatBean.addBoat(boat);
-		boatBean.addBoat(boat2);
+		boatBean.addNewBoat(boat);
+		boatBean.addNewBoat(boat2);
 		assertEquals(true, boatBean.boatTypeAvailable("Canoe"));
 
 	}
@@ -106,7 +106,7 @@ class BoatBeanTest {
 	@Test
 	void testBoatTypeNotAvailable() {
 		boat = new Boat("Canoe", 100.25, "image", 1);
-		boatBean.addBoat(boat);
+		boatBean.addNewBoat(boat);
 		assertFalse(boatBean.boatTypeAvailable("Destroyer"));
 	}
 
@@ -127,6 +127,5 @@ class BoatBeanTest {
 	void testSBoatType() {
 		boatBean.setSboatType("test");
 		assertEquals("test", boatBean.getSboatType());
-	}
-	
+	}	
 }

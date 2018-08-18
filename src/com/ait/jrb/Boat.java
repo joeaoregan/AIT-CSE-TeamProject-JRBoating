@@ -8,6 +8,13 @@ public class Boat {
 	private String image;
 	private int quantity;
 	
+	
+	//@Override
+	//public String toString() {
+	//	return "ID: " + id + ", Type: " + type + ", Price: " + price;
+	//}
+	
+	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -35,7 +42,7 @@ public class Boat {
 	public String getId() {
 		return id;
 	}
-	public void setBoatID(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

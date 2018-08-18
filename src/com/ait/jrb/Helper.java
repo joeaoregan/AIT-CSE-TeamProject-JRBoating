@@ -16,7 +16,7 @@ public class Helper {
         // Evaluate an EL expression, to get the bean with the specified name.
         return application.evaluateExpressionGet(
         		context, 
-        		"#{" + beanName + "}", 
+        		"#"+"{" + beanName + "}",  
         		type);
     }
 }
