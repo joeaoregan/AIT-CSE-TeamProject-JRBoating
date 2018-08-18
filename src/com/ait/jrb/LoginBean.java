@@ -10,11 +10,6 @@ import javax.faces.bean.SessionScoped;
 public class LoginBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	// The user that represents the manager
-	// private static final User MANAGER = new User("Manager", "", "root", "admin",
-	// "", "", "MANAGER");
-	//private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", User.MANAGER_ID);
-
 	private String username;
 	private String password;
 	private String uiValidationMessage;
@@ -27,19 +22,13 @@ public class LoginBean implements Serializable {
 	private Boolean loggedInFDS;
 	private Boolean loggedInSkipper;
 	
-	
-
 	public LoginBean() {
 		username = "";
 		password = "";
 		message = "";
-		/*
-		 * passwordConfirmation = ""; name = ""; address = ""; bio = ""; image = "";
-		 */
 		loggedUser = null;
 
 		initUsersLoggedIn();
-		// getUser();
 	}
 	
 	// clears the bean and shows the login page
@@ -53,7 +42,6 @@ public class LoginBean implements Serializable {
 		return "login";
 	}
 	
-
 	public User getUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		
@@ -236,6 +224,11 @@ public class LoginBean implements Serializable {
 	}
 
 }
+
+// The user that represents the manager
+// private static final User MANAGER = new User("Manager", "", "root", "admin",
+// "", "", "MANAGER");
+//private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", User.MANAGER_ID);
 
 // returns
 // - user MANAGER, if the manager logs in successfully;

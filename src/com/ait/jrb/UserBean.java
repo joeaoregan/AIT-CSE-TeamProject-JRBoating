@@ -40,15 +40,11 @@ public class UserBean implements Serializable {
 		addUser(sorcha);
 	}
 
-	public String displayType(int userType) {
-		/*
-		 * if (userType == User.MANAGER) { return "Manager"; } else if (userType ==
-		 * User.CUSTOMER) { return "Customer"; } else if (userType ==
-		 * User.FRONT_DESK_STAFF) { return "Front Desk Staff"; } else if (userType ==
-		 * User.SKIPPER) { return "Skipper"; } return null;
-		 */
-		//switch (user.getUserType()) {
-		switch (userType) {
+	/*
+	 * Displays a string instead of using the integer user type
+	 */
+	public String displayType(int type) {
+		switch (type) {
 		case User.MANAGER_ID:
 			return "Manager";
 		case User.CUSTOMER_ID:
@@ -93,22 +89,6 @@ public class UserBean implements Serializable {
 		return "USER ADDED OK";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public boolean checkUniqueUsername(String username) {
 		for (User user : userList) {
 			if (user.getUsername().equals(username)) {
@@ -117,7 +97,6 @@ public class UserBean implements Serializable {
 		}
 		return false;
 	}
-
 
 	public int userCount() {
 		return userList.size();
