@@ -26,24 +26,46 @@ public class LoginBean implements Serializable {
 	private Boolean loggedInManager;
 	private Boolean loggedInFDS;
 	private Boolean loggedInSkipper;
+	
+	
 
+	public LoginBean() {
+		username = "";
+		password = "";
+		message = "";
+		/*
+		 * passwordConfirmation = ""; name = ""; address = ""; bio = ""; image = "";
+		 */
+		loggedUser = null;
+
+		initUsersLoggedIn();
+		// getUser();
+	}
+	
 	// clears the bean and shows the login page
 	public String showLoginPage() {
 		username = "";
 		password = "";
 		uiValidationMessage = "";
 		message="";
-		loggedUser = null;
+		loggedUser = getUser();
+		
 		return "login";
 	}
-	/*
-	 * REPLACED WITH loginHandler()
-	 * 
-	 * public String doAuthentication() { User authenticatingUser = validateUser();
-	 * if (authenticatingUser == MANAGER) { uiValidationMessage =
-	 * "Welcome Manager."; return "boatAdmin"; } loggedUser = authenticatingUser;
-	 * return "index"; }
-	 */
+	
+
+	public User getUser() {
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		
+		for (User user : userBean.getUserList()) {
+			if (user.equals(username)) {
+				return user;
+			}
+		}
+		
+		return null;
+	}
+
 
 	/*
 	 * Returns the action to perform when the user attempts to login
@@ -55,6 +77,8 @@ public class LoginBean implements Serializable {
 
 		message = ""; // Reset the message
 		if (user != null) {
+			loggedUser = user;
+			
 			if (user.getType() == User.MANAGER_ID) {
 				setUserLoggedIn(User.MANAGER_ID);
 				return "HomeManager";
@@ -139,22 +163,6 @@ public class LoginBean implements Serializable {
 		loggedInSkipper = false;
 	}
 
-	// returns
-	// - user MANAGER, if the manager logs in successfully;
-	// - a known user, if pair username/password matches an existing user;
-	// - or null, if pair username/password don't match any registered users.
-	/*
-	private User validateUser() {
-		User user = null;
-		if (MANAGER.getUsername().equals(username) && MANAGER.getPassword().equals(password)) {
-			user = MANAGER;
-		}
-		if (user == null) {
-			// check if user exists
-		}
-		return user;
-	}
-*/
 	public String getUsername() {
 		return username;
 	}
@@ -228,3 +236,29 @@ public class LoginBean implements Serializable {
 	}
 
 }
+
+// returns
+// - user MANAGER, if the manager logs in successfully;
+// - a known user, if pair username/password matches an existing user;
+// - or null, if pair username/password don't match any registered users.
+/*
+private User validateUser() {
+	User user = null;
+	if (MANAGER.getUsername().equals(username) && MANAGER.getPassword().equals(password)) {
+		user = MANAGER;
+	}
+	if (user == null) {
+		// check if user exists
+	}
+	return user;
+}
+*/
+
+/*
+ * REPLACED WITH loginHandler()
+ * 
+ * public String doAuthentication() { User authenticatingUser = validateUser();
+ * if (authenticatingUser == MANAGER) { uiValidationMessage =
+ * "Welcome Manager."; return "boatAdmin"; } loggedUser = authenticatingUser;
+ * return "index"; }
+ */

@@ -40,6 +40,36 @@ public class UserBean implements Serializable {
 		addUser(sorcha);
 	}
 
+	public String displayType(int userType) {
+		/*
+		 * if (userType == User.MANAGER) { return "Manager"; } else if (userType ==
+		 * User.CUSTOMER) { return "Customer"; } else if (userType ==
+		 * User.FRONT_DESK_STAFF) { return "Front Desk Staff"; } else if (userType ==
+		 * User.SKIPPER) { return "Skipper"; } return null;
+		 */
+		//switch (user.getUserType()) {
+		switch (userType) {
+		case User.MANAGER_ID:
+			return "Manager";
+		case User.CUSTOMER_ID:
+			return "Customer";
+		case User.FRONT_DESK_STAFF_ID:
+			return "Front Desk Staff";
+		case User.SKIPPER_ID:
+			return "Skipper";
+		default:
+			return null;
+		}
+	}
+	
+	public String saveAction() {
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		for (User user : userBean.getUserList()) {
+			user.setCanEdit(false);
+		}
+		return null;
+	}
+	
 	/*
 	 * Find a user in the list of users using a username If a user is not found
 	 * return null

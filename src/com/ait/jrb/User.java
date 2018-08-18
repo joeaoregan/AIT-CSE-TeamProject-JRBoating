@@ -20,7 +20,8 @@ public class User {
 	private String bio;
 	private String image;
 	private String passwordConfirmation;
-	Double pricePerDay;
+	private Double pricePerDay;
+	private Boolean canEdit;
 
 	/*
 	public User(String firstName, String lastName, String username, String password, String address, String phone,
@@ -140,5 +141,13 @@ public class User {
 
 	public void setPricePerDay(Double pricePerDay) {
 		this.pricePerDay = pricePerDay;
+	}
+
+	public Boolean getCanEdit() {
+		return canEdit;
+	}
+
+	public void setCanEdit(Boolean canEdit) {
+		this.canEdit = canEdit;
 	}
 }

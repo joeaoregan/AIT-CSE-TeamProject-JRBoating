@@ -1,0 +1,66 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+
+		<h3>User View/Edit details (ViewAndEditUserDetails.xhtml - Start)</h3>
+
+		<h:graphicImage library="images"
+			name="#{loginBean.loggedUser.getImage()}" />
+			
+		<h:form>
+			<h:outputLabel styleClass="formLabel">User Type:</h:outputLabel>
+			<h:inputText id="boatID" size="20"
+				value="#{userBean.displayType(loginBean.user.getType())}"
+				readonly="true" title="ID for your selected product" />
+			<br />
+			<h:outputLabel styleClass="formLabel">Username:</h:outputLabel>
+			<h:inputText id="username" value="#{loginBean.username}"
+				itle="Update username " />
+			<br />
+			<h:outputLabel styleClass="formLabel">Password:</h:outputLabel>
+			<h:inputSecret id="password" value="#{loginBean.loggedUser.password}"
+				title="Update Password " />
+			<br />
+			<h:outputLabel styleClass="formLabel">Confirm Password:</h:outputLabel>
+			<h:inputSecret id="confirmPassword"
+				value="#{loginBean.loggedUser.passwordConfirmation}"
+				title="Update Password " />
+			<br />
+			<h:outputLabel styleClass="formLabel">First Name:</h:outputLabel>
+			<h:inputText id="firstName" value="#{loginBean.loggedUser.firstName}"
+				title="Update First Name" />
+			<br />
+			<h:outputLabel styleClass="formLabel">Last Name:</h:outputLabel>
+			<h:inputText id="lastName" value="#{loginBean.loggedUser.lastName}"
+				title="Update Last Name" />
+			<br />
+			<h:outputLabel styleClass="formLabel">Address:</h:outputLabel>
+			<h:inputText id="address" value="#{loginBean.loggedUser.address}"
+				title="Update Address" />
+			<br />
+			<h:outputLabel styleClass="formLabel">Image:</h:outputLabel>
+			<h:inputText id="image" value="#{loginBean.loggedUser.image}"
+				title="Update Image" />
+			<br />
+			<h:outputLabel styleClass="formLabel">Bio:</h:outputLabel>
+			<h:inputTextarea id="bio" value="#{loginBean.loggedUser.bio}"
+				title="Update Bio" rows="5" cols="21" />
+			<br />
+
+			<h:commandButton value="Save Changes" action="#{userBean.saveAction}"
+				styleClass="ActionButton" />
+		</h:form>
+
+		<h3>User View/Edit details (ViewAndEditUserDetails.xhtml - End)</h3>
+
+	</ui:composition>
+
+</body>
+</html>
