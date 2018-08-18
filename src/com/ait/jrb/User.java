@@ -9,12 +9,18 @@ public class User {
 
 	private String username;
 	private String password;
-	//private String userType;	// ints work faster
+	// private String userType; // ints work faster
 	private int type;
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String phone;
+
+	// New
+	private String bio;
+	private String image;
+	private String passwordConfirmation;
+	Double pricePerDay;
 
 	public User(String firstName, String lastName, String username, String password, String address, String phone,
 			int type) {
@@ -25,6 +31,21 @@ public class User {
 		this.address = address;
 		this.phone = phone;
 		this.type = type;
+	}
+
+	public User(int type, String username, String password, String passwordConfirmation, 
+			String firstName, String lastName, 
+			String address, String phone,String bio, String image, Double pricePerDay) {
+		this.username = username;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.phone = phone;
+		this.type = type;
+		this.bio = bio;
+		this.image = image;
+		this.pricePerDay = pricePerDay;
 	}
 
 	public String getUsername() {
@@ -42,15 +63,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-/*
-	public String getUserType() {
-		return userType;
-	}
 
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-*/
+	/*
+	 * public String getUserType() { return userType; }
+	 * 
+	 * public void setUserType(String userType) { this.userType = userType; }
+	 */
 	public String getFirstName() {
 		return firstName;
 	}

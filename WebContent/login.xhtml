@@ -29,13 +29,14 @@
 						<h:form>
 							<h3>Already a member?</h3>
 							<hr />
-							<h:inputText id="lUsername" a:placeholder="username"
-								value="#{userAuthenticationBean.username}" />
-							<h:inputSecret id="lPassword" a:placeholder="password"
-								value="#{userAuthenticationBean.password}" />
+							<h:inputText id="lUsername" a:placeholder="Enter username"
+								value="#{loginBean.username}" />
+							<h:inputSecret id="lPassword" a:placeholder="Enter password"
+								value="#{loginBean.password}" />
 
 							<h:commandButton value="Sign In"
-								action="#{userAuthenticationBean.doAuthentication}" />
+								action="#{loginBean.loginHandler}" />
+								
 						</h:form>
 					</div>
 				</div>

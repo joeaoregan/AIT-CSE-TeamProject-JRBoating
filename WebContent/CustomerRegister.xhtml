@@ -29,22 +29,22 @@
 							<h3>New member?</h3>
 							<hr />
 							<p:inputText value="#{userBean.firstName}" id="firstName"
-								required="true" requiredMessage="First Name Required" />
+								required="true" requiredMessage="First Name Required" a:placeholder="First name"/>
 							<p:message for="firstName" />
 							<h:inputText id="lastname" required="true"
-								a:placeholder="lastname" value="#{userBean.lastName}" />
+								a:placeholder="Last name" value="#{userBean.lastName}" />
 							<h:inputText id="username" required="true"
-								a:placeholder="username" value="#{userBean.username}"
-								a:minlength="5" />
+								a:placeholder="Username" value="#{userBean.username}"
+								a:minlength="4" />
 							<h:inputText id="password" required="true"
-								a:placeholder="password" value="#{userBean.password}" />
+								a:placeholder="Password" value="#{userBean.password}" />
 							<h:inputText id="passwordConfirmation" required="true"
-								a:placeholder="confirm password"
+								a:placeholder="Confirm password"
 								value="#{userBean.passwordConfirmation}" />
-							<h:inputText id="address" required="true" a:placeholder="address"
+							<h:inputText id="Address" required="true" a:placeholder="address"
 								value="#{userBean.address}" />
 							<h:inputText id="phonenumber" required="true"
-								a:placeholder="phone no." value="#{userBean.phoneNumber}" />
+								a:placeholder="Phone no." value="#{userBean.phoneNumber}" />
 							<h:commandButton value="Sign up" id="regCustomer"
 								action="#{userBean.registerCustomerHandler}" />
 						</h:form>

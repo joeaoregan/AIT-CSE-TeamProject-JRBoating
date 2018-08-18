@@ -1,0 +1,55 @@
+<!-- This page will only be visible on managers side -->
+<!-- This page is where managers will be redirected to after logging in -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Manager" />
+		<ui:param name="heading" value="Manager Home Page" />
+
+		<ui:define name="header">
+			<ui:include src="/templates/MenuManager.xhtml">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h2 class="heading">Manager successfully logged in</h2>
+
+			<h:outputText
+				value="This page shows the user details - view user details" />
+
+			<h2 class="heading">Current Users: #{userBean.userCount()}</h2>
+
+			<h:dataTable value="#{userBean.getUserList()}" var="row"
+				styleClass="displayTable" headerClass="displayTableHeader"
+				rowClasses="displayTableOddRow,displayTableEvenRow">
+				<h:column>
+					<f:facet name="header">Username</f:facet>
+					<h:outputText value="#{row.username}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">First Name</f:facet>
+					<h:outputText value="#{row.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Last Name</f:facet>
+					<h:outputText value="#{row.lastName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Address</f:facet>
+					<h:outputText value="#{row.address}" />
+				</h:column>
+			</h:dataTable>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
