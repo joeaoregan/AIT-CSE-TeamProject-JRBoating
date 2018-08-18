@@ -8,41 +8,40 @@
 	<title>JR Boating</title>
 	<h:outputStylesheet name="style.css" library="css" />
 </h:head>
-<body>
-	<div>
-		<f:view>
-			<div id="tableDiv">
-				<h2 class="heading">Boat In the System</h2>
-				<h:dataTable value="#{JrBoatingBean.getBoats()}" var="row"
-					styleClass="boatTable" headerClass="boatTableHeader"
-					rowClasses="boatTableOddRow,employeeTableEvenRow">
-					<h:column>
-						<f:facet name="header">ID</f:facet>
-				#{row.boatID}
-				</h:column>
-					<h:column>
-						<f:facet name="header">Type</f:facet>
-				#{row.boatType}
-				</h:column>
-					<h:column>
-						<f:facet name="header">Quantity</f:facet>
-				#{row.price}
-				</h:column>
-					<h:column>
-						<f:facet name="header">Quantity</f:facet>
-				#{row.quantity}
-				</h:column>
 
-					<h:column>
-						<h:form>
-							<h:commandButton value="Book" />
-						</h:form>
+<body>
+	<f:view>
+		<div id="tableDiv">
+			<h2 class="heading">Boat In the System</h2>
+			
+			<h:dataTable value="#{JrBoatingBean.getBoats()}" var="row"
+				styleClass="boatTable" headerClass="boatTableHeader"
+				rowClasses="boatTableOddRow,employeeTableEvenRow">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+						#{row.boatID}
+					</h:column>
+				<h:column>
+					<f:facet name="header">Type</f:facet>
+						#{row.boatType}
+					</h:column>
+				<h:column>
+					<f:facet name="header">Quantity</f:facet>
+						#{row.price}
+					</h:column>
+				<h:column>
+					<f:facet name="header">Quantity</f:facet>
+						#{row.quantity}
 					</h:column>
 
-				</h:dataTable>
-			</div>
-		</f:view>
-	</div>
-
+				<h:column>
+					<h:form>
+						<h:commandButton value="Book" />
+					</h:form>
+				</h:column>
+			</h:dataTable>
+			
+		</div>
+	</f:view>
 </body>
 </html>

@@ -10,16 +10,19 @@
 	
 		<!-- Top Menu: Customer Logged In -->
 		<h:form>
-			<h:commandButton value="Shop" action="CustomerBooking"
+			<h:commandButton value="Home" action="Index" styleClass="ActionButton" />&nbsp;
+			<h:commandButton value="Shop" action="BookBoat"
 				styleClass="ActionButton" />&nbsp;
 	       	<h:commandButton value="Account" action="CustomerAccount"
 				styleClass="ActionButton" />&nbsp;
 	       	<h:commandButton value="Cart" action="CustomerCart"
 				styleClass="ActionButton" />&nbsp;		
-	       	<h:commandButton value="Additional Info" action="CustomerInfo"
+	       	<h:commandButton value="Boats" action="BoatDescriptionPage"
+				styleClass="ActionButton" />&nbsp;
+	       	<h:commandButton value="About Us" action="About"
 				styleClass="ActionButton" />&nbsp;
 			<h:commandButton value="Logout"
-				action="#{loginBean.resetUsersLoggedIn}" styleClass="ActionButton" />
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 			<br />
 		</h:form>
 	</ui:composition>

@@ -60,7 +60,7 @@ public class LoginBean implements Serializable {
 				return "HomeManager";
 			} else if (user.getType() == User.CUSTOMER_ID) {
 				setUserLoggedIn(User.CUSTOMER_ID);
-				return "HomeCustomer";
+				return "Index";
 			} else if (user.getType() == User.FRONT_DESK_STAFF_ID) {
 				setUserLoggedIn(User.FRONT_DESK_STAFF_ID);
 				return "HomeFDS";
@@ -103,6 +103,40 @@ public class LoginBean implements Serializable {
 		default:
 			break;
 		}
+	}
+	
+
+	/*
+	 * Log out the user - BETTER WAY MIGHT BE TO ADD A LOGGED IN BOOLEAN VARIABLE TO USER CLASS
+	 */
+	public String logoutHandler() {
+		initUsersLoggedIn();
+
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		
+		username="";
+		password="";
+		
+		// XXX NEED TO CREATE A FUNCTION TO CLEAR USER DETAILS IN USER BEAN
+		if (userBean != null) {
+			userBean.setUsername(""); // reset the username
+			userBean.setFirstName(""); // reset the first name
+			userBean.setLastName(""); // reset the last name
+			userBean.setAddress(""); // reset the address
+		}
+
+		return "Index"; // Return to homepage
+	}
+	
+
+	/*
+	 * Set all user types as logged out
+	 */
+	public void initUsersLoggedIn() {
+		loggedInCustomer = false;
+		loggedInManager = false;
+		loggedInFDS = false;
+		loggedInSkipper = false;
 	}
 
 	// returns

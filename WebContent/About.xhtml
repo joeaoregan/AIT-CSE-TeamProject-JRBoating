@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating About" />
+		<ui:param name="heading" value="About Us" />
+
+		<ui:define name="header" id="header">
+			<ui:include
+				src="#{loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'}">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<!-- Variables -->
+			<h1 class="ui-widget-header ui-corner-all" align="center">About
+				Us</h1>
+			<h2 class="ui-widget-header ui-corner-all" align="left">JR
+				Boating</h2>
+
+
+			<p>
+				Located on the banks of the river Shannon, we here at JR Boating
+				have everything you need to make your trip down the river Shannon a
+				luxurious and enjoyable experience. From the convenience of your
+				home,
+				<p:button href="register.xhtml" value="Register" />
+				with us today and
+				<p:button href="bookBoat.jsf" value="Book Online" />
+				and choose from our range of
+				<p:button href="boatDescription.jsf" value="Boats" />
+
+			</p>
+			<ul>
+				<li>Cruisers</li>
+				<li>Canal Barges</li>
+				<li>Sailing Boats</li>
+				<li>Canoes</li>
+			</ul>
+			<br />
+			<br />
+
+			<p>
+				Never sailed before? No problem! We have experienced Skippers
+				available to join you for a day of your trip and help you learn
+				everything you need to know to make your trip down the river Shannon
+				a trip to remember.
+				<p:button href="bookBoat.jsf" value="Book Online" />
+				or contact us today to start your adventure with us.
+			</p>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

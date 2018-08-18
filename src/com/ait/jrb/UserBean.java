@@ -16,7 +16,6 @@ public class UserBean implements Serializable {
 	
 	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,
 			lUsername, lPassword;
-	//private static boolean isManagerLoddgedIn, isCustomerLoggedIn, isFrontDeskLoggedIn, isSkipperLoggedIn;
 
 	// New
 	private String phone, type, bio, image;
@@ -25,14 +24,6 @@ public class UserBean implements Serializable {
 	
 	public UserBean() {
 		userList = new ArrayList<User>();
-				
-		//isManagerLoddgedIn = false;
-		//isCustomerLoggedIn = false;
-		//isFrontDeskLoggedIn = false;
-		//isSkipperLoggedIn = false;
-
-		//User joe = new User("Joe", "O'Regan", "joe", "asdf", "Thurles", "0861234567", User.MANAGER_ID);	
-		//User elaine = new User("Elaine", "Santos", "elaine", "asdf", "Athlone", "0860246810", User.CUSTOMER_ID);
 
 		User joe = new User(User.MANAGER_ID, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
 				"Thurles", "0871234567", "", "profile.jpg", 0.0);
@@ -195,14 +186,16 @@ public class UserBean implements Serializable {
 
 	public String registerCustomerHandler() {
 		String msg = "Username Already Exist";
-		//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-		System.out.println("Reg " + password);
-		System.out.println("CReg " + passwordConfirmation);
+		//System.out.println("Reg " + password);
+		//System.out.println("CReg " + passwordConfirmation);
 		if (!password.equals(passwordConfirmation)) {
 			msg = "PasswordDon't match";
 		} else if (!checkUniqueUsername(username)) {
 			//User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-			User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
+			//User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
+
+			User user = new User(User.CUSTOMER_ID, username, password, passwordConfirmation, 
+					firstName, lastName, address, phoneNumber, bio, image, pricePerDay);
 			addUser(user);
 			msg = "OK";
 		}

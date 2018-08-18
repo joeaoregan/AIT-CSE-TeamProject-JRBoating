@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-@ManagedBean
+@ManagedBean(name = "boatBean")
 @RequestScoped
 public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;

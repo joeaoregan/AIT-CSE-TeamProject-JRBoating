@@ -9,7 +9,7 @@ import javax.faces.bean.RequestScoped;
 
 import com.ait.jrb.Helper;
 
-@ManagedBean
+@ManagedBean(name = "orderBean")
 @RequestScoped
 public class OrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;

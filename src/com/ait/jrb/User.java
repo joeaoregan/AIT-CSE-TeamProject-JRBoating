@@ -22,6 +22,7 @@ public class User {
 	private String passwordConfirmation;
 	Double pricePerDay;
 
+	/*
 	public User(String firstName, String lastName, String username, String password, String address, String phone,
 			int type) {
 		this.username = username;
@@ -32,7 +33,7 @@ public class User {
 		this.phone = phone;
 		this.type = type;
 	}
-
+*/
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
 			String address, String phone,String bio, String image, Double pricePerDay) {
@@ -107,5 +108,37 @@ public class User {
 
 	public void setType(int type) {
 		this.type = type;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public String getPasswordConfirmation() {
+		return passwordConfirmation;
+	}
+
+	public void setPasswordConfirmation(String passwordConfirmation) {
+		this.passwordConfirmation = passwordConfirmation;
+	}
+
+	public Double getPricePerDay() {
+		return pricePerDay;
+	}
+
+	public void setPricePerDay(Double pricePerDay) {
+		this.pricePerDay = pricePerDay;
 	}
 }
