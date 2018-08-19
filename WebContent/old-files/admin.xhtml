@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Home" />
+		<ui:param name="heading" value="Admin Homepage" />
+
+		<!-- Pick Menu Based On User Logged In Or Not -->
+		<ui:define name="header" id="header" >
+			<ui:include
+				src="#{loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'}">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+
+			<div id="mainAdmin">
+				<h1 class="ui-widget-header ui-corner-all" align="center">
+					Admin Homepage
+					<h:commandButton id="alogout" value="Logout"
+						action="#{userBean.logout()}" />
+				</h1>
+
+				<br />
+				<p:accordionPanel>
+
+					<p:tab title="Boat">
+						<p:tabView>
+							<p:tab title="Add Boat">
+								<ui:include src="/snippets/boatAdmin.xhtml" />
+							</p:tab>
+							<p:tab title="View All">
+								<ui:include src="/snippets/viewBoat.xhtml" />
+							</p:tab>
+							<p:tab title="Search">
+								<ui:include src="/snippets/search.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+
+					<p:tab title="Employee">
+						<p:tabView>
+							<p:tab title="Add Employee">
+								<ui:include src="/snippets/boatAdmin.xhtml" />
+							</p:tab>
+							<p:tab title="View All">
+								<ui:include src="/snippets/viewBoat.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+
+				</p:accordionPanel>
+			</div>
+		</ui:define>
+
+	</ui:composition>
+</h:body>
+</html>

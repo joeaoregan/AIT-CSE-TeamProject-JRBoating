@@ -7,10 +7,10 @@ public class User {
 	public final static int SKIPPER_ID = 2;
 	public final static int FRONT_DESK_STAFF_ID = 3;
 
+	private int type;
 	private String username;
 	private String password;
 	// private String userType; // ints work faster
-	private int type;
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -38,13 +38,14 @@ public class User {
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
 			String address, String phone,String bio, String image, Double pricePerDay) {
+		this.type = type;
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-		this.type = type;
+		
 		this.bio = bio;
 		this.image = image;
 		this.pricePerDay = pricePerDay;

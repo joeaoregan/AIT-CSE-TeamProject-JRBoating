@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Register" />
+		<ui:param name="heading" value="Register" />
+
+		<ui:define name="header" id="header">
+			<ui:include
+				src="#{loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'}">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<!-- Variables -->
+			<h:form>
+				<h:panelGrid columns="3" class="formTable">
+					Username:
+					<p:inputText value="#{registerBean.username}" required="true"
+						id="username" requiredMessage="Username required" a:placeholder="Username" />
+					<p:message for="username" />
+			
+					Password:
+					<p:password value="#{registerBean.password}" feedback="true"
+						id="password1" required="true" requiredMessage="Password required"
+						validatorMessage="Password must be 2 or more chars." a:placeholder="Password">
+						<f:validateLength minimum="2" />
+					</p:password>
+					<p:message for="password1" />
+			
+					First name:
+					<p:inputText value="#{registerBean.firstName}" required="true"
+						id="firstName" requiredMessage="First name required" a:placeholder="First Name" />
+					<p:message for="firstName" />
+			
+					Last name:
+					<p:inputText value="#{registerBean.lastName}" required="true"
+						id="lastName" requiredMessage="Last name required" a:placeholder="Last name" />
+					<p:message for="lastName" />
+			
+					Address:
+					<p:inputText value="#{registerBean.address}" required="true"
+						id="address" requiredMessage="Address required" a:placeholder="Address" />
+					<p:message for="address" />
+			
+					Phone Number:
+					<p:inputText value="#{registerBean.phone}" required="true" id="phone"
+						requiredMessage="Phone number required" a:placeholder="Phone Number"/>
+					<p:message for="phone" />
+
+				</h:panelGrid>
+
+				<p:commandButton action="#{registerBean.register2}" value="Register"
+					ajax="false" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+
