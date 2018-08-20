@@ -10,16 +10,24 @@
 	
 		<!-- Top Menu: Customer Logged In -->
 		<h:form>
+			<h:commandButton value="Home" action="IndexPage"
+				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
 			<h:commandButton value="Shop" action="CustomerBooking"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='Book A Boat') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
 	       	<h:commandButton value="Cart" action="CustomerCart"
-				styleClass="ActionButton" />&nbsp;		
+				styleClass="#{(heading=='Shopping Cart') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+					
 	       	<h:commandButton value="Boats" action="BoatDetailsTabbed"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='Boat Details') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
 	       	<h:commandButton value="About Us" action="About"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='About Us') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
 	       	<h:commandButton value="Account" action="CustomerAccount"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='Customer Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
 			<h:commandButton value="#{loginBean.username}: Logout"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 			<br />

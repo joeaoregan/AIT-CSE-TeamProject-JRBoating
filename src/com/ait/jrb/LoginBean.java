@@ -14,7 +14,6 @@ public class LoginBean implements Serializable {
 
 	private String username;
 	private String password;
-	private String uiValidationMessage;
 	private User loggedUser;
 
 	// New
@@ -37,7 +36,6 @@ public class LoginBean implements Serializable {
 	public String showLoginPage() {
 		username = "";
 		password = "";
-		uiValidationMessage = "";
 		message="";
 		loggedUser = getUser();
 		
@@ -74,13 +72,13 @@ public class LoginBean implements Serializable {
 				return "HomeManager";
 			} else if (user.getType() == User.CUSTOMER) {
 				setUserLoggedIn(User.CUSTOMER);
-				return "Index";
+				return "IndexPage";
 			} else if (user.getType() == User.FRONT_DESK_STAFF) {
 				setUserLoggedIn(User.FRONT_DESK_STAFF);
-				return "HomeFDS";
+				return "IndexPage";
 			} else if (user.getType() == User.SKIPPER) {
 				setUserLoggedIn(User.SKIPPER);
-				return "HomeSkipper";
+				return "IndexPage";
 			}
 		}
 
@@ -139,7 +137,7 @@ public class LoginBean implements Serializable {
 			userBean.setAddress(""); // reset the address
 		}
 
-		return "Index"; // Return to homepage
+		return "IndexPage"; // Return to homepage
 	}
 	
 
@@ -167,14 +165,6 @@ public class LoginBean implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getUiValidationMessage() {
-		return uiValidationMessage;
-	}
-
-	public void setUiValidationMessage(String uiValidationMessage) {
-		this.uiValidationMessage = uiValidationMessage;
 	}
 
 	public User getLoggedUser() {
@@ -224,36 +214,4 @@ public class LoginBean implements Serializable {
 	public void setLoggedInSkipper(Boolean loggedInSkipper) {
 		this.loggedInSkipper = loggedInSkipper;
 	}
-
 }
-
-// The user that represents the manager
-// private static final User MANAGER = new User("Manager", "", "root", "admin",
-// "", "", "MANAGER");
-//private static final User MANAGER = new User("Manager", "", "root", "admin", "", "", User.MANAGER_ID);
-
-// returns
-// - user MANAGER, if the manager logs in successfully;
-// - a known user, if pair username/password matches an existing user;
-// - or null, if pair username/password don't match any registered users.
-/*
-private User validateUser() {
-	User user = null;
-	if (MANAGER.getUsername().equals(username) && MANAGER.getPassword().equals(password)) {
-		user = MANAGER;
-	}
-	if (user == null) {
-		// check if user exists
-	}
-	return user;
-}
-*/
-
-/*
- * REPLACED WITH loginHandler()
- * 
- * public String doAuthentication() { User authenticatingUser = validateUser();
- * if (authenticatingUser == MANAGER) { uiValidationMessage =
- * "Welcome Manager."; return "boatAdmin"; } loggedUser = authenticatingUser;
- * return "index"; }
- */

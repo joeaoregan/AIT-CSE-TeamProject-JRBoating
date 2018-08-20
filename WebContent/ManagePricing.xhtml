@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:body>
+	<ui:composition template="templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Pricing" />
+		<ui:param name="heading" value="Manage Pricing" />
+
+		<ui:define name="header">
+			<ui:include src="/templates/MenuManager.xhtml">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+
+			<h3>
+				<h:outputText value="Edit pricing structure" />
+			</h3>
+			<br />
+
+			<h:form>
+				<h:outputLabel styleClass="formLabel">Item Name:</h:outputLabel>
+				<h:selectOneMenu id="itemlist" value="#{pricingBean.id}"
+					onchange="this.form.submit();">
+					<f:selectItem itemValue="#{null}"
+						itemLabel="-- Select item to apply pricing structure --" />
+					<f:selectItems value="#{shopBean.getItems()}" var="item"
+						itemValue="#{item.id}" itemLabel="#{item.name}" />
+				</h:selectOneMenu>
+				<br />
+				<br />
+			</h:form>
+
+
+			<h:form>
+				<h:outputLabel styleClass="formLabel">ID:</h:outputLabel>
+				<h:inputText id="id" value="#{pricingBean.id}" title="Enter item id"
+					required="true" readonly="true" />
+				<br />
+				<h:outputLabel styleClass="formLabel">Amount:</h:outputLabel>
+				<h:inputText id="amount" value="#{pricingBean.amount}"
+					title="Enter number of days / quantity" required="true" />
+				<br />
+				<h:outputLabel styleClass="formLabel">Discount:</h:outputLabel>
+				<h:inputText id="discount" value="#{pricingBean.discount}"
+					title="Discount to apply" required="true" />
+				<br />
+
+				<h:commandButton id="addpricing" class="ActionButton"
+					action="#{pricingBean.addPricingHandler}"
+					value="Add Pricing Structure"
+					title="Add a pricing structure to list of prices" />&nbsp;&nbsp;
+				<br />
+				<br />
+			</h:form>
+
+
+			<h:form rendered="#{pricingBean.renderTable()}">
+				<h2 class="heading">
+					<h:outputText value="Current Pricing Structures" />
+				</h2>
+				<h:dataTable value="#{pricingBean.prices}" var="prices"
+					styleClass="displayTable" headerClass="displayTableHeader"
+					rowClasses="displayTableOddRow,displayTableEvenRow">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{prices.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Amount</f:facet>
+						<h:inputText value="#{prices.amount}" rendered="#{prices.canEdit}" />
+						<h:outputText value="#{prices.amount}"
+							rendered="#{!prices.canEdit}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Discount</f:facet>
+						<h:inputText value="#{prices.discount}"
+							rendered="#{prices.canEdit}" />
+						<h:outputText value="#{prices.discount}"
+							rendered="#{!prices.canEdit}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Details</f:facet>
+						<h:outputText value="#{prices.toString()}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Edit</f:facet>
+						<h:commandLink value="Edit"
+							action="#{pricingBean.editPricingStructure(prices)}"
+							rendered="#{!prices.canEdit}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Remove</f:facet>
+						<h:commandLink value="Remove"
+							action="#{pricingBean.deletePricingStructure(prices)}"
+							rendered="#{!prices.canEdit}" />
+					</h:column>
+				</h:dataTable>
+				<br />
+
+				<h:commandButton value="Save Changes"
+					action="#{pricingBean.saveAction}" styleClass="ActionButton" />
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

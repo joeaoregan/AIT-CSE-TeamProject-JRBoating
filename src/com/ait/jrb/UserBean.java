@@ -29,14 +29,17 @@ public class UserBean implements Serializable {
 
 		User joe = new User(User.MANAGER, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
 				"Thurles", "0871234567", "", "profile.jpg", 0.0);
+		User ademola = new User(User.MANAGER, "ademola", "asdf", "asdf", "Ademola", "Alade", 
+				"Athlone", "1234567", "", "profile.jpg", 0.0);
 		User elaine = new User(User.CUSTOMER, "elaine", "asdf", "asdf", "Elaine", "Santos", 
 				"Athlone", "0870246810", "", "profile.jpg", 0.0);
 		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
 				"Athlone", "0873691215", "", "profile.jpg", 0.0);
 		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
 				"Athlone", "0870481216", "", "profile.jpg", 0.0);
-		
+
 		addUser(joe);
+		addUser(ademola);
 		addUser(elaine);
 		addUser(kiev);
 		addUser(sorcha);

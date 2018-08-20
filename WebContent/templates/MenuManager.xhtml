@@ -11,17 +11,23 @@
 		<!-- Top Menu: Manager Logged In -->
 		<h:form>
 			<h:commandButton value="Manager Home" action="HomeManager"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='Manager Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+ 
         	<h:commandButton value="Manage Users" action="ManageUsers"
-				styleClass="ActionButton" />&nbsp;			
-        	<h:commandButton value="Manage Inventory"
-				action="ManageInventory" styleClass="ActionButton" />&nbsp;			
-        	<h:commandButton value="Manage Pricing"
-				action="ManagePricingStructures" styleClass="ActionButton" />&nbsp;			
+				styleClass="#{(heading=='Manage Users') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+ 
+        	<h:commandButton value="Manage Inventory" action="ManageInventory"
+				styleClass="#{(heading=='Manage Inventory') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+
+        	<h:commandButton value="Manage Pricing" action="ManagePricing"
+				styleClass="#{(heading=='Manage Pricing') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+
         	<h:commandButton value="Manage Reports" action="ManageReports"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+				
         	<h:commandButton value="Log Out"
-				action="#{loginBean.logoutHandler}" styleClass="ActionButton" />
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
+				
 		</h:form>
 	</ui:composition>
 </body>
