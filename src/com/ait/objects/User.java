@@ -14,11 +14,11 @@ public class User {
 	private String lastName;
 	private String address;
 	private String phone;
-	private String bio;
+	private String bio;	// Information about the user (Skipper)
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
-	private Double pricePerDay;
-	private Boolean canEdit;
+	private Double pricePerDay;	// Price to hire (Skipper)
+	private Boolean canEdit; // editing forms
 
 	// Constructor
 	public User(int type, String username, String password, String passwordConfirmation, 
