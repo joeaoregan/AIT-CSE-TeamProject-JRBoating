@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import com.ait.objects.Boat;
+
 @ManagedBean(name = "boatBean")
 @RequestScoped
 public class BoatBean implements Serializable {

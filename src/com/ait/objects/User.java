@@ -1,4 +1,4 @@
-package com.ait.jrb;
+package com.ait.objects;
 
 public class User {
 	// Use to set type integer, access with User.CUSTOMER_ID etc
@@ -19,7 +19,7 @@ public class User {
 	// New
 	private String bio;
 	private String image;
-	private String passwordConfirmation;
+	private String passwordConfirmation; // Prime faces does this
 	private Double pricePerDay;
 	private Boolean canEdit;
 

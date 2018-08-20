@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import com.ait.jrb.Helper;
+import com.ait.objects.Boat;
 
 @ManagedBean(name = "orderBean")
 @RequestScoped

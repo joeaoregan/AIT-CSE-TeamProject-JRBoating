@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.ait.objects.User;
+
 @ManagedBean(name = "userBean")
 @SessionScoped
 public class UserBean implements Serializable {

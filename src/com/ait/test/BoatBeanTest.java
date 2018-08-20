@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.ait.jrb.Boat;
 import com.ait.jrb.BoatBean;
+import com.ait.objects.Boat;
 
 class BoatBeanTest {
 

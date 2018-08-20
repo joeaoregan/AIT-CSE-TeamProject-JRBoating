@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.ait.jrb.User;
+import com.ait.objects.User;
 
 class UserTest {
 	User user;

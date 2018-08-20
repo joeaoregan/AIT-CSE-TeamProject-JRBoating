@@ -1,4 +1,4 @@
-package com.ait.jrb;
+package com.ait.objects;
 
 public class Boat {
 	//private String boatID;
@@ -8,6 +8,8 @@ public class Boat {
 	private String image;
 	private int quantity;
 	private boolean canEdit;
+	// New
+	private String description;
 	
 	public Boat(String type, Double price, String image, int quantity) {
 		this.id = ""; // id will be set in add boat

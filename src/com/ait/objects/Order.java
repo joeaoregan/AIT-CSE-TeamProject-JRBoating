@@ -1,4 +1,4 @@
-package com.ait.jrb;
+package com.ait.objects;
 
 //import java.util.ArrayList;
 
