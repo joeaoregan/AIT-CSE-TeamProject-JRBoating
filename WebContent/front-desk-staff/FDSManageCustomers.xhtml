@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,17 +6,15 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:body>
-	<ui:composition template="templates/template.xhtml">
-		<ui:param name="title" value="JR Boating Checkout" />
-		<ui:param name="heading" value="Checkout" />
+	<ui:composition template="/templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Customers" />
+		<ui:param name="heading" value="Staff Manage Customers" />
 
 		<ui:define name="menu">
-			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+			<ui:include src="/menus/front-desk-staff.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
-
 	</ui:composition>
 </h:body>
 </html>

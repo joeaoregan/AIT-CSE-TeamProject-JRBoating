@@ -11,15 +11,15 @@
 <body>
 	<ui:composition>
 		<h:form>
-			<h:commandButton value="Manager Home" action="HomeManager"
+			<h:commandButton value="Manager Home" action="/manager/HomeManager.xhtml"
 				styleClass="#{(heading=='Manager Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
-        	<h:commandButton value="Manage Users" action="ManageUsers"
+        	<h:commandButton value="Manage Users" action="/manager/ManageUsers.xhtml"
 				styleClass="#{(heading=='Manage Users') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
-        	<h:commandButton value="Manage Inventory" action="ManageInventory"
+        	<h:commandButton value="Manage Inventory" action="/manager/ManageInventory.xhtml"
 				styleClass="#{(heading=='Manage Inventory') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
-        	<h:commandButton value="Manage Pricing" action="ManagePricing"
+        	<h:commandButton value="Manage Pricing" action="/manager/ManagePricing.xhtml"
 				styleClass="#{(heading=='Manage Pricing') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Manage Reports" action="ManageReports"
+        	<h:commandButton value="Manage Reports" action="/manager/ManageReports.xhtml"
 				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;				
         	<h:commandButton value="#{loginBean.username}: Log Out"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />

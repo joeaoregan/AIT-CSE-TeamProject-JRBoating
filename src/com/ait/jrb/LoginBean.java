@@ -69,16 +69,16 @@ public class LoginBean implements Serializable {
 			
 			if (user.getType() == User.MANAGER) {
 				setUserLoggedIn(User.MANAGER);
-				return "HomeManager";
+				return "/manager/HomeManager";
 			} else if (user.getType() == User.CUSTOMER) {
 				setUserLoggedIn(User.CUSTOMER);
-				return "IndexPage";
+				return "/index";
 			} else if (user.getType() == User.FRONT_DESK_STAFF) {
 				setUserLoggedIn(User.FRONT_DESK_STAFF);
-				return "IndexPage";
+				return "/index";
 			} else if (user.getType() == User.SKIPPER) {
 				setUserLoggedIn(User.SKIPPER);
-				return "SkipperBookings";
+				return "/skipper/SkipperBookings";
 			}
 		}
 
@@ -137,7 +137,7 @@ public class LoginBean implements Serializable {
 			userBean.setAddress(""); // reset the address
 		}
 
-		return "IndexPage"; // Return to homepage
+		return "/index.xhtml"; // Return to homepage
 	}
 	
 
