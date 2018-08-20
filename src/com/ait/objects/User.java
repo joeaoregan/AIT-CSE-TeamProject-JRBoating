@@ -2,39 +2,25 @@ package com.ait.objects;
 
 public class User {
 	// Use to set type integer, access with User.CUSTOMER_ID etc
-	public final static int CUSTOMER_ID = 0;
-	public final static int MANAGER_ID = 1;
-	public final static int SKIPPER_ID = 2;
-	public final static int FRONT_DESK_STAFF_ID = 3;
+	public final static int CUSTOMER = 0;
+	public final static int MANAGER = 1;
+	public final static int SKIPPER = 2;
+	public final static int FRONT_DESK_STAFF = 3;
 
 	private int type;
 	private String username;
 	private String password;
-	// private String userType; // ints work faster
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String phone;
-
-	// New
 	private String bio;
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
 	private Double pricePerDay;
 	private Boolean canEdit;
 
-	/*
-	public User(String firstName, String lastName, String username, String password, String address, String phone,
-			int type) {
-		this.username = username;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.phone = phone;
-		this.type = type;
-	}
-*/
+	// Constructor
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
 			String address, String phone,String bio, String image, Double pricePerDay) {

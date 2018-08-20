@@ -8,9 +8,9 @@
 
 <h:body>
 	<ui:composition template="templates/template.xhtml">
-		<ui:param name="title" value="JR Boating Login" />
-		<ui:param name="heading" value="Login" />
-		<ui:param name="page" value="login" />
+		<ui:param name="title" value="JR Boating Home" />
+		<ui:param name="heading" value="Home" />
+		<ui:param name="page" value="index" />
 
 		<ui:define name="header" id="header">
 			<ui:include
@@ -21,29 +21,24 @@
 
 		<ui:define name="content">
 			<!-- Variables -->
-			<h2 class="heading">JR Boating: Home</h2>
-
-			<!-- Why is there 2 id's? -->
-			<div id="main">
-				<div class="logReg">
-					<div id="logDiv">
-						<h:form>
-							<h3>Already a member?</h3>
-							<hr />
-							<h:inputText id="lUsername" a:placeholder="Enter username"
-								value="#{loginBean.username}" />
-							<h:inputSecret id="lPassword" a:placeholder="Enter password"
-								value="#{loginBean.password}" />
-
-							<h:commandButton value="Sign In"
-								action="#{loginBean.loginHandler}" />
-								
-						</h:form>
-					</div>
-				</div>
+			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
+			
+			<!-- id main moved to template file -->
+			<div id="searchDiv">
+				<h1>Search for Boat</h1>
+				
+				
+				<h:form>
+					<h:inputText required="true" a:placeholder="Enter boat type"
+						value="#{boatBean.sboatType}" />
+					<br />
+					<h:commandButton value="Search" class="registerbtn"
+						action="CustomerBoat" />
+				</h:form>
 			</div>
-
+			
 		</ui:define>
+
 	</ui:composition>
 </h:body>
 </html>

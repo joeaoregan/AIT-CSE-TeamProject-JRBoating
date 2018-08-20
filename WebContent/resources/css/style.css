@@ -126,6 +126,13 @@ input[type=text] {
 	border-radius: 5px;
 }
 
+.ActionButton2 {
+	width: 200px;
+	background-color: #ff8000; /*type of red*/
+	color: white;
+	border-radius: 5px;
+}
+
 .ActionButton:hover {
     background-color: white;
     color: #0080ff;

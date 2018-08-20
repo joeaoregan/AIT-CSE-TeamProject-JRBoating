@@ -11,12 +11,13 @@ public class Boat {
 	// New
 	private String description;
 	
-	public Boat(String type, Double price, String image, int quantity) {
+	public Boat(String type, Double price, String image, int quantity, String description) {
 		this.id = ""; // id will be set in add boat
 		this.type= type;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
+		this.description=description;
 	}
 		
 	public int getQuantity() {
@@ -69,5 +70,13 @@ public class Boat {
 
 	public void setCanEdit(boolean canEdit) {
 		this.canEdit = canEdit;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

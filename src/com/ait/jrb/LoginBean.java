@@ -69,17 +69,17 @@ public class LoginBean implements Serializable {
 		if (user != null) {
 			loggedUser = user;
 			
-			if (user.getType() == User.MANAGER_ID) {
-				setUserLoggedIn(User.MANAGER_ID);
+			if (user.getType() == User.MANAGER) {
+				setUserLoggedIn(User.MANAGER);
 				return "HomeManager";
-			} else if (user.getType() == User.CUSTOMER_ID) {
-				setUserLoggedIn(User.CUSTOMER_ID);
+			} else if (user.getType() == User.CUSTOMER) {
+				setUserLoggedIn(User.CUSTOMER);
 				return "Index";
-			} else if (user.getType() == User.FRONT_DESK_STAFF_ID) {
-				setUserLoggedIn(User.FRONT_DESK_STAFF_ID);
+			} else if (user.getType() == User.FRONT_DESK_STAFF) {
+				setUserLoggedIn(User.FRONT_DESK_STAFF);
 				return "HomeFDS";
-			} else if (user.getType() == User.SKIPPER_ID) {
-				setUserLoggedIn(User.SKIPPER_ID);
+			} else if (user.getType() == User.SKIPPER) {
+				setUserLoggedIn(User.SKIPPER);
 				return "HomeSkipper";
 			}
 		}
@@ -90,25 +90,25 @@ public class LoginBean implements Serializable {
 
 	public void setUserLoggedIn(int type) {
 		switch (type) {
-		case User.CUSTOMER_ID:
+		case User.CUSTOMER:
 			loggedInCustomer = true;
 			loggedInManager = false;
 			loggedInFDS = false;
 			loggedInSkipper = false;
 			break;
-		case User.FRONT_DESK_STAFF_ID:
+		case User.FRONT_DESK_STAFF:
 			loggedInCustomer = false;
 			loggedInManager = false;
 			loggedInFDS = true;
 			loggedInSkipper = false;
 			break;
-		case User.MANAGER_ID:
+		case User.MANAGER:
 			loggedInCustomer = false;
 			loggedInManager = true;
 			loggedInFDS = false;
 			loggedInSkipper = false;
 			break;
-		case User.SKIPPER_ID:
+		case User.SKIPPER:
 			loggedInCustomer = false;
 			loggedInManager = false;
 			loggedInFDS = false;

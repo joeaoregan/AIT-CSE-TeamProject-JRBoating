@@ -27,13 +27,13 @@ public class UserBean implements Serializable {
 	public UserBean() {
 		userList = new ArrayList<User>();
 
-		User joe = new User(User.MANAGER_ID, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
+		User joe = new User(User.MANAGER, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
 				"Thurles", "0871234567", "", "profile.jpg", 0.0);
-		User elaine = new User(User.CUSTOMER_ID, "elaine", "asdf", "asdf", "Elaine", "Santos", 
+		User elaine = new User(User.CUSTOMER, "elaine", "asdf", "asdf", "Elaine", "Santos", 
 				"Athlone", "0870246810", "", "profile.jpg", 0.0);
-		User kiev = new User(User.SKIPPER_ID, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
+		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
 				"Athlone", "0873691215", "", "profile.jpg", 0.0);
-		User sorcha = new User(User.FRONT_DESK_STAFF_ID, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
 				"Athlone", "0870481216", "", "profile.jpg", 0.0);
 		
 		addUser(joe);
@@ -47,13 +47,13 @@ public class UserBean implements Serializable {
 	 */
 	public String displayType(int type) {
 		switch (type) {
-		case User.MANAGER_ID:
+		case User.MANAGER:
 			return "Manager";
-		case User.CUSTOMER_ID:
+		case User.CUSTOMER:
 			return "Customer";
-		case User.FRONT_DESK_STAFF_ID:
+		case User.FRONT_DESK_STAFF:
 			return "Front Desk Staff";
-		case User.SKIPPER_ID:
+		case User.SKIPPER:
 			return "Skipper";
 		default:
 			return null;
@@ -205,7 +205,7 @@ public class UserBean implements Serializable {
 			//User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
 			//User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
 
-			User user = new User(User.CUSTOMER_ID, username, password, passwordConfirmation, 
+			User user = new User(User.CUSTOMER, username, password, passwordConfirmation, 
 					firstName, lastName, address, phoneNumber, bio, image, pricePerDay);
 			addUser(user);
 			msg = "OK";

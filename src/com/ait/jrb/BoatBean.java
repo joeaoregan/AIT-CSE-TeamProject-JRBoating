@@ -19,6 +19,7 @@ public class BoatBean implements Serializable {
 	private Double price;
 	private String image;
 	private int quantity;
+	private String description;
 
 	private String productID; // Used in boat.xhtml but not declared
 	private String sboatType;
@@ -32,14 +33,15 @@ public class BoatBean implements Serializable {
 		price = 0.0;
 		image = "";
 		quantity = 0;
+		description = "";
 		
 		infoMessage = "Add a new boat";
 
 		// Add boats to boat list
-		addNewBoat(new Boat("Cruiser", 250.0, "cruiser.jpg", 10));
-		addNewBoat(new Boat("Canal Barge", 200.0, "canalbarge.jpg", 10));
-		addNewBoat(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10));
-		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10));
+		addNewBoat(new Boat("Cruiser", 250.0, "cruiser.jpg", 10, "Cruiser description"));
+		addNewBoat(new Boat("Canal Barge", 200.0, "canalbarge.jpg", 10, "Canal Barge description"));
+		addNewBoat(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10, "Sailing Boat description"));
+		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10, "Canoe description"));
 	}
 	
 	/*
@@ -65,7 +67,7 @@ public class BoatBean implements Serializable {
 	}
 	
 	public String addBoatHandler() {
-		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity));
+		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity, description));
 		
 		return null;
 	}
@@ -194,5 +196,13 @@ public class BoatBean implements Serializable {
 
 	public void setInfoMessage(String infoMessage) {
 		this.infoMessage = infoMessage;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

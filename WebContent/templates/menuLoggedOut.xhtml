@@ -11,15 +11,17 @@
 
 		<!-- Top Menu: Customer Logged Out-->
 		<h:form>
-			<h:commandButton value="Home" action="Index" styleClass="ActionButton" />&nbsp;
+			<h:commandButton value="Home" action="IndexPage"
+				styleClass="#{(page=='index') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 	    	<h:commandButton value="Register" action="RegistrationNEW"
-				styleClass="ActionButton" />&nbsp;	
-	       	<h:commandButton value="Boat Details" action="BoatDetailsTabbed"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(page=='register') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+	       	<h:commandButton value="Boat Details"
+				action="BoatDetailsTabbed"
+				styleClass="#{(page=='boatdetails') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 	       	<h:commandButton value="About Us" action="About"
-				styleClass="ActionButton" />&nbsp;
+				styleClass="#{(page=='about') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 	       	<h:commandButton value="Login" action="LoginPage"
-				styleClass="ActionButton" />
+				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 			<br />
 		</h:form>
 	</ui:composition>

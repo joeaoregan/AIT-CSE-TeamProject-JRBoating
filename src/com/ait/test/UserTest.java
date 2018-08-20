@@ -13,7 +13,12 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", "manager");
-		user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", User.MANAGER_ID);
+		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", User.MANAGER);
+		
+
+		user = new User(User.MANAGER, "root", "admin", "admin", 
+				"Joe", "Doe", 
+				"16 Main Road, Athlone", "123456", "bio", "profile.jpg", 0.0);
 	}
 
 	@Test
@@ -67,7 +72,7 @@ class UserTest {
 	@Test
 	void testUserTypeChanged() {
 		//user.setUserType("frontDesk");
-		user.setType(User.FRONT_DESK_STAFF_ID);
+		user.setType(User.FRONT_DESK_STAFF);
 		//assertEquals("frontDesk", user.getUserType());
 		assertEquals("frontDesk", user.getType());
 	}

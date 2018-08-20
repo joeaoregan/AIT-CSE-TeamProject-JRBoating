@@ -65,7 +65,7 @@ class UserBeanTest {
 
 	@Test
 	void testChangeIsManagerLoggedIn() {
-		UserBean.setManagerLoddgedIn(true);
+		UserBean.setManagerLoggedIn(true);
 		assertTrue(UserBean.isManagerLoddgedIn());
 	}
 

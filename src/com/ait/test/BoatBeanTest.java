@@ -18,7 +18,7 @@ class BoatBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		boat = new Boat("Cruiser", 100.25, "image", 1);
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
 		boatBean = new BoatBean();
 	}
 
@@ -76,7 +76,7 @@ class BoatBeanTest {
 
 	@Test
 	void testFindBoat() {
-		boat = new Boat("Cruiser", 100.25, "image", 1);
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
 		boatBean.addNewBoat(boat);
 		assertEquals(1, boatBean.boatCount());
 		assertEquals(boat, boatBean.findBoat("Cruiser"));
@@ -85,7 +85,7 @@ class BoatBeanTest {
 
 	@Test
 	void testFindBoatFailed() {
-		boat = new Boat("Cruiser", 100.25, "image", 1);
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
 		boatBean.addNewBoat(boat);
 		boatBean.removeBoat(boat);
 		//assertEquals(0, boatBean.boatCount());
@@ -95,8 +95,8 @@ class BoatBeanTest {
 
 	@Test
 	void testBoatTypeAvailable() {
-		boat = new Boat("Canoe", 100.25, "image", 1);
-		Boat boat2 = new Boat("Canoe", 100.25, "image", 1);
+		boat = new Boat("Canoe", 100.25, "image", 1, "description");
+		Boat boat2 = new Boat("Canoe", 100.25, "image", 1, "description");
 		boatBean.addNewBoat(boat);
 		boatBean.addNewBoat(boat2);
 		assertEquals(true, boatBean.boatTypeAvailable("Canoe"));
@@ -105,7 +105,7 @@ class BoatBeanTest {
 
 	@Test
 	void testBoatTypeNotAvailable() {
-		boat = new Boat("Canoe", 100.25, "image", 1);
+		boat = new Boat("Canoe", 100.25, "image", 1, "description");
 		boatBean.addNewBoat(boat);
 		assertFalse(boatBean.boatTypeAvailable("Destroyer"));
 	}
