@@ -128,8 +128,8 @@ input[type=text] {
 
 .ActionButton2 {
 	width: 200px;
-	background-color: #ff8000; /*type of red*/
-	color: white;
+	background-color: #a6dbdb; /*type of light blue*/
+	color: DarkSlateGray;
 	border-radius: 5px;
 }
 
