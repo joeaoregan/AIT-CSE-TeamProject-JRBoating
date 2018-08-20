@@ -63,9 +63,11 @@ class UserBeanTest {
 		assertEquals("123456", userBean.getPhoneNumber());
 	}
 
+	// MOVED TO LOGIN BEAN
+/*
 	@Test
 	void testChangeIsManagerLoggedIn() {
-		UserBean.setManagerLoggedIn(true);
+		loginBean.setLoggedInManager(true);
 		assertTrue(UserBean.isManagerLoddgedIn());
 	}
 
@@ -86,7 +88,7 @@ class UserBeanTest {
 		UserBean.setSkipperLoggedIn(true);
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
-
+*/
 //	@Test
 //
 //	void testCustomerRegister() {
@@ -101,6 +103,9 @@ class UserBeanTest {
 //		
 //	}
 
+	// MOVED TO LOGIN BEAN
+	
+	/*
 	@Test
 	void testUserLoginAsManager() {
 		userBean.setlUsername("root");
@@ -132,5 +137,6 @@ class UserBeanTest {
 		userBean.setlUsername("sk");
 		assertEquals("skipper", userBean.userLogin());
 	}
+	*/
 
 }
