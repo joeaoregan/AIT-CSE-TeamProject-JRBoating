@@ -12,16 +12,17 @@
 		<ui:param name="heading" value="Home" />
 		<ui:param name="page" value="index" />
 
-		<ui:define name="header" id="header">
+		<!-- Choose Menu Based on User Logged in, use MenuDefault for  -->
 
+		<ui:define name="menu" id="header">
 			<ui:include
-				src="#{(loginBean.loggedInSkipper) ? '/templates/MenuSkipper.xhtml' : 
-						(loginBean.loggedInFDS ?'/templates/MenuFDS.xhtml' : 
-						(loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'))}">
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
+						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
 
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
-
 		</ui:define>
 
 		<ui:define name="content">
@@ -32,7 +33,6 @@
 			<div id="searchDiv">
 				<h1>Search for Boat</h1>
 
-
 				<h:form>
 					<h:inputText required="true" a:placeholder="Enter boat type"
 						value="#{boatBean.sboatType}" />
@@ -41,7 +41,6 @@
 						action="CustomerBoat" />
 				</h:form>
 			</div>
-
 		</ui:define>
 
 	</ui:composition>

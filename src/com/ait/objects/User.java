@@ -16,8 +16,8 @@ public class User {
 	private String bio; // Information about the user (Skipper)
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
-	private Double pricePerDay; // Price to hire (Skipper)
-	private Boolean canEdit; // editing forms
+	private double pricePerDay; // Price to hire (Skipper)
+	private boolean canEdit; // editing forms
 
 	// Constructor
 	public User(int type, String username, String password, String passwordConfirmation, String firstName,

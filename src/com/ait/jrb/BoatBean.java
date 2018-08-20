@@ -88,10 +88,9 @@ public class BoatBean implements Serializable {
 		return "OK";
 	}
 
-	public void removeBoat(Boat boat) {
-		//System.out.println("before remove " + boatInventory.size());
+	public String removeBoat(Boat boat) {
 		boatInventory.remove(boat);
-		//System.out.println("after remove " + boatInventory.size());
+		return null;
 	}
 
 	public int boatCount() {

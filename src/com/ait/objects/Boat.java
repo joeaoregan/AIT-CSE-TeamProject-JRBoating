@@ -4,7 +4,7 @@ public class Boat {
 	//private String boatID;
 	private String id;	// shorten
 	private String type;
-	private Double price;
+	private double price;
 	private String image;
 	private int quantity;
 	private boolean canEdit;
