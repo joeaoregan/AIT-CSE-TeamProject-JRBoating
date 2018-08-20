@@ -25,7 +25,7 @@
         	<h:commandButton value="Manage Reports" action="ManageReports"
 				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
-        	<h:commandButton value="Log Out"
+        	<h:commandButton value="#{loginBean.username}: Log Out"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 				
 		</h:form>

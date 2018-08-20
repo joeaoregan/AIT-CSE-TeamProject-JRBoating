@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<body>
+	<ui:composition>
+		<!-- Top Menu: Skipper Logged In -->
+		<h:form>
+			<h:commandButton value="Home" action="IndexPage"
+				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+ 
+ 
+ 
+        	<h:commandButton value="Account" action="SkipperAccount"
+				styleClass="#{(heading=='Skipper Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+ 
+        	<h:commandButton value="Add Dates" action="SkipperAddDates"
+				styleClass="#{(heading=='Skipper Add Dates') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+
+        	<h:commandButton value="Bookings" action="SkipperBookings"
+				styleClass="#{(heading=='Skipper Bookings') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+					
+        	<h:commandButton value="#{loginBean.username}: Log Out"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
+				
+		</h:form>
+	</ui:composition>
+</body>
+</html>

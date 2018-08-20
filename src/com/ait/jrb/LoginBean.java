@@ -78,7 +78,7 @@ public class LoginBean implements Serializable {
 				return "IndexPage";
 			} else if (user.getType() == User.SKIPPER) {
 				setUserLoggedIn(User.SKIPPER);
-				return "IndexPage";
+				return "SkipperBookings";
 			}
 		}
 

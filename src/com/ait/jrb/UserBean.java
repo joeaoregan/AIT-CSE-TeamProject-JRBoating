@@ -27,6 +27,8 @@ public class UserBean implements Serializable {
 	public UserBean() {
 		userList = new ArrayList<User>();
 
+		User root = new User(User.MANAGER, "root", "admin", "admin", "MasterUser", "Administrator", 
+				"Athlone", "1234567", "", "profile.jpg", 0.0);
 		User joe = new User(User.MANAGER, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
 				"Thurles", "0871234567", "", "profile.jpg", 0.0);
 		User ademola = new User(User.MANAGER, "ademola", "asdf", "asdf", "Ademola", "Alade", 
@@ -38,6 +40,7 @@ public class UserBean implements Serializable {
 		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
 				"Athlone", "0870481216", "", "profile.jpg", 0.0);
 
+		addUser(root);
 		addUser(joe);
 		addUser(ademola);
 		addUser(elaine);
