@@ -1,7 +1,6 @@
 package com.ait.objects;
 
 public class User {
-	// Use to set type integer, access with User.CUSTOMER_ID etc
 	public final static int CUSTOMER = 0;
 	public final static int MANAGER = 1;
 	public final static int SKIPPER = 2;
@@ -14,16 +13,15 @@ public class User {
 	private String lastName;
 	private String address;
 	private String phone;
-	private String bio;	// Information about the user (Skipper)
+	private String bio; // Information about the user (Skipper)
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
-	private Double pricePerDay;	// Price to hire (Skipper)
+	private Double pricePerDay; // Price to hire (Skipper)
 	private Boolean canEdit; // editing forms
 
 	// Constructor
-	public User(int type, String username, String password, String passwordConfirmation, 
-			String firstName, String lastName, 
-			String address, String phone,String bio, String image, Double pricePerDay) {
+	public User(int type, String username, String password, String passwordConfirmation, String firstName,
+			String lastName, String address, String phone, String bio, String image, Double pricePerDay) {
 		this.type = type;
 		this.username = username;
 		this.password = password;
@@ -31,7 +29,6 @@ public class User {
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-		
 		this.bio = bio;
 		this.image = image;
 		this.pricePerDay = pricePerDay;
@@ -53,11 +50,6 @@ public class User {
 		this.password = password;
 	}
 
-	/*
-	 * public String getUserType() { return userType; }
-	 * 
-	 * public void setUserType(String userType) { this.userType = userType; }
-	 */
 	public String getFirstName() {
 		return firstName;
 	}
