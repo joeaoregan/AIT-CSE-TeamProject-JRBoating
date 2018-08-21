@@ -20,8 +20,9 @@ public class User {
 	private boolean canEdit; // editing forms
 
 	// Constructor
-	public User(int type, String username, String password, String passwordConfirmation, String firstName,
-			String lastName, String address, String phone, String bio, String image, Double pricePerDay) {
+	public User(int type, String username, String password, String passwordConfirmation, 
+			String firstName, String lastName, 
+			String address, String phone,String bio, String image, double pricePerDay) {
 		this.type = type;
 		this.username = username;
 		this.password = password;
@@ -114,19 +115,19 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-	public Double getPricePerDay() {
+	public double getPricePerDay() {
 		return pricePerDay;
 	}
 
-	public void setPricePerDay(Double pricePerDay) {
+	public void setPricePerDay(double pricePerDay) {
 		this.pricePerDay = pricePerDay;
 	}
 
-	public Boolean getCanEdit() {
+	public boolean getCanEdit() {
 		return canEdit;
 	}
 
-	public void setCanEdit(Boolean canEdit) {
+	public void setCanEdit(boolean canEdit) {
 		this.canEdit = canEdit;
 	}
 }

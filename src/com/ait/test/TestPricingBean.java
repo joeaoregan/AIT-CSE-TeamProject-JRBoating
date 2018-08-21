@@ -8,8 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ait.jrb.PricingBean;
-import com.ait.jrb.PricingStructure;
-//import com.ait.jrb.OrderBean;
+import com.ait.objects.PricingStructure;
 
 class TestPricingBean {
 

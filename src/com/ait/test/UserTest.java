@@ -1,6 +1,7 @@
 package com.ait.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,13 +13,8 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", "manager");
-		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", User.MANAGER);
-		
-
-		user = new User(User.MANAGER, "root", "admin", "admin", 
-				"Joe", "Doe", 
-				"16 Main Road, Athlone", "123456", "bio", "profile.jpg", 0.0);
+		user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 40.0);
 	}
 
 	@Test
@@ -29,8 +25,10 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-		//assertEquals("manager", user.getUserType());
-		assertEquals("manager", user.getType());
+		assertEquals("bio", user.getBio());
+		assertEquals("profile.jpg", user.getImage());
+		assertEquals(40.0, user.getPricePerDay(), 0.00002);
+		assertEquals(User.MANAGER, user.getType());
 	}
 
 	@Test
@@ -46,12 +44,18 @@ class UserTest {
 	}
 
 	@Test
+	void testPasswordConfirmationChanged() {
+		user.setPasswordConfirmation("any");
+		assertEquals("any", user.getPasswordConfirmation());
+	}
+
+	@Test
 	void testFirstNameChanged() {
 		user.setFirstName("David");
 		assertEquals("David", user.getFirstName());
 	}
 
-	@Test 
+	@Test
 	void testLastNameChanged() {
 		user.setLastName("David");
 		assertEquals("David", user.getLastName());
@@ -70,11 +74,42 @@ class UserTest {
 	}
 
 	@Test
-	void testUserTypeChanged() {
-		//user.setUserType("frontDesk");
-		user.setType(User.FRONT_DESK_STAFF);
-		//assertEquals("frontDesk", user.getUserType());
-		assertEquals("frontDesk", user.getType());
+	void testTypeChanged() {
+		user.setType(user.CUSTOMER);
+		assertEquals(user.CUSTOMER, user.getType());
 	}
 
+	@Test
+	void testBioChanged() {
+		user.setBio("bioTest");
+		assertEquals("bioTest", user.getBio());
+	}
+
+	@Test
+	void testImageChanged() {
+		user.setImage("boat1.jpg");
+		assertEquals("boat1.jpg", user.getImage());
+	}
+
+	@Test
+	void testCanEditChanged() {
+		user.setCanEdit(true);
+		assertEquals(true, user.getCanEdit());
+	}
+
+	@Test
+	void testUserBiographyChanged() {
+		user.setBio("biography");
+		assertEquals("biography", user.getBio());
+	}
+	@Test
+	void testUserImageChanged() {
+		user.setImage("profile.jpg");
+		assertEquals("profile.jpg", user.getImage());
+	}
+	@Test
+	void testUserSkipperPricePerDayChanged() {
+		user.setPricePerDay(100.0);
+		assertEquals(Double.valueOf(100.0), user.getPricePerDay(), 0.00002);
+	}
 }

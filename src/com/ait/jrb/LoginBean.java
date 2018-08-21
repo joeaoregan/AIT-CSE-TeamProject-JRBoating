@@ -39,7 +39,7 @@ public class LoginBean implements Serializable {
 		message="";
 		loggedUser = getUser();
 		
-		return "login";
+		return "/login";
 	}
 	
 	public User getUser() {

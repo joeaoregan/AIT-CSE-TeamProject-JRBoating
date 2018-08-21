@@ -17,17 +17,16 @@ class BoatTest {
 
 	@Test
 	void testBoatConstructor() {
-		//assertEquals(123, boat.getBoatID());
-		assertEquals(123, boat.getId());
 		assertEquals("Cruiser", boat.getType());
 		assertEquals(Double.valueOf(1.23), boat.getPrice());
+		assertEquals("image", boat.getImage());
 		assertEquals(1, boat.getQuantity());
+		assertEquals("description", boat.getDescription());
 	}
 	@Test
 	void changeBoatID() {
 		boat.setId("D1234");
-		//assertEquals(555, boat.getBoatID());
-		assertEquals(555, boat.getId());
+		assertEquals("D1234", boat.getId());
 	}
 	@Test
 	void changeBoatType() {
@@ -48,5 +47,20 @@ class BoatTest {
 	void testChangeQuantity() {
 		boat.setQuantity(1);
 		assertEquals(1, boat.getQuantity());
+	}
+	@Test
+	void testChangeDescription() {
+		boat.setDescription("test");
+		assertEquals("test", boat.getDescription());
+	}
+	@Test
+	void testBoatEditable() {
+		boat.setCanEdit(true);
+		assertEquals(true, boat.isCanEdit());
+	}
+	@Test
+	void testBoatNotEditable() {
+		boat.setCanEdit(false);
+		assertEquals(false, boat.isCanEdit());
 	}
 }
