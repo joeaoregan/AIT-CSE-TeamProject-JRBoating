@@ -14,7 +14,8 @@ import com.ait.objects.PricingStructure;
 public class PricingBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//private Item item;
-	private int id;
+	//private int id;
+	private String type;
 	private String name;
 	private int amount;
 	private Double price;
@@ -23,10 +24,13 @@ public class PricingBean implements Serializable {
 	ArrayList<PricingStructure> prices;
 	
 	public PricingBean() {
-		this.id = 0;
+		//this.id = 0;
+		
+		this.type = "Cruiser";
 		this.amount = 0;
 		this.price = 0.0;
 		this.discount = 0.0;
+		
 		prices = new ArrayList<PricingStructure>();
 	}
 	
@@ -54,26 +58,20 @@ public class PricingBean implements Serializable {
 	}
 	
 	public String addPricingHandler() {
-		//ShopBean shopBean = Helper.getBean("shopBean", ShopBean.class);
-		//for (Item item : shopBean.getItems()) {
-		//	if (item.equals(id)) {
-		//		this.name = item.getName();
-		//	}
-		//}
-		BoatBean boatBean = Helper.getBean("jrBoatingBean", BoatBean.class);
+		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
 		for (Boat boat : boatBean.getBoatInventory()) {
-			if (boat.equals(id)) {
-				this.name = boat.getType();
+			if (boat.equals(type)) {
+				this.type = boat.getType();
 			}
 		}
 		//prices.add(new PricingStructure(id, name, amount, discount));
-		addPricing(id,name, amount,discount);
+		addPricing(type, amount,discount);
 		this.amount = 0;
 		return null;
 	}
 	
-	public void addPricing(int id, String name, int amount, double discount) {
-		prices.add(new PricingStructure(id, name, amount, discount));		
+	public void addPricing(String type, int amount, double discount) {
+		prices.add(new PricingStructure(type, amount, discount));		
 	}
 	
 	public String renderTable() {
@@ -81,14 +79,6 @@ public class PricingBean implements Serializable {
 			return "true";
 		}
 		return "false";
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getAmount() {

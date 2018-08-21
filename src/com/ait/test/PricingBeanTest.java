@@ -21,7 +21,6 @@ class PricingBeanTest {
 
 	@Test
 	void testConstructor() {
-		assertEquals(0, pricingBean.getId());
 		assertEquals(0, pricingBean.getAmount());
 		assertEquals(Double.valueOf(0.0), pricingBean.getPrice());
 		assertEquals(Double.valueOf(0.0), pricingBean.getDiscount());
@@ -29,8 +28,6 @@ class PricingBeanTest {
 
 	@Test
 	void testSetters() {
-		pricingBean.setId(10);
-		assertEquals(10, pricingBean.getId());
 		pricingBean.setAmount(10);
 		assertEquals(10, pricingBean.getAmount());
 		pricingBean.setPrice(1.25);
@@ -48,32 +45,32 @@ class PricingBeanTest {
 	@Test
 	void testRenderTableEmpty() {		
 		assertEquals("false", pricingBean.renderTable());	// String not boolean
-		pricingBean.addPricing(0,  "test",  10,  0.2);
+		pricingBean.addPricing("test",  10,  0.2);
 		assertEquals("true", pricingBean.renderTable());
 	}
 	
 	@Test
 	void testSaveAction() {
-		pricingBean.addPricing(0,  "test",  10,  0.2);
+		pricingBean.addPricing("test",  10,  0.2);
 		assertEquals(null, pricingBean.saveAction());
 	}
 	
 	@Test
 	void testEditPricingStructure() {
-		PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
+		PricingStructure pricingStructure = new PricingStructure("item2", 10, 0.1);
 		assertEquals(null, pricingBean.editPricingStructure(pricingStructure));
 	}
 	
 	@Test
 	void testDeletePricingStructure() {
-		PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
+		PricingStructure pricingStructure = new PricingStructure("item2", 10, 0.1);
 		assertEquals(null, pricingBean.deletePricingStructure(pricingStructure));		
 	}
 	
 	@Test
 	void testAddPricing() {
 		//PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
-		pricingBean.addPricing(0,  "test",  10,  0.2);
+		pricingBean.addPricing("test",  10,  0.2);
 		assertEquals(1, pricingBean.getPrices().size());
 	}
 	

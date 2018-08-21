@@ -12,12 +12,12 @@ class PricingStructureTest {
 	
 	@BeforeEach
 	void setup() {
-		pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
+		pricingStructure = new PricingStructure("Conoe", 10, 0.1);
 	}
 	
 	@Test
 	void testConstructor() {
-		assertEquals(1, pricingStructure.getId());
+		assertEquals("Conoe", pricingStructure.getType());
 		assertEquals(10, pricingStructure.getAmount());
 		//assertEquals(Double.valueOf(0.10), pricingStructure.getDiscount());
 		assertEquals(0.10, pricingStructure.getDiscount());
@@ -25,10 +25,8 @@ class PricingStructureTest {
 	
 	@Test
 	void testGettersAndSetters() {
-		pricingStructure.setId(6);
-		assertEquals(6, pricingStructure.getId());	
-		pricingStructure.setName("item1");
-		assertEquals("item1", pricingStructure.getName());	
+		pricingStructure.setType("Cruiser");
+		assertEquals("Cruiser", pricingStructure.getType());	
 		pricingStructure.setAmount(20);
 		assertEquals(20, pricingStructure.getAmount());	
 		pricingStructure.setDiscount(0.20);

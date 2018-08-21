@@ -27,7 +27,7 @@
 				<hr />
 				<h:form>
 					<p:inputText value="#{loginBean.username}" a:placeholder="username"
-						required="true" />
+						required="true" a:autofocus="true"/>
 					<br />
 					<p:password class="inpass" value="#{loginBean.password}"
 						a:placeholder="password" required="true" />
@@ -39,7 +39,6 @@
 					<h:link value="Register now" outcome="/register.xhtml" />
 				</h:form>
 			</p:outputPanel>
-
 
 		</ui:define>
 	</ui:composition>

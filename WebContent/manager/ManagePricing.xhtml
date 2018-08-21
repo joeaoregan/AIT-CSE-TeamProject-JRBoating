@@ -24,13 +24,13 @@
 			<br />
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Item Name:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Boat Name:</h:outputLabel>
 				<h:selectOneMenu id="itemlist" value="#{pricingBean.id}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
 						itemLabel="-- Select item to apply pricing structure --" />
-					<f:selectItems value="#{shopBean.getItems()}" var="item"
-						itemValue="#{item.id}" itemLabel="#{item.name}" />
+					<f:selectItems value="#{boatBean.getBoatInventory()}" var="boat"
+						itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 				</h:selectOneMenu>
 				<br />
 				<br />

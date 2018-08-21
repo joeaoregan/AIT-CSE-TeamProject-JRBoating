@@ -16,6 +16,7 @@ public class OrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Boat boatSelected;
+	private User skipper;
 
 	private String boatType;
 	private ArrayList<Order> allOrders; // List of orders
@@ -23,13 +24,15 @@ public class OrderBean implements Serializable {
 
 	private int formQuantity;
 	private int formNumDays;
-	private int formDayBooked;
+	private int formDayHired;
 	private double formDeposit;
 	private double formTotalCost;
 	
 	public OrderBean() {
-		boatType = "Cruiser"; // Selects the Cruiser as default radio button
 		boatSelected = null;
+		skipper = null;
+		
+		boatType = "Cruiser"; // Selects the Cruiser as default radio button
 		currentOrder = new Order();
 		allOrders = new ArrayList<Order>();
 		
@@ -135,12 +138,12 @@ public class OrderBean implements Serializable {
 		this.formNumDays = formNumDays;
 	}
 
-	public int getFormDayBooked() {
-		return formDayBooked;
+	public int getFormDayHired() {
+		return formDayHired;
 	}
 
-	public void setFormDayBooked(int formDayBooked) {
-		this.formDayBooked = formDayBooked;
+	public void setFormDayHired(int formDayHired) {
+		this.formDayHired = formDayHired;
 	}
 
 	public double getFormDeposit() {
@@ -157,6 +160,14 @@ public class OrderBean implements Serializable {
 
 	public void setFormTotalCost(double formTotalCost) {
 		this.formTotalCost = formTotalCost;
+	}
+
+	public User getSkipper() {
+		return skipper;
+	}
+
+	public void setSkipper(User skipper) {
+		this.skipper = skipper;
 	}
 }
 

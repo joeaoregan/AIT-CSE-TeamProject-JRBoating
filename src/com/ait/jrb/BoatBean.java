@@ -16,7 +16,6 @@ public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	// Fields in form
-	private String boatID;
 	private String boatType;
 	private double price;
 	private String image;
@@ -31,7 +30,6 @@ public class BoatBean implements Serializable {
 
 	public BoatBean() { //there are 4 boats already in the arrayList when boat bean is called
 		boatInventory= new ArrayList<Boat>();
-		boatID = "";
 		boatType = "";
 		price = 0.0;
 		image = "";
@@ -65,7 +63,7 @@ public class BoatBean implements Serializable {
 	public String boatDetails(String type) {
 		for (Boat boat : boatInventory) {
 			if (boat.getType().equals(type))
-				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: "
+				return "Type: " + boat.getType() + ", Price: "
 						+ Double.toString(boat.getPrice());
 		}
 		
@@ -88,7 +86,7 @@ public class BoatBean implements Serializable {
 				return "BOAT TYPE EXISTS";
 			}
 		}
-		boat.setId("Boat" + (boatInventory.size() + 1)); // set boat id to Boat1, Boat2, etc.
+		//boat.setId("Boat" + (boatInventory.size() + 1)); // set boat id to Boat1, Boat2, etc.
 		boatInventory.add(boat);
 		return "OK";
 	}
@@ -126,14 +124,6 @@ public class BoatBean implements Serializable {
 			}
 		}
 		return null;
-	}
-
-	public String getBoatID() {
-		return boatID;
-	}
-
-	public void setBoatID(String boatID) {
-		this.boatID = boatID;
 	}
 
 	public String getProductID() {

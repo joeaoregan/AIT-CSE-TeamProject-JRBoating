@@ -55,12 +55,6 @@ class BoatBeanTest {
 	}
 
 	@Test
-	void changeBoatID() {
-		boatBean.setBoatID("123");
-		assertEquals("123", boatBean.getBoatID());
-	}
-
-	@Test
 	void changeBoatQuantity() {
 		boatBean.setQuantity(2);
 		assertEquals(2, boatBean.getQuantity());

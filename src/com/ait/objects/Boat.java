@@ -1,25 +1,29 @@
 package com.ait.objects;
 
 public class Boat {
-	//private String boatID;
-	private String id;	// shorten
 	private String type;
 	private double price;
 	private String image;
 	private int quantity;
 	private boolean canEdit;
-	// New
 	private String description;
 	private String link;
 	
 	public Boat(String type, Double price, String image, int quantity, String description, String link) {
-		this.id = ""; // id will be set in add boat
 		this.type= type;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
 		this.description=description;
 		this.link = link;
+	}
+	
+	public Boolean equals(String type) {
+		if (this.type.equalsIgnoreCase(type)) {
+			return true;
+		}			
+		
+		return false;
 	}
 		
 	public int getQuantity() {
@@ -37,13 +41,6 @@ public class Boat {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public Double getPrice() {
