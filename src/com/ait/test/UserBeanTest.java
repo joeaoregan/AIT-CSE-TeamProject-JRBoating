@@ -62,7 +62,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("123456", userBean.getPhoneNumber());
 	}
-
+/*
 	@Test
 	void testChangeIsManagerLoggedIn() {
 		UserBean.setManagerLoggedIn(true);
@@ -131,6 +131,6 @@ class UserBeanTest {
 	void testUserLoginAsSkipper() {
 		userBean.setlUsername("sk");
 		assertEquals("skipper", userBean.userLogin());
-	}
+	}*/
 
 }

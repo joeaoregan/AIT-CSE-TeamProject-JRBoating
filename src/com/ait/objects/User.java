@@ -17,13 +17,13 @@ public class User {
 	private String bio;
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
-	private Double pricePerDay;
-	private Boolean canEdit;
+	private double pricePerDay;
+	private boolean canEdit;
 
 	// Constructor
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
-			String address, String phone,String bio, String image, Double pricePerDay) {
+			String address, String phone,String bio, String image, double pricePerDay) {
 		this.type = type;
 		this.username = username;
 		this.password = password;
@@ -31,7 +31,6 @@ public class User {
 		this.lastName = lastName;
 		this.address = address;
 		this.phone = phone;
-		
 		this.bio = bio;
 		this.image = image;
 		this.pricePerDay = pricePerDay;
@@ -53,11 +52,6 @@ public class User {
 		this.password = password;
 	}
 
-	/*
-	 * public String getUserType() { return userType; }
-	 * 
-	 * public void setUserType(String userType) { this.userType = userType; }
-	 */
 	public String getFirstName() {
 		return firstName;
 	}
@@ -122,11 +116,11 @@ public class User {
 		this.passwordConfirmation = passwordConfirmation;
 	}
 
-	public Double getPricePerDay() {
+	public double getPricePerDay() {
 		return pricePerDay;
 	}
 
-	public void setPricePerDay(Double pricePerDay) {
+	public void setPricePerDay(double pricePerDay) {
 		this.pricePerDay = pricePerDay;
 	}
 

@@ -12,13 +12,9 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", "manager");
-		//user = new User("Joe", "Doe", "root", "admin", "16 Main Road, Athlone", "123456", User.MANAGER);
-		
-
 		user = new User(User.MANAGER, "root", "admin", "admin", 
 				"Joe", "Doe", 
-				"16 Main Road, Athlone", "123456", "bio", "profile.jpg", 0.0);
+				"16 Main Road, Athlone", "123456", "bio", "profile.jpg", 40.0);
 	}
 
 	@Test
@@ -29,8 +25,11 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-		//assertEquals("manager", user.getUserType());
-		assertEquals("manager", user.getType());
+		assertEquals("bio", user.getBio());
+		assertEquals("profile.jpg", user.getImage());
+		assertEquals(40.0, user.getPricePerDay(),0.00002);
+		
+		
 	}
 
 	@Test
@@ -45,6 +44,12 @@ class UserTest {
 		assertEquals("pass", user.getPassword());
 	}
 
+	@Test
+	void testPasswordConfirmationChanged() {
+		user.setPasswordConfirmation("any");
+		assertEquals("any", user.getPasswordConfirmation());
+	}
+	
 	@Test
 	void testFirstNameChanged() {
 		user.setFirstName("David");
@@ -70,11 +75,33 @@ class UserTest {
 	}
 
 	@Test
-	void testUserTypeChanged() {
-		//user.setUserType("frontDesk");
-		user.setType(User.FRONT_DESK_STAFF);
-		//assertEquals("frontDesk", user.getUserType());
-		assertEquals("frontDesk", user.getType());
+	void testTypeChanged() {
+		user.setType(user.CUSTOMER);
+		assertEquals(user.CUSTOMER, user.getType());
+	}
+	@Test
+	void testBioChanged() {
+		user.setBio("bioTest");
+		assertEquals("bioTest", user.getBio());
 	}
 
+	@Test
+	void testImageChanged() {
+		user.setImage("boat1.jpg");
+		assertEquals("boat1.jpg", user.getImage());
+	}
+	
+	@Test
+	void testPricePerDayChanged() {
+		user.setPricePerDay(50.0);
+		assertEquals(50.0, user.getPricePerDay(),0.00002);
+	}
+	
+	@Test
+	void testCanEditChanged() {
+		user.setCanEdit(true);
+		assertEquals(true, user.getCanEdit());
+	}
+	
+	
 }
