@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ait.jrb.*;
+import com.ait.objects.PricingStructure;
 
 class TestPricingStructure {
 	PricingStructure pricingStructure;
