@@ -61,10 +61,7 @@
 						id="phone" requiredMessage="Phone number required"
 						a:placeholder="Phone Number" />
 					<p:message for="phone" />
-
-
-
-
+					
 					<p:inputText value="#{registerBean.bio}" id="bio"
 						a:placeholder="About" />
 					<p:message for="bio" />
@@ -84,10 +81,13 @@
 					<h:dataTable value="#{userBean.userList}" var="row"
 						styleClass="displayTable" headerClass="displayTableHeader"
 						rowClasses="displayTableOddRow,displayTableEvenRow">
+						
 						<h:column>
 							<f:facet name="header">Username</f:facet>
-							<h:outputText value="#{row.username}" />
+							<h:inputText value="#{row.username}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.username}" rendered="#{!row.canEdit}" />
 						</h:column>
+						
 						<h:column>
 							<f:facet name="header">Password</f:facet>
 							<h:inputText value="#{row.password}" rendered="#{row.canEdit}" />

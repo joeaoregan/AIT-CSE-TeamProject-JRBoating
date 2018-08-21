@@ -9,8 +9,6 @@
 <body>
 	<ui:composition>
 
-		<h3>User View/Edit details (ViewAndEditUserDetails.xhtml - Start)</h3>
-
 		<h:graphicImage library="images"
 			name="#{loginBean.loggedUser.getImage()}" />
 			
@@ -25,12 +23,7 @@
 				itle="Update username " />
 			<br />
 			<h:outputLabel styleClass="formLabel">Password:</h:outputLabel>
-			<h:inputSecret id="password" value="#{loginBean.loggedUser.password}"
-				title="Update Password " />
-			<br />
-			<h:outputLabel styleClass="formLabel">Confirm Password:</h:outputLabel>
-			<h:inputSecret id="confirmPassword"
-				value="#{loginBean.loggedUser.passwordConfirmation}"
+			<h:inputText id="password" value="#{loginBean.loggedUser.password}"
 				title="Update Password " />
 			<br />
 			<h:outputLabel styleClass="formLabel">First Name:</h:outputLabel>
@@ -49,16 +42,10 @@
 			<h:inputText id="image" value="#{loginBean.loggedUser.image}"
 				title="Update Image" />
 			<br />
-			<h:outputLabel styleClass="formLabel">Bio:</h:outputLabel>
-			<h:inputTextarea id="bio" value="#{loginBean.loggedUser.bio}"
-				title="Update Bio" rows="5" cols="21" />
-			<br />
 
 			<h:commandButton value="Save Changes" action="#{userBean.saveAction}"
 				styleClass="ActionButton" />
 		</h:form>
-
-		<h3>User View/Edit details (ViewAndEditUserDetails.xhtml - End)</h3>
 
 	</ui:composition>
 

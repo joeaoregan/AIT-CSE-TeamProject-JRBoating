@@ -15,6 +15,35 @@
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
+
+		<ui:define name="content">
+			<h2 class="heading">Skipper Account</h2>
+			<h2 class="heading">View / Edit Basic Account Details</h2>
+
+			<!-- Use form in file ViewAndEditUserDetails.xhtml for all user account pages -->
+			<ui:include src="/forms/UserViewEditAccountDetails.xhtml">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+
+			<h:form>
+				<h2 class="heading">Additional Skipper Details</h2>
+
+				<h:outputLabel styleClass="formLabel">Price Per Day:</h:outputLabel>
+				<h:inputText id="price" value="#{loginBean.loggedUser.pricePerDay}"
+					title="Cost To Hire For Day" />
+				<br />
+				
+				<h:outputLabel styleClass="formLabel">Bio:</h:outputLabel>
+				<h:inputTextarea id="bio" value="#{loginBean.loggedUser.bio}"
+					title="Update Bio" rows="5" cols="21" />
+				<br />
+				
+				<h:commandButton value="Save Changes"
+					action="#{userBean.saveAction}" styleClass="ActionButton" />
+			</h:form>
+
+		</ui:define>
+
 	</ui:composition>
 </h:body>
 </html>
