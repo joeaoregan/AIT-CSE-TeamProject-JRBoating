@@ -15,7 +15,7 @@ class UserBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		userBean= new UserBean();
+		userBean = new UserBean();
 	}
 
 	@Test
@@ -53,146 +53,166 @@ class UserBeanTest {
 		userBean.setAddress("Test");
 		assertEquals("Test", userBean.getAddress());
 	}
+
 	@Test
 	void testChangePhone() {
 		userBean.setPhone("0871234567");
 		assertEquals("0871234567", userBean.getPhone());
 	}
+
 	@Test
 	void testChangeType() {
 		userBean.setType(2);
 		assertEquals(2, userBean.getType());
 	}
+
 	@Test
 	void testChangeBio() {
 		userBean.setBio("test");
 		assertEquals("test", userBean.getBio());
 	}
+
 	@Test
 	void testChangeImage() {
 		userBean.setImage("Test2");
 		assertEquals("Test2", userBean.getImage());
 	}
+
 	@Test
 	void testChangePricePerDay() {
 		userBean.setPricePerDay(1.23);
 		assertEquals(Double.valueOf(1.23), userBean.getPricePerDay());
 	}
+
 	@Test
 	void testUserAdded() {
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		assertEquals("USER ADDED OK", userBean.addUser(sorcha));
 	}
+
 	@Test
 	void testUserNotAdded() {
-		//User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-		//		"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		// User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf",
+		// "Sorcha", "Bruton",
+		// "Athlone", "0870481216", "", "profile.jpg", 0.0);
 		assertEquals("INVALID USER", userBean.addUser(null));
-	}	
+	}
+
 	@Test
 	void testUsernameNotUnique() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
 		assertEquals(true, userBean.checkUniqueUsername("sorcha"));
 	}
+
 	@Test
 	void testUsernameUnique() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
 		assertEquals(false, userBean.checkUniqueUsername("sally"));
 	}
+
 	@Test
 	void testChangeUserList() {
-		ArrayList<User> userListTest= new ArrayList<User>();
+		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
 		assertEquals(userListTest, userBean.getUserList());
 	}
+
 	@Test
 	void testDisplayTypeManager() {
-		assertEquals("Manager", userBean.displayType(1));	
+		assertEquals("Manager", userBean.displayType(1));
 	}
+
 	@Test
 	void testDisplayTypeCustomer() {
-		assertEquals("Customer", userBean.displayType(0));	
+		assertEquals("Customer", userBean.displayType(0));
 	}
+
 	@Test
 	void testDisplayTypeFrontDesk() {
-		assertEquals("Front Desk Staff", userBean.displayType(3));	
+		assertEquals("Front Desk Staff", userBean.displayType(3));
 	}
+
 	@Test
 	void testDisplayTypeSkipper() {
-		assertEquals("Skipper", userBean.displayType(2));	
+		assertEquals("Skipper", userBean.displayType(2));
 	}
+
 	@Test
 	void testDisplayTypeInvalid() {
-		assertEquals(null, userBean.displayType(5));	
+		assertEquals(null, userBean.displayType(5));
 	}
+
 	@Test
 	void testPasswordDontMatch() {
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf1");
 		assertEquals("Passwords Don't match", userBean.registerCustomerHandler());
 	}
+
 	@Test
 	void testPasswordsMatch() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
 		assertEquals("OK", userBean.registerCustomerHandler());
 	}
+
 	@Test
 	void testUsernameNotUniqueCustomerHandler() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
 		assertEquals("OK", userBean.registerCustomerHandler());
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
 		assertEquals("Username Already Exists", userBean.registerCustomerHandler());
 	}
+
 	@Test
 	void testUserCount() {
-		ArrayList<User> userListTest= new ArrayList<User>();
+		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
-		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
-				"Athlone", "0873691215", "", "profile.jpg", 0.0);
+		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", "Athlone", "0873691215", "",
+				"profile.jpg", 0.0);
 		userBean.addUser(kiev);
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha);
 		assertEquals(2, userBean.userCount());
 	}
+
 	@Test
 	void testGetUserByUsername() {
-		ArrayList<User> userListTest= new ArrayList<User>();
+		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
+				"0870481216", "", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		assertEquals(sorcha1, userBean.getUserByUsername("sorcha"));
 	}
+
 	@Test
 	void testGetUserByUsernameNotFound() {
-		ArrayList<User> userListTest= new ArrayList<User>();
+		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
 		assertEquals(null, userBean.getUserByUsername("sorcha"));
 	}
 }
