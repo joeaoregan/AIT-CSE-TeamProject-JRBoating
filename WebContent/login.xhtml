@@ -19,31 +19,49 @@
 			</ui:include>
 		</ui:define>
 
+
 		<ui:define name="content">
-			<!-- Variables -->
-			<h2 class="heading">JR Boating: Home</h2>
-
-			<!-- Why is there 2 id's? -->
-			<div id="main">
-				<div class="logReg">
-					<div id="logDiv">
-						<h:form>
-							<h3>Already a member?</h3>
-							<hr />
-							<h:inputText id="lUsername" a:placeholder="Enter username"
-								value="#{loginBean.username}" />
-							<h:inputSecret id="lPassword" a:placeholder="Enter password"
-								value="#{loginBean.password}" />
-
-							<h:commandButton value="Sign In"
-								action="#{loginBean.loginHandler}" />
-								
-						</h:form>
-					</div>
-				</div>
-			</div>
-
+			
+				<p:outputPanel id="loginDiv">
+					<h4>Already a member?</h4>
+					<hr />
+					<h:form>
+						<p:inputText value="#{loginBean.username}"
+							a:placeholder="username" required="true" />
+						<br />
+						<p:password class="inpass" value="#{loginBean.password}"
+							a:placeholder="password" required="true" />
+						<br />
+						<p:commandButton value="Login" action="#{loginBean.loginHandler}" />
+					</h:form>
+				</p:outputPanel>
+			
 		</ui:define>
+
+		<!-- 		<ui:define name="content"> -->
+		<!-- Variables -->
+		<!-- 			<h2 class="heading">JR Boating: Home</h2> -->
+
+
+		<!-- 			<div id="main"> -->
+
+		<!-- 					<div id="logDiv"> -->
+		<!-- 						<h:form> -->
+		<!-- 							<h3>Already a member?</h3> -->
+		<!-- 							<hr /> -->
+		<!-- 							<h:inputText id="lUsername" a:placeholder="Enter username" -->
+		<!-- 								value="#{loginBean.username}" /> -->
+		<!-- 							<h:inputSecret id="lPassword" a:placeholder="Enter password" -->
+		<!-- 								value="#{loginBean.password}" /> -->
+
+		<!-- 							<h:commandButton value="Sign In" -->
+		<!-- 								action="#{loginBean.loginHandler}" /> -->
+
+		<!-- 						</h:form> -->
+		<!-- 					</div> -->
+		<!-- 			</div> -->
+
+		<!-- 		</ui:define> -->
 	</ui:composition>
 </h:body>
 </html>

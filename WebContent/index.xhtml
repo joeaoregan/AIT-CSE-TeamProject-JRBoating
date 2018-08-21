@@ -26,10 +26,58 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<!-- Variables -->
-			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
+			<div>
+				<p:imageSwitch effect="shuffle" id="fadeEffect">
+					<ui:repeat var="image" value="#{imageView.images}"
+						id="fadeEffectImages">
 
-			<!-- id main moved to template file -->
+						<p:graphicImage style="height:400px;width:100%;"
+							value="http://localhost:8080/jrboating-master678/resources/image/#{image}" />
+					</ui:repeat>
+				</p:imageSwitch>
+
+			</div>
+
+
+			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
+			<p>
+				Located on the banks of the river Shannon, we here at JR Boating
+				have everything you need to make your trip down the river Shannon a
+				luxurious and enjoyable experience. From the convenience of your
+				home,
+				<p:link outcome="register.xhtml" value="Register" />
+				with us today and
+				<p:link outcome="login.xhtml" value="Book Online" />
+				and choose from our range of
+				<p:button href="BoatDescriptionPage.jsf" value="Boats" />
+
+			</p>
+			<ul>
+				<li><a href="BoatDetailsTabbed.xhtml#canalbarges">Canal
+						Barges</a></li>
+				<li><a href="BoatDetailsTabbed.xhtml#canoe">Canoes</a></li>
+				<li><a href="BoatDetailsTabbed.xhtml#cruiser">Cruisers</a></li>
+				<li><a href="BoatDetailsTabbed.xhtml#sailingboat">Sailing
+						Boats</a></li>
+				<li><a href="BoatDetailsTabbed.xhtml">Canal Barges</a></li>
+				<li><a href="BoatDetailsTabbed.jsf">Canoes jsf</a></li>
+				<li><a href="BoatDetailsTabbed.jsf#sailingboat">Canoes jsf
+						id</a></li>
+			</ul>
+			<br />
+			<br />
+
+			<p>
+				Never sailed before? No problem! We have experienced Skippers
+				available to join you for a day of your trip and help you learn
+				everything you need to know to make your trip down the river Shannon
+				a trip to remember.
+				<p:button href="CustomerBooking.jsf" value="Book Online" />
+				or contact us today to start your adventure with us.
+			</p>
+
+
+			<hr />
 			<div id="searchDiv">
 				<h1>Search for Boat</h1>
 
