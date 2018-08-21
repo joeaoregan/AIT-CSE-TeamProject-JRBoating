@@ -16,25 +16,25 @@ public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String boatID;
 	private String boatType;
-	private Double price;
+	private double price;
 	private String image;
 	private int quantity;
 	private String description;
-
 	private String productID; // Used in boat.xhtml but not declared
 	private String sboatType;
 	private String infoMessage;
 
-	private ArrayList<Boat> boatInventory = new ArrayList<Boat>();
+	private ArrayList<Boat> boatInventory; 
 
-	public BoatBean() {
+	public BoatBean() { //there are 4 boats already in the arrayList when boat bean is called
+		boatInventory= new ArrayList<Boat>();
 		boatID = "";
 		boatType = "";
 		price = 0.0;
 		image = "";
 		quantity = 0;
 		description = "";
-		
+
 		infoMessage = "Add a new boat";
 
 		// Add boats to boat list
@@ -43,7 +43,7 @@ public class BoatBean implements Serializable {
 		addNewBoat(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10, "Sailing Boat description"));
 		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10, "Canoe description"));
 	}
-	
+
 	/*
 	 * Manage inventory edit/save form details
 	 */
@@ -51,7 +51,8 @@ public class BoatBean implements Serializable {
 		boat.setCanEdit(true);
 		return null;
 	}
-	public String saveAction() {		
+
+	public String saveAction() {
 		for (Boat boat : boatInventory) {
 			boat.setCanEdit(false);
 		}
@@ -61,29 +62,27 @@ public class BoatBean implements Serializable {
 	public String boatDetails(String type) {
 		for (Boat boat : boatInventory) {
 			if (boat.getType().equals(type))
-				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: " + Double.toString(boat.getPrice());
+				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: "
+						+ Double.toString(boat.getPrice());
 		}
 		return null;
 	}
-	
+
 	public String addBoatHandler() {
 		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity, description));
-		
+
 		return null;
 	}
-	
+
 	public String addNewBoat(Boat boat) {
 		if (boat == null) {
 			return "INVALID BOAT";
 		}
 
 		for (Boat aboat : boatInventory) {
-			if (aboat.getType().equalsIgnoreCase(boat.getType())) {
+			if (aboat.getId().equalsIgnoreCase(boat.getId())) {
 				return "BOAT TYPE EXISTS";
 			}
-		}
-		for (Boat aboat : boatInventory) {
-			
 		}
 		boat.setId("Boat" + (boatInventory.size() + 1)); // set boat id to Boat1, Boat2, etc.
 		boatInventory.add(boat);
@@ -111,13 +110,14 @@ public class BoatBean implements Serializable {
 	public ArrayList<Boat> getBoatInventory() {
 		return boatInventory;
 	}
+
 	public void setBoatInventory(ArrayList<Boat> boatInventory) {
 		this.boatInventory = boatInventory;
 	}
 
-	public Boat findBoat(String boatType) {
+	public Boat findBoat(String boatID) {
 		for (Boat aBoat : boatInventory) {
-			if (aBoat.getType().equalsIgnoreCase(boatType)) {
+			if (aBoat.getId().equalsIgnoreCase(boatID)) {
 				return aBoat;
 			}
 		}
@@ -189,7 +189,6 @@ public class BoatBean implements Serializable {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
 
 	public String getInfoMessage() {
 		return infoMessage;

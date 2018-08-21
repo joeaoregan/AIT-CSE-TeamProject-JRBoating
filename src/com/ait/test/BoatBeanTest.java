@@ -13,7 +13,7 @@ import com.ait.objects.Boat;
 
 class BoatBeanTest {
 
-	BoatBean boatBean;
+	BoatBean boatBean; //4 boats are added in the constructor
 	Boat boat;
 
 	@BeforeEach
@@ -22,6 +22,9 @@ class BoatBeanTest {
 		boatBean = new BoatBean();
 	}
 
+	
+	
+	
 	@Test
 	void changeBoatType() {
 		boatBean.setBoatType("Boat1");
@@ -41,6 +44,18 @@ class BoatBeanTest {
 	}
 
 	@Test
+	void changeInfoMessage() {
+		boatBean.setInfoMessage("Test");
+		assertEquals("Test", boatBean.getInfoMessage());
+	}
+	
+	@Test
+	void changeDescription() {
+		boatBean.setDescription("Test");
+		assertEquals("Test", boatBean.getDescription());
+	}
+	
+	@Test
 	void changePrice() {
 		boatBean.setPrice(3.25);
 		assertEquals(Double.valueOf(3.25), boatBean.getPrice());
@@ -53,44 +68,48 @@ class BoatBeanTest {
 	}
 
 	@Test
-	void testAddBoat() {
+	void testAddBoatOK() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals(5, boatBean.boatCount());
+		
+	}
+	
+	@Test
+	void testAddBoatNull() {
 		assertEquals("INVALID BOAT", boatBean.addNewBoat(null));
-		assertEquals(1, boatBean.boatCount());
+		assertEquals(4, boatBean.boatCount());
+		
 	}
 
 	@Test
 	void testAddSameBoatAgain() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
-		assertEquals(1, boatBean.boatCount());
+		assertEquals(5, boatBean.boatCount());
 		assertEquals("BOAT TYPE EXISTS", boatBean.addNewBoat(boat));
-		assertEquals(1, boatBean.boatCount());
+		assertEquals(5, boatBean.boatCount());
 	}
 
 	@Test
-	void testRemoveBoat() {
-		assertEquals("BOAT TYPE EXISTS", boatBean.addNewBoat(boat));
-		assertEquals(1, boatBean.boatCount());
-		boatBean.removeBoat(boat);
-		assertEquals(null, boatBean.boatCount());
+	void testRemoveBoatOK() {
+		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals(null, boatBean.removeBoat(boat));
+		assertEquals(4, boatBean.boatCount());
 	}
+	
+	
 
 	@Test
 	void testFindBoat() {
-		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
-		boatBean.addNewBoat(boat);
-		assertEquals(1, boatBean.boatCount());
-		assertEquals(boat, boatBean.findBoat("Cruiser"));
+		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals(5, boatBean.boatCount());
+		assertEquals(boat, boatBean.findBoat("Boat5"));
 	}
 	
 
 	@Test
 	void testFindBoatFailed() {
 		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
-		boatBean.addNewBoat(boat);
-		boatBean.removeBoat(boat);
-		//assertEquals(0, boatBean.boatCount());
-		assertEquals(1, boatBean.findBoat("Cruiser"));
+		assertEquals(null, boatBean.findBoat("333"));
 	}
 
 
