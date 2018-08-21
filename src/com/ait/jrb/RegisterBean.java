@@ -51,7 +51,7 @@ public class RegisterBean {
 	}
 
 	public String register2() {
-		return ("RegistrationVerify");
+		return ("/customer/RegistrationVerify.xhtml");
 	}
 
 	private String firstLetter(String s) {

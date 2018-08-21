@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Search" />
+		<ui:param name="heading" value="Search Results" />
+
+		<ui:define name="menu" id="header">
+			<ui:include
+				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<!-- Variables -->
+			<h1>Search Results:</h1>
+			<h2>
+				<h:outputText value="#{searchBoatBean.message}" />
+			</h2>
+
+			<h:form rendered="#{searchBoatBean.rendered}">
+				<h:graphicImage library="image"
+					name="#{searchBoatBean.getBoat().getImage()}" />
+
+				<ul>
+					<li><b>Type:</b> #{searchBoatBean.getBoat().getType()}</li>
+					<li><b>Price Per Day:</b>
+						#{searchBoatBean.getBoat().getPrice()}</li>
+					<li><b>Quantity In Stock:</b>
+						#{searchBoatBean.getBoat().getQuantity()}</li>
+					<li><b>Description:</b>
+						#{searchBoatBean.getBoat().getDescription()}</li>
+				</ul>
+
+				<h:link value="Go to #{searchBoatBean.getBoat().getType()}"
+					outcome="#{searchBoatBean.getBoat().getLink()}" />
+			</h:form>
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+
