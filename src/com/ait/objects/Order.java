@@ -31,6 +31,8 @@ public class Order {
 	Double deposit;								// 10% of the boat price
 	Double totalPricePayNow;					// Skipper cost + boat deposit cost up front to secure the boat, and amount that needs to be paid now
 	Double remainingPrice;						// Price to pay on the day
+
+	private boolean canEdit;
 	
 	public Order() {
 		id = "";
@@ -62,7 +64,14 @@ public class Order {
 		this.totalPricePayNow = totalPricePayNow;	// will be the same as deposit if no equipment is purchased
 		this.remainingPrice = remainingPrice;
 	}
-	
+
+	public boolean isCanEdit() {
+		return canEdit;
+	}
+
+	public void setCanEdit(boolean canEdit) {
+		this.canEdit = canEdit;
+	}
 	public String getId() {
 		return id;
 	}

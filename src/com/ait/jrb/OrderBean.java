@@ -28,6 +28,7 @@ public class OrderBean implements Serializable {
 	private double formDeposit;
 	private double formTotalCost;
 	
+	
 	public OrderBean() {
 		boatSelected = null;
 		skipper = null;
@@ -169,6 +170,7 @@ public class OrderBean implements Serializable {
 	public void setSkipper(User skipper) {
 		this.skipper = skipper;
 	}
+
 }
 
 // order = new Order(id, custUsername, boat, quantity, numDays, skipper,
