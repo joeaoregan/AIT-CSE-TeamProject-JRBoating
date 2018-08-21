@@ -34,7 +34,7 @@ body {
 	backgound: linear-gradient(to right,#2193b0,#6dd5ed );
 }
 
-input[type=text] {
+input[type=text],input[type=password] {
 	width: 350px;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -147,4 +147,11 @@ input[type=text] {
 .displayTableEvenRow {
 	text-align: center;
 	background: none repeat scroll 0 0 #D3D3D3;
+}
+#loginDiv {
+	margin: auto;
+	width: 30%;
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
 }
