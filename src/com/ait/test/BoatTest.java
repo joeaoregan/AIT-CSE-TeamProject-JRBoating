@@ -12,7 +12,7 @@ class BoatTest {
 	Boat boat;
 	@BeforeEach
 	void setUp() {
-		boat = new Boat("Cruiser", 1.23, "image", 1, "description");
+		boat = new Boat("Cruiser", 1.23, "image", 1, "description","link");
 	}
 
 	@Test

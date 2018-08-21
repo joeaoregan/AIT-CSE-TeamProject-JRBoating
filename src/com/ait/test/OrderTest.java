@@ -9,7 +9,7 @@ import com.ait.objects.Boat;
 import com.ait.objects.Order;
 import com.ait.objects.User;
 
-class TestOrder {
+class OrderTest {
 	
 	Order order;
 	//Order order1;
@@ -22,7 +22,7 @@ class TestOrder {
 		
 		skipper = new User(User.SKIPPER, "skip", "pass", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio",
 		"profile.jpg", 0.0);
-		boat = new Boat("Cruiser", 100.0, "image", 1, "description");		
+		boat = new Boat("Cruiser", 100.0, "image", 1, "description", "link");		
 		
 		order = new  Order("Order1", "joe1", boat, 1, 10, skipper, 5, 100.0, 0.0, 110.0,
 				110, 90);
@@ -46,7 +46,7 @@ class TestOrder {
 	void testOrderGetBoat() {
 		assertEquals(boat, order.getBoat());
 
-		Boat boat2 = new Boat("Canoe", 50.0, "image", 1, "description");
+		Boat boat2 = new Boat("Canoe", 50.0, "image", 1, "description", "link");
 		order.setBoat(boat2);
 		assertEquals(boat2, order.getBoat());
 	}

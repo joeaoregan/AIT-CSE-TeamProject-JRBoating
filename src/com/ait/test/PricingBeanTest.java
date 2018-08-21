@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.ait.jrb.PricingBean;
 import com.ait.objects.PricingStructure;
 
-class TestPricingBean {
+class PricingBeanTest {
 
 	PricingBean pricingBean;
 
