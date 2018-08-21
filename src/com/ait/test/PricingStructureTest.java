@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import com.ait.objects.PricingStructure;
 
-class TestPricingStructure {
+class PricingStructureTest {
 	PricingStructure pricingStructure;
 	
 	@BeforeEach
