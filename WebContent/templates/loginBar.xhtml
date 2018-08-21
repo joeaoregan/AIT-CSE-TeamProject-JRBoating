@@ -4,12 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <body>
 	<ui:composition>
 		<h3>LOGIN NAV BAR</h3>
+
+		<h:form rendered="#{loginBean.getShowUserLogIn()}">
+			<h:commandButton value="Login" action="/login.xhtml"
+				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+			<br />
+		</h:form>
+
+		<h:form rendered="#{loginBean.getShowUserLogOut()}">
+			<h:commandButton value="Logout: #{loginBean.getLoggedUser().getFirstName()}"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
+			<br />
+			<h:outputText
+				value="Logged in as: #{loginBean.displayType(loginBean.getLoggedUser().getType())}" />
+		</h:form>
 	</ui:composition>
 </body>
 </html>
