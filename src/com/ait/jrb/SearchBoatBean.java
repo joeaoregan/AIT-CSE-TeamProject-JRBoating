@@ -20,13 +20,12 @@ public class SearchBoatBean implements Serializable {
 
 	public SearchBoatBean() {
 		boat = null;
+		typeSearched = "";
+		message = "";
 		rendered = "false";
 	}
 	
-
 	public String searchHandler() {
-		//System.out.println(searchBoat(typeSearched));
-		
 		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
 			return "/customer/SearchVerify.xhtml";
 		}
@@ -91,15 +90,3 @@ public class SearchBoatBean implements Serializable {
 		this.rendered = rendered;
 	}
 }
-
-// private String type;
-// private double price;
-// private String image;
-// private int quantity;
-// private String description;
-
-// this.type = boat.getType();
-// this.price = boat.getPrice();
-// this.image = boat.getImage();
-// this.quantity = boat.getQuantity();
-// this.description = boat.getDescription();
