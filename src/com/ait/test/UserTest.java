@@ -13,14 +13,8 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-<<<<<<< HEAD
-		user = new User(User.MANAGER, "root", "admin", "admin", 
-				"Joe", "Doe", 
-				"16 Main Road, Athlone", "123456", "bio", "profile.jpg", 40.0);
-=======
 		user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
-				"profile.jpg", 0.0);
->>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
+				"profile.jpg", 40.0);
 	}
 
 	@Test
@@ -31,21 +25,10 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-<<<<<<< HEAD
 		assertEquals("bio", user.getBio());
 		assertEquals("profile.jpg", user.getImage());
-		assertEquals(Double.valueOf(0.0), user.getPricePerDay());
-=======
-<<<<<<< HEAD
-		assertEquals("bio", user.getBio());
-		assertEquals("profile.jpg", user.getImage());
-		assertEquals(40.0, user.getPricePerDay(),0.00002);
-		
-		
-=======
+		assertEquals(40.0, user.getPricePerDay(), 0.00002);
 		assertEquals(User.MANAGER, user.getType());
->>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 	}
 
 	@Test
@@ -65,7 +48,7 @@ class UserTest {
 		user.setPasswordConfirmation("any");
 		assertEquals("any", user.getPasswordConfirmation());
 	}
-	
+
 	@Test
 	void testFirstNameChanged() {
 		user.setFirstName("David");
@@ -91,96 +74,45 @@ class UserTest {
 	}
 
 	@Test
-<<<<<<< HEAD
-	void testChangeBio() {
-		user.setBio("test");
-		assertEquals("test", user.getBio());
-	}
-	@Test
-	void testChangeImage() {
-		user.setImage("test2");
-		assertEquals("test2", user.getImage());
-	}
-	@Test
-	void testChangePricePerDay() {
-		user.setPricePerDay(1.23);
-		assertEquals(Double.valueOf(1.23), user.getPricePerDay());
-	}
-	@Test
-	void testPasswordConfirmation() {
-		user.setPasswordConfirmation("test3");
-		assertEquals("test3", user.getPasswordConfirmation());
-	}
-	@Test
-	void testUserEditable() {
-		user.setCanEdit(true);
-		assertEquals(true, user.getCanEdit());
-=======
-<<<<<<< HEAD
 	void testTypeChanged() {
 		user.setType(user.CUSTOMER);
 		assertEquals(user.CUSTOMER, user.getType());
 	}
+
 	@Test
 	void testBioChanged() {
 		user.setBio("bioTest");
 		assertEquals("bioTest", user.getBio());
-=======
-	void testUserTypeChanged() {
-		user.setType(User.FRONT_DESK_STAFF);
-		assertEquals(User.FRONT_DESK_STAFF, user.getType());
->>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 	}
 
 	@Test
-<<<<<<< HEAD
 	void testImageChanged() {
 		user.setImage("boat1.jpg");
 		assertEquals("boat1.jpg", user.getImage());
 	}
-	
-	@Test
-	void testPricePerDayChanged() {
-		user.setPricePerDay(50.0);
-		assertEquals(50.0, user.getPricePerDay(),0.00002);
-	}
-	
+
 	@Test
 	void testCanEditChanged() {
 		user.setCanEdit(true);
 		assertEquals(true, user.getCanEdit());
 	}
-	
-	
-=======
-	void testUserBiography() {
+
+	@Test
+	void testUserBiographyChanged() {
 		user.setBio("biography");
 		assertEquals("biography", user.getBio());
 	}
-	
+
 	@Test
-	void testUserImage() {
+	void testUserImageChanged() {
 		user.setImage("profile.jpg");
 		assertEquals("profile.jpg", user.getImage());
 	}
-	
+
 	@Test
-	void testUserPasswordConfirmation() {
-		user.setPasswordConfirmation("password");
-		assertEquals("password", user.getPasswordConfirmation());
-	}
-	
-	@Test
-	void testUserSkipperPricePerDay() {
+	void testUserSkipperPricePerDayChanged() {
 		user.setPricePerDay(100.0);
-		assertEquals(Double.valueOf(100.0), user.getPricePerDay());
+		assertEquals(Double.valueOf(100.0), user.getPricePerDay(), 0.00002);
 	}
-	
-	@Test
-	void testUserCanEdit() {
-		user.setCanEdit(true);
-		assertTrue(user.getCanEdit());
-	}
->>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
+
 }
