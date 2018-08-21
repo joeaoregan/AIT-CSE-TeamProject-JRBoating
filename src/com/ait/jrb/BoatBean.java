@@ -59,12 +59,13 @@ public class BoatBean implements Serializable {
 		return null;
 	}
 
-	public String boatDetails(String type) {
+	public String boatDetails(String productID) {
 		for (Boat boat : boatInventory) {
-			if (boat.getType().equals(type))
+			if (boat.getId().equals(productID))
 				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: "
 						+ Double.toString(boat.getPrice());
 		}
+		
 		return null;
 	}
 

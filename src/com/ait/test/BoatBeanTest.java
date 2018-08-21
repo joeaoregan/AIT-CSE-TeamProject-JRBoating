@@ -13,7 +13,7 @@ import com.ait.objects.Boat;
 
 class BoatBeanTest {
 
-	BoatBean boatBean; //4 boats are added in the constructor
+	BoatBean boatBean; // 4 boats are added in the constructor
 	Boat boat;
 
 	@BeforeEach
@@ -22,9 +22,32 @@ class BoatBeanTest {
 		boatBean = new BoatBean();
 	}
 
-	
-	
-	
+	@Test
+	void testEditItemNull() {
+		boat.setCanEdit(true);
+		assertEquals(null, boatBean.editItem(boat));
+	}
+
+	@Test
+	void testsaveAction() {
+		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals(5, boatBean.boatCount());
+		boat.setCanEdit(false);
+		assertEquals(null, boatBean.saveAction());
+	}
+
+	@Test
+	void testBoatDetails() { // 4 boats are already added in constructor. Next boat added
+								// will be id=5
+		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals("ID: Boat5, Type: Cruiser, Price: 100.25", boatBean.boatDetails("Boat5"));
+	}
+
+	@Test
+	void testBoatDetailsReturnNull() {
+		assertEquals(null, boatBean.boatDetails("Boat222"));
+	}
+
 	@Test
 	void changeBoatType() {
 		boatBean.setBoatType("Boat1");
@@ -48,13 +71,13 @@ class BoatBeanTest {
 		boatBean.setInfoMessage("Test");
 		assertEquals("Test", boatBean.getInfoMessage());
 	}
-	
+
 	@Test
 	void changeDescription() {
 		boatBean.setDescription("Test");
 		assertEquals("Test", boatBean.getDescription());
 	}
-	
+
 	@Test
 	void changePrice() {
 		boatBean.setPrice(3.25);
@@ -71,14 +94,14 @@ class BoatBeanTest {
 	void testAddBoatOK() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(5, boatBean.boatCount());
-		
+
 	}
-	
+
 	@Test
 	void testAddBoatNull() {
 		assertEquals("INVALID BOAT", boatBean.addNewBoat(null));
 		assertEquals(4, boatBean.boatCount());
-		
+
 	}
 
 	@Test
@@ -95,8 +118,6 @@ class BoatBeanTest {
 		assertEquals(null, boatBean.removeBoat(boat));
 		assertEquals(4, boatBean.boatCount());
 	}
-	
-	
 
 	@Test
 	void testFindBoat() {
@@ -104,7 +125,6 @@ class BoatBeanTest {
 		assertEquals(5, boatBean.boatCount());
 		assertEquals(boat, boatBean.findBoat("Boat5"));
 	}
-	
 
 	@Test
 	void testFindBoatFailed() {
@@ -112,7 +132,12 @@ class BoatBeanTest {
 		assertEquals(null, boatBean.findBoat("333"));
 	}
 
-
+	@Test
+	void testSearchBoats() {
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
+		assertEquals(null, boatBean.findBoat("333"));
+	}
+	
 	@Test
 	void testBoatTypeAvailable() {
 		boat = new Boat("Canoe", 100.25, "image", 1, "description");
@@ -147,5 +172,5 @@ class BoatBeanTest {
 	void testSBoatType() {
 		boatBean.setSboatType("test");
 		assertEquals("test", boatBean.getSboatType());
-	}	
+	}
 }
