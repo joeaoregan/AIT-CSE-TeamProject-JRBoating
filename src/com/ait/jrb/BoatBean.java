@@ -116,9 +116,9 @@ public class BoatBean implements Serializable {
 		this.boatInventory = boatInventory;
 	}
 
-	public Boat findBoat(String boatID) {
+	public Boat findBoat(String type) {
 		for (Boat aBoat : boatInventory) {
-			if (aBoat.getId().equalsIgnoreCase(boatID)) {
+			if (aBoat.getType().equalsIgnoreCase(type)) {
 				return aBoat;
 			}
 		}
@@ -127,8 +127,6 @@ public class BoatBean implements Serializable {
 
 	public ArrayList<Boat> searchBoats() {
 		ArrayList<Boat> searchBoatList = new ArrayList<Boat>();
-		// JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean",
-		// JrBoatingBean.class);
 
 		searchBoatList.add(findBoat(boatType));
 
