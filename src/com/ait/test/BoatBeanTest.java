@@ -133,6 +133,12 @@ class BoatBeanTest {
 	}
 
 	@Test
+	void testSearchBoats() {
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
+		assertEquals(null, boatBean.findBoat("333"));
+	}
+	
+	@Test
 	void testBoatTypeAvailable() {
 		boat = new Boat("Canoe", 100.25, "image", 1, "description");
 		Boat boat2 = new Boat("Canoe", 100.25, "image", 1, "description");
