@@ -10,14 +10,16 @@ public class Boat {
 	private boolean canEdit;
 	// New
 	private String description;
+	private String link;
 	
-	public Boat(String type, Double price, String image, int quantity, String description) {
+	public Boat(String type, Double price, String image, int quantity, String description, String link) {
 		this.id = ""; // id will be set in add boat
 		this.type= type;
 		this.price = price;
 		this.image = image;
 		this.quantity=quantity;
 		this.description=description;
+		this.link = link;
 	}
 		
 	public int getQuantity() {
@@ -78,5 +80,17 @@ public class Boat {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }

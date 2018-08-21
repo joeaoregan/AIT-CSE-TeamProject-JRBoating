@@ -15,10 +15,12 @@
 
 				<h:form>
 					<h:inputText required="true" a:placeholder="Enter boat type"
-						value="#{boatBean.sboatType}" />
+						value="#{searchBoatBean.typeSearched}" />
 					<br />
 					<h:commandButton value="Search" class="registerbtn"
-						action="CustomerBoat" />
+						action="#{searchBoatBean.searchHandler()}" />
+					<br />
+					<h:outputText value="#{searchBoatBean.message}" />
 				</h:form>
 			</div>
 		</div>

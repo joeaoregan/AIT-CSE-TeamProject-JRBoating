@@ -23,6 +23,7 @@ public class BoatBean implements Serializable {
 	private String productID; // Used in boat.xhtml but not declared
 	private String sboatType;
 	private String infoMessage;
+	private String link;
 
 	private ArrayList<Boat> boatInventory; 
 
@@ -38,10 +39,10 @@ public class BoatBean implements Serializable {
 		infoMessage = "Add a new boat";
 
 		// Add boats to boat list
-		addNewBoat(new Boat("Cruiser", 250.0, "cruiser.jpg", 10, "Cruiser description"));
-		addNewBoat(new Boat("Canal Barge", 200.0, "canalbarge.jpg", 10, "Canal Barge description"));
-		addNewBoat(new Boat("Sailing Boat", 100.0, "sailingboat.jpg", 10, "Sailing Boat description"));
-		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10, "Canoe description"));
+		addNewBoat(new Boat("Cruiser", 250.0, "boat3.jpg", 10, "Cruiser description", "/about.xhtml"));
+		addNewBoat(new Boat("Canal Barge", 200.0, "boat1.jpg", 10, "Canal Barge description", "/about.xhtml"));
+		addNewBoat(new Boat("Sailing Boat", 100.0, "boat4.jpg", 10, "Sailing Boat description", "/about.xhtml"));
+		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10, "boat2", "/about.xhtml"));
 	}
 
 	/*
@@ -70,7 +71,7 @@ public class BoatBean implements Serializable {
 	}
 
 	public String addBoatHandler() {
-		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity, description));
+		infoMessage = addNewBoat(new Boat(boatType, price, image, quantity, description, link));
 
 		return null;
 	}
@@ -81,7 +82,7 @@ public class BoatBean implements Serializable {
 		}
 
 		for (Boat aboat : boatInventory) {
-			if (aboat.getId().equalsIgnoreCase(boat.getId())) {
+			if (aboat.getType().equalsIgnoreCase(boat.getType())) {
 				return "BOAT TYPE EXISTS";
 			}
 		}
@@ -116,23 +117,13 @@ public class BoatBean implements Serializable {
 		this.boatInventory = boatInventory;
 	}
 
-	public Boat findBoat(String boatID) {
+	public Boat findBoat(String type) {
 		for (Boat aBoat : boatInventory) {
-			if (aBoat.getId().equalsIgnoreCase(boatID)) {
+			if (aBoat.getType().equalsIgnoreCase(type)) {
 				return aBoat;
 			}
 		}
 		return null;
-	}
-
-	public ArrayList<Boat> searchBoats() {
-		ArrayList<Boat> searchBoatList = new ArrayList<Boat>();
-		// JrBoatingBean jrBoatingBeanDB = Helper.getBean("jrBoatingBean",
-		// JrBoatingBean.class);
-
-		searchBoatList.add(findBoat(boatType));
-
-		return searchBoatList;
 	}
 
 	public String getBoatID() {
@@ -205,5 +196,17 @@ public class BoatBean implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 }
