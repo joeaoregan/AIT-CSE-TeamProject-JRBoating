@@ -10,9 +10,7 @@
 
 <body>
 	<ui:composition>
-
-		<h3>LOGIN NAV BAR</h3>
-
+	<div align="right">
 		<h:form rendered="#{not loginBean.userLoggedIn}">
 			<h:commandButton value="Login" action="/login.xhtml"
 				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
@@ -23,9 +21,9 @@
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 			<br />
-			<h:outputText
-				value="Logged in as: #{loginBean.displayType()}" />
+			<h:outputText value="Logged in as: #{loginBean.displayType()}" />
 		</h:form>
+		</div>
 	</ui:composition>
 </body>
 </html>
