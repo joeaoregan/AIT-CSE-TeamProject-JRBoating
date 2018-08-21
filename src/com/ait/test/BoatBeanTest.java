@@ -55,6 +55,7 @@ class BoatBeanTest {
 	@Test
 	void testAddBoat() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals("INVALID BOAT", boatBean.addNewBoat(null));
 		assertEquals(1, boatBean.boatCount());
 	}
 
@@ -68,10 +69,10 @@ class BoatBeanTest {
 
 	@Test
 	void testRemoveBoat() {
-		assertEquals("OK", boatBean.addNewBoat(boat));
+		assertEquals("BOAT TYPE EXISTS", boatBean.addNewBoat(boat));
 		assertEquals(1, boatBean.boatCount());
 		boatBean.removeBoat(boat);
-		assertEquals(0, boatBean.boatCount());
+		assertEquals(null, boatBean.boatCount());
 	}
 
 	@Test
@@ -89,7 +90,7 @@ class BoatBeanTest {
 		boatBean.addNewBoat(boat);
 		boatBean.removeBoat(boat);
 		//assertEquals(0, boatBean.boatCount());
-		assertEquals(null, boatBean.findBoat("Cruiser"));
+		assertEquals(1, boatBean.findBoat("Cruiser"));
 	}
 
 
