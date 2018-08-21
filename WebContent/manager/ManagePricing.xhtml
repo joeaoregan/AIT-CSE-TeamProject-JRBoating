@@ -25,7 +25,8 @@
 
 			<h:form>
 				<h:outputLabel styleClass="formLabel">Boat Name:</h:outputLabel>
-				<h:selectOneMenu id="itemlist" value="#{pricingBean.id}"
+				
+				<h:selectOneMenu id="itemlist" value="#{pricingBean.type}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
 						itemLabel="-- Select item to apply pricing structure --" />
@@ -38,8 +39,8 @@
 
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">ID:</h:outputLabel>
-				<h:inputText id="id" value="#{pricingBean.id}" title="Enter item id"
+				<h:outputLabel styleClass="formLabel">Type:</h:outputLabel>
+				<h:inputText id="type" value="#{pricingBean.type}" title="Type Of Boat"
 					required="true" readonly="true" />
 				<br />
 				<h:outputLabel styleClass="formLabel">Amount:</h:outputLabel>
@@ -68,8 +69,8 @@
 					styleClass="displayTable" headerClass="displayTableHeader"
 					rowClasses="displayTableOddRow,displayTableEvenRow">
 					<h:column>
-						<f:facet name="header">ID</f:facet>
-						<h:outputText value="#{prices.id}" />
+						<f:facet name="header">Type</f:facet>
+						<h:outputText value="#{prices.type}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Amount</f:facet>

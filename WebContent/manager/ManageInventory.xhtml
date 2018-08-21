@@ -24,11 +24,6 @@
 			<br />
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Next ID:</h:outputLabel>
-				<h:inputText id="boatID"
-					value="Boat#{boatBean.boatInventory.size()+1}" title="Boat ID"
-					readonly="true" />
-				<br />
 				<h:outputLabel styleClass="formLabel">Type:</h:outputLabel>
 				<h:inputText id="boatType" value="#{boatBean.boatType}"
 					title="Enter boat type" required="true" a:autofocus="true" />
@@ -58,10 +53,6 @@
 				<h:dataTable value="#{boatBean.boatInventory}" var="boat"
 					styleClass="displayTable" headerClass="displayTableHeader"
 					rowClasses="displayTableOddRow,displayTableEvenRow">
-					<h:column>
-						<f:facet name="header">ID</f:facet>
-						<h:outputText value="#{boat.id}" />
-					</h:column>
 					<h:column>
 						<f:facet name="header">Type</f:facet>
 						<h:inputText value="#{boat.type}" rendered="#{boat.canEdit}" />

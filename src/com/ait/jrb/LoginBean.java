@@ -14,11 +14,10 @@ public class LoginBean implements Serializable {
 
 	private String username;
 	private String password;
-	
+
 	private User loggedUser;
 
-	private String showUserLogIn;	// Show the login top menu
-	private String showUserLogOut;	// Show the logout top menu
+	private Boolean userLoggedIn; // Show the login top menu
 
 	// New
 	private String message;
@@ -26,11 +25,10 @@ public class LoginBean implements Serializable {
 	private Boolean loggedInManager;
 	private Boolean loggedInFDS;
 	private Boolean loggedInSkipper;
-	
+
 	public LoginBean() {
-		showUserLogIn = "true";
-		showUserLogOut = "false";
-		
+		userLoggedIn = false;
+
 		username = "";
 		password = "";
 		message = "";
@@ -38,65 +36,60 @@ public class LoginBean implements Serializable {
 
 		initUsersLoggedIn();
 	}
-	
-	public String displayType(int userType) {
-		/*
-		 * if (userType == User.MANAGER) { return "Manager"; } else if (userType ==
-		 * User.CUSTOMER) { return "Customer"; } else if (userType ==
-		 * User.FRONT_DESK_STAFF) { return "Front Desk Staff"; } else if (userType ==
-		 * User.SKIPPER) { return "Skipper"; } return null;
-		 */
-		//switch (user.getUserType()) {
-		switch (userType) {
-		case User.MANAGER:
-			return "Manager";
-		case User.CUSTOMER:
-			return "Customer";
-		case User.FRONT_DESK_STAFF:
-			return "Front Desk Staff";
-		case User.SKIPPER:
-			return "Skipper";
-		default:
-			return null;
+
+	public String displayType() {
+		if (loggedUser != null) {
+			switch (loggedUser.getType()) {
+			case User.MANAGER:
+				return "Manager";
+			case User.CUSTOMER:
+				return "Customer";
+			case User.FRONT_DESK_STAFF:
+				return "Front Desk Staff";
+			case User.SKIPPER:
+				return "Skipper";
+			default:
+				return null;
+			}
 		}
+		return null;
 	}
-	
+
 	// clears the bean and shows the login page
 	public String showLoginPage() {
 		username = "";
 		password = "";
-		message="";
+		message = "";
 		loggedUser = getUser();
-		
+
 		return "/login";
 	}
-	
+
 	public User getUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		
+
 		for (User user : userBean.getUserList()) {
 			if (user.equals(username)) {
 				return user;
 			}
 		}
-		
+
 		return null;
 	}
 
 	/*
 	 * Returns the action to perform when the user attempts to login
 	 */
-	public String loginHandler() {		
-		UserBean userBean = Helper.getBean("userBean", UserBean.class);	// Get the CartBean instance.
+	public String loginHandler() {
+		UserBean userBean = Helper.getBean("userBean", UserBean.class); // Get the CartBean instance.
 		User user = userBean.getUserByUsername(username);
 
 		message = ""; // Reset the message
 		if (user != null) {
 			loggedUser = user;
-			
-			showUserLogIn = "false";
-			showUserLogOut = "true";
-			
+
+			userLoggedIn = true;
+
 			if (user.getType() == User.MANAGER) {
 				setUserLoggedIn(User.MANAGER);
 				return "/manager/HomeManager";
@@ -115,30 +108,27 @@ public class LoginBean implements Serializable {
 		message = "USER NOT FOUND";
 		return "index";
 	}
-	
 
 	/*
-	 * Log out the user - BETTER WAY MIGHT BE TO ADD A LOGGED IN BOOLEAN VARIABLE TO USER CLASS
+	 * Log out the user - BETTER WAY MIGHT BE TO ADD A LOGGED IN BOOLEAN VARIABLE TO
+	 * USER CLASS
 	 */
 	public String logoutHandler() {
 		initUsersLoggedIn();
 
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		
-		username="";
-		password="";
-		
+
+		username = "";
+		password = "";
+
 		// XXX NEED TO CREATE A FUNCTION TO CLEAR USER DETAILS IN USER BEAN
 		if (userBean != null) {
 			userBean.setUsername(""); // reset the username
 			userBean.setFirstName(""); // reset the first name
 			userBean.setLastName(""); // reset the last name
 			userBean.setAddress(""); // reset the address
-			
 
-			showUserLogIn = "true";
-			showUserLogOut = "false";
-			
+			userLoggedIn = false;
 			loggedUser = null;
 		}
 
@@ -175,7 +165,7 @@ public class LoginBean implements Serializable {
 			break;
 		}
 	}
-	
+
 	/*
 	 * Set all user types as logged out
 	 */
@@ -250,19 +240,11 @@ public class LoginBean implements Serializable {
 		this.loggedInSkipper = loggedInSkipper;
 	}
 
-	public String getShowUserLogIn() {
-		return showUserLogIn;
+	public Boolean getUserLoggedIn() {
+		return userLoggedIn;
 	}
 
-	public void setShowUserLogIn(String showUserLogIn) {
-		this.showUserLogIn = showUserLogIn;
-	}
-
-	public String getShowUserLogOut() {
-		return showUserLogOut;
-	}
-
-	public void setShowUserLogOut(String showUserLogOut) {
-		this.showUserLogOut = showUserLogOut;
+	public void setUserLoggedIn(Boolean userLoggedIn) {
+		this.userLoggedIn = userLoggedIn;
 	}
 }

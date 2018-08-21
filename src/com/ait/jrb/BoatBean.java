@@ -90,7 +90,7 @@ public class BoatBean implements Serializable {
 		boatInventory.add(boat);
 		return "OK";
 	}
-
+	
 	public String removeBoat(Boat boat) {
 		boatInventory.remove(boat);
 		return null;

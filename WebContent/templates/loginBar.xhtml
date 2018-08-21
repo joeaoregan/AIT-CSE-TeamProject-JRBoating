@@ -4,7 +4,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -14,18 +13,18 @@
 
 		<h3>LOGIN NAV BAR</h3>
 
-		<h:form rendered="#{loginBean.getShowUserLogIn()}">
+		<h:form rendered="#{not loginBean.userLoggedIn}">
 			<h:commandButton value="Login" action="/login.xhtml"
 				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 			<br />
 		</h:form>
 
-		<h:form rendered="#{loginBean.getShowUserLogOut()}">
-			<h:commandButton value="Logout: #{loginBean.getLoggedUser().getFirstName()}"
+		<h:form rendered="#{loginBean.userLoggedIn}">
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 			<br />
 			<h:outputText
-				value="Logged in as: #{loginBean.displayType(loginBean.getLoggedUser().getType())}" />
+				value="Logged in as: #{loginBean.displayType()}" />
 		</h:form>
 	</ui:composition>
 </body>
