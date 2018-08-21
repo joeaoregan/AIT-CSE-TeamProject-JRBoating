@@ -1,4 +1,4 @@
-package com.ait.jrb;
+package com.ait.objects;
 
 public class PricingStructure {
 	//private Item item;
