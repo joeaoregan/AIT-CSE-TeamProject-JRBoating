@@ -4,45 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-<<<<<<< HEAD
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
-=======
-	xmlns:ui="http://java.sun.com/jsf/facelets">
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/aitcse4/jrboating-master.git
 
 <body>
 	<ui:composition>
-<<<<<<< HEAD
-		<p:outputPanel
-			style="width: 100%; border:1px solid black;">
-			<p:outputPanel>
-				<ul>
-					<li><a href="#home">Home</a></li>
-					<li><a href="#news">News</a></li>
-					<li style="float: right"><a href="#contact">Login</a></li>
-					<li style="float: right"><a class="active" href="#about">Register</a></li>
-				</ul>
-				<!-- 				<h:form> -->
-				<!-- 					<p:commandButton value="login" action="login.xhtml" /> -->
-				<!-- 					<p:commandButton value="create account" -->
-				<!-- 						action="#{templateBean.register()}" /> -->
-				<!-- 				</h:form> -->
-			</p:outputPanel>
 
-			<!-- 			</p:outputPanel> -->
-			<!-- 			<p:outputPanel style="width: 80%; float: right;"> -->
-			<!-- 				<h:form> -->
-			<!-- 					<p:commandButton value="login" action="login.xhtml" /> -->
-			<!-- 					<p:commandButton value="create account" -->
-			<!-- 						action="#{templateBean.register()}" /> -->
-			<!-- 				</h:form> -->
-			<!-- 			</p:outputPanel> -->
-		</p:outputPanel>
-
-=======
 		<h3>LOGIN NAV BAR</h3>
 
 		<h:form rendered="#{loginBean.getShowUserLogIn()}">
@@ -58,7 +27,6 @@
 			<h:outputText
 				value="Logged in as: #{loginBean.displayType(loginBean.getLoggedUser().getType())}" />
 		</h:form>
->>>>>>> branch 'master' of https://a00212817@bitbucket.org/aitcse4/jrboating-master.git
 	</ui:composition>
 </body>
 </html>

@@ -160,7 +160,7 @@ public class BoatBean implements Serializable {
 		this.sboatType = sboatType;
 	}
 
-	public Double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
