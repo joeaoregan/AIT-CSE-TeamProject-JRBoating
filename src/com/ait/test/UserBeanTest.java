@@ -1,6 +1,8 @@
 package com.ait.test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ class UserBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		userBean = new UserBean();
+		userBean= new UserBean();
 	}
 
 	@Test
@@ -51,96 +53,147 @@ class UserBeanTest {
 		userBean.setAddress("Test");
 		assertEquals("Test", userBean.getAddress());
 	}
-
 	@Test
-	void testChangeUserType() {
-		userBean.setType(User.CUSTOMER);
-		assertEquals(User.CUSTOMER, userBean.getType());
+	void testChangePhone() {
+		userBean.setPhone("0871234567");
+		assertEquals("0871234567", userBean.getPhone());
 	}
-
 	@Test
-	void testChangePhoneNumber() {
-		userBean.setPhone("123456");
-		assertEquals("123456", userBean.getPhone());
+	void testChangeType() {
+		userBean.setType(2);
+		assertEquals(2, userBean.getType());
 	}
-<<<<<<< HEAD
+	@Test
+	void testChangeBio() {
+		userBean.setBio("test");
+		assertEquals("test", userBean.getBio());
+	}
+	@Test
+	void testChangeImage() {
+		userBean.setImage("Test2");
+		assertEquals("Test2", userBean.getImage());
+	}
+	@Test
+	void testChangePricePerDay() {
+		userBean.setPricePerDay(1.23);
+		assertEquals(Double.valueOf(1.23), userBean.getPricePerDay());
+	}
+	@Test
+	void testUserAdded() {
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		assertEquals("USER ADDED OK", userBean.addUser(sorcha));
+	}
+	@Test
+	void testUserNotAdded() {
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		assertEquals("INVALID USER", userBean.addUser(null));
+	}	
+	@Test
+	void testUsernameNotUnique() {
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha1);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha2);
+		assertEquals(true, userBean.checkUniqueUsername("sorcha"));
+	}
+	@Test
+	void testUsernameUnique() {
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha1);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha2);
+		assertEquals(false, userBean.checkUniqueUsername("sally"));
+	}
+	@Test
+	void testChangeUserList() {
+		ArrayList<User> userListTest= new ArrayList<User>();
+		userBean.setUserList(userListTest);
+		assertEquals(userListTest, userBean.getUserList());
+	}
+	@Test
+	void testDisplayTypeManager() {
+		assertEquals("Manager", userBean.displayType(1));	
+	}
+	@Test
+	void testDisplayTypeCustomer() {
+		assertEquals("Customer", userBean.displayType(0));	
+	}
+	@Test
+	void testDisplayTypeFrontDesk() {
+		assertEquals("Front Desk Staff", userBean.displayType(3));	
+	}
+	@Test
+	void testDisplayTypeSkipper() {
+		assertEquals("Skipper", userBean.displayType(2));	
+	}
+	@Test
+	void testDisplayTypeInvalid() {
+		assertEquals(null, userBean.displayType(5));	
+	}
+	@Test
+	void testPasswordDontMatch() {
+		userBean.setPassword("asdf");
+		userBean.setPasswordConfirmation("asdf1");
+		assertEquals("Passwords Don't match", userBean.registerCustomerHandler());
+	}
+	@Test
+	void testPasswordsMatch() {
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha1);
+		userBean.setPassword("asdf");
+		userBean.setPasswordConfirmation("asdf");
+		assertEquals("OK", userBean.registerCustomerHandler());
+	}
+	@Test
+	void testUsernameNotUniqueCustomerHandler() {
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha1);
+		userBean.setPassword("asdf");
+		userBean.setPasswordConfirmation("asdf");
+		assertEquals("OK", userBean.registerCustomerHandler());
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha2);
+		userBean.setPassword("asdf");
+		userBean.setPasswordConfirmation("asdf");
+		assertEquals("Username Already Exists", userBean.registerCustomerHandler());
+	}
+	@Test
+	void testUserCount() {
+		ArrayList<User> userListTest= new ArrayList<User>();
+		userBean.setUserList(userListTest);
+		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
+				"Athlone", "0873691215", "", "profile.jpg", 0.0);
+		userBean.addUser(kiev);
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha);
+		assertEquals(2, userBean.userCount());
+	}
+	@Test
+	void testGetUserByUsername() {
+		ArrayList<User> userListTest= new ArrayList<User>();
+		userBean.setUserList(userListTest);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		userBean.addUser(sorcha1);
+		assertEquals(sorcha1, userBean.getUserByUsername("sorcha"));
+	}
+	@Test
+	void testGetUserByUsernameNotFound() {
+		ArrayList<User> userListTest= new ArrayList<User>();
+		userBean.setUserList(userListTest);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		assertEquals(null, userBean.getUserByUsername("sorcha"));
+	}
 	
-
-	// MOVED TO LOGIN BEAN
-=======
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
-/*
-	@Test
-	void testChangeIsManagerLoggedIn() {
-		UserBean.setManagerLoggedIn(true);
-		assertTrue(UserBean.isManagerLoddgedIn());
-	}
-
-	@Test
-	void testChangeIsCustomerLoggedIn() {
-		UserBean.setCustomerLoggedIn(false);
-		assertFalse(userBean.isCustomerLoggedIn());
-	}
-
-	@Test
-	void testChangeIsFrontDeskLoggedIn() {
-		userBean.setFrontDeskLoggedIn(false);
-		assertFalse(userBean.isFrontDeskLoggedIn());
-	}
-
-	@Test
-	void testChangeIsSkipperLoggedIn() {
-		UserBean.setSkipperLoggedIn(true);
-		assertTrue(userBean.isSkipperLoggedIn());
-	}
-
-//	@Test
-//
-//	void testCustomerRegister() {
-//		userBean.setUsername("Test");
-//		userBean.setFirstName("Jbloggs");
-//		userBean.setLastName("Test");
-//		userBean.setPassword("Test");
-//		userBean.setPasswordConfirmation("Test");
-//		userBean.setAddress("Test");
-//		userBean.setPhoneNumber("Test");
-//		assertEquals("OK", userBean.registerCustomerHandler());
-//		
-//	}
-
-	@Test
-	void testUserLoginAsManager() {
-		userBean.setlUsername("root");
-		userBean.setlPassword("admin");		
-		assertEquals("manager", userBean.userLogin());
-	}
-	
-	@Test
-	void testUserLoginAsManagerWrongPassword() {
-		userBean.setlUsername("root");
-		userBean.setlPassword("password");		
-		assertEquals("error", userBean.userLogin());
-	}
-	
-
-	@Test
-	void testUserLoginAsFrontDesk() {
-		userBean.setlUsername("fd");
-		assertEquals("frontdesk", userBean.userLogin());
-	}
-	@Test
-	void testUserLoginAsCustomer() {
-		userBean.setlUsername("any");
-		assertEquals("customer", userBean.userLogin());
-	}
-
-	@Test
-	void testUserLoginAsSkipper() {
-		userBean.setlUsername("sk");
-		assertEquals("skipper", userBean.userLogin());
-	}*/
-
-=======
->>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
 }

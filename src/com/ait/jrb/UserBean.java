@@ -131,16 +131,16 @@ public class UserBean implements Serializable {
 		}
 		return false;
 	}
-
+	
 	public int userCount() {
 		return userList.size();
 	}
 	
 	public String registerCustomerHandler() {
-		String msg = "Username Already Exist";
+		String msg = "Username Already Exists";
 		
 		if (!password.equals(passwordConfirmation)) {
-			msg = "PasswordDon't match";
+			msg = "Passwords Don't match";
 		} else if (!checkUniqueUsername(username)) {
 			User user = new User(User.CUSTOMER, username, password, passwordConfirmation, 
 					firstName, lastName, address, phone, bio, image, pricePerDay);
