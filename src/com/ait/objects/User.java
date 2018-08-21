@@ -16,26 +16,13 @@ public class User {
 	private String bio; // Information about the user (Skipper)
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
-<<<<<<< HEAD
-
-	private double pricePerDay;
-	private boolean canEdit;
-=======
 	private double pricePerDay; // Price to hire (Skipper)
 	private boolean canEdit; // editing forms
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 
-<<<<<<< HEAD
-=======
 	// Constructor
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
 			String address, String phone,String bio, String image, double pricePerDay) {
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 		this.type = type;
 		this.username = username;
 		this.password = password;
