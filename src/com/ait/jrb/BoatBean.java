@@ -82,7 +82,9 @@ public class BoatBean implements Serializable {
 				return "BOAT TYPE EXISTS";
 			}
 		}
-
+		for (Boat aboat : boatInventory) {
+			
+		}
 		boat.setId("Boat" + (boatInventory.size() + 1)); // set boat id to Boat1, Boat2, etc.
 		boatInventory.add(boat);
 		return "OK";
