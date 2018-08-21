@@ -18,7 +18,7 @@ class BoatBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
+		boat = new Boat("Cruiser1", 100.25, "image", 1, "description","link");
 		boatBean = new BoatBean();
 	}
 
@@ -123,25 +123,25 @@ class BoatBeanTest {
 	void testFindBoat() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(5, boatBean.boatCount());
-		assertEquals(boat, boatBean.findBoat("Boat5"));
+		assertEquals(boat, boatBean.findBoat("Cruiser1"));
 	}
 
 	@Test
 	void testFindBoatFailed() {
-		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description","link");
 		assertEquals(null, boatBean.findBoat("333"));
 	}
 
 	@Test
 	void testSearchBoats() {
-		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
+		boat = new Boat("Cruiser", 100.25, "image", 1, "description","link");
 		assertEquals(null, boatBean.findBoat("333"));
 	}
 	
 	@Test
 	void testBoatTypeAvailable() {
-		boat = new Boat("Canoe", 100.25, "image", 1, "description");
-		Boat boat2 = new Boat("Canoe", 100.25, "image", 1, "description");
+		boat = new Boat("Canoe", 100.25, "image", 1, "description","link");
+		Boat boat2 = new Boat("Canoe", 100.25, "image", 1, "description","link");
 		boatBean.addNewBoat(boat);
 		boatBean.addNewBoat(boat2);
 		assertEquals(true, boatBean.boatTypeAvailable("Canoe"));
@@ -150,7 +150,7 @@ class BoatBeanTest {
 
 	@Test
 	void testBoatTypeNotAvailable() {
-		boat = new Boat("Canoe", 100.25, "image", 1, "description");
+		boat = new Boat("Canoe", 100.25, "image", 1, "description","link");
 		boatBean.addNewBoat(boat);
 		assertFalse(boatBean.boatTypeAvailable("Destroyer"));
 	}
@@ -173,4 +173,14 @@ class BoatBeanTest {
 		boatBean.setSboatType("test");
 		assertEquals("test", boatBean.getSboatType());
 	}
+	@Test
+	void testChangeLink() {
+		boatBean.setLink("link");
+		assertEquals("link", boatBean.getLink());
+	}
+	@Test
+	void testAddBoatHandler() {
+		assertEquals(null, boatBean.addBoatHandler());
+	}
+
 }

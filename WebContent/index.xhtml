@@ -30,7 +30,11 @@
 					<ui:repeat var="image" value="#{imageView.images}"
 						id="fadeEffectImages">
 						<p:graphicImage style="height:400px;width:100%;"
+<<<<<<< HEAD
 							value="resources/image/#{image}" />
+=======
+							value="/resources/image/#{image}" />
+>>>>>>> branch 'master' of https://a00212817@bitbucket.org/aitcse4/jrboating-master.git
 					</ui:repeat>
 				</p:imageSwitch>
 
@@ -42,24 +46,20 @@
 				have everything you need to make your trip down the river Shannon a
 				luxurious and enjoyable experience. From the convenience of your
 				home,
-				<p:link outcome="register.xhtml" value="Register" />
+				<p:link outcome="/register.xhtml" value="Register" />
 				with us today and
-				<p:link outcome="login.xhtml" value="Book Online" />
+				<p:link outcome="/login.xhtml" value="Book Online" />
 				and choose from our range of
-				<p:button href="BoatDescriptionPage.jsf" value="Boats" />
+				<p:link href="/details.jsf" value="Boats" />
 
 			</p>
 			<ul>
-				<li><a href="BoatDetailsTabbed.xhtml#canalbarges">Canal
+				<li><a href="/details.xhtml#canalbarges">Canal
 						Barges</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#canoe">Canoes</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#cruiser">Cruisers</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#sailingboat">Sailing
+				<li><a href="/details.xhtml#canoe">Canoes</a></li>
+				<li><a href="/details.xhtml#cruiser">Cruisers</a></li>
+				<li><a href="/details.xhtml#sailingboat">Sailing
 						Boats</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml">Canal Barges</a></li>
-				<li><a href="BoatDetailsTabbed.jsf">Canoes jsf</a></li>
-				<li><a href="BoatDetailsTabbed.jsf#sailingboat">Canoes jsf
-						id</a></li>
 			</ul>
 			<br />
 			<br />
@@ -69,7 +69,7 @@
 				available to join you for a day of your trip and help you learn
 				everything you need to know to make your trip down the river Shannon
 				a trip to remember.
-				<p:button href="CustomerBooking.jsf" value="Book Online" />
+				<p:button href="/customer/CustomerBooking.jsf" value="Book Online" />
 				or contact us today to start your adventure with us.
 			</p>
 		</ui:define>

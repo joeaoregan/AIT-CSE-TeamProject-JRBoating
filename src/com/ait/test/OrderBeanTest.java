@@ -88,7 +88,7 @@ class OrderBeanTest {
 	}
 	@Test
 	void testChangeBoat() {
-		Boat boat = new Boat("Cruiser", 1.23, "image", 1, "description");
+		Boat boat = new Boat("Cruiser", 1.23, "image", 1, "description","link");
 		orderBean.setBoat(boat);
 		assertEquals(boat, orderBean.getBoat());
 	}

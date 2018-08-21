@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import com.ait.jrb.PricingBean;
 import com.ait.objects.PricingStructure;
 
-class TestPricingBean {
+class PricingBeanTest {
 
 	PricingBean pricingBean;
 
@@ -68,14 +68,6 @@ class TestPricingBean {
 	void testDeletePricingStructure() {
 		PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
 		assertEquals(null, pricingBean.deletePricingStructure(pricingStructure));		
-	}
-	@Test
-	void testAddPricingHandler() {
-		//ShopBean shopBean = new ShopBean();
-		//shopBean.addBoat("boat", 100.0, "boat.jpg");
-		
-		//PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
-		assertEquals(null, pricingBean.addPricingHandler());		
 	}
 	
 	@Test

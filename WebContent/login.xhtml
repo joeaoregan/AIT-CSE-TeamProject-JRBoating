@@ -20,22 +20,27 @@
 		</ui:define>
 
 
-		<ui:define name="content">			
-				<p:outputPanel id="loginDiv">
+		<ui:define name="content">
+			<p:outputPanel id="loginDiv">
 
-					<h4>Already a member?</h4>
-					<hr />
-					<h:form>
-						<p:inputText value="#{loginBean.username}"
-							a:placeholder="username" required="true" />
-						<br />
-						<p:password class="inpass" value="#{loginBean.password}"
-							a:placeholder="password" required="true" />
-						<br />
-						<p:commandButton value="Login" action="#{loginBean.loginHandler}" />
-					</h:form>
-				</p:outputPanel>
-			
+				<h4>Already a member?</h4>
+				<hr />
+				<h:form>
+					<p:inputText value="#{loginBean.username}" a:placeholder="username"
+						required="true" />
+					<br />
+					<p:password class="inpass" value="#{loginBean.password}"
+						a:placeholder="password" required="true" />
+					<br />
+					<p:commandButton value="Login" action="#{loginBean.loginHandler}" />
+					<br />
+					<h4>Would you like to sign up?</h4>
+
+					<h:link value="Register now" outcome="/register.xhtml" />
+				</h:form>
+			</p:outputPanel>
+
+
 		</ui:define>
 	</ui:composition>
 </h:body>

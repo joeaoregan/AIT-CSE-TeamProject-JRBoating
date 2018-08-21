@@ -14,6 +14,8 @@ import com.ait.objects.Boat;
 @RequestScoped
 public class BoatBean implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	// Fields in form
 	private String boatID;
 	private String boatType;
 	private double price;
@@ -160,10 +162,6 @@ public class BoatBean implements Serializable {
 
 	public Double getPrice() {
 		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
 	}
 
 	public String getImage() {

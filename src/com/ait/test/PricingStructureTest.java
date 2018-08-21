@@ -1,8 +1,4 @@
-/*
- * A00258304
- * Joe O'Regan
- * 100% coverage
- */
+
 package com.ait.test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.ait.objects.PricingStructure;
 
-class TestPricingStructure {
+class PricingStructureTest {
 	PricingStructure pricingStructure;
 	
 	@BeforeEach
