@@ -52,6 +52,11 @@ public class BoatBean implements Serializable {
 		boat.setCanEdit(true);
 		return null;
 	}
+	
+	public String removeBoat(Boat boat) {
+		boatInventory.remove(boat);
+		return null;
+	}
 
 	public String saveAction() {
 		for (Boat boat : boatInventory) {
@@ -91,10 +96,6 @@ public class BoatBean implements Serializable {
 		return "OK";
 	}
 	
-	public String removeBoat(Boat boat) {
-		boatInventory.remove(boat);
-		return null;
-	}
 
 	public int boatCount() {
 		return boatInventory.size();

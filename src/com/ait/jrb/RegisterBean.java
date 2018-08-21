@@ -18,6 +18,8 @@ public class RegisterBean {
 	private String bio;
 	private String image;
 	double pricePerDay;
+	
+	String message;
 
 	User newUser;
 
@@ -27,7 +29,7 @@ public class RegisterBean {
 	}
 
 	public void resetFormVariables() {
-		type = User.CUSTOMER;
+		type = User.CUSTOMER;	// Default, manager can change
 		username = "";
 		password = "";
 		firstName = "";
@@ -36,11 +38,16 @@ public class RegisterBean {
 		phone = "";
 		bio = "";
 		image = "";
-		pricePerDay = 0.0;
+		pricePerDay = 0.0;	// Skipper
+		message = "";
 	}
 
-	public void createUser() {
+	public String createUser() {
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
+		message = userBean.addUser(newUser);
+		resetFormVariables();
+		return null;
 	}
 
 	public String getFirstName() {
@@ -114,5 +121,37 @@ public class RegisterBean {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getBio() {
+		return bio;
+	}
+
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public double getPricePerDay() {
+		return pricePerDay;
+	}
+
+	public void setPricePerDay(double pricePerDay) {
+		this.pricePerDay = pricePerDay;
+	}
+
+	public User getNewUser() {
+		return newUser;
+	}
+
+	public void setNewUser(User newUser) {
+		this.newUser = newUser;
 	}
 }

@@ -97,6 +97,19 @@ public class UserBean implements Serializable {
 		for (User user : userBean.getUserList()) {
 			user.setCanEdit(false);
 		}
+
+		return null;
+	}
+
+	public String deleteUser(User user) {
+		if (user != null) {
+			userList.remove(user);
+		}
+		return null;
+	}
+
+	public String editUser(User user) {
+		user.setCanEdit(true);
 		return null;
 	}
 

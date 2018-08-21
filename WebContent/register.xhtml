@@ -61,10 +61,92 @@
 						id="phone" requiredMessage="Phone number required"
 						a:placeholder="Phone Number" />
 					<p:message for="phone" />
+
+
+
+
+					<p:inputText value="#{registerBean.bio}" id="bio"
+						a:placeholder="About" />
+					<p:message for="bio" />
+
+					<p:inputText value="#{registerBean.image}" id="image"
+						a:placeholder="Image" />
+					<p:message for="image" />
+
 					<hr />
-					<p:commandButton action="#{registerBean.register2}"
-						value="Register" ajax="false" />
+
+					<h:commandButton value="Add User"
+						action="#{registerBean.createUser}" styleClass="ActionButton" />
 				</h:form>
+
+
+				<h:form>
+					<h:dataTable value="#{userBean.userList}" var="row"
+						styleClass="displayTable" headerClass="displayTableHeader"
+						rowClasses="displayTableOddRow,displayTableEvenRow">
+						<h:column>
+							<f:facet name="header">Username</f:facet>
+							<h:outputText value="#{row.username}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Password</f:facet>
+							<h:inputText value="#{row.password}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.password}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">First Name</f:facet>
+							<h:inputText value="#{row.firstName}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.firstName}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Last Name</f:facet>
+							<h:inputText value="#{row.lastName}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.lastName}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Address</f:facet>
+							<h:inputText value="#{row.address}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.address}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Phone</f:facet>
+							<h:inputText value="#{row.phone}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.phone}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">About</f:facet>
+							<h:inputText value="#{row.bio}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.bio}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Image</f:facet>
+							<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Price Per Day</f:facet>
+							<h:inputText value="#{row.pricePerDay}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.pricePerDay}"
+								rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Edit</f:facet>
+							<h:commandLink value="Edit" action="#{userBean.editUser(row)}"
+								rendered="#{!row.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Remove</f:facet>
+							<h:commandLink value="Remove"
+								action="#{userBean.deleteUser(row)}" rendered="#{!row.canEdit}" />
+						</h:column>
+					</h:dataTable>
+					<br />
+
+					<h:commandButton value="Save Changes"
+						action="#{userBean.saveAction}" styleClass="ActionButton" />
+				</h:form>
+
 			</div>
 		</ui:define>
 	</ui:composition>
