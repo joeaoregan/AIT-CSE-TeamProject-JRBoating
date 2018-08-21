@@ -1,7 +1,6 @@
 package com.ait.test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -75,8 +74,8 @@ class UserTest {
 
 	@Test
 	void testTypeChanged() {
-		user.setType(user.CUSTOMER);
-		assertEquals(user.CUSTOMER, user.getType());
+		user.setType(User.CUSTOMER);
+		assertEquals(User.CUSTOMER, user.getType());
 	}
 
 	@Test
