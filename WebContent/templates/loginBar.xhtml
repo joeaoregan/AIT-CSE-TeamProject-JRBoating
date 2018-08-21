@@ -6,18 +6,36 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
 	<ui:composition>
-	<p:outputPanel style="width: 100%;">
-	<p:outputPanel  style="width: 50%;">
-	Date Pan
-	</p:outputPanel>
-	<p:outputPanel style="width: 50%;" >
-	Log Pan
-	</p:outputPanel>
-	</p:outputPanel>
+		<p:outputPanel
+			style="width: 100%; border:1px solid black;">
+			<p:outputPanel>
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#news">News</a></li>
+					<li style="float: right"><a href="#contact">Login</a></li>
+					<li style="float: right"><a class="active" href="#about">Register</a></li>
+				</ul>
+				<!-- 				<h:form> -->
+				<!-- 					<p:commandButton value="login" action="login.xhtml" /> -->
+				<!-- 					<p:commandButton value="create account" -->
+				<!-- 						action="#{templateBean.register()}" /> -->
+				<!-- 				</h:form> -->
+			</p:outputPanel>
+
+			<!-- 			</p:outputPanel> -->
+			<!-- 			<p:outputPanel style="width: 80%; float: right;"> -->
+			<!-- 				<h:form> -->
+			<!-- 					<p:commandButton value="login" action="login.xhtml" /> -->
+			<!-- 					<p:commandButton value="create account" -->
+			<!-- 						action="#{templateBean.register()}" /> -->
+			<!-- 				</h:form> -->
+			<!-- 			</p:outputPanel> -->
+		</p:outputPanel>
 
 	</ui:composition>
 </body>
