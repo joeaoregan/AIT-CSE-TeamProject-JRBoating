@@ -104,4 +104,5 @@ class LoginBeanTest {
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
 	}
+
 }
