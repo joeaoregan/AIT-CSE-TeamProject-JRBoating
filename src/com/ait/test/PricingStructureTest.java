@@ -1,8 +1,4 @@
-/*
- * A00258304
- * Joe O'Regan
- * 100% coverage
- */
+
 package com.ait.test;
 
 import static org.junit.jupiter.api.Assertions.*;

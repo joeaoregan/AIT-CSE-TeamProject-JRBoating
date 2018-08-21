@@ -18,7 +18,7 @@ class BoatBeanTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		boat = new Boat("Cruiser", 100.25, "image", 1, "description","link");
+		boat = new Boat("Cruiser1", 100.25, "image", 1, "description","link");
 		boatBean = new BoatBean();
 	}
 
@@ -123,7 +123,7 @@ class BoatBeanTest {
 	void testFindBoat() {
 		assertEquals("OK", boatBean.addNewBoat(boat));
 		assertEquals(5, boatBean.boatCount());
-		assertEquals(boat, boatBean.findBoat("Boat5"));
+		assertEquals(boat, boatBean.findBoat("Cruiser1"));
 	}
 
 	@Test
@@ -173,4 +173,14 @@ class BoatBeanTest {
 		boatBean.setSboatType("test");
 		assertEquals("test", boatBean.getSboatType());
 	}
+	@Test
+	void testChangeLink() {
+		boatBean.setLink("link");
+		assertEquals("link", boatBean.getLink());
+	}
+	@Test
+	void testAddBoatHandler() {
+		assertEquals(null, boatBean.addBoatHandler());
+	}
+
 }

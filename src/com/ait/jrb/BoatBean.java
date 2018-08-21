@@ -164,10 +164,6 @@ public class BoatBean implements Serializable {
 		return price;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 	public String getImage() {
 		return image;
 	}
