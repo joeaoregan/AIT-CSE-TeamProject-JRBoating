@@ -1,11 +1,12 @@
 package com.ait.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ait.jrb.UserBean;
+import com.ait.objects.User;
 
 class UserBeanTest {
 	UserBean userBean;
@@ -53,22 +54,26 @@ class UserBeanTest {
 
 	@Test
 	void testChangeUserType() {
-		userBean.setUserType("Test");
-		assertEquals("Test", userBean.getUserType());
+		userBean.setType(User.CUSTOMER);
+		assertEquals(User.CUSTOMER, userBean.getType());
 	}
 
 	@Test
 	void testChangePhoneNumber() {
-		userBean.setPhoneNumber("123456");
-		assertEquals("123456", userBean.getPhoneNumber());
+		userBean.setPhone("123456");
+		assertEquals("123456", userBean.getPhone());
 	}
+<<<<<<< HEAD
 	
 
 	// MOVED TO LOGIN BEAN
+=======
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 /*
 	@Test
 	void testChangeIsManagerLoggedIn() {
-		loginBean.setLoggedInManager(true);
+		UserBean.setManagerLoggedIn(true);
 		assertTrue(UserBean.isManagerLoddgedIn());
 	}
 
@@ -89,7 +94,7 @@ class UserBeanTest {
 		UserBean.setSkipperLoggedIn(true);
 		assertTrue(userBean.isSkipperLoggedIn());
 	}
-*/
+
 //	@Test
 //
 //	void testCustomerRegister() {
@@ -104,9 +109,6 @@ class UserBeanTest {
 //		
 //	}
 
-	// MOVED TO LOGIN BEAN
-	
-	/*
 	@Test
 	void testUserLoginAsManager() {
 		userBean.setlUsername("root");
@@ -137,7 +139,8 @@ class UserBeanTest {
 	void testUserLoginAsSkipper() {
 		userBean.setlUsername("sk");
 		assertEquals("skipper", userBean.userLogin());
-	}
-	*/
+	}*/
 
+=======
+>>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
 }
