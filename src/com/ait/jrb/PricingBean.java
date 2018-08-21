@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import com.ait.objects.Boat;
+import com.ait.objects.PricingStructure;
 
 @ManagedBean(name = "pricingBean")
 @SessionScoped

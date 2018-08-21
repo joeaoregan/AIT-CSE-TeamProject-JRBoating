@@ -59,6 +59,7 @@ class UserBeanTest {
 		assertEquals("0871234567", userBean.getPhone());
 	}
 	@Test
+<<<<<<< HEAD
 	void testChangeType() {
 		userBean.setType(2);
 		assertEquals(2, userBean.getType());
@@ -196,4 +197,10 @@ class UserBeanTest {
 		assertEquals(null, userBean.getUserByUsername("sorcha"));
 	}
 	
+=======
+	void testChangePhoneNumber() {
+		userBean.setPhone("123456");
+		assertEquals("123456", userBean.getPhone());
+	}	
+>>>>>>> branch 'master' of https://sorchabruton@bitbucket.org/aitcse4/jrboating-master.git
 }
