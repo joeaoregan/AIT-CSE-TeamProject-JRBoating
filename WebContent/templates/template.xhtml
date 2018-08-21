@@ -17,7 +17,7 @@
 </h:head>
 
 <h:body id="home">
-	<div id="header" 
+	<div id="header"
 		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
 		<h1 class="heading">JR Boating</h1>
 		<h2 class="heading">#{heading}</h2>
@@ -38,7 +38,16 @@
 	</div>
 	<br />
 
-	<div id="footer" style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
+	<div id="search"
+		style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
+		<ui:insert name="footer">
+			<ui:include src="/templates/search.xhtml" />
+		</ui:insert>
+	</div>
+	<br />
+
+	<div id="footer"
+		style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
 		<ui:insert name="footer">
 			<ui:include src="/templates/footer.xhtml" />
 		</ui:insert>

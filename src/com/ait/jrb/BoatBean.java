@@ -65,6 +65,7 @@ public class BoatBean implements Serializable {
 				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: "
 						+ Double.toString(boat.getPrice());
 		}
+		
 		return null;
 	}
 

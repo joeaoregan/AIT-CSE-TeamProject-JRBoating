@@ -86,8 +86,8 @@ class UserBeanTest {
 	}
 	@Test
 	void testUserNotAdded() {
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+		//User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
+		//		"Athlone", "0870481216", "", "profile.jpg", 0.0);
 		assertEquals("INVALID USER", userBean.addUser(null));
 	}	
 	@Test

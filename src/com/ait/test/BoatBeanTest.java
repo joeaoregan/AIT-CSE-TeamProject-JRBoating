@@ -21,9 +21,6 @@ class BoatBeanTest {
 		boat = new Boat("Cruiser", 100.25, "image", 1, "description");
 		boatBean = new BoatBean();
 	}
-
-	
-	
 	
 	@Test
 	void changeBoatType() {
