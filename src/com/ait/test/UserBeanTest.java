@@ -62,6 +62,7 @@ class UserBeanTest {
 		userBean.setPhoneNumber("123456");
 		assertEquals("123456", userBean.getPhoneNumber());
 	}
+	
 
 	// MOVED TO LOGIN BEAN
 /*

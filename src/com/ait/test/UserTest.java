@@ -29,8 +29,9 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
-		//assertEquals("manager", user.getUserType());
-		assertEquals("manager", user.getType());
+		assertEquals("bio", user.getBio());
+		assertEquals("profile.jpg", user.getImage());
+		assertEquals(Double.valueOf(0.0), user.getPricePerDay());
 	}
 
 	@Test
@@ -70,11 +71,29 @@ class UserTest {
 	}
 
 	@Test
-	void testUserTypeChanged() {
-		//user.setUserType("frontDesk");
-		user.setType(User.FRONT_DESK_STAFF);
-		//assertEquals("frontDesk", user.getUserType());
-		assertEquals("frontDesk", user.getType());
+	void testChangeBio() {
+		user.setBio("test");
+		assertEquals("test", user.getBio());
+	}
+	@Test
+	void testChangeImage() {
+		user.setImage("test2");
+		assertEquals("test2", user.getImage());
+	}
+	@Test
+	void testChangePricePerDay() {
+		user.setPricePerDay(1.23);
+		assertEquals(Double.valueOf(1.23), user.getPricePerDay());
+	}
+	@Test
+	void testPasswordConfirmation() {
+		user.setPasswordConfirmation("test3");
+		assertEquals("test3", user.getPasswordConfirmation());
+	}
+	@Test
+	void testUserEditable() {
+		user.setCanEdit(true);
+		assertEquals(true, user.getCanEdit());
 	}
 
 }
