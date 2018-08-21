@@ -24,12 +24,38 @@ public class PricingBean implements Serializable {
 	ArrayList<PricingStructure> prices;
 
 	public PricingBean() {
+		resetFormVariables(); // initialise/reset the form data
+
+		prices = new ArrayList<PricingStructure>();
+	}
+
+	public String addPricingHandler() {
+		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		for (Boat boat : boatBean.getBoatInventory()) {
+			if (boat.equals(type)) {
+				this.type = boat.getType();
+			}
+		}
+		// prices.add(new PricingStructure(id, name, amount, discount));
+		addPricing(type, amount, discount);
+
+		resetFormVariables();
+
+		return null;
+	}
+
+	/*
+	 * Reset the data in the input text fields of the form by clearing variables
+	 */
+	public void resetFormVariables() {
 		this.type = "Cruiser";
 		this.amount = 0;
 		this.price = 0.0;
 		this.discount = 0.0;
+	}
 
-		prices = new ArrayList<PricingStructure>();
+	public void addPricing(String type, int amount, double discount) {
+		prices.add(new PricingStructure(type, amount, discount));
 	}
 
 	public String saveAction() {
@@ -47,23 +73,6 @@ public class PricingBean implements Serializable {
 	public String deletePricingStructure(PricingStructure pricingStructure) {
 		prices.remove(pricingStructure);
 		return null;
-	}
-
-	public String addPricingHandler() {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		for (Boat boat : boatBean.getBoatInventory()) {
-			if (boat.equals(type)) {
-				this.type = boat.getType();
-			}
-		}
-		// prices.add(new PricingStructure(id, name, amount, discount));
-		addPricing(type, amount, discount);
-		this.amount = 0;
-		return null;
-	}
-
-	public void addPricing(String type, int amount, double discount) {
-		prices.add(new PricingStructure(type, amount, discount));
 	}
 
 	public Boolean renderTable() {
