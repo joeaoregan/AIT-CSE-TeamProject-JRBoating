@@ -14,7 +14,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
-				"profile.jpg", 0.0);
+				"profile.jpg", 40.0);
 	}
 
 	@Test
@@ -25,6 +25,9 @@ class UserTest {
 		assertEquals("Doe", user.getLastName());
 		assertEquals("16 Main Road, Athlone", user.getAddress());
 		assertEquals("123456", user.getPhone());
+		assertEquals("bio", user.getBio());
+		assertEquals("profile.jpg", user.getImage());
+		assertEquals(40.0, user.getPricePerDay(), 0.00002);
 		assertEquals(User.MANAGER, user.getType());
 	}
 
@@ -38,6 +41,12 @@ class UserTest {
 	void testPasswordChanged() {
 		user.setPassword("pass");
 		assertEquals("pass", user.getPassword());
+	}
+
+	@Test
+	void testPasswordConfirmationChanged() {
+		user.setPasswordConfirmation("any");
+		assertEquals("any", user.getPasswordConfirmation());
 	}
 
 	@Test
@@ -65,38 +74,45 @@ class UserTest {
 	}
 
 	@Test
-	void testUserTypeChanged() {
-		user.setType(User.FRONT_DESK_STAFF);
-		assertEquals(User.FRONT_DESK_STAFF, user.getType());
+	void testTypeChanged() {
+		user.setType(user.CUSTOMER);
+		assertEquals(user.CUSTOMER, user.getType());
 	}
 
 	@Test
-	void testUserBiography() {
+	void testBioChanged() {
+		user.setBio("bioTest");
+		assertEquals("bioTest", user.getBio());
+	}
+
+	@Test
+	void testImageChanged() {
+		user.setImage("boat1.jpg");
+		assertEquals("boat1.jpg", user.getImage());
+	}
+
+	@Test
+	void testCanEditChanged() {
+		user.setCanEdit(true);
+		assertEquals(true, user.getCanEdit());
+	}
+
+	@Test
+	void testUserBiographyChanged() {
 		user.setBio("biography");
 		assertEquals("biography", user.getBio());
 	}
-	
+
 	@Test
-	void testUserImage() {
+	void testUserImageChanged() {
 		user.setImage("profile.jpg");
 		assertEquals("profile.jpg", user.getImage());
 	}
-	
+
 	@Test
-	void testUserPasswordConfirmation() {
-		user.setPasswordConfirmation("password");
-		assertEquals("password", user.getPasswordConfirmation());
-	}
-	
-	@Test
-	void testUserSkipperPricePerDay() {
+	void testUserSkipperPricePerDayChanged() {
 		user.setPricePerDay(100.0);
-		assertEquals(Double.valueOf(100.0), user.getPricePerDay());
+		assertEquals(Double.valueOf(100.0), user.getPricePerDay(), 0.00002);
 	}
-	
-	@Test
-	void testUserCanEdit() {
-		user.setCanEdit(true);
-		assertTrue(user.getCanEdit());
-	}
+
 }
