@@ -42,9 +42,9 @@ public class BoatBean implements Serializable {
 
 		// Add boats to boat list
 		addNewBoat(new Boat("Cruiser", 250.0, "boat3.jpg", 10, "Cruiser description", "/about.xhtml"));
-		addNewBoat(new Boat("Canal Barge", 200.0, "boat1.jpg", 10, "Canal Barge description", "/about.xhtml"));
-		addNewBoat(new Boat("Sailing Boat", 100.0, "boat4.jpg", 10, "Sailing Boat description", "/about.xhtml"));
-		addNewBoat(new Boat("Canoe", 50.0, "canoe.jpg", 10, "boat2", "/about.xhtml"));
+		addNewBoat(new Boat("Canal Barge", 200.0, "boat1.jpg", 15, "Canal Barge description", "/about.xhtml"));
+		addNewBoat(new Boat("Sailing Boat", 100.0, "boat4.jpg", 20, "Sailing Boat description", "/about.xhtml"));
+		addNewBoat(new Boat("Canoe", 50.0, "boat2.jpg", 25, "Canoe description", "/about.xhtml"));
 	}
 
 	/*
@@ -62,9 +62,9 @@ public class BoatBean implements Serializable {
 		return null;
 	}
 
-	public String boatDetails(String productID) {
+	public String boatDetails(String type) {
 		for (Boat boat : boatInventory) {
-			if (boat.getId().equals(productID))
+			if (boat.getType().equals(type))
 				return "ID: " + boat.getId() + ", Type: " + boat.getType() + ", Price: "
 						+ Double.toString(boat.getPrice());
 		}

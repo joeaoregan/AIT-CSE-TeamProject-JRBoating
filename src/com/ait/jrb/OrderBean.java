@@ -14,176 +14,229 @@ import com.ait.objects.User;
 @RequestScoped
 public class OrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String cartBoatType;
 
-	private String id; // unique id of the order
-	private String custUsername; // of the user who placed the order
-	private int quantity; // Number of boats hired
-	private int numDays; // Number of days the boat is hired for
-	private int dayHired; // day (between 0 and numDays) for which Skipper is hired (1 day only)
-	private double skipperCost; // In Skipper class = Skipper.price
-	private double deposit; // 10% of the boat price
-	private double totalPricePayNow; // Skipper cost + boat deposit cost up front to secure the boat, and amount that
-										// needs to be paid now
-	private double remainingPrice; // Price to pay on the day
-	private double discount; // Pricing structure applies discount
-	private User skipper = null;
-	private Boat boat; // Can be an array
-	// private Equipment equipment = new Equipment(); // Can be an array of
-	// equipment
+	private Boat boatSelected;
 
-	private ArrayList<Order> orders;
+	private String boatType;
+	private ArrayList<Order> allOrders; // List of orders
+	private Order currentOrder;
 
+	private int formQuantity;
+	private int formNumDays;
+	private int formDayBooked;
+	private double formDeposit;
+	private double formTotalCost;
+	
 	public OrderBean() {
-		orders = new ArrayList<Order>();
+		boatType = "Cruiser"; // Selects the Cruiser as default radio button
+		boatSelected = null;
+		currentOrder = new Order();
+		allOrders = new ArrayList<Order>();
+		
+		addTestOrder();
+		
 	}
-/*
-	public ArrayList<Boat> searchBoats() {
+	
+	public void addTestOrder() {
+
 		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		// Boat boatToAdd = new Boat(cartBoatType, 20.0, "cruiser.jpg", quantity);
-		boatList.add(boatBean.findBoat(cartBoatType));
-		// boatList.add(boatToAdd);
-		return boatList;
-	}
-*/
-	public String getCartBoatType() {
-		return cartBoatType;
-	}
-
-	public void setCartBoatType(String cartBoatType) {
-		this.cartBoatType = cartBoatType;
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		
+		//public Order(String id, String custUsername, Boat boat, int quantity, int numDays, User skipper, int dayHired, 
+		//		double skipperCost, double discount, double deposit, double totalPricePayNow, double remainingPrice)
+		allOrders.add(new Order("Order1", "elaine", boatBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 
+				50.0, 0.0, 65.0, 65.0, 120.0));
+		allOrders.add(new Order("Order2", "elaine", boatBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 
+				50.0, 0.0, 60.0, 60.0, 100.0));
+		
 	}
 
-	public String getId() {
-		return id;
+	// Must be return type string for form
+	public String selectBoat() {
+		formDeposit = depositToPay();
+		return null;
+	}
+	
+	public double depositToPay() {
+		formDeposit = (double) formQuantity * formNumDays * 0.1; // 10% deposit required for boats
+		//return "€" + Double.toString(total);
+		return formDeposit;	// format as currency
+	}
+	
+	
+	public Boat getSelectedBoat() {
+		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		return boatBean.findBoat(boatType);
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public String quantityInStock() {
+		boatSelected = getSelectedBoat();
+		if (boatSelected != null) {
+			return Integer.toString(boatSelected.getQuantity());
+		}
+
+		return "BOAT NOT FOUND";
 	}
 
-	public String getCustUsername() {
-		return custUsername;
+	public String pricePerDay() {
+		boatSelected = getSelectedBoat();
+		if (boatSelected != null) {
+			return Double.toString(boatSelected.getPrice());
+		}
+
+		return "BOAT NOT FOUND";
 	}
 
-	public void setCustUsername(String custUsername) {
-		this.custUsername = custUsername;
+	public ArrayList<Order> getAllOrders() {
+		return allOrders;
 	}
 
-	public int getQuantity() {
-		return quantity;
+	public void setAllOrders(ArrayList<Order> allOrders) {
+		this.allOrders = allOrders;
 	}
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public Order getCurrentOrder() {
+		return currentOrder;
 	}
 
-	public int getNumDays() {
-		return numDays;
+	public void setCurrentOrder(Order currentOrder) {
+		this.currentOrder = currentOrder;
 	}
 
-	public void setNumDays(int numDays) {
-		this.numDays = numDays;
+	public String getBoatType() {
+		return boatType;
 	}
 
-	public int getDayHired() {
-		return dayHired;
+	public void setBoatType(String boatType) {
+		this.boatType = boatType;
 	}
 
-	public void setDayHired(int dayHired) {
-		this.dayHired = dayHired;
+	public Boat getBoatSelected() {
+		return boatSelected;
 	}
 
-	public double getSkipperCost() {
-		return skipperCost;
+	public void setBoatSelected(Boat boatSelected) {
+		this.boatSelected = boatSelected;
 	}
 
-	public void setSkipperCost(double skipperCost) {
-		this.skipperCost = skipperCost;
+	public int getFormQuantity() {
+		return formQuantity;
 	}
 
-	public double getDeposit() {
-		return deposit;
+	public void setFormQuantity(int formQuantity) {
+		this.formQuantity = formQuantity;
 	}
 
-	public void setDeposit(double deposit) {
-		this.deposit = deposit;
+	public int getFormNumDays() {
+		return formNumDays;
 	}
 
-	public double getTotalPricePayNow() {
-		return totalPricePayNow;
+	public void setFormNumDays(int formNumDays) {
+		this.formNumDays = formNumDays;
 	}
 
-	public void setTotalPricePayNow(double totalPricePayNow) {
-		this.totalPricePayNow = totalPricePayNow;
+	public int getFormDayBooked() {
+		return formDayBooked;
 	}
 
-	public double getRemainingPrice() {
-		return remainingPrice;
+	public void setFormDayBooked(int formDayBooked) {
+		this.formDayBooked = formDayBooked;
 	}
 
-	public void setRemainingPrice(double remainingPrice) {
-		this.remainingPrice = remainingPrice;
+	public double getFormDeposit() {
+		return formDeposit;
 	}
 
-	public double getDiscount() {
-		return discount;
+	public void setFormDeposit(double formDeposit) {
+		this.formDeposit = formDeposit;
 	}
 
-	public void setDiscount(double discount) {
-		this.discount = discount;
+	public double getFormTotalCost() {
+		return formTotalCost;
 	}
 
-	public User getSkipper() {
-		return skipper;
+	public void setFormTotalCost(double formTotalCost) {
+		this.formTotalCost = formTotalCost;
 	}
-
-	public void setSkipper(User skipper) {
-		this.skipper = skipper;
-	}
-
-	public Boat getBoat() {
-		return boat;
-	}
-
-	public void setBoat(Boat boat) {
-		this.boat = boat;
-	}
-
-	public ArrayList<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(ArrayList<Order> orders) {
-		this.orders = orders;
-	}
-
 }
 
+// order = new Order(id, custUsername, boat, quantity, numDays, skipper,
+// dayHired, skipperCost, discount, deposit,
+// totalPricePayNow, remainingPrice);
+
+/*
+ * private String id; private String custUsername; private int quantity; private
+ * int numDays; private int dayHired; private double skipperCost; private double
+ * deposit; private double totalPricePayNow; private double remainingPrice;
+ * private double discount; private User skipper = null; private Boat boat; //
+ * private Equipment equipment = new Equipment();
+ */
+/*
+ * public ArrayList<Boat> searchBoats() { BoatBean boatBean =
+ * Helper.getBean("boatBean", BoatBean.class); // Boat boatToAdd = new
+ * Boat(cartBoatType, 20.0, "cruiser.jpg", quantity);
+ * boatList.add(boatBean.findBoat(cartBoatType)); // boatList.add(boatToAdd);
+ * return boatList; }
+ */
 /*
  * public String getCartBoatType() { return cartBoatType; }
  * 
  * public void setCartBoatType(String cartBoatType) { this.cartBoatType =
  * cartBoatType; }
  * 
+ * public String getId() { return id; }
+ * 
+ * public void setId(String id) { this.id = id; }
+ * 
+ * public String getCustUsername() { return custUsername; }
+ * 
+ * public void setCustUsername(String custUsername) { this.custUsername =
+ * custUsername; }
+ * 
  * public int getQuantity() { return quantity; }
  * 
  * public void setQuantity(int quantity) { this.quantity = quantity; }
  * 
- * public String addToCart() { BoatBean boatBean = Helper.getBean("boatBean",
- * BoatBean.class); Boat boat = boatBean.findBoat(cartBoatType);
- * //boatList.add(new Boat("test", 20.0, "destroy.jpg", 4)); boatList.add(boat);
- * return null; }
+ * public int getNumDays() { return numDays; }
  * 
+ * public void setNumDays(int numDays) { this.numDays = numDays; }
  * 
- * public ArrayList<Boat> getBoatList() { return boatList; }
+ * public int getDayHired() { return dayHired; }
  * 
+ * public void setDayHired(int dayHired) { this.dayHired = dayHired; }
  * 
- * public void setBoatList(ArrayList<Boat> boatList) { this.boatList = boatList;
- * }
+ * public double getSkipperCost() { return skipperCost; }
  * 
- * //public String removeHandler() { // CartBean cart =
- * Helper.getBean("cartBean", CartBean.class); //
- * cart.removeItemFromCart(productID); // return null; // //}
+ * public void setSkipperCost(double skipperCost) { this.skipperCost =
+ * skipperCost; }
  * 
+ * public double getDeposit() { return deposit; }
+ * 
+ * public void setDeposit(double deposit) { this.deposit = deposit; }
+ * 
+ * public double getTotalPricePayNow() { return totalPricePayNow; }
+ * 
+ * public void setTotalPricePayNow(double totalPricePayNow) {
+ * this.totalPricePayNow = totalPricePayNow; }
+ * 
+ * public double getRemainingPrice() { return remainingPrice; }
+ * 
+ * public void setRemainingPrice(double remainingPrice) { this.remainingPrice =
+ * remainingPrice; }
+ * 
+ * public double getDiscount() { return discount; }
+ * 
+ * public void setDiscount(double discount) { this.discount = discount; }
+ * 
+ * public User getSkipper() { return skipper; }
+ * 
+ * public void setSkipper(User skipper) { this.skipper = skipper; }
+ * 
+ * public Boat getBoat() { return boat; }
+ * 
+ * public void setBoat(Boat boat) { this.boat = boat; }
+ * 
+ * public ArrayList<Order> getOrders() { return orders; }
+ * 
+ * public void setOrders(ArrayList<Order> orders) { this.orders = orders; }
  */

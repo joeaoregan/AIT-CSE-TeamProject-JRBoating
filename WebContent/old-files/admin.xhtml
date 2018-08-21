@@ -7,7 +7,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:body>
-	<ui:composition template="templates/template.xhtml">
+	<ui:composition template="/templates/template.xhtml">
 		<ui:param name="title" value="JR Boating Home" />
 		<ui:param name="heading" value="Admin Homepage" />
 
@@ -34,13 +34,13 @@
 					<p:tab title="Boat">
 						<p:tabView>
 							<p:tab title="Add Boat">
-								<ui:include src="/snippets/boatAdmin.xhtml" />
+								<ui:include src="/old-files/snippets/boatAdmin.xhtml" />
 							</p:tab>
 							<p:tab title="View All">
-								<ui:include src="/snippets/viewBoat.xhtml" />
+								<ui:include src="/old-files/snippets/viewBoat.xhtml" />
 							</p:tab>
 							<p:tab title="Search">
-								<ui:include src="/snippets/search.xhtml" />
+								<ui:include src="/old-files/snippets/search.xhtml" />
 							</p:tab>
 						</p:tabView>
 					</p:tab>
@@ -48,10 +48,10 @@
 					<p:tab title="Employee">
 						<p:tabView>
 							<p:tab title="Add Employee">
-								<ui:include src="/snippets/boatAdmin.xhtml" />
+								<ui:include src="/old-files/snippets/boatAdmin.xhtml" />
 							</p:tab>
 							<p:tab title="View All">
-								<ui:include src="/snippets/viewBoat.xhtml" />
+								<ui:include src="/old-files/snippets/viewBoat.xhtml" />
 							</p:tab>
 						</p:tabView>
 					</p:tab>

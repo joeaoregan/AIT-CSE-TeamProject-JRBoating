@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -20,26 +19,91 @@
 
 		<ui:define name="content">
 			<div id="main">
-				<h1 class="ui-widget-header ui-corner-all" align="center">Boats</h1>
+				<h1 class="ui-widget-header ui-corner-all" align="center">Select
+					A Boat</h1>
+
+				<h:graphicImage library="image"
+					name="#{orderBean.getSelectedBoat().getImage()}" width="400"
+					height="300" />
 
 				<h:form>
 					<p:selectOneRadio id="boatListBox" layout="pageDirection"
-						value="#{orderBean.cartBoatType}" onchange="this.form.submit();"
+						value="#{orderBean.boatType}" onchange="this.form.submit();"
 						title="Boats you can book online today">
 
 						<!-- show all the boats in the inventory to choose from -->
 						<f:selectItems value="#{boatBean.boatInventory}" var="boat"
 							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 					</p:selectOneRadio>
+
 				</h:form>
 			</div>
-
-			<!-- Display the type of boat to add to the cart -->
-			
-			<h:inputText id="cartBoatType" size="3"
-				value="#{boatBean.boatDetails(orderBean.cartBoatType)}" readonly="true"
-				title="Id for your selected product" />
 			<br />
+			<h:form>
+				<!-- Display the type of boat to add to the cart -->
+
+				<h3>Boat Information</h3>
+
+				<p:outputLabel for="orderBoatType" value="Type of Boat:" />
+				<h:inputText id="orderBoatType" size="3"
+					value="#{orderBean.boatType}" readonly="true"
+					title="Type of boat to hire" />
+				<br />
+
+				<p:outputLabel for="orderQuantityInStock" value="Quantity in Stock:" />
+				<h:inputText id="orderQuantityInStock" size="3"
+					value="#{orderBean.quantityInStock()}" readonly="true"
+					title="Number of boats in stock" />
+				<br />
+
+				<p:outputLabel for="pricePerDay" value="Price Per Day:" />
+				<h:inputText id="pricePerDay" size="3"
+					value="#{orderBean.pricePerDay()}" readonly="true"
+					title="Cost to hire boat per day" />
+				<br />
+
+				<p:outputLabel for="description" value="Description:" />
+				<h:inputText id="description" size="3"
+					value="#{orderBean.selectedBoat.description}"
+					readonly="true" title="Description for the selected boat" />
+				<br />
+
+
+
+
+				<p:outputLabel for="deposit" value="Deposit Required: " />
+				<h:inputText id="deposit" size="3"
+					value="#{orderBean.formDeposit}" readonly="true"
+					title="Description for the selected boat" />
+				<br />
+
+
+
+
+				<h3>Enter Details</h3>
+
+				<p:outputLabel for="quantityRequired" value="Quantity Required:" />
+				<h:inputText id="quantityRequired" size="3"
+					value="#{orderBean.formQuantity}" title="Enter quantity required" />
+				<br />
+
+				<p:outputLabel for="numberOfDays" value="Number Of Days:" />
+				<h:inputText id="numberOfDays" size="3"
+					value="#{orderBean.formQuantity}"
+					title="Enter number of days to hire" />
+				<br />
+				
+				
+				<h:commandButton value="Select Boat" action="#{orderBean.selectBoat()}"
+					styleClass="ActionButton" />&nbsp;
+			</h:form>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
+
+<!-- 
 			<p:outputLabel for="quantity" value="Quantity :" />
 			<br />
 			<p:inputText id="quantity" size="3" value="#{orderBean.quantity}"
@@ -58,7 +122,7 @@
 			<f:view>
 				<div id="tableDiv">
 					<h2 class="heading">Boat In the System</h2>
-					<h:dataTable value="#{orderBean.searchBoats()}" var="boat"
+					<h:dataTable value="#{orderBean.getAllOrders()}" var="boat"
 						styleClass="boatTable" headerClass="boatTableHeader"
 						rowClasses="displayTableOddRow,displayTableEvenRow">
 						<h:column>
@@ -85,8 +149,5 @@
 				<p:commandButton id="checkout" value="Checkout"
 					styleClass="ActionButton" />
 			</h:form>
-
-		</ui:define>
-	</ui:composition>
-</h:body>
-</html>
+			
+		 -->

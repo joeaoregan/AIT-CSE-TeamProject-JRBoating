@@ -31,7 +31,7 @@ public class Order {
 	Double deposit;								// 10% of the boat price
 	Double totalPricePayNow;					// Skipper cost + boat deposit cost up front to secure the boat, and amount that needs to be paid now
 	Double remainingPrice;						// Price to pay on the day
-	/*
+	
 	public Order() {
 		id = "";
 		custUsername = "";	
@@ -46,7 +46,7 @@ public class Order {
 		totalPricePayNow = 0.0;
 		remainingPrice = 0.0;
 	}
-	*/
+
 	public Order(String id, String custUsername, Boat boat, int quantity, int numDays, User skipper, int dayHired, double skipperCost, double discount, double deposit,
 			double totalPricePayNow, double remainingPrice) {
 		this.id = id;
