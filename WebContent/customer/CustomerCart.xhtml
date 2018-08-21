@@ -6,13 +6,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:body>
-	<ui:composition template="templates/template.xhtml">
+	<ui:composition template="/templates/template.xhtml">
 		<ui:param name="title" value="JR Boating Cart" />
 		<ui:param name="heading" value="Shopping Cart" />
 
-		<ui:define name="header">
+		<ui:define name="menu">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/templates/menuLoggedIn.xhtml' : '/templates/menuLoggedOut.xhtml'}">
+				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>

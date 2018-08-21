@@ -6,27 +6,21 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<!-- Top Menu: Skipper Logged In -->
+
 <body>
 	<ui:composition>
-		<!-- Top Menu: Skipper Logged In -->
 		<h:form>
-			<h:commandButton value="Home" action="IndexPage"
+			<h:commandButton value="Home" action="/index.xhtml"
 				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
- 
- 
- 
-        	<h:commandButton value="Account" action="SkipperAccount"
-				styleClass="#{(heading=='Skipper Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
- 
-        	<h:commandButton value="Add Dates" action="SkipperAddDates"
+        	<h:commandButton value="Account" action="/skipper/SkipperAccount.xhtml"
+				styleClass="#{(heading=='Skipper Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
+        	<h:commandButton value="Add Dates" action="/skipper/SkipperAddDates.xhtml"
 				styleClass="#{(heading=='Skipper Add Dates') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
-
-        	<h:commandButton value="Bookings" action="SkipperBookings"
-				styleClass="#{(heading=='Skipper Bookings') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-					
+        	<h:commandButton value="Bookings" action="/skipper/SkipperBookings.xhtml"
+				styleClass="#{(heading=='Skipper Bookings') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;					
         	<h:commandButton value="#{loginBean.username}: Log Out"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
-				
 		</h:form>
 	</ui:composition>
 </body>

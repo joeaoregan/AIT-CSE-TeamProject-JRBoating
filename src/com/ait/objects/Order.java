@@ -23,7 +23,7 @@ public class Order {
 	//User skipper = OrderBean.getSkipper();			// Get the skipper that is booked
 	
 	int dayHired;						// day (between 0 and numDays) for which Skipper is hired (1 day only)
-	Double skipperCost;					// In Skipper class = Skipper.price
+	double skipperCost;					// In Skipper class = Skipper.price
 		
 	///Double discount;					// Pricing structure applies discount
 	

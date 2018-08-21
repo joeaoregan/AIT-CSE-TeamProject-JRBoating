@@ -6,12 +6,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:body>
-	<ui:composition template="templates/template.xhtml">
-		<ui:param name="title" value="JR Boating Inventory" />
-		<ui:param name="heading" value="Skipper Account" />
+	<ui:composition template="/templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Customers" />
+		<ui:param name="heading" value="Staff Manage Customers" />
 
-		<ui:define name="header">
-			<ui:include src="/templates/MenuSkipper.xhtml">
+		<ui:define name="menu">
+			<ui:include src="/menus/front-desk-staff.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>

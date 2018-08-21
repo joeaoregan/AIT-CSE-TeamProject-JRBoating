@@ -1,4 +1,3 @@
-
 package com.ait.jrb;
 
 import java.io.Serializable;
@@ -12,20 +11,27 @@ import com.ait.objects.User;
 @ManagedBean(name = "userBean")
 @SessionScoped
 public class UserBean implements Serializable {
-	private static final long serialVersionUID = 1L;
 	
+	private static final long serialVersionUID = 1L;	
 	private ArrayList<User> userList;
-	
-	private String username, password, passwordConfirmation, firstName, lastName, address, userType, phoneNumber,
-			lUsername, lPassword;
 
-	// New
-	private String phone, type, bio, image;
-	Double pricePerDay;
-	
-	
-	public UserBean() {
+	// Removed extra and duplicate variables
+	private int type;	// Default = User.CUSTOMER
+	private String username;
+	private String password;
+	private String passwordConfirmation;	// NOT NEEDED
+	private String firstName;
+	private String lastName;
+	private String address;
+	private String phone;
+	private String bio;
+	private String image;
+	Double pricePerDay;	// Set the price to hire a Skipper for the day
+			
+	public UserBean() {		
 		userList = new ArrayList<User>();
+		
+		resetBeanVars();	// Initialise / clear variables
 
 		User root = new User(User.MANAGER, "root", "admin", "admin", "MasterUser", "Administrator", 
 				"Athlone", "1234567", "", "profile.jpg", 0.0);
@@ -47,6 +53,23 @@ public class UserBean implements Serializable {
 		addUser(kiev);
 		addUser(sorcha);
 	}
+	
+	/*
+	 * Initialise / Reset bean variables to clear the form data
+	 */
+	public void resetBeanVars() {
+		this.type = User.CUSTOMER;	// default type (Manager can change from their view)
+		username = "";
+		password = "";
+		passwordConfirmation = "";
+		firstName = "";
+		lastName = "";
+		address = "";
+		phone = "";
+		image = "";
+		bio = "";
+		pricePerDay = 0.0;
+	}
 
 	/*
 	 * Displays a string instead of using the integer user type
@@ -66,6 +89,9 @@ public class UserBean implements Serializable {
 		}
 	}
 	
+	/*
+	 * Save form update / edit details
+	 */
 	public String saveAction() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		for (User user : userBean.getUserList()) {
@@ -109,34 +135,23 @@ public class UserBean implements Serializable {
 	public int userCount() {
 		return userList.size();
 	}
-
-	public boolean login(String username, String password) {
-		System.out.println("Customer "+ userList.size());
-		for (User user : userList) {
-			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-				return true;
-			}
-		}
-		return false;
-	}
-		
 	
-	public String getlUsername() {
-		return lUsername;
+	public String registerCustomerHandler() {
+		String msg = "Username Already Exist";
+		
+		if (!password.equals(passwordConfirmation)) {
+			msg = "PasswordDon't match";
+		} else if (!checkUniqueUsername(username)) {
+			User user = new User(User.CUSTOMER, username, password, passwordConfirmation, 
+					firstName, lastName, address, phone, bio, image, pricePerDay);
+			addUser(user);
+			msg = "OK";
+		}
+		return msg;
 	}
 
-	public void setlUsername(String lUsername) {
-		this.lUsername = lUsername;
-	}
-
-	public String getlPassword() {
-		return lPassword;
-	}
-
-	public void setlPassword(String lPassword) {
-		this.lPassword = lPassword;
-	}
-
+	/* GETTERS AND SETTERS */
+	
 	public String getUsername() {
 		return username;
 	}
@@ -185,41 +200,6 @@ public class UserBean implements Serializable {
 		this.address = address;
 	}
 
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String registerCustomerHandler() {
-		String msg = "Username Already Exist";
-		//System.out.println("Reg " + password);
-		//System.out.println("CReg " + passwordConfirmation);
-		if (!password.equals(passwordConfirmation)) {
-			msg = "PasswordDon't match";
-		} else if (!checkUniqueUsername(username)) {
-			//User user = new User(firstName, lastName, username, password, address, phoneNumber, "CUS");
-			//User user = new User(firstName, lastName, username, password, address, phoneNumber, User.CUSTOMER_ID);
-
-			User user = new User(User.CUSTOMER, username, password, passwordConfirmation, 
-					firstName, lastName, address, phoneNumber, bio, image, pricePerDay);
-			addUser(user);
-			msg = "OK";
-		}
-		return msg;
-	}
-
-
 	public String getPhone() {
 		return phone;
 	}
@@ -228,11 +208,11 @@ public class UserBean implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getType() {
+	public int getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 
@@ -270,86 +250,13 @@ public class UserBean implements Serializable {
 }
 
 /*
-public static void setManagerLoddgedIn(boolean isManagerLoddgedIn) {
-	UserBean.isManagerLoddgedIn = isManagerLoddgedIn;
-}
-
-public static void setCustomerLoggedIn(boolean isCustomerLoggedIn) {
-	UserBean.isCustomerLoggedIn = isCustomerLoggedIn;
-}
-
-public static void setSkipperLoggedIn(boolean isSkipperLoggedIn) {
-	UserBean.isSkipperLoggedIn = isSkipperLoggedIn;
-}
-*/
-/*
-public static boolean isManagerLoddgedIn() {
-	return isManagerLoddgedIn;
-}
-
-public boolean isCustomerLoggedIn() {
-	return isCustomerLoggedIn;
-}
-
-public boolean isFrontDeskLoggedIn() {
-	return isFrontDeskLoggedIn;
-}
-
-public void setFrontDeskLoggedIn(boolean isFrontDeskLoggedIn) {
-	UserBean.isFrontDeskLoggedIn = isFrontDeskLoggedIn;
-}
-
-public boolean isSkipperLoggedIn() {
-	return isSkipperLoggedIn;
-}
-*/
-
-/*
-*	BETTER TO CHECK BY USERTYPE
-*
-public String userLogin() {
-	String msg = "error";
-	//JrBoatingBean jrBoatingDB = Helper.getBean("jrBoatingBean", JrBoatingBean.class);
-
-	if (lUsername.equals("root")) {
-		if (lUsername.equals("root") && lPassword.equals("admin")) {
-			msg = "manager";
-			isManagerLoddgedIn = true;
-			return "admin.xhtml";
+	public boolean login(String username, String password) {
+		System.out.println("Customer "+ userList.size());
+		for (User user : userList) {
+			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				return true;
+			}
 		}
+		return false;
 	}
-
-	else if (lUsername.equals("fd")) {
-		msg = "frontdesk";
-//	if (jrBoatingDB.login(lUsername, lPassword)) {
-//		isFrontDeskLoggedIn = true;
-//		msg = "frontdesk";
-//	}
-	}
-
-	else if (lUsername.equals("sk")) {
-		msg = "skipper";
-//	if (jrBoatingDB.login(lUsername, lPassword)) {
-//		isSkipperLoggedIn = true;
-//		msg = "skipper";
-//	}
-	}
-
-	else {
-		if (login(lUsername, lPassword)) {
-			isCustomerLoggedIn = true;
-			return "CustomerBoat.xhtml";
-		}
-	}
-	return msg;
-
-}
-*/
-
-/*
-public String logout() {
-	isManagerLoddgedIn = false;
-	System.out.println("here");
-	return "index.xhtml";
-}
 */

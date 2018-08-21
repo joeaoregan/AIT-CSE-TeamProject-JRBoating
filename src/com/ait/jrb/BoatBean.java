@@ -82,16 +82,17 @@ public class BoatBean implements Serializable {
 				return "BOAT TYPE EXISTS";
 			}
 		}
-
+		for (Boat aboat : boatInventory) {
+			
+		}
 		boat.setId("Boat" + (boatInventory.size() + 1)); // set boat id to Boat1, Boat2, etc.
 		boatInventory.add(boat);
 		return "OK";
 	}
 
-	public void removeBoat(Boat boat) {
-		//System.out.println("before remove " + boatInventory.size());
+	public String removeBoat(Boat boat) {
 		boatInventory.remove(boat);
-		//System.out.println("after remove " + boatInventory.size());
+		return null;
 	}
 
 	public int boatCount() {

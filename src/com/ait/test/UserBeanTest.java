@@ -1,11 +1,12 @@
 package com.ait.test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ait.jrb.UserBean;
+import com.ait.objects.User;
 
 class UserBeanTest {
 	UserBean userBean;
@@ -53,15 +54,16 @@ class UserBeanTest {
 
 	@Test
 	void testChangeUserType() {
-		userBean.setUserType("Test");
-		assertEquals("Test", userBean.getUserType());
+		userBean.setType(User.CUSTOMER);
+		assertEquals(User.CUSTOMER, userBean.getType());
 	}
 
 	@Test
 	void testChangePhoneNumber() {
-		userBean.setPhoneNumber("123456");
-		assertEquals("123456", userBean.getPhoneNumber());
+		userBean.setPhone("123456");
+		assertEquals("123456", userBean.getPhone());
 	}
+<<<<<<< HEAD
 /*
 	@Test
 	void testChangeIsManagerLoggedIn() {
@@ -133,4 +135,6 @@ class UserBeanTest {
 		assertEquals("skipper", userBean.userLogin());
 	}*/
 
+=======
+>>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
 }

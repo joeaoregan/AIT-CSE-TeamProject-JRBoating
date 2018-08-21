@@ -6,25 +6,24 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
+<!-- Top Menu: User Logged Out-->
+
 <body>
 	<ui:composition>
-
-		<!-- Top Menu: Customer Logged Out-->
 		<h:form>
-			<h:commandButton value="Home" action="IndexPage"
+			<h:commandButton value="Home" action="/index.xhtml"
 				styleClass="#{(page=='index') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-	    	<h:commandButton value="Register" action="RegistrationNEW"
+	    	<h:commandButton value="Register" action="/register.xhtml"
 				styleClass="#{(page=='register') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 	       	<h:commandButton value="Boat Details"
-				action="BoatDetailsTabbed"
+				action="/details.xhtml"
 				styleClass="#{(page=='boatdetails') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-	       	<h:commandButton value="About Us" action="About"
+	       	<h:commandButton value="About Us" action="/about.xhtml"
 				styleClass="#{(page=='about') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-	       	<h:commandButton value="Login" action="LoginPage"
+	       	<h:commandButton value="Login" action="/login.xhtml"
 				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 			<br />
 		</h:form>
 	</ui:composition>
-
 </body>
 </html>

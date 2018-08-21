@@ -1,7 +1,6 @@
 package com.ait.objects;
 
 public class User {
-	// Use to set type integer, access with User.CUSTOMER_ID etc
 	public final static int CUSTOMER = 0;
 	public final static int MANAGER = 1;
 	public final static int SKIPPER = 2;
@@ -14,16 +13,26 @@ public class User {
 	private String lastName;
 	private String address;
 	private String phone;
-	private String bio;
+	private String bio; // Information about the user (Skipper)
 	private String image;
 	private String passwordConfirmation; // Prime faces does this
+<<<<<<< HEAD
 	private double pricePerDay;
 	private boolean canEdit;
+=======
+	private double pricePerDay; // Price to hire (Skipper)
+	private boolean canEdit; // editing forms
+>>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
 
 	// Constructor
+<<<<<<< HEAD
 	public User(int type, String username, String password, String passwordConfirmation, 
 			String firstName, String lastName, 
 			String address, String phone,String bio, String image, double pricePerDay) {
+=======
+	public User(int type, String username, String password, String passwordConfirmation, String firstName,
+			String lastName, String address, String phone, String bio, String image, Double pricePerDay) {
+>>>>>>> branch 'master' of https://elaine12@bitbucket.org/aitcse4/jrboating-master.git
 		this.type = type;
 		this.username = username;
 		this.password = password;
