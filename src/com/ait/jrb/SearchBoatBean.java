@@ -13,7 +13,7 @@ public class SearchBoatBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Boat boat;
-	
+
 	private String typeSearched;
 	private String message;
 	private String rendered;
@@ -24,12 +24,14 @@ public class SearchBoatBean implements Serializable {
 		message = "";
 		rendered = "false";
 	}
-	
+
 	public String searchHandler() {
 		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
+			typeSearched = "";
 			return "/customer/SearchVerify.xhtml";
 		}
 		
+		typeSearched = "";
 		return null;
 	}
 
@@ -50,7 +52,6 @@ public class SearchBoatBean implements Serializable {
 		message = "BOAT NOT FOUND";
 		return message;
 	}
-	
 
 	public Boat getBoat() {
 		return boat;
@@ -60,31 +61,25 @@ public class SearchBoatBean implements Serializable {
 		this.boat = boat;
 	}
 
-
 	public String getTypeSearched() {
 		return typeSearched;
 	}
-
 
 	public void setTypeSearched(String typeSearched) {
 		this.typeSearched = typeSearched;
 	}
 
-
 	public String getMessage() {
 		return message;
 	}
-
 
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-
 	public String getRendered() {
 		return rendered;
 	}
-
 
 	public void setRendered(String rendered) {
 		this.rendered = rendered;

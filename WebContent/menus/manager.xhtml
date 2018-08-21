@@ -21,6 +21,8 @@
 				styleClass="#{(heading=='Manage Pricing') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
         	<h:commandButton value="Manage Reports" action="/manager/ManageReports.xhtml"
 				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
 	</ui:composition>
 </body>

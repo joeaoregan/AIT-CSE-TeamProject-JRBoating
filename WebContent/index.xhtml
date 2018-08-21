@@ -25,16 +25,13 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div>
-				<p:imageSwitch effect="shuffle" id="fadeEffect">
-					<ui:repeat var="image" value="#{imageView.images}"
-						id="fadeEffectImages">
-						<p:graphicImage style="height:400px;width:100%;"
-							value="/resources/image/#{image}" />
-					</ui:repeat>
-				</p:imageSwitch>
-
-			</div>
+			<p:imageSwitch effect="shuffle" id="fadeEffect">
+				<ui:repeat var="image" value="#{imageView.images}"
+					id="fadeEffectImages">
+					<p:graphicImage style="height:400px;width:100%;"
+						value="/resources/image/#{image}" />
+				</ui:repeat>
+			</p:imageSwitch>
 
 			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
 			<p>

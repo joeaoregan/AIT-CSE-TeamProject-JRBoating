@@ -12,6 +12,32 @@ body {
 	border-radius: 15px;
 }
 
+#header2 {
+  overflow: hidden;
+  position: fixed;
+  right: 10%;
+  top: 0%;
+  width: 80%;
+	border: 1px solid black;
+	text-align: center;
+	background-color: #0080ff; /*type of blue*/
+	color: white;
+	border-radius: 15px;
+}
+
+#search {
+  position: fixed;
+  right: 0%;
+  bottom: 0%;
+  width: 30%;
+    opacity: 0.50;
+	border: 1px solid black;
+	text-align: center;
+	background-color: #0080ff; /*type of blue*/
+	color: white;
+	border-radius: 15px;
+}
+
 /* Footer at bottom of each page */
 #footer {
 	border: 1px solid black;
@@ -35,7 +61,7 @@ body {
 }
 
 input[type=text],input[type=password] {
-	width: 350px;
+	width: 300px;
 	padding: 15px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
@@ -96,6 +122,24 @@ input[type=text],input[type=password] {
 	color: white;
 }
 
+.placeholderTopOfPage {
+	height: 50px;
+}
+
+.searchbtn {
+	background-color: grey;
+	color: white;
+	font-size: 100%;
+	padding: 10px 2px;
+	margin: 2px 0;
+	border: none;
+	cursor: pointer;
+	width: 20%;
+	opacity: 0.9;
+	border-radius: 15px;
+	color: white;
+}
+
 /* login.xhtml */
 #logDiv {
 	border: 1px solid black;
@@ -148,7 +192,7 @@ input[type=text],input[type=password] {
 	text-align: center;
 	background: none repeat scroll 0 0 #D3D3D3;
 }
-=======
+
 body {
 	background-color: White;
 	margin: 0px;
