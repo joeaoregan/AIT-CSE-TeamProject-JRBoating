@@ -40,7 +40,7 @@ class BoatBeanTest {
 	void testBoatDetails() { // 4 boats are already added in constructor. Next boat added
 								// will be id=5
 		assertEquals("OK", boatBean.addNewBoat(boat));
-		assertEquals("ID: Boat5, Type: Cruiser, Price: 100.25", boatBean.boatDetails("Boat5"));
+		assertEquals("ID: Boat5, Type: Cruiser1, Price: 100.25", boatBean.boatDetails("Boat5"));
 	}
 
 	@Test
@@ -81,7 +81,7 @@ class BoatBeanTest {
 	@Test
 	void changePrice() {
 		boatBean.setPrice(3.25);
-		assertEquals(Double.valueOf(3.25), boatBean.getPrice());
+		assertEquals(3.25, boatBean.getPrice());
 	}
 
 	@Test

@@ -20,6 +20,13 @@ class LoginBeanTest {
 	}
 
 	@Test
+	void testShowLogInPage() {
+		assertEquals("", loginBean.getUsername());
+		assertEquals("", loginBean.getPassword());
+		assertEquals("", loginBean.getMessage());
+	}
+
+	@Test
 	void testChangeIsManagerLoggedIn() {
 		loginBean.setLoggedInManager(true);
 		assertTrue(loginBean.getLoggedInManager());
@@ -44,11 +51,23 @@ class LoginBeanTest {
 	}
 
 	@Test
+	void testChangeShowUserLogin() {
+		loginBean.setShowUserLogIn("false");
+		assertEquals("false", loginBean.getShowUserLogIn());
+	}
+
+	@Test
+	void testChangeShowUserLogOut() {
+		loginBean.setShowUserLogOut("true");
+		assertEquals("true", loginBean.getShowUserLogOut());
+	}
+
+	@Test
 	void testGetSetMessage() {
 		loginBean.setMessage("test");
 		assertEquals("test", loginBean.getMessage());
 	}
-	
+
 	@Test
 	void testWrongLoggedIn() {
 		loginBean.setUserLoggedIn(20);
@@ -69,38 +88,65 @@ class LoginBeanTest {
 		loginBean.setUserLoggedIn(User.SKIPPER);
 		assertTrue(loginBean.getLoggedInSkipper());
 	}
-/*
+
 	@Test
-	void testShowLogInPage() {
-		loginBean.setLoggedUser(new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone",
-				"123456", "bio", "profile.jpg", 0.0));
-		assertEquals("/login", loginBean.showLoginPage());
+	void testDisplayTypeManager() {
+		loginBean.setUserLoggedIn(User.MANAGER);
+		assertEquals("Manager", loginBean.displayType(User.MANAGER));
 	}
-*/
-	
+
+	@Test
+	void testDisplayTypeCustomer() {
+		loginBean.setUserLoggedIn(User.CUSTOMER);
+		assertEquals("Customer", loginBean.displayType(User.CUSTOMER));
+	}
+
+	@Test
+	void testDisplayTypeFDS() {
+		loginBean.setUserLoggedIn(User.FRONT_DESK_STAFF);
+		assertEquals("Front Desk Staff", loginBean.displayType(User.FRONT_DESK_STAFF));
+	}
+
+	@Test
+	void testDisplayTypeSkipper() {
+		loginBean.setUserLoggedIn(User.SKIPPER);
+		assertEquals("Skipper", loginBean.displayType(User.SKIPPER));
+	}
+
+	@Test
+	void testDisplayTypeNotFound() {
+		loginBean.setUserLoggedIn(222);
+		assertEquals(null, loginBean.displayType(222));
+	}
+
+	/*
+	 * @Test void testShowLogInPage() { loginBean.setLoggedUser(new
+	 * User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe",
+	 * "16 Main Road, Athlone", "123456", "bio", "profile.jpg", 0.0));
+	 * assertEquals("/login", loginBean.showLoginPage()); }
+	 */
+
 	// Problem with Helper function
-/*
- 	@Test
-	void testGetUser() {
-		assertEquals(null, loginBean.getUser());
-	}
-*/
-	
+	/*
+	 * @Test void testGetUser() { assertEquals(null, loginBean.getUser()); }
+	 */
+
 	@Test
 	void testGetSetUsername() {
 		loginBean.setUsername("test");
 		assertEquals("test", loginBean.getUsername());
 	}
-	
+
 	@Test
 	void testGetSetPassword() {
 		loginBean.setPassword("test");
-		assertEquals("test", loginBean.getPassword());		
+		assertEquals("test", loginBean.getPassword());
 	}
+
 	@Test
-	void testShowLogInPage() {
-		User user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone",
-				"123456", "bio", "profile.jpg", 0.0);
+	void testChangeLoggedUser() {
+		User user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456",
+				"bio", "profile.jpg", 0.0);
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
 	}
