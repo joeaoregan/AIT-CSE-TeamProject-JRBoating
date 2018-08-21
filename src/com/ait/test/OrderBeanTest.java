@@ -1,137 +1,103 @@
 package com.ait.test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+
+
+import com.ait.jrb.OrderBean;
 import com.ait.objects.Boat;
 import com.ait.objects.Order;
 import com.ait.objects.User;
 
-class OrderBeanTest {
 
+class OrderBeanTest {
+	OrderBean orderBean;
+	
+
+	@BeforeEach
+	void setUp() {
+		orderBean= new OrderBean();
+	}
 	@Test
-	void testCartBoatType() {
-		fail("Not yet implemented");
+	void testChangeCartType() {
+		orderBean.setCartBoatType("CartBoatType");
+		assertEquals("CartBoatType", orderBean.getCartBoatType());
+	}
+	@Test
+	void testChangeId() {
+		orderBean.setId("ID");
+		assertEquals("ID", orderBean.getId());
+	}
+	@Test
+	void testChangeCustUserName() {
+		orderBean.setCustUsername("sorcha");
+		assertEquals("sorcha", orderBean.getCustUsername());
+	}
+	@Test
+	void testChangeQuantity() {
+		orderBean.setQuantity(5);
+		assertEquals(5, orderBean.getQuantity());
+	}
+	@Test
+	void testChangeNumberOfDays() {
+		orderBean.setNumDays(10);
+		assertEquals(10, orderBean.getNumDays());
+	}
+	@Test
+	void testChangeDaysHired() {
+		orderBean.setDayHired(1);
+		assertEquals(1, orderBean.getDayHired());
+	}
+	@Test
+	void testChangeSkipperCost() {
+		orderBean.setSkipperCost(12.56);
+		assertEquals(12.56, orderBean.getSkipperCost(),0.0);
+	}
+	@Test
+	void testChangeDeposit() {
+		orderBean.setDeposit(12.56);
+		assertEquals(12.56, orderBean.getDeposit(),0.0);
+	}
+	@Test
+	void testChangeTotalPriceToPayPayNow() {
+		orderBean.setTotalPricePayNow(12.56);
+		assertEquals(12.56, orderBean.getTotalPricePayNow(),0.0);
+	}
+	@Test
+	void testChangeRemainingPrice() {
+		orderBean.setRemainingPrice(12.56);
+		assertEquals(12.56, orderBean.getRemainingPrice(),0.0);
+	}
+	@Test
+	void testChangeDiscount() {
+		orderBean.setDiscount(12.56);
+		assertEquals(12.56, orderBean.getDiscount(),0.0);
+	}
+	@Test
+	void testChangeSkipper() {
+		User skipper1=new User(User.SKIPPER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 40.0);
+		orderBean.setSkipper(skipper1);
+		assertEquals(skipper1, orderBean.getSkipper());
+	}
+	@Test
+	void testChangeBoat() {
+		Boat boat = new Boat("Cruiser", 1.23, "image", 1, "description");
+		orderBean.setBoat(boat);
+		assertEquals(boat, orderBean.getBoat());
+	}
+	@Test
+	void testChangeOrders() {
+		ArrayList<Order> orders= new ArrayList<Order>();
+		orderBean.setOrders(orders);
+		assertEquals(orders, orderBean.getOrders());
 	}
 
 	
-	/* 
-	 
-	public String getCartBoatType() {
-		return cartBoatType;
-	}
-
-	public void setCartBoatType(String cartBoatType) {
-		this.cartBoatType = cartBoatType;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getCustUsername() {
-		return custUsername;
-	}
-
-	public void setCustUsername(String custUsername) {
-		this.custUsername = custUsername;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
-	public int getNumDays() {
-		return numDays;
-	}
-
-	public void setNumDays(int numDays) {
-		this.numDays = numDays;
-	}
-
-	public int getDayHired() {
-		return dayHired;
-	}
-
-	public void setDayHired(int dayHired) {
-		this.dayHired = dayHired;
-	}
-
-	public double getSkipperCost() {
-		return skipperCost;
-	}
-
-	public void setSkipperCost(double skipperCost) {
-		this.skipperCost = skipperCost;
-	}
-
-	public double getDeposit() {
-		return deposit;
-	}
-
-	public void setDeposit(double deposit) {
-		this.deposit = deposit;
-	}
-
-	public double getTotalPricePayNow() {
-		return totalPricePayNow;
-	}
-
-	public void setTotalPricePayNow(double totalPricePayNow) {
-		this.totalPricePayNow = totalPricePayNow;
-	}
-
-	public double getRemainingPrice() {
-		return remainingPrice;
-	}
-
-	public void setRemainingPrice(double remainingPrice) {
-		this.remainingPrice = remainingPrice;
-	}
-
-	public double getDiscount() {
-		return discount;
-	}
-
-	public void setDiscount(double discount) {
-		this.discount = discount;
-	}
-
-	public User getSkipper() {
-		return skipper;
-	}
-
-	public void setSkipper(User skipper) {
-		this.skipper = skipper;
-	}
-
-	public Boat getBoat() {
-		return boat;
-	}
-
-	public void setBoat(Boat boat) {
-		this.boat = boat;
-	}
-
-	public ArrayList<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(ArrayList<Order> orders) {
-		this.orders = orders;
-	}
-
-	 
-	 */
 }
