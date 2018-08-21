@@ -12,7 +12,7 @@ class UserTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+		user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
 				"profile.jpg", 40.0);
 	}
 
@@ -40,12 +40,6 @@ class UserTest {
 	void testPasswordChanged() {
 		user.setPassword("pass");
 		assertEquals("pass", user.getPassword());
-	}
-
-	@Test
-	void testPasswordConfirmationChanged() {
-		user.setPasswordConfirmation("any");
-		assertEquals("any", user.getPasswordConfirmation());
 	}
 
 	@Test

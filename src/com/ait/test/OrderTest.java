@@ -20,7 +20,7 @@ class OrderTest {
 	void setUp() throws Exception {
 		//order1 = new Order();
 		
-		skipper = new User(User.SKIPPER, "skip", "pass", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio",
+		skipper = new User(User.SKIPPER, "skip", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio",
 		"profile.jpg", 0.0);
 		boat = new Boat("Cruiser", 100.0, "image", 1, "description", "link");		
 		
@@ -71,7 +71,7 @@ class OrderTest {
 	void testOrderSkipper() {
 		assertEquals(skipper, order.getSkipper());
 
-		User skipper2 = new User(User.SKIPPER, "kiev", "pass", "pass", "Kiev", "Reynolds", "Athlone", "123456", "bio",
+		User skipper2 = new User(User.SKIPPER, "kiev", "pass", "Kiev", "Reynolds", "Athlone", "123456", "bio",
 		"profile.jpg", 0.0);
 		order.setSkipper(skipper2);
 		assertEquals(skipper2, order.getSkipper());

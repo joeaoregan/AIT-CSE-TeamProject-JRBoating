@@ -11,40 +11,40 @@ import com.ait.objects.User;
 @ManagedBean(name = "userBean")
 @SessionScoped
 public class UserBean implements Serializable {
-	
-	private static final long serialVersionUID = 1L;	
+
+	private static final long serialVersionUID = 1L;
 	private ArrayList<User> userList;
 
 	// Removed extra and duplicate variables
-	private int type;	// Default = User.CUSTOMER
+	private int type; // Default = User.CUSTOMER
 	private String username;
 	private String password;
-	private String passwordConfirmation;	// NOT NEEDED
+	private String passwordConfirmation; // NOT NEEDED
 	private String firstName;
 	private String lastName;
 	private String address;
 	private String phone;
 	private String bio;
 	private String image;
-	Double pricePerDay;	// Set the price to hire a Skipper for the day
-			
-	public UserBean() {		
-		userList = new ArrayList<User>();
-		
-		resetBeanVars();	// Initialise / clear variables
+	Double pricePerDay; // Set the price to hire a Skipper for the day
 
-		User root = new User(User.MANAGER, "root", "admin", "admin", "MasterUser", "Administrator", 
-				"Athlone", "1234567", "", "profile.jpg", 0.0);
-		User joe = new User(User.MANAGER, "joe1", "asdf", "asdf", "Joe", "O'Regan", 
-				"Thurles", "0871234567", "", "profile.jpg", 0.0);
-		User ademola = new User(User.MANAGER, "ademola", "asdf", "asdf", "Ademola", "Alade", 
-				"Athlone", "1234567", "", "profile.jpg", 0.0);
-		User elaine = new User(User.CUSTOMER, "elaine", "asdf", "asdf", "Elaine", "Santos", 
-				"Athlone", "0870246810", "", "profile.jpg", 0.0);
-		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", 
-				"Athlone", "0873691215", "", "profile.jpg", 0.0);
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", 
-				"Athlone", "0870481216", "", "profile.jpg", 0.0);
+	public UserBean() {
+		userList = new ArrayList<User>();
+
+		resetBeanVars(); // Initialise / clear variables
+
+		User root = new User(User.MANAGER, "root", "admin", "MasterUser", "Administrator", "Athlone", "1234567", "",
+				"profile.jpg", 0.0);
+		User joe = new User(User.MANAGER, "joe1", "asdf", "Joe", "O'Regan", "Thurles", "0871234567", "", "profile.jpg",
+				0.0);
+		User ademola = new User(User.MANAGER, "ademola", "asdf", "Ademola", "Alade", "Athlone", "1234567", "",
+				"profile.jpg", 0.0);
+		User elaine = new User(User.CUSTOMER, "elaine", "asdf", "Elaine", "Santos", "Athlone", "0870246810", "",
+				"profile.jpg", 0.0);
+		User kiev = new User(User.SKIPPER, "kiev", "asdf", "Kiev", "Reynolds", "Athlone", "0873691215", "",
+				"profile.jpg", 0.0);
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216", "",
+				"profile.jpg", 0.0);
 
 		addUser(root);
 		addUser(joe);
@@ -53,12 +53,12 @@ public class UserBean implements Serializable {
 		addUser(kiev);
 		addUser(sorcha);
 	}
-	
+
 	/*
 	 * Initialise / Reset bean variables to clear the form data
 	 */
 	public void resetBeanVars() {
-		this.type = User.CUSTOMER;	// default type (Manager can change from their view)
+		this.type = User.CUSTOMER; // default type (Manager can change from their view)
 		username = "";
 		password = "";
 		passwordConfirmation = "";
@@ -88,7 +88,7 @@ public class UserBean implements Serializable {
 			return null;
 		}
 	}
-	
+
 	/*
 	 * Save form update / edit details
 	 */
@@ -99,7 +99,7 @@ public class UserBean implements Serializable {
 		}
 		return null;
 	}
-	
+
 	/*
 	 * Find a user in the list of users using a username If a user is not found
 	 * return null
@@ -115,14 +115,14 @@ public class UserBean implements Serializable {
 	}
 
 	public String addUser(User user) {
-		//System.out.println("Customer "+ users.size());
-		if (user== null) {
+		// System.out.println("Customer "+ users.size());
+		if (user == null) {
 			return "INVALID USER";
 		}
 		userList.add(user);
 		return "USER ADDED OK";
 	}
-	
+
 	public boolean checkUniqueUsername(String username) {
 		for (User user : userList) {
 			if (user.getUsername().equals(username)) {
@@ -131,19 +131,19 @@ public class UserBean implements Serializable {
 		}
 		return false;
 	}
-	
+
 	public int userCount() {
 		return userList.size();
 	}
-	
+
 	public String registerCustomerHandler() {
 		String msg = "Username Already Exists";
-		
+
 		if (!password.equals(passwordConfirmation)) {
 			msg = "Passwords Don't match";
 		} else if (!checkUniqueUsername(username)) {
-			User user = new User(User.CUSTOMER, username, password, passwordConfirmation, 
-					firstName, lastName, address, phone, bio, image, pricePerDay);
+			User user = new User(User.CUSTOMER, username, password, firstName, lastName, address, phone, bio, image,
+					pricePerDay);
 			addUser(user);
 			msg = "OK";
 		}
@@ -151,7 +151,7 @@ public class UserBean implements Serializable {
 	}
 
 	/* GETTERS AND SETTERS */
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -248,15 +248,3 @@ public class UserBean implements Serializable {
 		this.userList = userList;
 	}
 }
-
-/*
-	public boolean login(String username, String password) {
-		System.out.println("Customer "+ userList.size());
-		for (User user : userList) {
-			if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-				return true;
-			}
-		}
-		return false;
-	}
-*/

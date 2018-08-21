@@ -61,7 +61,7 @@ class OrderBeanTest {
 
 	@Test
 	void testChangeSkipper() {
-		User skipper1 = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", "Athlone", "1234567",
+		User skipper1 = new User(User.SKIPPER, "kiev", "asdf", "Kiev", "Reynolds", "Athlone", "1234567",
 				"About Kiev", "profile.jpg", 50.0);
 
 		orderBean.setSkipper(skipper1);

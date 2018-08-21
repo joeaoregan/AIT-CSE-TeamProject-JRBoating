@@ -3,6 +3,8 @@ package com.ait.jrb;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import com.ait.objects.User;
+
 @ManagedBean(name = "registerBean")
 @SessionScoped
 public class RegisterBean {
@@ -13,6 +15,33 @@ public class RegisterBean {
 	private String lastName;
 	private String address;
 	private String phone;
+	private String bio;
+	private String image;
+	double pricePerDay;
+
+	User newUser;
+
+	public RegisterBean() {
+		newUser = null;
+		resetFormVariables();
+	}
+
+	public void resetFormVariables() {
+		type = User.CUSTOMER;
+		username = "";
+		password = "";
+		firstName = "";
+		lastName = "";
+		address = "";
+		phone = "";
+		bio = "";
+		image = "";
+		pricePerDay = 0.0;
+	}
+
+	public void createUser() {
+		newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
+	}
 
 	public String getFirstName() {
 		return firstName;

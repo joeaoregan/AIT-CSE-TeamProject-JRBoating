@@ -52,14 +52,8 @@ class LoginBeanTest {
 
 	@Test
 	void testChangeShowUserLogin() {
-		loginBean.setShowUserLogIn("false");
-		assertEquals("false", loginBean.getShowUserLogIn());
-	}
-
-	@Test
-	void testChangeShowUserLogOut() {
-		loginBean.setShowUserLogOut("true");
-		assertEquals("true", loginBean.getShowUserLogOut());
+		loginBean.setUserLoggedIn(false);
+		assertFalse(loginBean.getUserLoggedIn());
 	}
 
 	@Test
@@ -90,48 +84,6 @@ class LoginBeanTest {
 	}
 
 	@Test
-	void testDisplayTypeManager() {
-		loginBean.setUserLoggedIn(User.MANAGER);
-		assertEquals("Manager", loginBean.displayType(User.MANAGER));
-	}
-
-	@Test
-	void testDisplayTypeCustomer() {
-		loginBean.setUserLoggedIn(User.CUSTOMER);
-		assertEquals("Customer", loginBean.displayType(User.CUSTOMER));
-	}
-
-	@Test
-	void testDisplayTypeFDS() {
-		loginBean.setUserLoggedIn(User.FRONT_DESK_STAFF);
-		assertEquals("Front Desk Staff", loginBean.displayType(User.FRONT_DESK_STAFF));
-	}
-
-	@Test
-	void testDisplayTypeSkipper() {
-		loginBean.setUserLoggedIn(User.SKIPPER);
-		assertEquals("Skipper", loginBean.displayType(User.SKIPPER));
-	}
-
-	@Test
-	void testDisplayTypeNotFound() {
-		loginBean.setUserLoggedIn(222);
-		assertEquals(null, loginBean.displayType(222));
-	}
-
-	/*
-	 * @Test void testShowLogInPage() { loginBean.setLoggedUser(new
-	 * User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe",
-	 * "16 Main Road, Athlone", "123456", "bio", "profile.jpg", 0.0));
-	 * assertEquals("/login", loginBean.showLoginPage()); }
-	 */
-
-	// Problem with Helper function
-	/*
-	 * @Test void testGetUser() { assertEquals(null, loginBean.getUser()); }
-	 */
-
-	@Test
 	void testGetSetUsername() {
 		loginBean.setUsername("test");
 		assertEquals("test", loginBean.getUsername());
@@ -145,8 +97,8 @@ class LoginBeanTest {
 
 	@Test
 	void testChangeLoggedUser() {
-		User user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456",
-				"bio", "profile.jpg", 0.0);
+		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
 	}

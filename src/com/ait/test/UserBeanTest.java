@@ -12,10 +12,13 @@ import com.ait.objects.User;
 
 class UserBeanTest {
 	UserBean userBean;
+	User user;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		userBean = new UserBean();
+		user = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216", "",
+				"profile.jpg", 0.0);
 	}
 
 	@Test
@@ -86,9 +89,7 @@ class UserBeanTest {
 
 	@Test
 	void testUserAdded() {
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
-		assertEquals("USER ADDED OK", userBean.addUser(sorcha));
+		assertEquals("USER ADDED OK", userBean.addUser(user));
 	}
 
 	@Test
@@ -101,22 +102,14 @@ class UserBeanTest {
 
 	@Test
 	void testUsernameNotUnique() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
-		userBean.addUser(sorcha1);
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
-		userBean.addUser(sorcha2);
+		userBean.addUser(user);
 		assertEquals(true, userBean.checkUniqueUsername("sorcha"));
 	}
 
 	@Test
-	void testUsernameUnique() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
-		userBean.addUser(sorcha1);
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+	void testUsernameUnique() {		
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
+				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
 		assertEquals(false, userBean.checkUniqueUsername("sally"));
 	}
@@ -162,8 +155,8 @@ class UserBeanTest {
 
 	@Test
 	void testPasswordsMatch() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
+				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
@@ -172,14 +165,14 @@ class UserBeanTest {
 
 	@Test
 	void testUsernameNotUniqueCustomerHandler() {
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
+				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
 		assertEquals("OK", userBean.registerCustomerHandler());
-		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
+				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
 		userBean.setPassword("asdf");
 		userBean.setPasswordConfirmation("asdf");
@@ -190,11 +183,11 @@ class UserBeanTest {
 	void testUserCount() {
 		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
-		User kiev = new User(User.SKIPPER, "kiev", "asdf", "asdf", "Kiev", "Reynolds", "Athlone", "0873691215", "",
+		User kiev = new User(User.SKIPPER, "kiev", "asdf", "Kiev", "Reynolds", "Athlone", "0873691215", "",
 				"profile.jpg", 0.0);
 		userBean.addUser(kiev);
-		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+		User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216", "",
+				"profile.jpg", 0.0);
 		userBean.addUser(sorcha);
 		assertEquals(2, userBean.userCount());
 	}
@@ -203,8 +196,8 @@ class UserBeanTest {
 	void testGetUserByUsername() {
 		ArrayList<User> userListTest = new ArrayList<User>();
 		userBean.setUserList(userListTest);
-		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf", "Sorcha", "Bruton", "Athlone",
-				"0870481216", "", "profile.jpg", 0.0);
+		User sorcha1 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
+				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha1);
 		assertEquals(sorcha1, userBean.getUserByUsername("sorcha"));
 	}

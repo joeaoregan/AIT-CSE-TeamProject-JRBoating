@@ -15,14 +15,12 @@ public class User {
 	private String phone;
 	private String bio; // Information about the user (Skipper)
 	private String image;
-	private String passwordConfirmation; // Prime faces does this
 	private double pricePerDay; // Price to hire (Skipper)
 	private boolean canEdit; // editing forms
 
 	// Constructor
-	public User(int type, String username, String password, String passwordConfirmation, 
-			String firstName, String lastName, 
-			String address, String phone,String bio, String image, double pricePerDay) {
+	public User(int type, String username, String password, String firstName, String lastName, String address,
+			String phone, String bio, String image, double pricePerDay) {
 		this.type = type;
 		this.username = username;
 		this.password = password;
@@ -105,14 +103,6 @@ public class User {
 
 	public void setImage(String image) {
 		this.image = image;
-	}
-
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
 	}
 
 	public double getPricePerDay() {
