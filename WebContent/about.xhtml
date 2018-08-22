@@ -14,15 +14,29 @@
 
 		<ui:define name="menu" id="header">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
+						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
 			<!-- Variables -->
-			<h1 class="ui-widget-header ui-corner-all" align="center">Contact
-				Us</h1>
+			<p>
+				Email us today: <a
+					href="mailto:deb@empirerecords.biz?subject=Blog Feedback">info@jrboating.ie</a>
+			</p>
+			<p>
+				Phone us : <a href="tel:+906412345">(090) 6412345</a>
+			</p>
+
+
+
+
+
+
 
 
 		</ui:define>

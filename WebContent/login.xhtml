@@ -13,7 +13,10 @@
 
 		<ui:define name="menu" id="header">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
+						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
@@ -41,7 +44,7 @@
 					<p:message for="password" />
 
 					<h:commandButton value="Login" action="#{loginBean.loginHandler}"
-						styleClass="ActionButton" />
+						styleClass="formbtn" />
 				</h:form>
 
 				<br />

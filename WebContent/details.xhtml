@@ -12,7 +12,10 @@
 
 		<ui:define name="menu" id="header">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
+						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
@@ -20,8 +23,7 @@
 		<ui:define name="content">
 			<!-- Variables -->
 
-			<h1 class="ui-widget-header ui-corner-all" align="center">Boat
-				Details</h1>
+
 			<br />
 			<p:accordionPanel>
 

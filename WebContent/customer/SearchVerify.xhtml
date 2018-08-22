@@ -10,9 +10,12 @@
 		<ui:param name="title" value="JR Boating Search" />
 		<ui:param name="heading" value="Search Results" />
 
-		<ui:define name="menu" id="header">
+		<ui:define name="menu">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
+						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
@@ -38,8 +41,8 @@
 						#{searchBoatBean.getBoat().getDescription()}</li>
 				</ul>
 
-				<h:link value="Go to #{searchBoatBean.getBoat().getType()}"
-					outcome="#{searchBoatBean.getBoat().getLink()}" />
+				<h:link value="Go to #{searchBoatBean.boat.type}"
+					outcome="#{searchBoatBean.boat.link}" />
 			</h:form>
 			
 		</ui:define>
