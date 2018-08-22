@@ -36,9 +36,13 @@ public class RegisterBean {
 		lastName = "";
 		address = "";
 		phone = "";
+		
+		// Skipper Only
 		bio = "";
-		image = "";
 		pricePerDay = 0.0;	// Skipper
+		
+
+		image = "profile.jpg"; // Change in user account
 		message = "";
 	}
 
@@ -49,6 +53,28 @@ public class RegisterBean {
 		resetFormVariables();
 		return null;
 	}
+	
+	public String getObscuredPassword() {
+		return (firstLetter(password) + "..." + lastLetter(password));
+	}
+
+	public String register2() {
+		return ("/customer/RegistrationVerify.xhtml");
+	}
+
+	private String firstLetter(String s) {
+		return (s.substring(0, 1));
+	}
+
+	private String lastLetter(String s) {
+		int length = s.length();
+		return (s.substring(length - 1, length));
+	}
+
+	
+	
+	
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -80,23 +106,6 @@ public class RegisterBean {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getObscuredPassword() {
-		return (firstLetter(password) + "..." + lastLetter(password));
-	}
-
-	public String register2() {
-		return ("/customer/RegistrationVerify.xhtml");
-	}
-
-	private String firstLetter(String s) {
-		return (s.substring(0, 1));
-	}
-
-	private String lastLetter(String s) {
-		int length = s.length();
-		return (s.substring(length - 1, length));
 	}
 
 	public int getType() {

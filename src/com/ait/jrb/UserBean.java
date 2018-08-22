@@ -19,7 +19,6 @@ public class UserBean implements Serializable {
 	private int type; // Default = User.CUSTOMER
 	private String username;
 	private String password;
-	private String passwordConfirmation; // NOT NEEDED
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -61,7 +60,6 @@ public class UserBean implements Serializable {
 		this.type = User.CUSTOMER; // default type (Manager can change from their view)
 		username = "";
 		password = "";
-		passwordConfirmation = "";
 		firstName = "";
 		lastName = "";
 		address = "";
@@ -104,6 +102,7 @@ public class UserBean implements Serializable {
 	public String deleteUser(User user) {
 		if (user != null) {
 			userList.remove(user);
+			return "USER REMOVED";
 		}
 		return null;
 	}
@@ -126,14 +125,18 @@ public class UserBean implements Serializable {
 
 		return null;
 	}
-
+	
 	public String addUser(User user) {
-		// System.out.println("Customer "+ users.size());
 		if (user == null) {
 			return "INVALID USER";
 		}
-		userList.add(user);
-		return "USER ADDED OK";
+		
+		if (!checkUniqueUsername(user.getUsername())) {
+			userList.add(user);	
+			return "USER ADDED OK";
+		}
+		
+		return "USERNAME NOT UNIQUE";
 	}
 
 	public boolean checkUniqueUsername(String username) {
@@ -148,21 +151,7 @@ public class UserBean implements Serializable {
 	public int userCount() {
 		return userList.size();
 	}
-
-	public String registerCustomerHandler() {
-		String msg = "Username Already Exists";
-
-		if (!password.equals(passwordConfirmation)) {
-			msg = "Passwords Don't match";
-		} else if (!checkUniqueUsername(username)) {
-			User user = new User(User.CUSTOMER, username, password, firstName, lastName, address, phone, bio, image,
-					pricePerDay);
-			addUser(user);
-			msg = "OK";
-		}
-		return msg;
-	}
-
+	
 	/* GETTERS AND SETTERS */
 
 	public String getUsername() {
@@ -179,14 +168,6 @@ public class UserBean implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getPasswordConfirmation() {
-		return passwordConfirmation;
-	}
-
-	public void setPasswordConfirmation(String passwordConfirmation) {
-		this.passwordConfirmation = passwordConfirmation;
 	}
 
 	public String getFirstName() {

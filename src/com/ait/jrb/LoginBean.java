@@ -10,6 +10,9 @@ import com.ait.objects.User;
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
+	public static final String PASSWORD_LENGTH_MESSAGE = "Password must be 2 or more characters";
+	public static final int PASSWORD_LENGTH = 4;
+	
 	private static final long serialVersionUID = 1L;
 
 	private String username;
