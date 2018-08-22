@@ -12,16 +12,12 @@
 		<ui:param name="heading" value="Register" />
 		<ui:param name="page" value="register" />
 
-		<!-- Different Customer Menus for logged in / out -->
-
 		<ui:define name="menu" id="header">
 			<ui:include
 				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
-
-		<!-- Body Of Page -->
 
 		<ui:define name="content">
 			<div id="regDiv">

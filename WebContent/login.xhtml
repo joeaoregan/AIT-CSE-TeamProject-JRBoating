@@ -21,24 +21,36 @@
 
 
 		<ui:define name="content">
-			<p:outputPanel id="loginDiv">
-
+			<div id="regDiv">
 				<h4>Already a member?</h4>
 				<hr />
-				<h:form>
-					<p:inputText value="#{loginBean.username}" a:placeholder="username"
-						required="true" a:autofocus="true"/>
-					<br />
-					<p:password class="inpass" value="#{loginBean.password}"
-						a:placeholder="password" required="true" />
-					<br />
-					<p:commandButton value="Login" action="#{loginBean.loginHandler}" />
-					<br />
-					<h4>Would you like to sign up?</h4>
 
-					<h:link value="Register now" outcome="/register.xhtml" />
+				<h:form>
+					<p:inputText value="#{loginBean.username}" required="true"
+						id="username" requiredMessage="Username required"
+						a:placeholder="Username" a:autofocus="true"
+						title="Enter your username" />
+					<p:message for="username" />
+
+					<p:password class="inpass" value="#{loginBean.password}"
+						feedback="true" id="password" required="true"
+						requiredMessage="Password required"
+						validatorMessage="Password must be 4 or more characters"
+						a:placeholder="Password" title="Enter your password">
+						<f:validateLength minimum="4" />
+					</p:password>
+					<p:message for="password" />
+
+					<h:commandButton value="Login" action="#{loginBean.loginHandler}"
+						styleClass="ActionButton" />
 				</h:form>
-			</p:outputPanel>
+
+				<br />
+
+				<h4>Would you like to sign up?</h4>
+
+				<h:link value="Register now" outcome="/register.xhtml" />
+			</div>
 
 		</ui:define>
 	</ui:composition>
