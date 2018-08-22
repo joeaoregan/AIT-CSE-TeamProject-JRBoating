@@ -91,6 +91,25 @@ class InventoryBeanTest {
 		assertEquals(null, inventoryBean.saveAction());
 	}
 	
+	@Test
+	void testFindBoat() {
+		Boat newboat = new Boat("test", 1.23, "image", 1, "description", "link");
+		inventoryBean.getBoats().add(newboat);
+		assertEquals(newboat, inventoryBean.findBoat("test"));
+		assertEquals(null, inventoryBean.findBoat("notABoatType"));
+	}
+	
+	@Test
+	void testCreateNewBoat() {
+		inventoryBean.setType("test");
+		inventoryBean.setPrice(10.0);
+		inventoryBean.setImage("test.jpg");
+		inventoryBean.setQuantity(10);
+		inventoryBean.setDescription("test");
+		inventoryBean.setLink("test");
+		assertEquals(null, inventoryBean.createNewBoat());
+	}
+	
 	/*
 	@Test
 	void testFindBoat() {
