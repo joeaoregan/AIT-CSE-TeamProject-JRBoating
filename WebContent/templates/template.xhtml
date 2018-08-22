@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://xmlns.jcp.org/jsf/html">
+	xmlns:p="http://xmlns.jcp.org/jsf/html">
 
 <h:head>
 	<title>#{title}</title>
@@ -25,16 +25,26 @@
 	</div>
 	<br />
 
+
 	<div id="header2"
 		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
 
+		<div style="float: left;">
+			<h:graphicImage library="image" name="boat.jpg"
+				style="height:100px; width:100px;" />
+
+		</div>
 		<ui:insert name="menu">
 			<ui:include src="/templates/header.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
+			<br/>
 		</ui:insert>
 
-<!-- 		<h1 class="heading">JR Boating: #{heading}</h1> -->
+		<h2 style="font-family: cursive; color: steelblue;float:left;margin-top:30px;">JR
+			Boating: #{heading}</h2>
+
+		<!-- 		<h1 class="heading">JR Boating: #{heading}</h1> -->
 	</div>
 	<br />
 

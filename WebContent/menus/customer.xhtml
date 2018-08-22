@@ -9,15 +9,17 @@
 <!-- Top Menu: Customer Logged In -->
 
 <body>
-	<ui:composition>	
-		<h:form>
+	<ui:composition>
+		<h:form class="menuform">
 			<h:commandButton value="Home" action="/index.xhtml"
 				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;		
 						
-			<h:commandButton value="Shop" action="/customer/CustomerBooking.xhtml"
+			<h:commandButton value="Shop"
+				action="/customer/CustomerBooking.xhtml"
 				styleClass="#{(heading=='Book A Boat') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
 							
-	       	<h:commandButton value="Cart" action="/customer/CustomerCart.xhtml"
+	       	<h:commandButton value="Cart"
+				action="/customer/CustomerCart.xhtml"
 				styleClass="#{(heading=='Shopping Cart') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
 								
 	       	<h:commandButton value="Boats" action="/details.xhtml"
@@ -26,7 +28,8 @@
 	       	<h:commandButton value="Contact Us" action="/about.xhtml"
 				styleClass="#{(heading=='About Us') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 							
-	       	<h:commandButton value="Account" action="/customer/CustomerAccount.xhtml"
+	       	<h:commandButton value="Account"
+				action="/customer/CustomerAccount.xhtml"
 				styleClass="#{(heading=='Customer Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 							
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"

@@ -10,14 +10,14 @@
 
 <body>
 	<ui:composition>
-		<h:form>
+		<h:form class="menuform">
 			<h:commandButton value="Home" action="/index.xhtml"
 				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Staff Manage Orders" action="/front-desk-staff/FDSManageOrders.xhtml"
-				styleClass="#{(heading=='Staff Manage Orders') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+        	<h:commandButton value="Manage Orders" action="/front-desk-staff/FDSManageOrders.xhtml"
+				styleClass="#{(heading=='Manage Orders') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
         	<h:commandButton value="Staff Process Orders" action="/front-desk-staff/FDSProcessOrders.xhtml"
 				styleClass="#{(heading=='Staff Process Orders') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Staff Manage Customers" action="/front-desk-staff/FDSManageCustomers.xhtml"
+        	<h:commandButton value="Manage Customers" action="/front-desk-staff/FDSManageCustomers.xhtml"
 				styleClass="#{(heading=='Staff Manage Customers') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />

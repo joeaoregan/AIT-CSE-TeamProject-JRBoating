@@ -242,6 +242,11 @@ input[type=text], input[type=password] {
 	color: green;
 }
 
+#search input[type=text]{
+	display: inline;
+	width:50%;
+}
+
 input[type=text], input[type=password] {
 	width: 300px;
 	padding: 15px;
@@ -343,22 +348,20 @@ input[type=text], input[type=password] {
 
 .ActionButton {
 	margin-top:10px;
-	width: 150px;
+	width: 120px;
 	background-color: #0080ff; /*type of blue*/
 	color: white;
 	border-radius: 5px;
 	height:40px;
-	float:right;
 }
 
 .ActionButton2 {
 	margin-top:10px;
-	width: 150px;
+	width: 120px;
 	background-color: #a6dbdb; /*type of light blue*/
 	color: DarkSlateGray;
 	border-radius: 5px;
 	height:40px;
-	float:right;
 }
 
 .ActionButton:hover {
@@ -399,4 +402,8 @@ input[type=text], input[type=password] {
 
 #nav input[type=submit]{
 	height:20px;
+}
+.menuform{
+	float:right;
+	margin-right:10px;
 }
