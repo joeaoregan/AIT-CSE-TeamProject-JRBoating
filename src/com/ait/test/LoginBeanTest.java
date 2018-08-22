@@ -103,7 +103,6 @@ class LoginBeanTest {
 				"profile.jpg", 0.0);
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
-
 	}
 
 	@Test
@@ -148,6 +147,7 @@ class LoginBeanTest {
 		assertEquals("/skipper/SkipperBookings", loginBean.redirectUser("test", User.SKIPPER));
 		assertEquals("USER NOT FOUND", loginBean.redirectUser("test", 5));
 	}
+
 //
 //	@Test
 //	void cantTest() {
@@ -159,12 +159,9 @@ class LoginBeanTest {
 
 //Helper
 /*
-@Test
-void testShowLoginPage() {
-	loginBean.setLoggedUser(null);
-	assertEquals(null, loginBean.showLoginPage());
-}
-*/
+ * @Test void testShowLoginPage() { loginBean.setLoggedUser(null);
+ * assertEquals(null, loginBean.showLoginPage()); }
+ */
 //@Test
 //void testLogOutHandler() {
 //assertEquals(null, loginBean.logoutHandler());

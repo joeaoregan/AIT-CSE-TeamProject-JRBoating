@@ -30,5 +30,15 @@ class BoatDetailsBeanTest {
 		assertEquals("Canal Barge", boatDetailsBean.pageTitle());
 	}
 
-
+	@Test
+	void testCurrentBoatDetails() {
+		boatDetailsBean.setIndex(0);
+		assertEquals("DetailsCanalBarge", boatDetailsBean.currentBoatDetails());
+	}
+	
+	@Test
+	void testNextAndPreviousButtons() {
+		assertEquals("BoatDetails", boatDetailsBean.previousButton());
+		assertEquals("BoatDetails", boatDetailsBean.nextButton());
+	}
 }
