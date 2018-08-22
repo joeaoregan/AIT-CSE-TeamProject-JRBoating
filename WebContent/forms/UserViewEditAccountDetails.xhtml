@@ -18,26 +18,32 @@
 				value="#{userBean.displayType(loginBean.user.getType())}"
 				readonly="true" title="ID for your selected product" />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">Username:</h:outputLabel>
 			<h:inputText id="username" value="#{loginBean.username}"
 				itle="Update username " />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">Password:</h:outputLabel>
 			<h:inputText id="password" value="#{loginBean.loggedUser.password}"
 				title="Update Password " />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">First Name:</h:outputLabel>
 			<h:inputText id="firstName" value="#{loginBean.loggedUser.firstName}"
 				title="Update First Name" />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">Last Name:</h:outputLabel>
 			<h:inputText id="lastName" value="#{loginBean.loggedUser.lastName}"
 				title="Update Last Name" />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">Address:</h:outputLabel>
 			<h:inputText id="address" value="#{loginBean.loggedUser.address}"
 				title="Update Address" />
 			<br />
+			
 			<h:outputLabel styleClass="formLabel">Image:</h:outputLabel>
 			<h:inputText id="image" value="#{loginBean.loggedUser.image}"
 				title="Update Image" />

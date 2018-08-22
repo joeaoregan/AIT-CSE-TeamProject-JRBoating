@@ -31,10 +31,10 @@ public class InventoryBean implements Serializable {
 		
 		resetInventoryVariables();
 
-		Boat cruiser = new Boat("Cruiser", 250.0, "boat3.jpg", 10, "Cruiser description", "/about.xhtml");
-		Boat canalBarge = new Boat("Canal Barge", 200.0, "boat1.jpg", 15, "Canal Barge description", "/about.xhtml");
-		Boat sailingBoat = new Boat("Sailing Boat", 100.0, "boat4.jpg", 20, "Sailing Boat description", "/about.xhtml");
-		Boat canoe = new Boat("Canoe", 50.0, "boat2.jpg", 25, "Canoe description", "/about.xhtml");
+		Boat cruiser = new Boat("Cruiser", 250.0, "boat3.jpg", 10, "Cruiser description", "/details.xhtml");
+		Boat canalBarge = new Boat("Canal Barge", 200.0, "boat1.jpg", 15, "Canal Barge description", "/details.xhtml");
+		Boat sailingBoat = new Boat("Sailing Boat", 100.0, "boat4.jpg", 20, "Sailing Boat description", "/details.xhtml");
+		Boat canoe = new Boat("Canoe", 50.0, "boat2.jpg", 25, "Canoe description", "/details.xhtml");
 
 		boats.add(cruiser);
 		boats.add(canalBarge);
