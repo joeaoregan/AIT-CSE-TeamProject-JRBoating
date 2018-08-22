@@ -29,19 +29,20 @@
 						a:placeholder="Username" a:autofocus="true" />
 					<p:message for="username" />
 
-					<h:panelGrid columns="1" id="matchGrid" cellpadding="5">
+					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+
 						<p:password id="password1" value="#{registerBean.password}"
+							feedback="true" requiredMessage="Password required"
 							required="true" a:placeholder="Password" match="password2"
 							label="Password 1">
-							<f:validateLength minimum="#{LoginBean.PASSWORD_LENGTH}" />
 						</p:password>
 						<p:message for="password1" />
 
 						<p:password value="#{registerBean.password}" feedback="true"
-							id="password2" required="true"
-							requiredMessage="Password required"
-							validatorMessage="#{LoginBean.PASSWORD_LENGTH_MESSAGE}"
-							a:placeholder="Confirm Password" label="Password 2">
+							id="password2" required="true" a:placeholder="Confirm Password"
+							label="Password 2"
+							validatorMessage="#{loginBean.passwordLengthMessage()}">
+							<f:validateLength minimum="#{loginBean.passwordLength()}" />
 						</p:password>
 						<p:message for="password2" />
 					</h:panelGrid>

@@ -19,7 +19,7 @@ class OrderBeanTest {
 	OrderBean orderBean;
 
 	@BeforeEach
-	void setUp() {
+	void setUp() throws Exception {
 		orderBean = new OrderBean();
 	}
 

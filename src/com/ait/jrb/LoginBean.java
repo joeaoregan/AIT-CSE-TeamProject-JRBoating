@@ -10,8 +10,8 @@ import com.ait.objects.User;
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class LoginBean implements Serializable {
-	public static final String PASSWORD_LENGTH_MESSAGE = "Password must be 2 or more characters";
-	public static final int PASSWORD_LENGTH = 4;
+	public static final int PASSWORD_FIELD_LENGTH = 4;
+	public static final String PASSWORD_LENGTH_MESSAGE = "Password must be " + PASSWORD_FIELD_LENGTH + " or more characters";
 	
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +38,14 @@ public class LoginBean implements Serializable {
 		loggedUser = null;
 
 		initUsersLoggedIn();
+	}
+	
+	public String passwordLengthMessage() {
+		return PASSWORD_LENGTH_MESSAGE;
+	}
+	public int passwordLength() {
+		//return Integer.toString(PASSWORD_FIELD_LENGTH);
+		return PASSWORD_FIELD_LENGTH;
 	}
 
 	public String displayType() {
@@ -248,5 +256,9 @@ public class LoginBean implements Serializable {
 
 	public void setUserLoggedIn(Boolean userLoggedIn) {
 		this.userLoggedIn = userLoggedIn;
+	}
+
+	public static String getPasswordLengthMessage() {
+		return PASSWORD_LENGTH_MESSAGE;
 	}
 }

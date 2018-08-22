@@ -37,7 +37,7 @@ public class OrderBean implements Serializable {
 		currentOrder = new Order();
 		allOrders = new ArrayList<Order>();
 		
-		addTestOrder();		
+		//addTestOrder();		 // Affects code coverage, uses Helper
 	}
 	
 	public double orderTotal() {
