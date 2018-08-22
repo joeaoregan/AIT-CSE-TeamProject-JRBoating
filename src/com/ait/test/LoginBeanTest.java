@@ -148,13 +148,13 @@ class LoginBeanTest {
 		assertEquals("/skipper/SkipperBookings", loginBean.redirectUser("test", User.SKIPPER));
 		assertEquals("USER NOT FOUND", loginBean.redirectUser("test", 5));
 	}
-
-	@Test
-	void cantTest() {
-		loginBean.loginHandler();
-		loginBean.logoutHandler();
-		loginBean.getUser();
-	}
+//
+//	@Test
+//	void cantTest() {
+//		loginBean.loginHandler();
+//		loginBean.logoutHandler();
+//		loginBean.getUser();
+//	}
 }
 
 //Helper

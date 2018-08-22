@@ -51,4 +51,15 @@ class SearchBoatBeanTest {
 		assertEquals("Test", searchBoatBean.getRendered());
 	}
 	
+	@Test
+	void testBoatFound() {
+		assertEquals("BOAT FOUND", searchBoatBean.boatFound(boat));
+		assertEquals("BOAT NOT FOUND", searchBoatBean.boatNotFound());
+	}
+	
+	//@Test
+	//void cantTest() {
+	//	searchBoatBean.searchHandler();
+	//}
+	
 }
