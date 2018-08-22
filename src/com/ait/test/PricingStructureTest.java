@@ -35,20 +35,21 @@ class PricingStructureTest {
 	
 	@Test
 	void testCanEdit() {
-		//assertTrue(pricingStructure.getCanEdit());
-		//pricingStructure.setCanEdit(false);
-		//assertFalse(pricingStructure.getCanEdit());
-
 		assertFalse(pricingStructure.getCanEdit());
 		pricingStructure.setCanEdit(true);
 		assertTrue(pricingStructure.getCanEdit());
 	}
-	
-	//@Test
-	//void testToString() {
-	//	ShopBean shopBean = new ShopBean();
-	//	shopBean.addBoat("item1", 100.0, "boat1.jpg");
-	//	shopBean.addBoat("item2", 100.0, "boat2.jpg");
-	//	assertEquals("If item2(s) are hired for 10 day(s) or more a discount of 10.0% is applied.",pricingStructure.toString());
-	//}
+	@Test
+	void testChangePercent() {
+		pricingStructure.setPercent(1);
+		assertEquals(1, pricingStructure.getPercent());
+	}
+	/*can't figure out how to test SB
+	@Test
+	void testToString() {
+		pricingStructure.setType("type");
+		pricingStructure.setAmount(100);
+		pricingStructure.setDiscount(0.01);
+		assertEquals("If type(s) are hired for amount day(s) or more a discount of 1% is applied.", pricingStructure.toString());
+	}*/
 }
