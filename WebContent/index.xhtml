@@ -44,12 +44,15 @@
 				home,
 				<p:link outcome="/register.xhtml" value="Register" />
 				with us today and
-				<p:link outcome="/login.xhtml" value="Book Online" />
+				
+				<!-- There is code here to switch page depending on logged in or not -->
+				
+				<p:link outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}" value="Book Online" />
 				and choose from our range of
 				<p:link href="/details.jsf" value="Boats" />
 			</p>
 			<ul>
-				<li><a href="/details.xhtml#canalbarges">Canal Barges</a></li>
+				<li><a href="/details.xhtml">Canal Barges</a></li>
 				<li><a href="/details.xhtml#canoe">Canoes</a></li>
 				<li><a href="/details.xhtml#cruiser">Cruisers</a></li>
 				<li><a href="/details.xhtml#sailingboat">Sailing Boats</a></li>
@@ -62,7 +65,10 @@
 				available to join you for a day of your trip and help you learn
 				everything you need to know to make your trip down the river Shannon
 				a trip to remember.
-				<p:button href="/customer/CustomerBooking.jsf" value="Book Online" />
+				
+				<!-- There is code here to switch page depending on logged in or not -->
+				
+				<p:link outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}" value="Book Online" />
 				or contact us today to start your adventure with us.
 			</p>
 		</ui:define>
