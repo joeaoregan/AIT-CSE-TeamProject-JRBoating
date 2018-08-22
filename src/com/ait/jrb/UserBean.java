@@ -53,6 +53,13 @@ public class UserBean implements Serializable {
 		addUser(sorcha);
 	}
 
+	public void resetLoginInfo() {
+		username = "";
+		firstName = "";
+		lastName = "";
+		address = "";
+	}
+	
 	/*
 	 * Initialise / Reset bean variables to clear the form data
 	 */

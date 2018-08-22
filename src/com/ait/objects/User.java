@@ -33,6 +33,13 @@ public class User {
 		this.pricePerDay = pricePerDay;
 	}
 
+	public boolean equals(String username) {
+		if (this.username == username) {
+			return true;
+		}
+		else return false;
+	}
+	
 	public String getUsername() {
 		return username;
 	}

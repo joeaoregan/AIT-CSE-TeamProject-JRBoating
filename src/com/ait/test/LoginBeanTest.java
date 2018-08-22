@@ -81,6 +81,8 @@ class LoginBeanTest {
 		assertTrue(loginBean.getLoggedInFDS());
 		loginBean.setUserLoggedIn(User.SKIPPER);
 		assertTrue(loginBean.getLoggedInSkipper());
+
+		assertEquals("INVALID USER TYPE", loginBean.setUserLoggedIn(5));
 	}
 
 	@Test
@@ -101,7 +103,9 @@ class LoginBeanTest {
 				"profile.jpg", 0.0);
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
+
 	}
+
 	@Test
 	void TestDisplayType() {
 		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
@@ -112,8 +116,8 @@ class LoginBeanTest {
 				"profile.jpg", 0.0);
 		loginBean.setLoggedUser(user1);
 		assertEquals("Customer", loginBean.displayType());
-		User user2 = new User(User.FRONT_DESK_STAFF, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
-				"profile.jpg", 0.0);
+		User user2 = new User(User.FRONT_DESK_STAFF, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456",
+				"bio", "profile.jpg", 0.0);
 		loginBean.setLoggedUser(user2);
 		assertEquals("Front Desk Staff", loginBean.displayType());
 		User user3 = new User(User.SKIPPER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
@@ -122,6 +126,46 @@ class LoginBeanTest {
 		assertEquals("Skipper", loginBean.displayType());
 		loginBean.setLoggedUser(null);
 		assertEquals(null, loginBean.displayType());
+
+		loginBean.setLoggedUser(new User(5, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0));
+		assertEquals(null, loginBean.displayType());
 	}
 
+	@Test
+	void testGetPasswordLengthMessage() {
+		assertEquals(4, loginBean.passwordLength());
+		assertEquals("Password must be 4 or more characters", loginBean.passwordLengthMessage());
+		assertEquals(LoginBean.PASSWORD_LENGTH_MESSAGE, LoginBean.getPasswordLengthMessage());
+	}
+
+	@Test
+	void testRedirectUser() {
+		loginBean.setPassword("test");
+		assertEquals("/manager/HomeManager", loginBean.redirectUser("test", User.MANAGER));
+		assertEquals("/index", loginBean.redirectUser("test", User.CUSTOMER));
+		assertEquals("/index", loginBean.redirectUser("test", User.FRONT_DESK_STAFF));
+		assertEquals("/skipper/SkipperBookings", loginBean.redirectUser("test", User.SKIPPER));
+		assertEquals("USER NOT FOUND", loginBean.redirectUser("test", 5));
+	}
+
+	@Test
+	void cantTest() {
+		loginBean.loginHandler();
+		loginBean.logoutHandler();
+		loginBean.getUser();
+	}
 }
+
+//Helper
+/*
+@Test
+void testShowLoginPage() {
+	loginBean.setLoggedUser(null);
+	assertEquals(null, loginBean.showLoginPage());
+}
+*/
+//@Test
+//void testLogOutHandler() {
+//assertEquals(null, loginBean.logoutHandler());
+//}

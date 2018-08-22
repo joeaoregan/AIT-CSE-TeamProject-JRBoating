@@ -11,40 +11,43 @@ import com.ait.objects.User;
 @SessionScoped
 public class LoginBean implements Serializable {
 	public static final int PASSWORD_FIELD_LENGTH = 4;
-	public static final String PASSWORD_LENGTH_MESSAGE = "Password must be " + PASSWORD_FIELD_LENGTH + " or more characters";
-	
+	public static final String PASSWORD_LENGTH_MESSAGE = "Password must be " + PASSWORD_FIELD_LENGTH
+			+ " or more characters";
+
 	private static final long serialVersionUID = 1L;
 
 	private String username;
 	private String password;
+	private String message;
 
 	private User loggedUser;
 
 	private Boolean userLoggedIn; // Show the login top menu
 
-	// New
-	private String message;
 	private Boolean loggedInCustomer;
 	private Boolean loggedInManager;
 	private Boolean loggedInFDS;
 	private Boolean loggedInSkipper;
 
 	public LoginBean() {
-		userLoggedIn = false;
-
-		username = "";
-		password = "";
-		message = "";
+		resetVars();
 		loggedUser = null;
 
 		initUsersLoggedIn();
 	}
 	
+	public void resetVars() {
+		username = "";
+		password = "";
+		message = "";		
+	}
+
 	public String passwordLengthMessage() {
 		return PASSWORD_LENGTH_MESSAGE;
 	}
+
 	public int passwordLength() {
-		//return Integer.toString(PASSWORD_FIELD_LENGTH);
+		// return Integer.toString(PASSWORD_FIELD_LENGTH);
 		return PASSWORD_FIELD_LENGTH;
 	}
 
@@ -65,15 +68,89 @@ public class LoginBean implements Serializable {
 		}
 		return null;
 	}
-
+/*
 	public String showLoginPage() {
-		username = "";
-		password = "";
-		message = "";
-		loggedUser = getUser();
+		if (loggedUser != null) {
+			resetVars();
+			loggedUser = getUser();
+			return "/login";
+		}
 
-		return "/login";
+		return null;
 	}
+*/
+	public String redirectUser(String password, int type) {
+		userLoggedIn = true;
+		
+		if (this.password.equals(password)) {
+			if (type == User.MANAGER) {
+				setUserLoggedIn(User.MANAGER);
+				return "/manager/HomeManager";
+			} else if (type == User.CUSTOMER) {
+				setUserLoggedIn(User.CUSTOMER);
+				return "/index";
+			} else if (type == User.FRONT_DESK_STAFF) {
+				setUserLoggedIn(User.FRONT_DESK_STAFF);
+				return "/index";
+			} else if (type == User.SKIPPER) {
+				setUserLoggedIn(User.SKIPPER);
+				return "/skipper/SkipperBookings";
+			}
+		}
+
+		return "USER NOT FOUND";
+	}
+
+	public String setUserLoggedIn(int type) {
+		String message = null;
+		
+		switch (type) {
+		case User.CUSTOMER:
+			loggedInCustomer = true;
+			loggedInManager = false;
+			loggedInFDS = false;
+			loggedInSkipper = false;
+			message = "CUSTOMER LOGGED IN";
+			break;
+		case User.FRONT_DESK_STAFF:
+			loggedInCustomer = false;
+			loggedInManager = false;
+			loggedInFDS = true;
+			loggedInSkipper = false;
+			message = "FRONT_DESK_STAFF LOGGED IN";
+			break;
+		case User.MANAGER:
+			loggedInCustomer = false;
+			loggedInManager = true;
+			loggedInFDS = false;
+			loggedInSkipper = false;
+			message = "MANAGER LOGGED IN";
+			break;
+		case User.SKIPPER:
+			loggedInCustomer = false;
+			loggedInManager = false;
+			loggedInFDS = false;
+			loggedInSkipper = true;
+			message = "SKIPPER LOGGED IN";
+			break;
+		default:
+			message = "INVALID USER TYPE";
+			break;
+		}
+		
+		return message;
+	}
+
+	public void initUsersLoggedIn() {
+		resetVars();
+		
+		userLoggedIn = false;		
+		loggedInCustomer = false;
+		loggedInManager = false;
+		loggedInFDS = false;
+		loggedInSkipper = false;
+	}
+	
 
 	public User getUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
@@ -88,102 +165,31 @@ public class LoginBean implements Serializable {
 	}
 
 	public String loginHandler() {
+		message = "USER NOT FOUND";
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		User user = userBean.getUserByUsername(username);
 
-		message = "";
-
 		if (user != null) {
 			loggedUser = user;
-			userLoggedIn = true;
-
-			if (user.getPassword().equals(password)) {
-				if (user.getType() == User.MANAGER) {
-					setUserLoggedIn(User.MANAGER);
-					return "/manager/HomeManager";
-				} else if (user.getType() == User.CUSTOMER) {
-					setUserLoggedIn(User.CUSTOMER);
-					return "/index";
-				} else if (user.getType() == User.FRONT_DESK_STAFF) {
-					setUserLoggedIn(User.FRONT_DESK_STAFF);
-					return "/index";
-				} else if (user.getType() == User.SKIPPER) {
-					setUserLoggedIn(User.SKIPPER);
-					return "/skipper/SkipperBookings";
-				}
-			}
+			return redirectUser(user.getPassword(), user.getType());
 		}
 
-		message = "USER NOT FOUND";
-		
 		return "login";
 	}
 
-	/*
-	 * Log out the user - BETTER WAY MIGHT BE TO ADD A LOGGED IN BOOLEAN VARIABLE TO
-	 * USER CLASS
-	 */
 	public String logoutHandler() {
 		initUsersLoggedIn();
 
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 
-		username = "";
-		password = "";
-
-		// XXX NEED TO CREATE A FUNCTION TO CLEAR USER DETAILS IN USER BEAN
 		if (userBean != null) {
-			userBean.setUsername(""); // reset the username
-			userBean.setFirstName(""); // reset the first name
-			userBean.setLastName(""); // reset the last name
-			userBean.setAddress(""); // reset the address
+			userBean.resetLoginInfo();
 
-			userLoggedIn = false;
 			loggedUser = null;
+			return "/index.xhtml";
 		}
-
-		return "/index.xhtml"; // Return to homepage
-	}
-
-	public void setUserLoggedIn(int type) {
-		switch (type) {
-		case User.CUSTOMER:
-			loggedInCustomer = true;
-			loggedInManager = false;
-			loggedInFDS = false;
-			loggedInSkipper = false;
-			break;
-		case User.FRONT_DESK_STAFF:
-			loggedInCustomer = false;
-			loggedInManager = false;
-			loggedInFDS = true;
-			loggedInSkipper = false;
-			break;
-		case User.MANAGER:
-			loggedInCustomer = false;
-			loggedInManager = true;
-			loggedInFDS = false;
-			loggedInSkipper = false;
-			break;
-		case User.SKIPPER:
-			loggedInCustomer = false;
-			loggedInManager = false;
-			loggedInFDS = false;
-			loggedInSkipper = true;
-			break;
-		default:
-			break;
-		}
-	}
-
-	/*
-	 * Set all user types as logged out
-	 */
-	public void initUsersLoggedIn() {
-		loggedInCustomer = false;
-		loggedInManager = false;
-		loggedInFDS = false;
-		loggedInSkipper = false;
+		
+		return null;
 	}
 
 	public String getUsername() {
