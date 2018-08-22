@@ -151,7 +151,7 @@ input[type=text], input[type=password] {
 	height: 50px;
 }
 
-.searchbtn {
+.formbtn {
 	background-color: grey;
 	color: white;
 	font-size: 100%;
@@ -159,10 +159,14 @@ input[type=text], input[type=password] {
 	margin: 2px 0;
 	border: none;
 	cursor: pointer;
-	width: 20%;
 	opacity: 0.9;
 	border-radius: 15px;
 	color: white;
+	width: 300px;
+}
+
+.searchbtn {
+	width: 20%;
 }
 
 /* login.xhtml */
