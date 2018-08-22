@@ -87,6 +87,7 @@ public class InventoryBean implements Serializable {
 		// boatBean.getBoatInventory().add(newBoat);
 		boats.add(newBoat);
 		resetInventoryVariables();
+		message = "BOAT ADDED";
 		return null;
 	}
 
