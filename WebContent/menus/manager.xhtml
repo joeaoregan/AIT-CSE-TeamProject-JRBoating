@@ -10,6 +10,7 @@
 
 <body>
 	<ui:composition>
+	<div style="float: right; width: 100%;">
 		<h:form>
 			<h:commandButton value="Manager Home" action="/manager/HomeManager.xhtml"
 				styleClass="#{(heading=='Manager Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
@@ -24,6 +25,14 @@
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
+		</div>
+		<div>
+			<h2 style="font-family: cursive; font-size: 35px; color: steelblue;">
+				JB Boating
+				<h:graphicImage library="image" name="boat.jpg"
+					style="height:70px; width:70px;margin-top:10px;" />
+			</h2>
+		</div>
 	</ui:composition>
 </body>
 </html>

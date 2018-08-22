@@ -342,17 +342,23 @@ input[type=text], input[type=password] {
 }
 
 .ActionButton {
-	width: 200px;
+	margin-top:10px;
+	width: 150px;
 	background-color: #0080ff; /*type of blue*/
 	color: white;
 	border-radius: 5px;
+	height:40px;
+	float:right;
 }
 
 .ActionButton2 {
-	width: 200px;
+	margin-top:10px;
+	width: 150px;
 	background-color: #a6dbdb; /*type of light blue*/
 	color: DarkSlateGray;
 	border-radius: 5px;
+	height:40px;
+	float:right;
 }
 
 .ActionButton:hover {
