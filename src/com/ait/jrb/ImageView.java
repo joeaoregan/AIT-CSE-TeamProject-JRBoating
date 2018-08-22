@@ -22,4 +22,7 @@ public class ImageView {
         return images;
     }
 
+    public void setImages(List<String> images) {
+    	this.images =images;
+    }
 }
