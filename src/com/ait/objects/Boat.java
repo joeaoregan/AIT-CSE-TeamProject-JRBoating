@@ -47,9 +47,6 @@ public class Boat {
 		return price;
 	}
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
 
 	public String getImage() {
 		return image;

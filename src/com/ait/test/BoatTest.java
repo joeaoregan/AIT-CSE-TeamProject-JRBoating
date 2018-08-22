@@ -59,4 +59,19 @@ class BoatTest {
 		boat.setCanEdit(false);
 		assertEquals(false, boat.isCanEdit());
 	}
+	@Test
+	void testChangeLink() {
+		boat.setLink("link1");
+		assertEquals("link1", boat.getLink());
+	}
+	@Test
+	void testBoatEquals() {
+		boat.equals(boat.getType());
+		assertEquals(true, boat.equals("Cruiser"));
+	}
+	@Test
+	void testBoatNotEquals() {
+		boat.equals(boat.getType());
+		assertEquals(false, boat.equals("Canoe"));
+	}
 }
