@@ -251,15 +251,6 @@ input[type=text], input[type=password] {
 	width:50%;
 }
 
-input[type=text], input[type=password] {
-	width: 300px;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
-}
-
 #editData input[type=text], #editData input[type=password] {
 	width: 80px;
 	padding: 15px;
@@ -410,4 +401,7 @@ input[type=text], input[type=password] {
 .menuform{
 	float:right;
 	margin-right:10px;
+}
+.selectOne{
+	height:30px;
 }

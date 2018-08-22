@@ -19,66 +19,70 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<h2 class="heading">
+
+			<div class="regDiv">
+				<h2 class="heading">
 				<h:outputText value="Add A New Item" />
 			</h2>
-			<br />
+				<hr />
 
-			<h:form>
-				<h:outputLabel styleClass="formLabel">Type:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.type}" required="true"
-					id="boatType" requiredMessage="Boat Type required"
-					a:placeholder="Boat Type" a:autofocus="true"
-					title="Enter boat type" />
-				<p:message for="boatType" />
+				<h:form>
+<!-- 					<h:outputLabel styleClass="formLabel">Type:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.type}" required="true"
+						id="boatType" requiredMessage="Boat Type required"
+						a:placeholder="Boat Type" a:autofocus="true"
+						title="Enter boat type" />
+					<p:message for="boatType" />
+					<br />
+
+<!-- 					<h:outputLabel styleClass="formLabel">Price:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.price}" required="true"
+						id="boatPrice" requiredMessage="Boat price required"
+						a:placeholder="Boat Price" a:autofocus="true"
+						title="Enter boat price per day" />
+					<p:message for="boatPrice" />
+					<br />
+
+<!-- 					<h:outputLabel styleClass="formLabel">Image:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.image}" required="true"
+						id="image" requiredMessage="Boat image required"
+						a:placeholder="Boat Image" a:autofocus="true"
+						title="Enter image name" />
+					<p:message for="image" />
+					<br />
+
+<!-- 					<h:outputLabel styleClass="formLabel">Quantity:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.quantity}" required="true"
+						id="quantity" requiredMessage="Boat quantity required"
+						a:placeholder="Boat Quantity" a:autofocus="true"
+						title="Enter quantity" />
+					<p:message for="quantity" />
+					<br />
+
+<!-- 					<h:outputLabel styleClass="formLabel">Description:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.description}" required="true"
+						id="description" requiredMessage="Boat description required"
+						a:placeholder="Boat Description" a:autofocus="true"
+						title="Enter description" />
+					<p:message for="description" />
+					<br />
+
+<!-- 					<h:outputLabel styleClass="formLabel">Link:</h:outputLabel> -->
+					<p:inputText value="#{inventoryBean.link}" id="link"
+						title="Enter link" a:placeholder="Link (Not Required)" />
+					<br />
+					<hr />
+					<h:commandButton id="additem" class="formbtn"
+						action="#{inventoryBean.createNewBoat}" value="Add New Boat"
+						title="Add a new type of boat to boats database" />&nbsp;&nbsp;
 				<br />
+<!-- 					<h:outputText value="#{inventoryBean.message}" /> -->
 
-				<h:outputLabel styleClass="formLabel">Price:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.price}" required="true"
-					id="boatPrice" requiredMessage="Boat price required"
-					a:placeholder="Boat Price" a:autofocus="true"
-					title="Enter boat price per day" />
-				<p:message for="boatPrice" />
-				<br />
+				</h:form>
+			</div>
 
-				<h:outputLabel styleClass="formLabel">Image:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.image}" required="true"
-					id="image" requiredMessage="Boat image required"
-					a:placeholder="Boat Image" a:autofocus="true"
-					title="Enter image name" />
-				<p:message for="image" />
-				<br />
 
-				<h:outputLabel styleClass="formLabel">Quantity:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.quantity}" required="true"
-					id="quantity" requiredMessage="Boat quantity required"
-					a:placeholder="Boat Quantity" a:autofocus="true"
-					title="Enter quantity" />
-				<p:message for="quantity" />
-				<br />
 
-				<h:outputLabel styleClass="formLabel">Description:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.description}" required="true"
-					id="description" requiredMessage="Boat description required"
-					a:placeholder="Boat Description" a:autofocus="true"
-					title="Enter description" />
-				<p:message for="description" />
-				<br />
-
-				<h:outputLabel styleClass="formLabel">Link:</h:outputLabel>
-				<p:inputText value="#{inventoryBean.link}" id="link"
-					title="Enter link" a:placeholder="Link (Not Required)" />
-				<br />
-
-				<h:commandButton id="additem" class="formbtn"
-					action="#{inventoryBean.createNewBoat}" value="Add New Boat"
-					title="Add a new type of boat to boats database" />&nbsp;&nbsp;
-				<br />
-				<br />
-
-				<h:outputText value="#{inventoryBean.message}" />
-
-			</h:form>
 
 			<h2 class="heading">
 				<h:outputText value="Current Boat Inventory" />

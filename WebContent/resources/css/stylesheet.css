@@ -15,7 +15,7 @@ input {
 	margin-bottom: .5em;
 }
 
-#regDiv {
+.regDiv {
 	margin: auto;
 	width: 30%;
 	border: 1px solid black;
