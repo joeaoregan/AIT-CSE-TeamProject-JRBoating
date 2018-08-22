@@ -53,11 +53,13 @@ public class UserBean implements Serializable {
 		addUser(sorcha);
 	}
 
-	public void resetLoginInfo() {
+	public String resetLoginInfo() {
 		username = "";
 		firstName = "";
 		lastName = "";
 		address = "";
+		
+		return "LOGIN DETAILS RESET";
 	}
 	
 	/*

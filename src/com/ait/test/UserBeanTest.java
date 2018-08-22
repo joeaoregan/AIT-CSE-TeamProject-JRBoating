@@ -183,8 +183,7 @@ class UserBeanTest {
 		assertEquals(null, userBean.editUser(user));
 	}
 	
-	@Test
-	
+	@Test	
 	void testDeleteUser() {
 		userBean.addUser(user);
 		assertEquals(7, userBean.userCount()); // 6 users in userbean
@@ -192,5 +191,10 @@ class UserBeanTest {
 		assertEquals(6, userBean.userCount());
 		User user2 = null;
 		assertEquals(null, userBean.deleteUser(user2));
+	}
+	
+	@Test
+	void testResetLoginInfo() {
+		assertEquals("LOGIN DETAILS RESET", userBean.resetLoginInfo());
 	}
 }
