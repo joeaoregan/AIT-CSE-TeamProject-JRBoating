@@ -13,11 +13,12 @@ body {
 }
 
 #header2 {
-  overflow: hidden;
-  position: fixed;
-  right: 10%;
-  top: 0%;
-  width: 80%;
+	z-index: 10; /*or more than your image */
+	overflow: hidden;
+	position: fixed;
+	right: 2.5%;
+	top: 0%;
+	width: 95%;
 	border: 1px solid black;
 	text-align: center;
 	background-color: #0080ff; /*type of blue*/
@@ -25,12 +26,17 @@ body {
 	border-radius: 15px;
 }
 
+#indexImage {
+	max-width: 99%;
+	right: 0%;
+}
+
 #search {
-  position: fixed;
-  right: 0%;
-  bottom: 0%;
-  width: 30%;
-    opacity: 0.50;
+	position: fixed;
+	right: 0%;
+	bottom: 0%;
+	width: 30%;
+	opacity: 0.50;
 	border: 1px solid black;
 	text-align: center;
 	background-color: #0080ff; /*type of blue*/
@@ -40,27 +46,33 @@ body {
 
 /* Footer at bottom of each page */
 #footer {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 	border: 1px solid black;
 	text-align: center;
 	background-color: DarkSlateGrey;
 	color: LightGrey;
 	border-radius: 15px;
+	margin-right: auto;
 }
 
 #footer.a:link {
-    color: hotpink;
+	color: hotpink;
 }
 
 .a:visited {
-    color: green;
+	color: green;
 }
 
 #main {
-	width: 100%;
-	background: linear-gradient(to right,#2193b0,#6dd5ed );
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	background: linear-gradient(to right, #2193b0, #6dd5ed);
 }
 
-input[type=text],input[type=password] {
+input[type=text], input[type=password] {
 	width: 300px;
 	padding: 15px;
 	margin: 5px 0 22px 0;
@@ -77,7 +89,7 @@ input[type=text],input[type=password] {
 	text-align: center;
 }
 
-.logReg input[type=text], .Reg input[type=text]{
+.logReg input[type=text], .Reg input[type=text] {
 	width: 250px;
 	padding: 10px;
 	margin: 5px 0 2px 0;
@@ -100,7 +112,7 @@ input[type=text],input[type=password] {
 
 /* index.xhtml */
 #searchDiv {
-    margin: auto;
+	margin: auto;
 	width: 400px;
 	text-align: center;
 	border: 1px solid black;
@@ -108,6 +120,7 @@ input[type=text],input[type=password] {
 	border-radius: 15px;
 	color: white;
 }
+
 .registerbtn {
 	background-color: grey;
 	color: white;
@@ -178,10 +191,9 @@ input[type=text],input[type=password] {
 }
 
 .ActionButton:hover {
-    background-color: white;
-    color: #0080ff;
+	background-color: white;
+	color: #0080ff;
 }
-
 
 .displayTableOddRow {
 	text-align: center;
@@ -191,12 +203,6 @@ input[type=text],input[type=password] {
 .displayTableEvenRow {
 	text-align: center;
 	background: none repeat scroll 0 0 #D3D3D3;
-}
-
-body {
-	background-color: White;
-	margin: 0px;
-	width: 100%;
 }
 
 #header {
@@ -217,25 +223,34 @@ body {
 }
 
 #footer.a:link {
-    color: hotpink;
+	color: hotpink;
 }
 
 .a:visited {
-    color: green;
+	color: green;
 }
 
-#main {
-	width: 100%;
-	backgound: linear-gradient(to right,#2193b0,#6dd5ed );
-}
-
-input[type=text],input[type=password] {
-	width: 350px;
+input[type=text], input[type=password] {
+	width: 300px;
 	padding: 15px;
 	margin: 5px 0 22px 0;
 	display: inline-block;
 	border: none;
 	background: #f1f1f1;
+}
+
+#editData input[type=text], #editData input[type=password] {
+	width: 80px;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	display: inline-block;
+	border: none;
+	background: #f1f1f1;
+}
+
+#editData {
+	margin: auto;
+	text-align: center;
 }
 
 .logReg {
@@ -246,7 +261,7 @@ input[type=text],input[type=password] {
 	text-align: center;
 }
 
-.logReg input[type=text], .Reg input[type=text]{
+.logReg input[type=text], .Reg input[type=text] {
 	width: 250px;
 	padding: 10px;
 	margin: 5px 0 2px 0;
@@ -262,14 +277,14 @@ input[type=text],input[type=password] {
 	margin: 8px 0;
 	border: none;
 	cursor: pointer;
-	width: 60%;
+	width: 50%;
 	opacity: 0.9;
 	border-radius: 15px;
 }
 
 /* index.xhtml */
 #searchDiv {
-    margin: auto;
+	margin: auto;
 	width: 400px;
 	text-align: center;
 	border: 1px solid black;
@@ -277,6 +292,7 @@ input[type=text],input[type=password] {
 	border-radius: 15px;
 	color: white;
 }
+
 .registerbtn {
 	background-color: grey;
 	color: white;
@@ -329,10 +345,9 @@ input[type=text],input[type=password] {
 }
 
 .ActionButton:hover {
-    background-color: white;
-    color: #0080ff;
+	background-color: white;
+	color: #0080ff;
 }
-
 
 .displayTableOddRow {
 	text-align: center;
@@ -343,6 +358,7 @@ input[type=text],input[type=password] {
 	text-align: center;
 	background: none repeat scroll 0 0 #D3D3D3;
 }
+
 #loginDiv {
 	margin: auto;
 	width: 30%;
@@ -376,7 +392,15 @@ input[type=text],input[type=password] {
 /* li a:hover:not(.active) { */
 /*     background-color: #111; */
 /* } */
-
 .active {
-    background-color: #4CAF50;
+	background-color: #4CAF50;
+}
+
+#centerOnPage {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.displayTable tr:hover {
+	background-color: #4CAF50;
 }

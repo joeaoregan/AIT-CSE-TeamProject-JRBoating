@@ -36,8 +36,8 @@ public class SearchBoatBean implements Serializable {
 	}
 
 	public String searchBoat(String type) {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		for (Boat boat : boatBean.getBoatInventory()) {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		for (Boat boat : inventoryBean.getBoats()) {
 			if (type.equalsIgnoreCase(boat.getType())) {
 
 				this.boat = boat;

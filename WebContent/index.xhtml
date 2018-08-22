@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+	
 <h:body>
 	<ui:composition template="templates/template.xhtml">
 		<ui:param name="title" value="JR Boating Home" />
@@ -25,14 +26,16 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<p:imageSwitch effect="shuffle" id="fadeEffect">
-				<ui:repeat var="image" value="#{imageView.images}"
-					id="fadeEffectImages">
-					<p:graphicImage style="height:400px;width:100%;"
-						value="/resources/image/#{image}" />
-				</ui:repeat>
-			</p:imageSwitch>
-
+			<div id="indexImage" align="center">
+				<p:imageSwitch effect="shuffle" id="fadeEffect">
+					<ui:repeat var="image" value="#{imageView.images}"
+						id="fadeEffectImages">
+						<p:graphicImage style="height:400px; width:95%;"
+							value="/resources/image/#{image}" />
+					</ui:repeat>
+				</p:imageSwitch>
+			</div>
+			
 			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
 			<p>
 				Located on the banks of the river Shannon, we here at JR Boating

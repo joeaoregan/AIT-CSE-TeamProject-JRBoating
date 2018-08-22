@@ -1,10 +1,4 @@
 
-body {
-	background-color: White;
-	margin: 0px;
-	width: 100%;
-}
-
 #header {
 	border: 1px solid black;
 	text-align: center;
@@ -19,23 +13,6 @@ label {
 
 input {
 	margin-bottom: .5em;
-}
-
-#loginDiv {
-	margin: auto;
-	width: 30%;
-	border: 1px solid black;
-	text-align: center;
-	padding: 10px;
-}
-
-input[type=text], .inpass{
-	width: 300px;
-	padding: 15px;
-	margin: 5px 0 22px 0;
-	display: inline-block;
-	border: none;
-	background: #f1f1f1;
 }
 
 #regDiv {

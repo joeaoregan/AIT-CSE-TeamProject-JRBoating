@@ -32,7 +32,7 @@
 						title="Boats you can book online today">
 
 						<!-- show all the boats in the inventory to choose from -->
-						<f:selectItems value="#{boatBean.boatInventory}" var="boat"
+						<f:selectItems value="#{inventoryBean.boats}" var="boat"
 							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 					</p:selectOneRadio>
 

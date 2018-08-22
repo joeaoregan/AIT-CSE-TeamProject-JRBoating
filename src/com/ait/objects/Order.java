@@ -48,6 +48,10 @@ public class Order {
 		totalPricePayNow = 0.0;
 		remainingPrice = 0.0;
 	}
+	
+	public String totalPrice() {
+		return Double.toString(totalPricePayNow + remainingPrice);
+	}
 
 	public Order(String id, String custUsername, Boat boat, int quantity, int numDays, User skipper, int dayHired, double skipperCost, double discount, double deposit,
 			double totalPricePayNow, double remainingPrice) {

@@ -26,28 +26,27 @@
 			<h:form>
 				<h:outputLabel styleClass="formLabel">Boat Name:</h:outputLabel>
 				
-				<h:selectOneMenu id="itemlist" value="#{pricingBean.type}"
+				<h:selectOneMenu id="boatlist" value="#{pricingBean.type}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
-						itemLabel="-- Select item to apply pricing structure --" />
-					<f:selectItems value="#{boatBean.getBoatInventory()}" var="boat"
+						itemLabel="-- Select the boat to apply new pricing structure to --" />
+					<f:selectItems value="#{inventoryBean.boats}" var="boat"
 						itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 				</h:selectOneMenu>
 				<br />
 				<br />
 			</h:form>
 
-
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Type:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Type Of Boat:</h:outputLabel>
 				<h:inputText id="type" value="#{pricingBean.type}" title="Type Of Boat"
 					required="true" readonly="true" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Amount:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Days Hired:</h:outputLabel>
 				<h:inputText id="amount" value="#{pricingBean.amount}"
 					title="Enter number of days / quantity" required="true" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Discount:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Discount (%):</h:outputLabel>
 				<h:inputText id="discount" value="#{pricingBean.discount}"
 					title="Discount to apply" required="true" />
 				<br />

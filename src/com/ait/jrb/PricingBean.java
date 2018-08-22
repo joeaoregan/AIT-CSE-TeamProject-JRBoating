@@ -30,8 +30,8 @@ public class PricingBean implements Serializable {
 	}
 
 	public String addPricingHandler() {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		for (Boat boat : boatBean.getBoatInventory()) {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		for (Boat boat : inventoryBean.getBoats()) {
 			if (boat.equals(type)) {
 				this.type = boat.getType();
 			}

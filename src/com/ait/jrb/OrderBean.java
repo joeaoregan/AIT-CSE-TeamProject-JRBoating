@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.ait.objects.Boat;
 import com.ait.objects.Order;
 import com.ait.objects.User;
 
 @ManagedBean(name = "orderBean")
-@RequestScoped
+@SessionScoped
 public class OrderBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,8 +28,7 @@ public class OrderBean implements Serializable {
 	private int formDayHired;
 	private double formDeposit;
 	private double formTotalCost;
-	
-	
+		
 	public OrderBean() {
 		boatSelected = null;
 		skipper = null;
@@ -37,20 +37,38 @@ public class OrderBean implements Serializable {
 		currentOrder = new Order();
 		allOrders = new ArrayList<Order>();
 		
-		addTestOrder();
-		
+		addTestOrder();		
+	}
+	
+	public double orderTotal() {
+		double total = 0.0;
+		for (Order order : allOrders) {
+			total += (order.getTotalPricePayNow() + order.getRemainingPrice());
+		}
+		return total;
+	}
+	public double totalDeposits() {
+		double total = 0.0;
+		for (Order order : allOrders) {
+			total += order.getTotalPricePayNow();
+		}
+		return total;
+	}
+	
+	public String totalOrderPrice(Order order) {
+		return Double.toString(order.getTotalPricePayNow() + order.getRemainingPrice());
 	}
 	
 	public void addTestOrder() {
 
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		
 		//public Order(String id, String custUsername, Boat boat, int quantity, int numDays, User skipper, int dayHired, 
 		//		double skipperCost, double discount, double deposit, double totalPricePayNow, double remainingPrice)
-		allOrders.add(new Order("Order1", "elaine", boatBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 
+		allOrders.add(new Order("Order1", "elaine", inventoryBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 
 				50.0, 0.0, 65.0, 65.0, 120.0));
-		allOrders.add(new Order("Order2", "elaine", boatBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 
+		allOrders.add(new Order("Order2", "elaine", inventoryBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 
 				50.0, 0.0, 60.0, 60.0, 100.0));
 		
 	}
@@ -69,8 +87,8 @@ public class OrderBean implements Serializable {
 	
 	
 	public Boat getSelectedBoat() {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		return boatBean.findBoat(boatType);
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		return inventoryBean.findBoat(boatType);
 	}
 
 	public String quantityInStock() {
