@@ -33,7 +33,9 @@
 			<h:form>
 				<h:outputLabel styleClass="formLabel">Select Boat Type:</h:outputLabel>
 				<br />
-				<h:selectOneMenu id="boatlist" value="#{pricingBean.type}"
+
+				<h:selectOneMenu styleClass="selectOne"
+					id="boatlist" value="#{pricingBean.type}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
 						itemLabel="-- Select the boat to apply new pricing structure to --" />

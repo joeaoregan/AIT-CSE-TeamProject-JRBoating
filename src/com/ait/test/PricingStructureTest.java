@@ -12,7 +12,7 @@ class PricingStructureTest {
 	
 	@BeforeEach
 	void setup() {
-		pricingStructure = new PricingStructure("Conoe", 10, 0.1);
+		pricingStructure = new PricingStructure("Conoe", 10, 10);
 	}
 	
 	@Test
@@ -20,7 +20,7 @@ class PricingStructureTest {
 		assertEquals("Conoe", pricingStructure.getType());
 		assertEquals(10, pricingStructure.getAmount());
 		//assertEquals(Double.valueOf(0.10), pricingStructure.getDiscount());
-		assertEquals(0.10, pricingStructure.getDiscount());
+		assertEquals(10, pricingStructure.getPercent());
 	}
 	
 	@Test
@@ -29,8 +29,8 @@ class PricingStructureTest {
 		assertEquals("Cruiser", pricingStructure.getType());	
 		pricingStructure.setAmount(20);
 		assertEquals(20, pricingStructure.getAmount());	
-		pricingStructure.setDiscount(0.20);
-		assertEquals(0.20, pricingStructure.getDiscount());	
+		pricingStructure.setPercent(20);
+		assertEquals(20, pricingStructure.getPercent());	
 	}
 	
 	@Test
