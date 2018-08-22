@@ -12,13 +12,13 @@ import com.ait.objects.User;
 class OrderTest {
 	
 	Order order;
-	//Order order1;
+	Order order1;
 	Boat boat; // boat to be hired
 	User skipper;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		//order1 = new Order();
+		order1 = new Order();
 		
 		skipper = new User(User.SKIPPER, "skip", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio",
 		"profile.jpg", 0.0);
@@ -117,5 +117,21 @@ class OrderTest {
 		assertEquals(Double.valueOf(90.0), order.getRemainingPrice());
 		order.setRemainingPrice(150.0);
 		assertEquals(Double.valueOf(150.0), order.getRemainingPrice());
+	}
+	@Test
+	void testOrderCanEdit() {
+		order.setCanEdit(true);
+		assertEquals(true, order.isCanEdit());
+	}
+	@Test
+	void testOrderCantEdit() {
+		order.setCanEdit(false);
+		assertEquals(false, order.isCanEdit());
+	}
+	@Test
+	void testTotalPrice() {
+		order.setTotalPricePayNow(12.50);
+		order.setRemainingPrice(12.55);
+		assertEquals("25.05", order.totalPrice());
 	}
 }

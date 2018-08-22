@@ -17,6 +17,7 @@ import com.ait.objects.User;
 
 class OrderBeanTest {
 	OrderBean orderBean;
+	Order order;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -63,7 +64,6 @@ class OrderBeanTest {
 	void testChangeSkipper() {
 		User skipper1 = new User(User.SKIPPER, "kiev", "asdf", "Kiev", "Reynolds", "Athlone", "1234567",
 				"About Kiev", "profile.jpg", 50.0);
-
 		orderBean.setSkipper(skipper1);
 		assertEquals(skipper1, orderBean.getSkipper());
 	}
@@ -78,9 +78,33 @@ class OrderBeanTest {
 	@Test
 	void testChangeOrders() {
 		ArrayList<Order> orders = new ArrayList<Order>();
-
 		orderBean.setAllOrders(orders);
 		assertEquals(orders, orderBean.getAllOrders());
+	}
+	@Test
+	void testChangeCurrentOrder() {
+		Order order= new Order();
+		orderBean.setCurrentOrder(order);
+		assertEquals(order, orderBean.getCurrentOrder());
+	}
+	//to be reviewed ref SB
+	@Test
+	void testTotalDeposits() {
+		Order order= new Order();
+		ArrayList<Order> orders= new ArrayList<Order>();
+		order.setTotalPricePayNow(10.10);
+		orders.add(order);
+		assertEquals(0.0, orderBean.totalDeposits(),0.0);
+	}
+	//to be reviewed ref SB
+	@Test
+	void testOrderTotal() {
+		Order order= new Order();
+		ArrayList<Order> orders= new ArrayList<Order>();
+		order.setTotalPricePayNow(10.10);
+		order.setRemainingPrice(12.10);
+		orders.add(order);
+		assertEquals(0.0, orderBean.orderTotal(),0.0);
 	}
 
 }

@@ -43,10 +43,10 @@ class PricingBeanTest {
 	}
 	
 	@Test
-	void testRenderTableEmpty() {		
-		assertEquals("false", pricingBean.renderTable());	// String not boolean
+	void testRenderTableEmpty() {
+		assertEquals(false, pricingBean.renderTable());	// String not boolean
 		pricingBean.addPricing("test",  10,  0.2);
-		assertEquals("true", pricingBean.renderTable());
+		assertEquals(true, pricingBean.renderTable());
 	}
 	
 	@Test
@@ -69,9 +69,13 @@ class PricingBeanTest {
 	
 	@Test
 	void testAddPricing() {
-		//PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
 		pricingBean.addPricing("test",  10,  0.2);
 		assertEquals(1, pricingBean.getPrices().size());
+	}
+	@Test
+	void testChangeType() {
+		pricingBean.setType("type");
+		assertEquals("type", pricingBean.getType());
 	}
 	
 }

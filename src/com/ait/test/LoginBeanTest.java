@@ -102,5 +102,26 @@ class LoginBeanTest {
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
 	}
+	@Test
+	void TestDisplayType() {
+		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
+		loginBean.setLoggedUser(user);
+		assertEquals("Manager", loginBean.displayType());
+		User user1 = new User(User.CUSTOMER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
+		loginBean.setLoggedUser(user1);
+		assertEquals("Customer", loginBean.displayType());
+		User user2 = new User(User.FRONT_DESK_STAFF, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
+		loginBean.setLoggedUser(user2);
+		assertEquals("Front Desk Staff", loginBean.displayType());
+		User user3 = new User(User.SKIPPER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
+		loginBean.setLoggedUser(user3);
+		assertEquals("Skipper", loginBean.displayType());
+		loginBean.setLoggedUser(null);
+		assertEquals(null, loginBean.displayType());
+	}
 
 }
