@@ -12,15 +12,14 @@ class PricingStructureTest {
 	
 	@BeforeEach
 	void setup() {
-		pricingStructure = new PricingStructure("Conoe", 10, 0.1);
+		pricingStructure = new PricingStructure("Conoe", 10, 1);
 	}
 	
 	@Test
 	void testConstructor() {
 		assertEquals("Conoe", pricingStructure.getType());
 		assertEquals(10, pricingStructure.getAmount());
-		//assertEquals(Double.valueOf(0.10), pricingStructure.getDiscount());
-		assertEquals(0.10, pricingStructure.getDiscount());
+
 	}
 	
 	@Test
@@ -29,26 +28,26 @@ class PricingStructureTest {
 		assertEquals("Cruiser", pricingStructure.getType());	
 		pricingStructure.setAmount(20);
 		assertEquals(20, pricingStructure.getAmount());	
-		pricingStructure.setDiscount(0.20);
-		assertEquals(0.20, pricingStructure.getDiscount());	
+
 	}
 	
 	@Test
 	void testCanEdit() {
-		//assertTrue(pricingStructure.getCanEdit());
-		//pricingStructure.setCanEdit(false);
-		//assertFalse(pricingStructure.getCanEdit());
-
 		assertFalse(pricingStructure.getCanEdit());
 		pricingStructure.setCanEdit(true);
 		assertTrue(pricingStructure.getCanEdit());
 	}
-	
-	//@Test
-	//void testToString() {
-	//	ShopBean shopBean = new ShopBean();
-	//	shopBean.addBoat("item1", 100.0, "boat1.jpg");
-	//	shopBean.addBoat("item2", 100.0, "boat2.jpg");
-	//	assertEquals("If item2(s) are hired for 10 day(s) or more a discount of 10.0% is applied.",pricingStructure.toString());
-	//}
+	@Test
+	void testChangePercent() {
+		pricingStructure.setPercent(1);
+		assertEquals(1, pricingStructure.getPercent());
+	}
+	/*can't figure out how to test SB
+	@Test
+	void testToString() {
+		pricingStructure.setType("type");
+		pricingStructure.setAmount(100);
+		pricingStructure.setDiscount(0.01);
+		assertEquals("If type(s) are hired for amount day(s) or more a discount of 1% is applied.", pricingStructure.toString());
+	}*/
 }

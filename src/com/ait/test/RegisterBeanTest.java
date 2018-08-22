@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.ait.jrb.RegisterBean;
+import com.ait.objects.User;
 
 class RegisterBeanTest {
 	RegisterBean registerBean;
@@ -67,4 +68,28 @@ class RegisterBeanTest {
 	void testRegister2() {
 		assertEquals("/customer/RegistrationVerify.xhtml", registerBean.register2());
 	}
+	@Test
+	void testChangeImage() {
+		registerBean.setImage("image");
+		assertEquals("image", registerBean.getImage());
+	}
+	@Test
+	void testChangePricePerDay() {
+		registerBean.setPricePerDay(12.56);
+		assertEquals(12.56, registerBean.getPricePerDay());
+	}
+	@Test
+	void testNewUser() {
+		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 40.0);
+		registerBean.setNewUser(user);
+		assertEquals(user, registerBean.getNewUser());
+	}
+	@Test
+	void testChangeBio() {
+		registerBean.setBio("bio");
+		assertEquals("bio", registerBean.getBio());
+	}
+
+	
 }
