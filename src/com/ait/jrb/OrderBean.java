@@ -59,20 +59,6 @@ public class OrderBean implements Serializable {
 		return Double.toString(order.getTotalPricePayNow() + order.getRemainingPrice());
 	}
 	
-	public void addTestOrder() {
-
-		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		
-		//public Order(String id, String custUsername, Boat boat, int quantity, int numDays, User skipper, int dayHired, 
-		//		double skipperCost, double discount, double deposit, double totalPricePayNow, double remainingPrice)
-		allOrders.add(new Order("Order1", "elaine", inventoryBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 
-				50.0, 0.0, 65.0, 65.0, 120.0));
-		allOrders.add(new Order("Order2", "elaine", inventoryBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 
-				50.0, 0.0, 60.0, 60.0, 100.0));
-		
-	}
-
 	// Must be return type string for form
 	public String selectBoat() {
 		formDeposit = depositToPay();
@@ -85,30 +71,43 @@ public class OrderBean implements Serializable {
 		return formDeposit;	// format as currency
 	}
 	
-	
-	public Boat getSelectedBoat() {
-		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-		return inventoryBean.findBoat(boatType);
-	}
-
-	public String quantityInStock() {
-		boatSelected = getSelectedBoat();
-		if (boatSelected != null) {
-			return Integer.toString(boatSelected.getQuantity());
-		}
-
-		return "BOAT NOT FOUND";
-	}
 
 	public String pricePerDay() {
-		boatSelected = getSelectedBoat();
-		if (boatSelected != null) {
+		//boatSelected = getSelectedBoat();
+		//if (boatSelected != null) {
+		if ((boatSelected = getSelectedBoat()) != null) {
 			return Double.toString(boatSelected.getPrice());
 		}
 
 		return "BOAT NOT FOUND";
 	}
 
+	public void addTestOrder() {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		
+		allOrders.add(new Order("Order1", "elaine", inventoryBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 50.0, 0.0, 65.0, 65.0, 120.0));
+		allOrders.add(new Order("Order2", "elaine", inventoryBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 50.0, 0.0, 60.0, 60.0, 100.0));	
+	}
+
+	public Boat getSelectedBoat() {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		return inventoryBean.findBoat(boatType);
+	}
+
+	public String quantityInStock() {
+		//System.out.println("test");
+		boatSelected = getSelectedBoat();
+		
+		if (boatSelected != null) {
+			return Integer.toString(boatSelected.getQuantity());
+		}
+
+		return "BOAT NOT FOUND";
+	}
+	
+	
+	
 	public ArrayList<Order> getAllOrders() {
 		return allOrders;
 	}
