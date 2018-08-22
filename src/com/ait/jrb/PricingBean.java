@@ -19,7 +19,7 @@ public class PricingBean implements Serializable {
 	private String name;
 	private int amount;
 	private Double price;
-	private Double discount;
+	private int percent;
 
 	ArrayList<PricingStructure> prices;
 
@@ -37,7 +37,7 @@ public class PricingBean implements Serializable {
 			}
 		}
 		// prices.add(new PricingStructure(id, name, amount, discount));
-		addPricing(type, amount, discount);
+		addPricing(type, amount, percent);
 
 		resetFormVariables();
 
@@ -49,13 +49,13 @@ public class PricingBean implements Serializable {
 	 */
 	public void resetFormVariables() {
 		this.type = "Cruiser";
-		this.amount = 0;
+		this.amount = 1;
 		this.price = 0.0;
-		this.discount = 0.0;
+		this.percent = 1;
 	}
 
-	public void addPricing(String type, int amount, double discount) {
-		prices.add(new PricingStructure(type, amount, discount));
+	public void addPricing(String type, int amount, int percent) {
+		prices.add(new PricingStructure(type, amount, percent));
 	}
 
 	public String saveAction() {
@@ -99,12 +99,12 @@ public class PricingBean implements Serializable {
 		this.price = price;
 	}
 
-	public Double getDiscount() {
-		return discount;
+	public int getPercent() {
+		return percent;
 	}
 
-	public void setDiscount(Double discount) {
-		this.discount = discount;
+	public void setPercent(int percent) {
+		this.percent = percent;
 	}
 
 	public ArrayList<PricingStructure> getPrices() {
