@@ -88,9 +88,6 @@ class UserBeanTest {
 
 	@Test
 	void testUserNotAdded() {
-		// User sorcha = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "asdf",
-		// "Sorcha", "Bruton",
-		// "Athlone", "0870481216", "", "profile.jpg", 0.0);
 		assertEquals("INVALID USER", userBean.addUser(null));
 	}
 
@@ -190,7 +187,7 @@ class UserBeanTest {
 	
 	void testDeleteUser() {
 		userBean.addUser(user);
-		assertEquals(7, userBean.userCount()); // 4 users in userbean
+		assertEquals(7, userBean.userCount()); // 6 users in userbean
 		assertEquals("USER REMOVED", userBean.deleteUser(user));
 		assertEquals(6, userBean.userCount());
 		User user2 = null;
