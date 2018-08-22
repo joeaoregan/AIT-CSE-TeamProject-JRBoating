@@ -55,7 +55,6 @@ public class LoginBean implements Serializable {
 		return null;
 	}
 
-	// clears the bean and shows the login page
 	public String showLoginPage() {
 		username = "";
 		password = "";
@@ -77,36 +76,36 @@ public class LoginBean implements Serializable {
 		return null;
 	}
 
-	/*
-	 * Returns the action to perform when the user attempts to login
-	 */
 	public String loginHandler() {
-		UserBean userBean = Helper.getBean("userBean", UserBean.class); // Get the CartBean instance.
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		User user = userBean.getUserByUsername(username);
 
-		message = ""; // Reset the message
+		message = "";
+
 		if (user != null) {
 			loggedUser = user;
-
 			userLoggedIn = true;
 
-			if (user.getType() == User.MANAGER) {
-				setUserLoggedIn(User.MANAGER);
-				return "/manager/HomeManager";
-			} else if (user.getType() == User.CUSTOMER) {
-				setUserLoggedIn(User.CUSTOMER);
-				return "/index";
-			} else if (user.getType() == User.FRONT_DESK_STAFF) {
-				setUserLoggedIn(User.FRONT_DESK_STAFF);
-				return "/index";
-			} else if (user.getType() == User.SKIPPER) {
-				setUserLoggedIn(User.SKIPPER);
-				return "/skipper/SkipperBookings";
+			if (user.getPassword().equals(password)) {
+				if (user.getType() == User.MANAGER) {
+					setUserLoggedIn(User.MANAGER);
+					return "/manager/HomeManager";
+				} else if (user.getType() == User.CUSTOMER) {
+					setUserLoggedIn(User.CUSTOMER);
+					return "/index";
+				} else if (user.getType() == User.FRONT_DESK_STAFF) {
+					setUserLoggedIn(User.FRONT_DESK_STAFF);
+					return "/index";
+				} else if (user.getType() == User.SKIPPER) {
+					setUserLoggedIn(User.SKIPPER);
+					return "/skipper/SkipperBookings";
+				}
 			}
 		}
 
 		message = "USER NOT FOUND";
-		return "index";
+		
+		return "login";
 	}
 
 	/*

@@ -12,6 +12,11 @@ body {
 	border-radius: 15px;
 }
 
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #header2 {
 	z-index: 10; /*or more than your image */
 	overflow: hidden;
@@ -19,24 +24,6 @@ body {
 	right: 2.5%;
 	top: 0%;
 	width: 95%;
-	border: 1px solid black;
-	text-align: center;
-	background-color: #0080ff; /*type of blue*/
-	color: white;
-	border-radius: 15px;
-}
-
-#indexImage {
-	max-width: 99%;
-	right: 0%;
-}
-
-#search {
-	position: fixed;
-	right: 0%;
-	bottom: 0%;
-	width: 30%;
-	opacity: 0.50;
 	border: 1px solid black;
 	text-align: center;
 	background-color: #0080ff; /*type of blue*/
@@ -57,6 +44,25 @@ body {
 	margin-right: auto;
 }
 
+
+#indexImage {
+	max-width: 99%;
+	right: 0%;
+}
+
+#search {
+	z-index: 10; /*or more than your image */
+	position: fixed;
+	right: 0%;
+	bottom: 0%;
+	width: 30%;
+	opacity: 0.50;
+	border: 1px solid black;
+	text-align: center;
+	background-color: #0080ff; /*type of blue*/
+	color: white;
+	border-radius: 15px;
+}
 #footer.a:link {
 	color: hotpink;
 }
@@ -249,7 +255,6 @@ input[type=text], input[type=password] {
 }
 
 #editData {
-	margin: auto;
 	text-align: center;
 }
 
