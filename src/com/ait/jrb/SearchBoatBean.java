@@ -27,38 +27,46 @@ public class SearchBoatBean implements Serializable {
 
 	public String searchHandler() {
 		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
-			typeSearched = "";
+			//typeSearched = "";
 			return "/customer/SearchVerify.xhtml";
 		}
-
-		typeSearched = "";
+		//typeSearched = "";
 		return null;
 	}
 
 	public String searchBoat(String type) {
 		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-		
-		for (Boat boat : inventoryBean.getBoats()) {
-			if (type.equalsIgnoreCase(boat.getType())) {
-				return boatFound(boat);
-			}
-		}
 
-		return boatNotFound();
+		// for (Boat boat : inventoryBean.getBoats()) {
+		// if (type.equalsIgnoreCase(boat.getType())) {
+		// return boatFound(boat);
+		// }
+		// }
+
+		return boatFound(inventoryBean.findBoat(type));
+
+		// return boatNotFound();
 	}
-	
+
 	public String boatFound(Boat boat) {
-		this.boat = boat;
-		rendered = "true";
-		
-		return "BOAT FOUND";
-	}
-	
-	public String boatNotFound() {
-		boat = null;
+		typeSearched = "";
 		rendered = "false";
-		return "BOAT NOT FOUND";
+		message = "BOAT NOT FOUND";
+		
+		if (boat != null) {
+			this.boat = boat;
+			rendered = "true";
+			message =  "BOAT FOUND";
+		}
+		//boat = null;
+		return message;
 	}
+
+//	public String boatNotFound() {
+//		boat = null;
+//		rendered = "false";
+//		return "BOAT NOT FOUND";
+//	}
 
 	public Boat getBoat() {
 		return boat;

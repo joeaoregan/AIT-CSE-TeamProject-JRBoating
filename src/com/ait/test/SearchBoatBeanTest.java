@@ -54,7 +54,7 @@ class SearchBoatBeanTest {
 	@Test
 	void testBoatFound() {
 		assertEquals("BOAT FOUND", searchBoatBean.boatFound(boat));
-		assertEquals("BOAT NOT FOUND", searchBoatBean.boatNotFound());
+		assertEquals("BOAT NOT FOUND", searchBoatBean.boatFound(null));
 	}
 	
 	//@Test
