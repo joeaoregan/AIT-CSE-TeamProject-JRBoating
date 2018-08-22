@@ -28,8 +28,9 @@
 							
 	       	<h:commandButton value="Account" action="/customer/CustomerAccount.xhtml"
 				styleClass="#{(heading=='Customer Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-				
-			<br />
+							
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
 	</ui:composition>
 </body>

@@ -13,82 +13,74 @@ import com.ait.objects.PricingStructure;
 @SessionScoped
 public class PricingBean implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//private Item item;
-	private int id;
+	// private Item item;
+	// private int id;
+	private String type;
 	private String name;
 	private int amount;
 	private Double price;
 	private Double discount;
-	
+
 	ArrayList<PricingStructure> prices;
-	
+
 	public PricingBean() {
-		this.id = 0;
+		resetFormVariables(); // initialise/reset the form data
+
+		prices = new ArrayList<PricingStructure>();
+	}
+
+	public String addPricingHandler() {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		for (Boat boat : inventoryBean.getBoats()) {
+			if (boat.equals(type)) {
+				this.type = boat.getType();
+			}
+		}
+		// prices.add(new PricingStructure(id, name, amount, discount));
+		addPricing(type, amount, discount);
+
+		resetFormVariables();
+
+		return null;
+	}
+
+	/*
+	 * Reset the data in the input text fields of the form by clearing variables
+	 */
+	public void resetFormVariables() {
+		this.type = "Cruiser";
 		this.amount = 0;
 		this.price = 0.0;
 		this.discount = 0.0;
-		prices = new ArrayList<PricingStructure>();
 	}
-	
-/*
-	public void getValues(int id, String name) {
-		this.id = id;
-		this.name = name;
-		//return this.id;
+
+	public void addPricing(String type, int amount, double discount) {
+		prices.add(new PricingStructure(type, amount, discount));
 	}
-	*/
+
 	public String saveAction() {
 		for (PricingStructure price : prices) {
 			price.setCanEdit(false);
 		}
 		return null;
 	}
+
 	public String editPricingStructure(PricingStructure pricingStructure) {
 		pricingStructure.setCanEdit(true);
 		return null;
-	}	
+	}
 
 	public String deletePricingStructure(PricingStructure pricingStructure) {
 		prices.remove(pricingStructure);
 		return null;
 	}
-	
-	public String addPricingHandler() {
-		//ShopBean shopBean = Helper.getBean("shopBean", ShopBean.class);
-		//for (Item item : shopBean.getItems()) {
-		//	if (item.equals(id)) {
-		//		this.name = item.getName();
-		//	}
-		//}
-		BoatBean boatBean = Helper.getBean("jrBoatingBean", BoatBean.class);
-		for (Boat boat : boatBean.getBoatInventory()) {
-			if (boat.equals(id)) {
-				this.name = boat.getType();
-			}
-		}
-		//prices.add(new PricingStructure(id, name, amount, discount));
-		addPricing(id,name, amount,discount);
-		this.amount = 0;
-		return null;
-	}
-	
-	public void addPricing(int id, String name, int amount, double discount) {
-		prices.add(new PricingStructure(id, name, amount, discount));		
-	}
-	
-	public String renderTable() {
+
+	public Boolean renderTable() {
 		if (prices.size() > 0) {
-			return "true";
+			return true;
 		}
-		return "false";
-	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		return false;
 	}
 
 	public int getAmount() {
@@ -129,5 +121,13 @@ public class PricingBean implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }

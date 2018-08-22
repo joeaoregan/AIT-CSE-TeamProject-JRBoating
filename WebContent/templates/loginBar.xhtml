@@ -4,25 +4,40 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <body>
 	<ui:composition>
-		<h3>LOGIN NAV BAR</h3>
+		<div id="placeholderTopOfPage">
+			<h:outputText value=" " />
+			<br />
+			<h:outputText value=" " />
+			<br />
+			<h:outputText value=" " />
+			<br />
+			<br />
+			<br />
 
-		<h:form rendered="#{loginBean.getShowUserLogIn()}">
+		</div>
+	</ui:composition>
+</body>
+</html>
+<!-- 
+
+	<div align="right">
+		<h:form rendered="#{not loginBean.userLoggedIn}">
 			<h:commandButton value="Login" action="/login.xhtml"
 				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 			<br />
 		</h:form>
 
-		<h:form rendered="#{loginBean.getShowUserLogOut()}">
-			<h:commandButton value="Logout: #{loginBean.getLoggedUser().getFirstName()}"
+		<h:form rendered="#{loginBean.userLoggedIn}">
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 			<br />
-			<h:outputText
-				value="Logged in as: #{loginBean.displayType(loginBean.getLoggedUser().getType())}" />
+			<h:outputText value="Logged in as: #{loginBean.displayType()}" />
 		</h:form>
-	</ui:composition>
-</body>
-</html>
+		</div>
+		 -->

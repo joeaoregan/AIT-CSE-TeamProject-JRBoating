@@ -19,6 +19,8 @@
 				styleClass="#{(heading=='Skipper Add Dates') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
         	<h:commandButton value="Bookings" action="/skipper/SkipperBookings.xhtml"
 				styleClass="#{(heading=='Skipper Bookings') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
 	</ui:composition>
 </body>

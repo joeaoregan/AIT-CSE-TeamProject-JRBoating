@@ -22,15 +22,6 @@
 
 			<h2 class="heading">XXX Contents of cart go here XXX</h2>
 
-			<h:dataTable value="#{orderBean.boatList}" var="row">
-				<h:column>
-					<h:outputText value="ID: #{row.id}" />
-				</h:column>
-				<h:column>
-					<h:outputText value="Number of Days: #{row.price}" />
-				</h:column>
-			</h:dataTable>
-
 			<h:form>
 				<h:commandButton value="Place Order" action="CustomerCheckout"
 					styleClass="ActionButton" />&nbsp;

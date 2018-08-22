@@ -19,6 +19,8 @@
 				styleClass="#{(heading=='Staff Process Orders') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
         	<h:commandButton value="Staff Manage Customers" action="/front-desk-staff/FDSManageCustomers.xhtml"
 				styleClass="#{(heading=='Staff Manage Customers') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
+				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
 	</ui:composition>
 </body>

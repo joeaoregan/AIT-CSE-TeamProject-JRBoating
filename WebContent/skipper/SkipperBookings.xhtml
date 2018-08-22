@@ -7,13 +7,53 @@
 
 <h:body>
 	<ui:composition template="/templates/template.xhtml">
-		<ui:param name="title" value="JR Boating Inventory" />
+		<ui:param name="title" value="JR Boating Bookings" />
 		<ui:param name="heading" value="Skipper Bookings" />
 
 		<ui:define name="menu">
 			<ui:include src="/menus/skipper.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<h2 class="heading">Skipper Bookings</h2>
+
+			<h:form>
+				<h2 class="heading">Days #{loginBean.loggedUser.firstName} Has
+					Been Booked For</h2>
+
+				<h:dataTable value="#{orderBean.allOrders}" var="row"
+					styleClass="displayTable" headerClass="displayTableHeader"
+					rowClasses="displayTableOddRow,displayTableEvenRow">
+
+					<h:column>
+						<f:facet name="header">Order ID</f:facet>
+						<h:inputText value="#{row.id}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.id}"
+							rendered="#{!row.canEdit}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Customer Username</f:facet>
+						<h:inputText value="#{row.custUsername}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.custUsername}"
+							rendered="#{!row.canEdit}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Day Booked For</f:facet>
+						<h:inputText value="#{row.dayHired}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.dayHired}" rendered="#{!row.canEdit}" />
+					</h:column>
+
+				</h:dataTable>
+				<br />
+
+				<h:commandButton value="Save Changes"
+					action="#{userBean.saveAction}" styleClass="ActionButton" />
+			</h:form>
+
 		</ui:define>
 	</ui:composition>
 </h:body>

@@ -24,29 +24,29 @@
 			<br />
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Item Name:</h:outputLabel>
-				<h:selectOneMenu id="itemlist" value="#{pricingBean.id}"
+				<h:outputLabel styleClass="formLabel">Boat Name:</h:outputLabel>
+				
+				<h:selectOneMenu id="boatlist" value="#{pricingBean.type}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
-						itemLabel="-- Select item to apply pricing structure --" />
-					<f:selectItems value="#{shopBean.getItems()}" var="item"
-						itemValue="#{item.id}" itemLabel="#{item.name}" />
+						itemLabel="-- Select the boat to apply new pricing structure to --" />
+					<f:selectItems value="#{inventoryBean.boats}" var="boat"
+						itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 				</h:selectOneMenu>
 				<br />
 				<br />
 			</h:form>
 
-
 			<h:form>
-				<h:outputLabel styleClass="formLabel">ID:</h:outputLabel>
-				<h:inputText id="id" value="#{pricingBean.id}" title="Enter item id"
+				<h:outputLabel styleClass="formLabel">Type Of Boat:</h:outputLabel>
+				<h:inputText id="type" value="#{pricingBean.type}" title="Type Of Boat"
 					required="true" readonly="true" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Amount:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Days Hired:</h:outputLabel>
 				<h:inputText id="amount" value="#{pricingBean.amount}"
 					title="Enter number of days / quantity" required="true" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Discount:</h:outputLabel>
+				<h:outputLabel styleClass="formLabel">Discount (%):</h:outputLabel>
 				<h:inputText id="discount" value="#{pricingBean.discount}"
 					title="Discount to apply" required="true" />
 				<br />
@@ -68,8 +68,8 @@
 					styleClass="displayTable" headerClass="displayTableHeader"
 					rowClasses="displayTableOddRow,displayTableEvenRow">
 					<h:column>
-						<f:facet name="header">ID</f:facet>
-						<h:outputText value="#{prices.id}" />
+						<f:facet name="header">Type</f:facet>
+						<h:outputText value="#{prices.type}" />
 					</h:column>
 					<h:column>
 						<f:facet name="header">Amount</f:facet>

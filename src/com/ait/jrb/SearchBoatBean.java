@@ -13,30 +13,31 @@ public class SearchBoatBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Boat boat;
-	
+
 	private String typeSearched;
 	private String message;
 	private String rendered;
 
 	public SearchBoatBean() {
 		boat = null;
+		typeSearched = "";
+		message = "";
 		rendered = "false";
 	}
-	
 
 	public String searchHandler() {
-		//System.out.println(searchBoat(typeSearched));
-		
 		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
+			typeSearched = "";
 			return "/customer/SearchVerify.xhtml";
 		}
 		
+		typeSearched = "";
 		return null;
 	}
 
 	public String searchBoat(String type) {
-		BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		for (Boat boat : boatBean.getBoatInventory()) {
+		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+		for (Boat boat : inventoryBean.getBoats()) {
 			if (type.equalsIgnoreCase(boat.getType())) {
 
 				this.boat = boat;
@@ -51,7 +52,6 @@ public class SearchBoatBean implements Serializable {
 		message = "BOAT NOT FOUND";
 		return message;
 	}
-	
 
 	public Boat getBoat() {
 		return boat;
@@ -61,45 +61,27 @@ public class SearchBoatBean implements Serializable {
 		this.boat = boat;
 	}
 
-
 	public String getTypeSearched() {
 		return typeSearched;
 	}
-
 
 	public void setTypeSearched(String typeSearched) {
 		this.typeSearched = typeSearched;
 	}
 
-
 	public String getMessage() {
 		return message;
 	}
-
 
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
-
 	public String getRendered() {
 		return rendered;
 	}
-
 
 	public void setRendered(String rendered) {
 		this.rendered = rendered;
 	}
 }
-
-// private String type;
-// private double price;
-// private String image;
-// private int quantity;
-// private String description;
-
-// this.type = boat.getType();
-// this.price = boat.getPrice();
-// this.image = boat.getImage();
-// this.quantity = boat.getQuantity();
-// this.description = boat.getDescription();

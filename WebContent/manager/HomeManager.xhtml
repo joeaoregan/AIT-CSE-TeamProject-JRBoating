@@ -20,35 +20,35 @@
 		</ui:define>
 
 		<ui:define name="content">
+			<div id="centerOnPage">
+				<h2 class="heading">Manager successfully logged in</h2>
 
-			<h2 class="heading">Manager successfully logged in</h2>
+				<h:outputText
+					value="This page shows the user details - view user details" />
 
-			<h:outputText
-				value="This page shows the user details - view user details" />
+				<h2 class="heading">Current Users: #{userBean.userCount()}</h2>
 
-			<h2 class="heading">Current Users: #{userBean.userCount()}</h2>
-
-			<h:dataTable value="#{userBean.getUserList()}" var="row"
-				styleClass="displayTable" headerClass="displayTableHeader"
-				rowClasses="displayTableOddRow,displayTableEvenRow">
-				<h:column>
-					<f:facet name="header">Username</f:facet>
-					<h:outputText value="#{row.username}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">First Name</f:facet>
-					<h:outputText value="#{row.firstName}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Last Name</f:facet>
-					<h:outputText value="#{row.lastName}" />
-				</h:column>
-				<h:column>
-					<f:facet name="header">Address</f:facet>
-					<h:outputText value="#{row.address}" />
-				</h:column>
-			</h:dataTable>
-
+				<h:dataTable value="#{userBean.userList}" var="row"
+					styleClass="displayTable" headerClass="displayTableHeader"
+					rowClasses="displayTableOddRow,displayTableEvenRow">
+					<h:column>
+						<f:facet name="header">Username</f:facet>
+						<h:outputText value="#{row.username}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">First Name</f:facet>
+						<h:outputText value="#{row.firstName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Last Name</f:facet>
+						<h:outputText value="#{row.lastName}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Address</f:facet>
+						<h:outputText value="#{row.address}" />
+					</h:column>
+				</h:dataTable>
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

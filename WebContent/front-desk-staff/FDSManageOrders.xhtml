@@ -15,6 +15,96 @@
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
+					
+		<ui:define name="content">
+			<h4>All Orders</h4>
+
+			<div id="editData" align="center">
+				<h:form>
+					<h:dataTable value="#{orderBean.allOrders}" var="row"
+						styleClass="displayTable" headerClass="displayTableHeader"
+						rowClasses="displayTableOddRow,displayTableEvenRow">
+
+						<h:column>
+							<f:facet name="header">Order ID</f:facet>
+							<h:inputText value="#{row.id}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.id}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Customer</f:facet>
+							<h:inputText value="#{row.custUsername}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.custUsername}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Boat Type</f:facet>
+							<h:inputText value="#{row.boat.type}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.boat.type}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Quantity</f:facet>
+							<h:inputText value="#{row.quantity}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.quantity}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Number of days</f:facet>
+							<h:inputText value="#{row.numDays}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.numDays}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Skipper</f:facet>
+							<h:inputText value="#{row.skipper.firstName}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.skipper.firstName}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Day Hired</f:facet>
+							<h:inputText value="#{row.dayHired}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.dayHired}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Cost Per Day</f:facet>
+							<h:inputText value="#{row.skipperCost}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.skipperCost}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Discount</f:facet>
+							<h:inputText value="#{row.discount}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.discount}" rendered="#{!row.canEdit}" />
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Deposit Price</f:facet>
+							<h:inputText value="#{row.totalPricePayNow}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.totalPricePayNow}" rendered="#{!row.canEdit}" />
+							<f:facet name="footer">Total: #{orderBean.totalDeposits()}</f:facet>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Total Price</f:facet>
+							<h:inputText value="#{row.totalPrice()}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.totalPrice()}" rendered="#{!row.canEdit}" />
+							<f:facet name="footer">Total: #{orderBean.orderTotal()}</f:facet>
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Remaining Fee</f:facet>
+							<h:inputText value="#{row.remainingPrice}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.remainingPrice}" rendered="#{!row.canEdit}" />
+						</h:column>
+						
+					</h:dataTable>
+					<br />
+				</h:form>
+			</div>
+		</ui:define>
+		
 	</ui:composition>
 </h:body>
 </html>

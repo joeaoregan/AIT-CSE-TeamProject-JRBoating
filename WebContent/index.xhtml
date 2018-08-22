@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
+	
 <h:body>
 	<ui:composition template="templates/template.xhtml">
 		<ui:param name="title" value="JR Boating Home" />
@@ -25,18 +26,16 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div>
+			<div id="indexImage" align="center">
 				<p:imageSwitch effect="shuffle" id="fadeEffect">
 					<ui:repeat var="image" value="#{imageView.images}"
 						id="fadeEffectImages">
-						<p:graphicImage style="height:400px;width:100%;"
+						<p:graphicImage style="height:400px; width:95%;"
 							value="/resources/image/#{image}" />
 					</ui:repeat>
 				</p:imageSwitch>
-
 			</div>
-
-
+			
 			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
 			<p>
 				Located on the banks of the river Shannon, we here at JR Boating
@@ -47,16 +46,13 @@
 				with us today and
 				<p:link outcome="/login.xhtml" value="Book Online" />
 				and choose from our range of
-				<p:button href="/details.xhtml" value="Boats" />
-
+				<p:link href="/details.jsf" value="Boats" />
 			</p>
 			<ul>
-				<li><a href="BoatDetailsTabbed.xhtml#canalbarges">Canal
-						Barges</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#canoe">Canoes</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#cruiser">Cruisers</a></li>
-				<li><a href="BoatDetailsTabbed.xhtml#sailingboat">Sailing
-						Boats</a></li>
+				<li><a href="/details.xhtml#canalbarges">Canal Barges</a></li>
+				<li><a href="/details.xhtml#canoe">Canoes</a></li>
+				<li><a href="/details.xhtml#cruiser">Cruisers</a></li>
+				<li><a href="/details.xhtml#sailingboat">Sailing Boats</a></li>
 			</ul>
 			<br />
 			<br />
@@ -66,7 +62,7 @@
 				available to join you for a day of your trip and help you learn
 				everything you need to know to make your trip down the river Shannon
 				a trip to remember.
-				<p:button href="CustomerBooking.jsf" value="Book Online" />
+				<p:button href="/customer/CustomerBooking.jsf" value="Book Online" />
 				or contact us today to start your adventure with us.
 			</p>
 		</ui:define>

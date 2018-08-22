@@ -10,14 +10,12 @@
 <body>
 	<ui:composition>
 		<div align="center">
-			<div id="searchDiv">
-				<h1>Search for Boat</h1>
-
+			<div>
 				<h:form>
 					<h:inputText required="true" a:placeholder="Enter boat type"
-						value="#{searchBoatBean.typeSearched}" />
-					<br />
-					<h:commandButton value="Search" class="registerbtn"
+						value="#{searchBoatBean.typeSearched}" />&nbsp;&nbsp;
+						
+					<h:commandButton value="Search Boats" class="searchbtn"
 						action="#{searchBoatBean.searchHandler()}" />
 					<br />
 					<h:outputText value="#{searchBoatBean.message}" />

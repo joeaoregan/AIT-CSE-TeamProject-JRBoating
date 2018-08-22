@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
@@ -23,30 +24,38 @@
 			<br />
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Next ID:</h:outputLabel>
-				<h:inputText id="boatID"
-					value="Boat#{boatBean.boatInventory.size()+1}" title="Boat ID"
-					readonly="true" />
-				<br />
 				<h:outputLabel styleClass="formLabel">Type:</h:outputLabel>
-				<h:inputText id="boatType" value="#{boatBean.boatType}"
-					title="Enter boat type" required="true" />
+				<h:inputText id="boatType" value="#{inventoryBean.type}"
+					title="Enter boat type" required="true" a:autofocus="true" />
 				<br />
 				<h:outputLabel styleClass="formLabel">Price:</h:outputLabel>
-				<h:inputText id="boatPrice" value="#{boatBean.price}"
-					title="Enter price" required="true" />
+				<h:inputText id="boatPrice" value="#{inventoryBean.price}"
+					title="Enter boat price per day" required="true" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Image Name:</h:outputLabel>
-				<h:inputText id="image" value="#{boatBean.image}"
+				<h:outputLabel styleClass="formLabel">Image:</h:outputLabel>
+				<h:inputText id="image" value="#{inventoryBean.image}"
 					title="Enter image name" required="true" />
+				<br />
+				<h:outputLabel styleClass="formLabel">Quantity:</h:outputLabel>
+				<h:inputText id="quantity" value="#{inventoryBean.quantity}"
+					title="Enter quantity" required="true" />
+				<br />
+				<h:outputLabel styleClass="formLabel">Description:</h:outputLabel>
+				<h:inputText id="description" value="#{inventoryBean.description}"
+					title="Enter description" required="true" />
+				<br />
+				<h:outputLabel styleClass="formLabel">Link:</h:outputLabel>
+				<h:inputText id="link" value="#{inventoryBean.link}"
+					title="Enter link" required="true" />
 				<br />
 
 				<h:commandButton id="additem" class="ActionButton"
-					action="#{boatBean.addBoatHandler}" value="Add New Boat"
+					action="#{inventoryBean.createNewBoat}" value="Add New Boat"
 					title="Add a new type of boat to boats database" />&nbsp;&nbsp;
 				<br />
+				
 				<br />
-				<h:outputText value="#{boatBean.infoMessage}" />
+				<h:outputText value="#{inventoryBean.message}" />
 			</h:form>
 
 			<h2 class="heading">
@@ -54,44 +63,46 @@
 			</h2>
 
 			<h:form>
-				<h:dataTable value="#{boatBean.boatInventory}" var="boat"
+				<h:dataTable value="#{inventoryBean.boats}" var="row"
 					styleClass="displayTable" headerClass="displayTableHeader"
 					rowClasses="displayTableOddRow,displayTableEvenRow">
-					<h:column>
-						<f:facet name="header">ID</f:facet>
-						<h:outputText value="#{boat.id}" />
-					</h:column>
+					
 					<h:column>
 						<f:facet name="header">Type</f:facet>
-						<h:inputText value="#{boat.type}" rendered="#{boat.canEdit}" />
-						<h:outputText value="#{boat.type}" rendered="#{!boat.canEdit}" />
+						<h:inputText value="#{row.type}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.type}" rendered="#{!row.canEdit}" />
 					</h:column>
+					
 					<h:column>
 						<f:facet name="header">Price</f:facet>
-						<h:inputText value="#{boat.price}" rendered="#{boat.canEdit}" />
-						<h:outputText value="#{boat.price}" rendered="#{!boat.canEdit}" />
+						<h:inputText value="#{row.price}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.price}" rendered="#{!row.canEdit}" />
 					</h:column>
+					
 					<h:column>
 						<f:facet name="header">Image</f:facet>
-						<h:inputText value="#{boat.image}" rendered="#{boat.canEdit}" />
-						<h:outputText value="#{boat.image}" rendered="#{!boat.canEdit}" />
+						<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
+						<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
 					</h:column>
+
 
 					<h:column>
 						<f:facet name="header">Edit</f:facet>
-						<h:commandLink value="Edit" action="#{boatBean.editItem(boat)}"
-							rendered="#{!boat.canEdit}" />
+						<h:commandLink value="Edit" action="#{inventoryBean.editBoat(row)}"
+							rendered="#{!row.canEdit}" />
 					</h:column>
+
 					<h:column>
 						<f:facet name="header">Remove</f:facet>
-						<h:commandLink value="Remove"
-							action="#{boatBean.removeBoat(boat)}" rendered="#{!boat.canEdit}" />
+						<h:commandLink value="Remove" action="#{inventoryBean.deleteBoat(row)}"
+							rendered="#{!row.canEdit}" />
 					</h:column>
+					
 				</h:dataTable>
 				<br />
 
 				<h:commandButton value="Save Changes"
-					action="#{boatBean.saveAction}" styleClass="ActionButton" />
+					action="#{inventoryBean.saveAction}" styleClass="ActionButton" />
 			</h:form>
 			<br />
 

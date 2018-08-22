@@ -20,6 +20,13 @@ class LoginBeanTest {
 	}
 
 	@Test
+	void testShowLogInPage() {
+		assertEquals("", loginBean.getUsername());
+		assertEquals("", loginBean.getPassword());
+		assertEquals("", loginBean.getMessage());
+	}
+
+	@Test
 	void testChangeIsManagerLoggedIn() {
 		loginBean.setLoggedInManager(true);
 		assertTrue(loginBean.getLoggedInManager());
@@ -44,11 +51,17 @@ class LoginBeanTest {
 	}
 
 	@Test
+	void testChangeShowUserLogin() {
+		loginBean.setUserLoggedIn(false);
+		assertFalse(loginBean.getUserLoggedIn());
+	}
+
+	@Test
 	void testGetSetMessage() {
 		loginBean.setMessage("test");
 		assertEquals("test", loginBean.getMessage());
 	}
-	
+
 	@Test
 	void testWrongLoggedIn() {
 		loginBean.setUserLoggedIn(20);
@@ -69,38 +82,23 @@ class LoginBeanTest {
 		loginBean.setUserLoggedIn(User.SKIPPER);
 		assertTrue(loginBean.getLoggedInSkipper());
 	}
-/*
-	@Test
-	void testShowLogInPage() {
-		loginBean.setLoggedUser(new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone",
-				"123456", "bio", "profile.jpg", 0.0));
-		assertEquals("/login", loginBean.showLoginPage());
-	}
-*/
-	
-	// Problem with Helper function
-/*
- 	@Test
-	void testGetUser() {
-		assertEquals(null, loginBean.getUser());
-	}
-*/
-	
+
 	@Test
 	void testGetSetUsername() {
 		loginBean.setUsername("test");
 		assertEquals("test", loginBean.getUsername());
 	}
-	
+
 	@Test
 	void testGetSetPassword() {
 		loginBean.setPassword("test");
-		assertEquals("test", loginBean.getPassword());		
+		assertEquals("test", loginBean.getPassword());
 	}
+
 	@Test
-	void testShowLogInPage() {
-		User user = new User(User.MANAGER, "root", "admin", "admin", "Joe", "Doe", "16 Main Road, Athlone",
-				"123456", "bio", "profile.jpg", 0.0);
+	void testChangeLoggedUser() {
+		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
+				"profile.jpg", 0.0);
 		loginBean.setLoggedUser(user);
 		assertEquals(user, loginBean.getLoggedUser());
 	}

@@ -16,25 +16,24 @@
 	<h:outputStylesheet name="sample.css" library="css" />
 </h:head>
 
-<h:body id="home">
-	<div id="loginNavBar"
-		style="border-width: 2px; border-color: black; border-style: solid;">
+<h:body>
+	<div id="loginNavBar">
 		<ui:insert name="footer">
 			<ui:include src="/templates/loginBar.xhtml" />
 		</ui:insert>
 	</div>
-	
 	<br />
-	<div id="header"
+
+	<div id="header2"
 		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
-		<h1 class="heading">JR Boating</h1>
-		<h2 class="heading">#{heading}</h2>
 
 		<ui:insert name="menu">
 			<ui:include src="/templates/header.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:insert>
+
+		<h1 class="heading">JR Boating: #{heading}</h1>
 	</div>
 	<br />
 
@@ -52,7 +51,6 @@
 			<ui:include src="/templates/search.xhtml" />
 		</ui:insert>
 	</div>
-	<br />
 
 	<div id="footer"
 		style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
