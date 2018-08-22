@@ -21,9 +21,9 @@ class PricingBeanTest {
 
 	@Test
 	void testConstructor() {
-		assertEquals(0, pricingBean.getAmount());
+		assertEquals(1, pricingBean.getAmount());
 		assertEquals(Double.valueOf(0.0), pricingBean.getPrice());
-		assertEquals(Double.valueOf(0.0), pricingBean.getDiscount());
+		assertEquals(1, pricingBean.getPercent());
 	}
 
 	@Test
@@ -32,46 +32,58 @@ class PricingBeanTest {
 		assertEquals(10, pricingBean.getAmount());
 		pricingBean.setPrice(1.25);
 		assertEquals(Double.valueOf(1.25), pricingBean.getPrice());
-		pricingBean.setDiscount(0.05);
-		assertEquals(Double.valueOf(0.05), pricingBean.getDiscount());	
+		pricingBean.setPercent(5);
+		assertEquals(5, pricingBean.getPercent());	
 		pricingBean.setName("test");
 		assertEquals("test", pricingBean.getName());
-		
 		ArrayList<PricingStructure> prices = new ArrayList<PricingStructure>();
 		pricingBean.setPrices(prices);
 		assertEquals(prices, pricingBean.getPrices());
+		pricingBean.setType("type");
+		assertEquals("type", pricingBean.getType());
+		pricingBean.setPercent(1);
+		assertEquals(1, pricingBean.getPercent());
 	}
-	
+	//test False version of RenderTableEmpty?
 	@Test
-	void testRenderTableEmpty() {		
-		assertEquals("false", pricingBean.renderTable());	// String not boolean
-		pricingBean.addPricing("test",  10,  0.2);
-		assertEquals("true", pricingBean.renderTable());
+	void testRenderTableEmpty() {
+		assertEquals(false, pricingBean.renderTable());	// String not boolean
+		pricingBean.addPricing("test",  10,  20);
+		assertEquals(true, pricingBean.renderTable());
+		//ArrayList prices= new ArrayList<PricingStructure>();
+		//PricingStructure price= new PricingStructure("type", 10, 1);
+		//prices.add(price);
+		//assertEquals(1, prices.size());
+		//assertEquals(true, pricingBean.renderTable());
 	}
-	
+	//test False version of SaveAction?
 	@Test
 	void testSaveAction() {
-		pricingBean.addPricing("test",  10,  0.2);
+		pricingBean.addPricing("test",  10,  20);
 		assertEquals(null, pricingBean.saveAction());
-	}
+		//ArrayList prices= new ArrayList<PricingStructure>();
+		//PricingStructure price= new PricingStructure("type", 10, 1);
+		//price.setCanEdit(false);
+		//prices.add(price);
+		}
 	
 	@Test
 	void testEditPricingStructure() {
-		PricingStructure pricingStructure = new PricingStructure("item2", 10, 0.1);
+		PricingStructure pricingStructure = new PricingStructure("item2", 10, 10);
 		assertEquals(null, pricingBean.editPricingStructure(pricingStructure));
 	}
 	
 	@Test
 	void testDeletePricingStructure() {
-		PricingStructure pricingStructure = new PricingStructure("item2", 10, 0.1);
+		PricingStructure pricingStructure = new PricingStructure("item2", 10, 10);
 		assertEquals(null, pricingBean.deletePricingStructure(pricingStructure));		
 	}
 	
 	@Test
 	void testAddPricing() {
-		//PricingStructure pricingStructure = new PricingStructure(1, "item2", 10, 0.1);
-		pricingBean.addPricing("test",  10,  0.2);
+		pricingBean.addPricing("test",  10,  20);
 		assertEquals(1, pricingBean.getPrices().size());
 	}
+
 	
 }

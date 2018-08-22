@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:body>
 	<ui:composition template="/templates/template.xhtml">
@@ -21,12 +23,19 @@
 			<h3>
 				<h:outputText value="Edit pricing structure" />
 			</h3>
-			<br />
+
+			<h4>Requirements</h4>
+			<ul>
+				<li>Number of days is between 1 and 365</li>
+				<li>Percent must be between 1 and 100</li>
+			</ul>
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Boat Name:</h:outputLabel>
-				
-				<h:selectOneMenu id="boatlist" value="#{pricingBean.type}"
+				<h:outputLabel styleClass="formLabel">Select Boat Type:</h:outputLabel>
+				<br />
+
+				<h:selectOneMenu styleClass="selectOne"
+					id="boatlist" value="#{pricingBean.type}"
 					onchange="this.form.submit();">
 					<f:selectItem itemValue="#{null}"
 						itemLabel="-- Select the boat to apply new pricing structure to --" />
@@ -38,17 +47,29 @@
 			</h:form>
 
 			<h:form>
-				<h:outputLabel styleClass="formLabel">Type Of Boat:</h:outputLabel>
-				<h:inputText id="type" value="#{pricingBean.type}" title="Type Of Boat"
-					required="true" readonly="true" />
+				<p:inputText value="#{pricingBean.type}" id="type"
+					title="Type Of Boat" readonly="true" a:placeholder="Type Of Boat" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Days Hired:</h:outputLabel>
-				<h:inputText id="amount" value="#{pricingBean.amount}"
-					title="Enter number of days / quantity" required="true" />
+
+				<p:inputText value="#{pricingBean.amount}" id="numberOfDays"
+					title="Enter number of days / quantity" required="true"
+					a:placeholder="Number Of Days Hired" a:autofocus="true"
+					requiredMessage="Number of days required" label="Number Of Days">
+					<f:validateLongRange minimum="1" maximum="365" />
+				</p:inputText>
+
+				<p:message for="numberOfDays" />
 				<br />
-				<h:outputLabel styleClass="formLabel">Discount (%):</h:outputLabel>
-				<h:inputText id="discount" value="#{pricingBean.discount}"
-					title="Discount to apply" required="true" />
+
+				<p:inputText value="#{pricingBean.percent}" id="discount"
+					title="Discount percent to apply (Between 1 and 100)"
+					required="true" a:placeholder="Percent Discount To Apply"
+					requiredMessage="Percent discount required between 1 and 100"
+					label="Discount Percent">
+					<f:validateLongRange minimum="1" maximum="100" />
+				</p:inputText>
+
+				<p:message for="discount" />
 				<br />
 
 				<h:commandButton id="addpricing" class="ActionButton"
@@ -59,6 +80,7 @@
 				<br />
 			</h:form>
 
+			<!-- DISPLAY THE PRICING STRUCTURE DATA -->
 
 			<h:form rendered="#{pricingBean.renderTable()}">
 				<h2 class="heading">
@@ -72,16 +94,16 @@
 						<h:outputText value="#{prices.type}" />
 					</h:column>
 					<h:column>
-						<f:facet name="header">Amount</f:facet>
+						<f:facet name="header">Number Of Days</f:facet>
 						<h:inputText value="#{prices.amount}" rendered="#{prices.canEdit}" />
 						<h:outputText value="#{prices.amount}"
 							rendered="#{!prices.canEdit}" />
 					</h:column>
 					<h:column>
-						<f:facet name="header">Discount</f:facet>
-						<h:inputText value="#{prices.discount}"
+						<f:facet name="header">Discount (%)</f:facet>
+						<h:inputText value="#{prices.percent}"
 							rendered="#{prices.canEdit}" />
-						<h:outputText value="#{prices.discount}"
+						<h:outputText value="#{prices.percent}"
 							rendered="#{!prices.canEdit}" />
 					</h:column>
 					<h:column>

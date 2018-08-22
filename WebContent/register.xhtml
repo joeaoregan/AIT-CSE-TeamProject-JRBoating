@@ -29,13 +29,26 @@
 						a:placeholder="Username" a:autofocus="true" />
 					<p:message for="username" />
 
-					<p:password value="#{registerBean.password}" feedback="true"
-						id="password1" required="true" requiredMessage="Password required"
-						validatorMessage="Password must be 2 or more chars."
-						a:placeholder="Password">
-						<f:validateLength minimum="2" />
-					</p:password>
-					<p:message for="password1" />
+					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+
+						<p:password id="password1" value="#{registerBean.password}"
+							feedback="true" requiredMessage="Password required"
+							required="true" a:placeholder="Password" match="password2"
+							label="Password 1">
+						</p:password>
+						<p:message for="password1" />
+
+						<p:password value="#{registerBean.password}" feedback="true"
+							id="password2" required="true" a:placeholder="Confirm Password"
+							label="Password 2"
+							validatorMessage="#{loginBean.passwordLengthMessage()}">
+							<f:validateLength minimum="#{loginBean.passwordLength()}" />
+						</p:password>
+						<p:message for="password2" />
+					</h:panelGrid>
+
+
+
 
 					<p:inputText value="#{registerBean.firstName}" required="true"
 						id="firstName" requiredMessage="First name required"
@@ -56,14 +69,6 @@
 						id="phone" requiredMessage="Phone number required"
 						a:placeholder="Phone Number" />
 					<p:message for="phone" />
-
-					<p:inputText value="#{registerBean.bio}" id="bio"
-						a:placeholder="About" />
-					<p:message for="bio" />
-
-					<p:inputText value="#{registerBean.image}" id="image"
-						a:placeholder="Image" />
-					<p:message for="image" />
 
 					<hr />
 
