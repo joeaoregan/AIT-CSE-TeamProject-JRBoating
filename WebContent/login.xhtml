@@ -12,17 +12,17 @@
 		<ui:param name="heading" value="Login" />
 
 		<ui:define name="menu" id="header">
-			<ui:include
-				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+				<ui:include
+					src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
 						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
 						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
 						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
-				<ui:param name="defaultHeader" value="JR Boating" />
-			</ui:include>
+					<ui:param name="defaultHeader" value="JR Boating" />
+				</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
-			<div id="regDiv">
+			<div id="regDiv"  align="center">
 				<h4>Already a member?</h4>
 				<hr />
 

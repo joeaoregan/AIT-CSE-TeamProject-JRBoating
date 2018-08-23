@@ -33,7 +33,7 @@ class PricingBeanTest {
 		pricingBean.setPrice(1.25);
 		assertEquals(Double.valueOf(1.25), pricingBean.getPrice());
 		pricingBean.setPercent(5);
-		assertEquals(5, pricingBean.getPercent());	
+		assertEquals(5, pricingBean.getPercent());
 		pricingBean.setName("test");
 		assertEquals("test", pricingBean.getName());
 		ArrayList<PricingStructure> prices = new ArrayList<PricingStructure>();
@@ -44,46 +44,35 @@ class PricingBeanTest {
 		pricingBean.setPercent(1);
 		assertEquals(1, pricingBean.getPercent());
 	}
-	//test False version of RenderTableEmpty?
+
 	@Test
 	void testRenderTableEmpty() {
-		assertEquals(false, pricingBean.renderTable());	// String not boolean
-		pricingBean.addPricing("test",  10,  20);
+		assertEquals(false, pricingBean.renderTable()); // String not boolean
+		pricingBean.addPricing("test", 10, 20);
 		assertEquals(true, pricingBean.renderTable());
-		//ArrayList prices= new ArrayList<PricingStructure>();
-		//PricingStructure price= new PricingStructure("type", 10, 1);
-		//prices.add(price);
-		//assertEquals(1, prices.size());
-		//assertEquals(true, pricingBean.renderTable());
 	}
-	//test False version of SaveAction?
+
 	@Test
 	void testSaveAction() {
-		pricingBean.addPricing("test",  10,  20);
+		pricingBean.addPricing("test", 10, 20);
 		assertEquals(null, pricingBean.saveAction());
-		//ArrayList prices= new ArrayList<PricingStructure>();
-		//PricingStructure price= new PricingStructure("type", 10, 1);
-		//price.setCanEdit(false);
-		//prices.add(price);
-		}
-	
+	}
+
 	@Test
 	void testEditPricingStructure() {
 		PricingStructure pricingStructure = new PricingStructure("item2", 10, 10);
 		assertEquals(null, pricingBean.editPricingStructure(pricingStructure));
 	}
-	
+
 	@Test
 	void testDeletePricingStructure() {
 		PricingStructure pricingStructure = new PricingStructure("item2", 10, 10);
-		assertEquals(null, pricingBean.deletePricingStructure(pricingStructure));		
-	}
-	
-	@Test
-	void testAddPricing() {
-		pricingBean.addPricing("test",  10,  20);
-		assertEquals(1, pricingBean.getPrices().size());
+		assertEquals(null, pricingBean.deletePricingStructure(pricingStructure));
 	}
 
-	
+	@Test
+	void testAddPricing() {
+		pricingBean.addPricing("test", 10, 20);
+		assertEquals(1, pricingBean.getPrices().size());
+	}
 }

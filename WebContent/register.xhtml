@@ -40,8 +40,6 @@
 							title="Enter Username" rendered="#{not loginBean.userLoggedIn}" />
 						<p:message for="username" />
 
-
-
 						<p:password id="password1" value="#{registerBean.password}"
 							feedback="true" requiredMessage="Password required"
 							required="true" a:placeholder="Password" match="password2"
@@ -56,7 +54,6 @@
 							<f:validateLength minimum="#{loginBean.passwordLength()}" />
 						</p:password>
 						<p:message for="password2" />
-
 
 						<p:inputText value="#{registerBean.firstName}" required="true"
 							id="firstName" requiredMessage="First name required"
