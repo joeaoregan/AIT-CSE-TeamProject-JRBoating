@@ -3,8 +3,10 @@ package com.ait.jrb;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.ait.objects.Boat;
 
@@ -28,12 +30,13 @@ public class InventoryBean implements Serializable {
 
 	public InventoryBean() {
 		boats = new ArrayList<Boat>();
-		
+
 		resetInventoryVariables();
 
 		Boat cruiser = new Boat("Cruiser", 250.0, "boat3.jpg", 10, "Cruiser description", "/details.xhtml");
 		Boat canalBarge = new Boat("Canal Barge", 200.0, "boat1.jpg", 15, "Canal Barge description", "/details.xhtml");
-		Boat sailingBoat = new Boat("Sailing Boat", 100.0, "boat4.jpg", 20, "Sailing Boat description", "/details.xhtml");
+		Boat sailingBoat = new Boat("Sailing Boat", 100.0, "boat4.jpg", 20, "Sailing Boat description",
+				"/details.xhtml");
 		Boat canoe = new Boat("Canoe", 50.0, "boat2.jpg", 25, "Canoe description", "/details.xhtml");
 
 		boats.add(cruiser);
@@ -51,7 +54,7 @@ public class InventoryBean implements Serializable {
 
 		return null;
 	}
-	
+
 	public String saveAction() {
 		for (Boat boat : boats) {
 			boat.setCanEdit(false);
@@ -81,20 +84,34 @@ public class InventoryBean implements Serializable {
 		message = "Add A New Boat";
 	}
 
+	public String createBoatHandler() {
+		message = createNewBoat();
+		return null;
+	}
+
 	public String createNewBoat() {
+		FacesContext context = FacesContext.getCurrentInstance();
+
 		for (Boat boat : boats) {
 			if (boat.getType().equalsIgnoreCase(type)) {
+				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "BOAT TYPE EXISTS"));
 				return "BOAT TYPE EXISTS";
 			}
-			
+
 		}
+
 		newBoat = new Boat(type, price, image, quantity, description, link);
-		// BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
-		// boatBean.getBoatInventory().add(newBoat);
 		boats.add(newBoat);
+		context.addMessage(null, new FacesMessage("Successful", "Added Type: " + type));
+		if (quantity == 0) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "FYI!", "QUANTITY = ZERO"));
+		}
+		if (price == 0.0) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "FYI!", "PRICE = FREE"));
+		}
 		resetInventoryVariables();
-		message = "BOAT ADDED";
-		return null;
+
+		return "BOAT ADDED";
 	}
 
 	public String getType() {

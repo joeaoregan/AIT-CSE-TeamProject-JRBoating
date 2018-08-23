@@ -29,6 +29,7 @@
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+					<p:growl id="growl" showDetail="true" sticky="true" />
 					
 						<p:inputText
 							value="#{userBean.displayType(loginBean.user.getType())}"

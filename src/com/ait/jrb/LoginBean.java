@@ -81,27 +81,6 @@ public class LoginBean implements Serializable {
 		return null;
 	}
 */
-	public String redirectUser(String password, int type) {
-		userLoggedIn = true;
-		
-		if (this.password.equals(password)) {
-			if (type == User.MANAGER) {
-				setUserLoggedIn(User.MANAGER);
-				return "/manager/manager-home.xhtml";
-			} else if (type == User.CUSTOMER) {
-				setUserLoggedIn(User.CUSTOMER);
-				return "/index";
-			} else if (type == User.FRONT_DESK_STAFF) {
-				setUserLoggedIn(User.FRONT_DESK_STAFF);
-				return "/index";
-			} else if (type == User.SKIPPER) {
-				setUserLoggedIn(User.SKIPPER);
-				return "/skipper/SkipperBookings";
-			}
-		}
-
-		return "USER NOT FOUND";
-	}
 
 	public String setUserLoggedIn(int type) {
 		String message = null;
@@ -168,24 +147,47 @@ public class LoginBean implements Serializable {
 
 	public String loginHandler() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		
+				
+		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		User user = userBean.getUserByUsername(username); // get the user
+
 		message = "USER NOT FOUND";
 		
-		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		User user = userBean.getUserByUsername(username);
-
 		if (user != null) {
 			loggedUser = user;
-			return redirectUser(user.getPassword(), user.getType());
-		}		
-
-		if (message.equals("USER NOT FOUND")) {
+			message =  redirectUser(user.getPassword(), user.getType()); // go to page, or password invalid
+		}
+		
+		if (message.equals("USER NOT FOUND") || message.equals("login")) {
+			message = "/login.xhtml";
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "USERNAME OR PASSWORD INCORRECT"));
 		}		
+		
+		return message;
+	}
+
+	public String redirectUser(String password, int type) {
+		userLoggedIn = true;
+		
+		if (this.password.equals(password)) {
+			if (type == User.MANAGER) {
+				setUserLoggedIn(User.MANAGER);
+				return "/manager/manager-home.xhtml";
+			} else if (type == User.CUSTOMER) {
+				setUserLoggedIn(User.CUSTOMER);
+				return "/index";
+			} else if (type == User.FRONT_DESK_STAFF) {
+				setUserLoggedIn(User.FRONT_DESK_STAFF);
+				return "/index";
+			} else if (type == User.SKIPPER) {
+				setUserLoggedIn(User.SKIPPER);
+				return "/skipper/SkipperBookings";
+			}
+		}
 
 		return "login";
 	}
-
+	
 	public String logoutHandler() {
 		initUsersLoggedIn();
 

@@ -3,8 +3,10 @@ package com.ait.jrb;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.ait.objects.User;
 
@@ -100,10 +102,14 @@ public class UserBean implements Serializable {
 	 * XXXXXXX HELPER XXXXXXXXXXX Save form update / edit details
 	 */
 	public String saveAction() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage("Successful", "Details Saved"));
+		
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		for (User user : userBean.getUserList()) {
 			user.setCanEdit(false);
 		}
+		
 		return null;
 	}
 	
@@ -120,7 +126,7 @@ public class UserBean implements Serializable {
 		return "USERNAME NOT UNIQUE";
 	}
 	
-	public String removeUser(User user) {
+	public String removeUserHandler(User user) {
 		deleteUser(user);
 		return null;
 	}
