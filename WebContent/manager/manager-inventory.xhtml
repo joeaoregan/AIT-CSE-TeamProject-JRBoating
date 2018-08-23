@@ -22,12 +22,12 @@
 
 			<div class="regDiv">
 				<h2 class="heading">
-				<h:outputText value="Add A New Item" />
-			</h2>
+					<h:outputText value="Add A New Boat" />
+				</h2>
 				<hr />
 
 				<h:form>
-<!-- 					<h:outputLabel styleClass="formLabel">Type:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Type:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.type}" required="true"
 						id="boatType" requiredMessage="Boat Type required"
 						a:placeholder="Boat Type" a:autofocus="true"
@@ -35,7 +35,7 @@
 					<p:message for="boatType" />
 					<br />
 
-<!-- 					<h:outputLabel styleClass="formLabel">Price:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Price:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.price}" required="true"
 						id="boatPrice" requiredMessage="Boat price required"
 						a:placeholder="Boat Price" a:autofocus="true"
@@ -43,7 +43,7 @@
 					<p:message for="boatPrice" />
 					<br />
 
-<!-- 					<h:outputLabel styleClass="formLabel">Image:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Image:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.image}" required="true"
 						id="image" requiredMessage="Boat image required"
 						a:placeholder="Boat Image" a:autofocus="true"
@@ -51,7 +51,7 @@
 					<p:message for="image" />
 					<br />
 
-<!-- 					<h:outputLabel styleClass="formLabel">Quantity:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Quantity:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.quantity}" required="true"
 						id="quantity" requiredMessage="Boat quantity required"
 						a:placeholder="Boat Quantity" a:autofocus="true"
@@ -59,7 +59,7 @@
 					<p:message for="quantity" />
 					<br />
 
-<!-- 					<h:outputLabel styleClass="formLabel">Description:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Description:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.description}" required="true"
 						id="description" requiredMessage="Boat description required"
 						a:placeholder="Boat Description" a:autofocus="true"
@@ -67,7 +67,7 @@
 					<p:message for="description" />
 					<br />
 
-<!-- 					<h:outputLabel styleClass="formLabel">Link:</h:outputLabel> -->
+					<!-- 					<h:outputLabel styleClass="formLabel">Link:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.link}" id="link"
 						title="Enter link" a:placeholder="Link (Not Required)" />
 					<br />
@@ -76,65 +76,65 @@
 						action="#{inventoryBean.createNewBoat}" value="Add New Boat"
 						title="Add a new type of boat to boats database" />&nbsp;&nbsp;
 				<br />
-<!-- 					<h:outputText value="#{inventoryBean.message}" /> -->
+					<!-- 					<h:outputText value="#{inventoryBean.message}" /> -->
 
 				</h:form>
 			</div>
 
 
-
-
-			<h2 class="heading">
-				<h:outputText value="Current Boat Inventory" />
-			</h2>
-
 			<!-- EDIT / DELETE BOATS -->
 
-			<h:form>
-				<h:dataTable value="#{inventoryBean.boats}" var="row"
-					styleClass="displayTable" headerClass="displayTableHeader"
-					rowClasses="displayTableOddRow,displayTableEvenRow">
+			<div align="center">
+				<h2 class="heading">
+					<h:outputText value="Edit Current Boat Inventory" />
+				</h2>
 
-					<h:column>
-						<f:facet name="header">Type</f:facet>
-						<h:inputText value="#{row.type}" rendered="#{row.canEdit}" />
-						<h:outputText value="#{row.type}" rendered="#{!row.canEdit}" />
-					</h:column>
+				<h:form>
+					<h:dataTable value="#{inventoryBean.boats}" var="row"
+						styleClass="displayTable" headerClass="displayTableHeader"
+						rowClasses="displayTableOddRow,displayTableEvenRow">
 
-					<h:column>
-						<f:facet name="header">Price</f:facet>
-						<h:inputText value="#{row.price}" rendered="#{row.canEdit}" />
-						<h:outputText value="#{row.price}" rendered="#{!row.canEdit}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">Type</f:facet>
+							<h:inputText value="#{row.type}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.type}" rendered="#{!row.canEdit}" />
+						</h:column>
 
-					<h:column>
-						<f:facet name="header">Image</f:facet>
-						<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
-						<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">Price</f:facet>
+							<h:inputText value="#{row.price}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.price}" rendered="#{!row.canEdit}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Image</f:facet>
+							<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
+						</h:column>
 
 
-					<h:column>
-						<f:facet name="header">Edit</f:facet>
-						<h:commandLink value="Edit"
-							action="#{inventoryBean.editBoat(row)}"
-							rendered="#{!row.canEdit}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">Edit</f:facet>
+							<h:commandLink value="Edit"
+								action="#{inventoryBean.editBoat(row)}"
+								rendered="#{!row.canEdit}" />
+						</h:column>
 
-					<h:column>
-						<f:facet name="header">Remove</f:facet>
-						<h:commandLink value="Remove"
-							action="#{inventoryBean.deleteBoat(row)}"
-							rendered="#{!row.canEdit}" />
-					</h:column>
+						<h:column>
+							<f:facet name="header">Remove</f:facet>
+							<h:commandLink value="Remove"
+								action="#{inventoryBean.deleteBoat(row)}"
+								rendered="#{!row.canEdit}" />
+						</h:column>
 
-				</h:dataTable>
+					</h:dataTable>
+					<br />
+
+					<h:commandButton value="Save Changes"
+						action="#{inventoryBean.saveAction}" styleClass="formbtn" />
+				</h:form>
 				<br />
-
-				<h:commandButton value="Save Changes"
-					action="#{inventoryBean.saveAction}" styleClass="formbtn" />
-			</h:form>
-			<br />
+			</div>
 
 		</ui:define>
 	</ui:composition>

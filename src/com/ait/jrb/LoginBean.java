@@ -85,7 +85,7 @@ public class LoginBean implements Serializable {
 		if (this.password.equals(password)) {
 			if (type == User.MANAGER) {
 				setUserLoggedIn(User.MANAGER);
-				return "/manager/HomeManager";
+				return "/manager/manager-home.xhtml";
 			} else if (type == User.CUSTOMER) {
 				setUserLoggedIn(User.CUSTOMER);
 				return "/index";

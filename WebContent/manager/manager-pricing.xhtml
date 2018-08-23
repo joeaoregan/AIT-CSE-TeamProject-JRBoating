@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:body>
+	<ui:composition template="/templates/template.xhtml">
+		<ui:param name="title" value="JR Boating Pricing" />
+		<ui:param name="heading" value="Manage Pricing" />
+
+		<ui:define name="menu">
+			<ui:include src="/menus/manager.xhtml">
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
+		</ui:define>
+
+		<ui:define name="content">
+			<div class="regDiv">
+				<h2 class="heading">
+					<h:outputText value="Add Pricing Structures" />
+				</h2>
+				<hr />
+
+				<h4>Requirements</h4>
+				<ul>
+					<li>Number of days is between 1 and 365</li>
+					<li>Percent must be between 1 and 100</li>
+				</ul>
+				<br />
+
+				<h3>Select Boat Type:</h3>
+				<br />
+
+				<h:form>
+					<h:selectOneMenu styleClass="selectOne" id="boatlist"
+						value="#{pricingBean.type}" onchange="this.form.submit();">
+						<f:selectItem itemValue="#{null}"
+							itemLabel="-- Select the boat to apply new pricing structure to --" />
+						<f:selectItems value="#{inventoryBean.boats}" var="boat"
+							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
+					</h:selectOneMenu>
+					<br />
+					<br />
+				</h:form>
+
+				<h:form>
+					<p:inputText value="#{pricingBean.amount}" id="numberOfDays"
+						title="Enter number of days / quantity" required="true"
+						a:placeholder="Number Of Days Hired" a:autofocus="true"
+						requiredMessage="Number of days required" label="Number Of Days">
+						<f:validateLongRange minimum="1" maximum="365" />
+					</p:inputText>
+
+					<p:message for="numberOfDays" />
+
+					<p:inputText value="#{pricingBean.percent}" id="discount"
+						title="Discount percent to apply (Between 1 and 100)"
+						required="true" a:placeholder="Percent Discount To Apply"
+						requiredMessage="Percent discount required between 1 and 100"
+						label="Discount Percent">
+						<f:validateLongRange minimum="1" maximum="100" />
+					</p:inputText>
+
+					<p:message for="discount" />
+					<br />
+					<hr />
+
+					<h:commandButton id="addpricing" class="formbtn"
+						action="#{pricingBean.addPricingHandler}"
+						value="Add Pricing Structure"
+						title="Add a pricing structure to list of prices" />&nbsp;&nbsp;
+					<br />
+					<br />
+				</h:form>
+
+				<h:form rendered="#{pricingBean.renderTable()}">
+					<h2 class="heading">
+						<h:outputText value="Current Pricing Structures" />
+					</h2>
+					<h:dataTable value="#{pricingBean.prices}" var="prices"
+						styleClass="displayTable" headerClass="displayTableHeader"
+						rowClasses="displayTableOddRow,displayTableEvenRow">
+						<h:column>
+							<f:facet name="header">Type</f:facet>
+							<h:outputText value="#{prices.type}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Number Of Days</f:facet>
+							<h:inputText value="#{prices.amount}"
+								rendered="#{prices.canEdit}" />
+							<h:outputText value="#{prices.amount}"
+								rendered="#{!prices.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Discount (%)</f:facet>
+							<h:inputText value="#{prices.percent}"
+								rendered="#{prices.canEdit}" />
+							<h:outputText value="#{prices.percent}"
+								rendered="#{!prices.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Details</f:facet>
+							<h:outputText value="#{prices.toString()}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Edit</f:facet>
+							<h:commandLink value="Edit"
+								action="#{pricingBean.editPricingStructure(prices)}"
+								rendered="#{!prices.canEdit}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Remove</f:facet>
+							<h:commandLink value="Remove"
+								action="#{pricingBean.deletePricingStructure(prices)}"
+								rendered="#{!prices.canEdit}" />
+						</h:column>
+					</h:dataTable>
+					<br />
+
+					<h:commandButton value="Save Changes"
+						action="#{pricingBean.saveAction}" styleClass="formbtn" />
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

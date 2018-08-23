@@ -15,12 +15,14 @@
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
-		
-		
+
+
 		<ui:define name="content">
-			<h4>Report</h4>
 
 			<div id="editData" align="center">
+				<h2 class="heading">
+					<h:outputText value="Reports" />
+				</h2>
 				<h:form>
 					<h:dataTable value="#{orderBean.allOrders}" var="row"
 						styleClass="displayTable" headerClass="displayTableHeader"
@@ -34,30 +36,36 @@
 
 						<h:column>
 							<f:facet name="header">Customer</f:facet>
-							<h:inputText value="#{row.custUsername}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.custUsername}" rendered="#{!row.canEdit}" />
+							<h:inputText value="#{row.custUsername}"
+								rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.custUsername}"
+								rendered="#{!row.canEdit}" />
 						</h:column>
 
 						<h:column>
 							<f:facet name="header">Deposit Price</f:facet>
-							<h:inputText value="#{row.totalPricePayNow}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.totalPricePayNow}" rendered="#{!row.canEdit}" />
+							<h:inputText value="#{row.totalPricePayNow}"
+								rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.totalPricePayNow}"
+								rendered="#{!row.canEdit}" />
 							<f:facet name="footer">Total: #{orderBean.totalDeposits()}</f:facet>
 						</h:column>
-						
+
 						<h:column>
 							<f:facet name="header">Total Price</f:facet>
-							<h:inputText value="#{row.totalPrice()}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.totalPrice()}" rendered="#{!row.canEdit}" />
+							<h:inputText value="#{row.totalPrice()}"
+								rendered="#{row.canEdit}" />
+							<h:outputText value="#{row.totalPrice()}"
+								rendered="#{!row.canEdit}" />
 							<f:facet name="footer">Total: #{orderBean.orderTotal()}</f:facet>
 						</h:column>
-						
+
 					</h:dataTable>
 					<br />
 				</h:form>
 			</div>
 		</ui:define>
-		
+
 	</ui:composition>
 </h:body>
 </html>

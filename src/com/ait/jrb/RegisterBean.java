@@ -18,7 +18,7 @@ public class RegisterBean {
 	private String bio;
 	private String image;
 	double pricePerDay;
-	
+
 	String message;
 
 	User newUser;
@@ -29,20 +29,18 @@ public class RegisterBean {
 	}
 
 	public void resetFormVariables() {
-		type = User.CUSTOMER;	// Default, manager can change
+		type = User.CUSTOMER; // Default, manager can change
 		username = "";
 		password = "";
 		firstName = "";
 		lastName = "";
 		address = "";
 		phone = "";
-		
+
 		// Skipper Only
 		bio = "";
-		pricePerDay = 0.0;	// Skipper
-		
-
-		image = "profile.jpg"; // Change in user account
+		pricePerDay = 0.0; // Skipper
+		image = ""; // Change in user account
 		message = "";
 	}
 
@@ -53,7 +51,7 @@ public class RegisterBean {
 		resetFormVariables();
 		return null;
 	}
-	
+
 	public String getObscuredPassword() {
 		return (firstLetter(password) + "..." + lastLetter(password));
 	}
@@ -70,11 +68,6 @@ public class RegisterBean {
 		int length = s.length();
 		return (s.substring(length - 1, length));
 	}
-
-	
-	
-	
-	
 
 	public String getFirstName() {
 		return firstName;

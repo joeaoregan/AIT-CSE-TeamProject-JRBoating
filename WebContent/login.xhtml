@@ -12,18 +12,19 @@
 		<ui:param name="heading" value="Login" />
 
 		<ui:define name="menu" id="header">
-				<ui:include
-					src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
+			<ui:include
+				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
 						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
 						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
 						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
-					<ui:param name="defaultHeader" value="JR Boating" />
-				</ui:include>
+				<ui:param name="defaultHeader" value="JR Boating" />
+			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
-			<div id="regDiv"  align="center">
-				<h4>Already a member?</h4>
+			<div class="regDiv" align="center">
+				<h4 class="ui-widget-header ui-corner-all" align="center">Already
+					Registered?</h4>
 				<hr />
 
 				<h:form>
@@ -48,9 +49,13 @@
 
 				<br />
 
-				<h4>Would you like to sign up?</h4>
+				<h4 class="ui-widget-header ui-corner-all" align="center">Would
+					you like to sign up?</h4>
 
-				<h:link value="Register now" outcome="/register.xhtml" />
+				<h:form>
+					<h:commandButton value="Register" action="/register.xhtml"
+						styleClass="formbtn" />
+				</h:form>
 			</div>
 
 		</ui:define>

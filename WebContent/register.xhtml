@@ -22,7 +22,7 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div id="regDiv">
+			<div class="regDiv">
 
 				<h4 class="ui-widget-header ui-corner-all" align="center">New
 					Customer</h4>
@@ -32,7 +32,6 @@
 						<p:inputText
 							value="#{userBean.displayType(loginBean.user.getType())}"
 							id="usertype" readonly="true" title="User Type" />
-						<br />
 
 						<p:inputText value="#{registerBean.username}" required="true"
 							id="username" requiredMessage="Username required"
@@ -82,6 +81,7 @@
 			</div>
 
 			<div id="editData" align="center">
+			<h3>Edit Current Users - Remove for Presentation</h3>
 				<h:form>
 					<h:dataTable value="#{userBean.userList}" var="row"
 						styleClass="displayTable" headerClass="displayTableHeader"
