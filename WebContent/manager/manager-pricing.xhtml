@@ -19,11 +19,15 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div class="regDiv">
-				<h2 class="heading">
-					<h:outputText value="Add Pricing Structures" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Add
+					Pricing Structures</h1>
 				<hr />
+				<!-- 			<div class="regDiv"> -->
+				<!-- 				<h2 class="heading"> -->
+				<!-- 					<h:outputText value="Add Pricing Structures" /> -->
+				<!-- 				</h2> -->
+				<!-- 				<hr /> -->
 
 				<h4>Requirements</h4>
 				<ul>
@@ -76,11 +80,17 @@
 					<br />
 					<br />
 				</h:form>
+			</div>
+			<br />
 
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Current
+					Pricing Structures</h1>
+				<hr />
 				<h:form rendered="#{pricingBean.renderTable()}">
-					<h2 class="heading">
-						<h:outputText value="Current Pricing Structures" />
-					</h2>
+					<!-- 					<h2 class="heading"> -->
+					<!-- 						<h:outputText value="Current Pricing Structures" /> -->
+					<!-- 					</h2> -->
 					<h:dataTable value="#{pricingBean.prices}" var="prices"
 						styleClass="displayTable" headerClass="displayTableHeader"
 						rowClasses="displayTableOddRow,displayTableEvenRow">
@@ -126,6 +136,7 @@
 						action="#{pricingBean.saveAction}" styleClass="formbtn" />
 				</h:form>
 			</div>
+			<br/>
 		</ui:define>
 	</ui:composition>
 </h:body>

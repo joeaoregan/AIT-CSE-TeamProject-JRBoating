@@ -20,11 +20,15 @@
 
 
 		<ui:define name="content">
-			<div class="regDiv">
-				<h2 class="heading">
-					<h:outputText value="Add New User" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Add
+					New User</h1>
 				<hr />
+				<!-- 			<div class="regDiv"> -->
+				<!-- 				<h2 class="heading"> -->
+				<!-- 					<h:outputText value="Add New User" /> -->
+				<!-- 				</h2> -->
+				<!-- 				<hr /> -->
 
 				<h:form>
 					<p:inputText value="#{registerBean.username}" required="true"
@@ -75,10 +79,13 @@
 				</h:form>
 			</div>
 
-			<div align="center">
-				<h2 class="heading">
-					<h:outputText value="Edit Existing User" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Edit Existing User</h1>
+				<hr />
+<!-- 			<div align="center"> -->
+<!-- 				<h2 class="heading"> -->
+<!-- 					<h:outputText value="Edit Existing User" /> -->
+<!-- 				</h2> -->
 				<div id="editData" align="center">
 					<h:form>
 						<h:dataTable value="#{userBean.userList}" var="row"
@@ -153,6 +160,7 @@
 					</h:form>
 				</div>
 			</div>
+			<br/>
 		</ui:define>
 
 	</ui:composition>

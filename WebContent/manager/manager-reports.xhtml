@@ -18,11 +18,13 @@
 
 
 		<ui:define name="content">
-
-			<div id="editData" align="center">
-				<h2 class="heading">
-					<h:outputText value="Reports" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Reports</h1>
+				<hr />
+				<!-- 			<div id="editData" align="center"> -->
+				<!-- 				<h2 class="heading"> -->
+				<!-- 					<h:outputText value="Reports" /> -->
+				<!-- 				</h2> -->
 				<h:form>
 					<h:dataTable value="#{orderBean.allOrders}" var="row"
 						styleClass="displayTable" headerClass="displayTableHeader"
@@ -64,6 +66,7 @@
 					<br />
 				</h:form>
 			</div>
+			<br />
 		</ui:define>
 
 	</ui:composition>

@@ -19,12 +19,15 @@
 		</ui:define>
 
 		<ui:define name="content">
-
-			<div class="regDiv">
-				<h2 class="heading">
-					<h:outputText value="Add A New Boat" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Add A
+					New Boat</h1>
 				<hr />
+				<!-- 			<div class="regDiv"> -->
+				<!-- 				<h2 class="heading"> -->
+				<!-- 					<h:outputText value="Add A New Boat" /> -->
+				<!-- 				</h2> -->
+				<!-- 				<hr /> -->
 
 				<h:form>
 					<!-- 					<h:outputLabel styleClass="formLabel">Type:</h:outputLabel> -->
@@ -80,14 +83,19 @@
 
 				</h:form>
 			</div>
+			<br />
 
 
 			<!-- EDIT / DELETE BOATS -->
 
-			<div align="center">
-				<h2 class="heading">
-					<h:outputText value="Edit Current Boat Inventory" />
-				</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Edit
+					Current Boat Inventory</h1>
+				<hr />
+				<!-- 			<div align="center"> -->
+				<!-- 				<h2 class="heading"> -->
+				<!-- 					<h:outputText value="Edit Current Boat Inventory" /> -->
+				<!-- 				</h2> -->
 
 				<h:form>
 					<h:dataTable value="#{inventoryBean.boats}" var="row"
@@ -135,7 +143,7 @@
 				</h:form>
 				<br />
 			</div>
-
+			<br />
 		</ui:define>
 	</ui:composition>
 </h:body>

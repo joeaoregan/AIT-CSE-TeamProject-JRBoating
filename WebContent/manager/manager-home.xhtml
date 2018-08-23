@@ -20,8 +20,11 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div id="centerOnPage" align="center">
-				<h2 class="heading">Manager '#{loginBean.loggedUser.firstName}' successfully logged in</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Manager '#{loginBean.loggedUser.firstName}' successfully logged in</h1>
+				<hr />
+<!-- 			<div id="centerOnPage" align="center"> -->
+<!-- 				<h2 class="heading">Manager '#{loginBean.loggedUser.firstName}' successfully logged in</h2> -->
 
 				<h:outputText
 					value="This page shows the user details - view user details" />
@@ -49,6 +52,7 @@
 					</h:column>
 				</h:dataTable>
 			</div>
+			<br/>
 		</ui:define>
 	</ui:composition>
 </h:body>
