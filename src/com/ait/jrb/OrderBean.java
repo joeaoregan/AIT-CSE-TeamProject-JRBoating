@@ -66,11 +66,14 @@ public class OrderBean implements Serializable {
 	}
 	
 	public double depositToPay() {
-		formDeposit = (double) formQuantity * formNumDays * 0.1; // 10% deposit required for boats
+		formDeposit = (double) boatSelected.getPrice() * formQuantity * formNumDays * 0.1; // 10% deposit required for boats
 		//return "€" + Double.toString(total);
 		return formDeposit;	// format as currency
 	}
 	
+	public String displayDeposit() {
+		return Double.toString(depositToPay());
+	}
 
 	public String pricePerDay() {
 		//boatSelected = getSelectedBoat();
@@ -105,7 +108,6 @@ public class OrderBean implements Serializable {
 
 		return "BOAT NOT FOUND";
 	}
-	
 	
 	
 	public ArrayList<Order> getAllOrders() {
@@ -187,86 +189,4 @@ public class OrderBean implements Serializable {
 	public void setSkipper(User skipper) {
 		this.skipper = skipper;
 	}
-
 }
-
-// order = new Order(id, custUsername, boat, quantity, numDays, skipper,
-// dayHired, skipperCost, discount, deposit,
-// totalPricePayNow, remainingPrice);
-
-/*
- * private String id; private String custUsername; private int quantity; private
- * int numDays; private int dayHired; private double skipperCost; private double
- * deposit; private double totalPricePayNow; private double remainingPrice;
- * private double discount; private User skipper = null; private Boat boat; //
- * private Equipment equipment = new Equipment();
- */
-/*
- * public ArrayList<Boat> searchBoats() { BoatBean boatBean =
- * Helper.getBean("boatBean", BoatBean.class); // Boat boatToAdd = new
- * Boat(cartBoatType, 20.0, "cruiser.jpg", quantity);
- * boatList.add(boatBean.findBoat(cartBoatType)); // boatList.add(boatToAdd);
- * return boatList; }
- */
-/*
- * public String getCartBoatType() { return cartBoatType; }
- * 
- * public void setCartBoatType(String cartBoatType) { this.cartBoatType =
- * cartBoatType; }
- * 
- * public String getId() { return id; }
- * 
- * public void setId(String id) { this.id = id; }
- * 
- * public String getCustUsername() { return custUsername; }
- * 
- * public void setCustUsername(String custUsername) { this.custUsername =
- * custUsername; }
- * 
- * public int getQuantity() { return quantity; }
- * 
- * public void setQuantity(int quantity) { this.quantity = quantity; }
- * 
- * public int getNumDays() { return numDays; }
- * 
- * public void setNumDays(int numDays) { this.numDays = numDays; }
- * 
- * public int getDayHired() { return dayHired; }
- * 
- * public void setDayHired(int dayHired) { this.dayHired = dayHired; }
- * 
- * public double getSkipperCost() { return skipperCost; }
- * 
- * public void setSkipperCost(double skipperCost) { this.skipperCost =
- * skipperCost; }
- * 
- * public double getDeposit() { return deposit; }
- * 
- * public void setDeposit(double deposit) { this.deposit = deposit; }
- * 
- * public double getTotalPricePayNow() { return totalPricePayNow; }
- * 
- * public void setTotalPricePayNow(double totalPricePayNow) {
- * this.totalPricePayNow = totalPricePayNow; }
- * 
- * public double getRemainingPrice() { return remainingPrice; }
- * 
- * public void setRemainingPrice(double remainingPrice) { this.remainingPrice =
- * remainingPrice; }
- * 
- * public double getDiscount() { return discount; }
- * 
- * public void setDiscount(double discount) { this.discount = discount; }
- * 
- * public User getSkipper() { return skipper; }
- * 
- * public void setSkipper(User skipper) { this.skipper = skipper; }
- * 
- * public Boat getBoat() { return boat; }
- * 
- * public void setBoat(Boat boat) { this.boat = boat; }
- * 
- * public ArrayList<Order> getOrders() { return orders; }
- * 
- * public void setOrders(ArrayList<Order> orders) { this.orders = orders; }
- */

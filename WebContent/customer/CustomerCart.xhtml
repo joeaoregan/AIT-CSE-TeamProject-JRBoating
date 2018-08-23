@@ -12,7 +12,7 @@
 
 		<ui:define name="menu">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/logged-out.xhtml'}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>

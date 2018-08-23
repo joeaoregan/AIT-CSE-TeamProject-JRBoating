@@ -12,69 +12,83 @@
 
 		<ui:define name="menu" id="header">
 			<ui:include
-				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml'}">
+				src="#{loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/logged-out.xhtml'}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
-			<div class="regDiv" id="main">
-				<h1 class="ui-widget-header ui-corner-all" align="center">Select
-					A Boat</h1>
-				<hr />
-				<h:graphicImage library="image"
-					name="#{orderBean.getSelectedBoat().getImage()}" width="400"
-					height="300" />
-				<h:form>
-					<p:selectOneRadio id="boatListBox" layout="pageDirection"
-						value="#{orderBean.boatType}" onchange="this.form.submit();"
-						title="Boats you can book online today">
+			<div>
+				<div class="regDiv" id="main"
+					style="width: 45%; float: left; overflow: hidden; margin-left: 30px;">
+					<h1 class="ui-widget-header ui-corner-all" align="center">Select
+						A Boat</h1>
+					<hr />
+					<h:graphicImage library="image"
+						name="#{orderBean.getSelectedBoat().getImage()}" width="400"
+						height="300" />
+					<h:form>
+						<p:selectOneRadio id="boatListBox" layout="pageDirection"
+							value="#{orderBean.boatType}" onchange="this.form.submit();"
+							title="Boats you can book online today">
 
-						<!-- show all the boats in the inventory to choose from -->
-						<f:selectItems value="#{inventoryBean.boats}" var="boat"
-							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
-					</p:selectOneRadio>
+							<!-- show all the boats in the inventory to choose from -->
+							<f:selectItems value="#{inventoryBean.boats}" var="boat"
+								itemValue="#{boat.type}" itemLabel="#{boat.type}" />
+						</p:selectOneRadio>
+					</h:form>
+				</div>
 
-				</h:form>
+				<!-- Display the type of boat to add to the cart -->
+
+				<div class="regDiv" id="main"
+					style="width: 45%; float: right; height: 100%; margin-right: 50px; margin-bottom: 30px;">
+					<h:form>
+						<h1 class="ui-widget-header ui-corner-all" align="center">Boat
+							Information</h1>
+						<hr />
+
+						<p:outputLabel for="orderBoatType" value="Type of Boat:" />
+						<h:inputText id="orderBoatType" size="3"
+							value="#{orderBean.boatType}" readonly="true"
+							title="Type of boat to hire" />
+						<br />
+
+						<p:outputLabel for="orderQuantityInStock"
+							value="Quantity in Stock:" />
+						<h:inputText id="orderQuantityInStock" size="3"
+							value="#{orderBean.quantityInStock()}" readonly="true"
+							title="Number of boats in stock" />
+						<br />
+
+						<p:outputLabel for="pricePerDay" value="Price Per Day:" />
+						<h:inputText id="pricePerDay" size="3"
+							value="#{orderBean.pricePerDay()}" readonly="true"
+							title="Cost to hire boat per day" />
+						<br />
+
+						<p:outputLabel for="description" value="Description:" />
+						<h:inputTextarea rows="10" cols="42" id="description" size="3"
+							value="#{orderBean.selectedBoat.description}" readonly="true"
+							title="Description for the selected boat" />
+						<br />
+						<br />
+						<br />
+						<br />
+					</h:form>
+				</div>
+				&nbsp;&nbsp;
 			</div>
 			<br />
+			<br />
+			<br />
 
-			<!-- Display the type of boat to add to the cart -->
 
-			<div class="regDiv" id="main">
+			<div class="regDiv" style="clear: both;">
+				<h2 class="ui-widget-header ui-corner-all" align="center">Enter
+					Details</h2>
+				<hr />
 				<h:form>
-					<h1 class="ui-widget-header ui-corner-all" align="center">Boat
-						Information</h1>
-					<hr />
-
-					<p:outputLabel for="orderBoatType" value="Type of Boat:" />
-					<h:inputText id="orderBoatType" size="3"
-						value="#{orderBean.boatType}" readonly="true"
-						title="Type of boat to hire" />
-					<br />
-
-					<p:outputLabel for="orderQuantityInStock"
-						value="Quantity in Stock:" />
-					<h:inputText id="orderQuantityInStock" size="3"
-						value="#{orderBean.quantityInStock()}" readonly="true"
-						title="Number of boats in stock" />
-					<br />
-
-					<p:outputLabel for="pricePerDay" value="Price Per Day:" />
-					<h:inputText id="pricePerDay" size="3"
-						value="#{orderBean.pricePerDay()}" readonly="true"
-						title="Cost to hire boat per day" />
-					<br />
-
-					<p:outputLabel for="description" value="Description:" />
-					<h:inputText id="description" size="3"
-						value="#{orderBean.selectedBoat.description}" readonly="true"
-						title="Description for the selected boat" />
-					<br />
-
-
-					<h3>Enter Details</h3>
-
 					<p:outputLabel for="quantityRequired" value="Quantity Required:" />
 					<h:inputText id="quantityRequired" size="3"
 						value="#{orderBean.formQuantity}" title="Enter quantity required" />
@@ -82,18 +96,24 @@
 
 					<p:outputLabel for="numberOfDays" value="Number Of Days:" />
 					<h:inputText id="numberOfDays" size="3"
-						value="#{orderBean.formQuantity}"
+						value="#{orderBean.formNumDays}"
 						title="Enter number of days to hire" />
 					<br />
 
+					<h2 class="ui-widget-header ui-corner-all" align="center">Price
+						To Pay Now</h2>
+					<hr />
+
 					<p:outputLabel for="deposit" value="Deposit Required: " />
-					<h:inputText id="deposit" size="3" value="#{orderBean.formDeposit}"
-						readonly="true" title="Description for the selected boat" />
+					<h:inputText id="deposit" size="3"
+						value="#{orderBean.displayDeposit()}" readonly="true"
+						title="Description for the selected boat" />
 					<br />
 
-					<h:commandButton value="Select Boat"
-						action="#{orderBean.selectBoat()}" styleClass="formbtn" />&nbsp;
-			</h:form>
+					<h:commandButton value="Calculate Deposit"
+						action="#{orderBean.selectBoat()}" styleClass="formbtn" />
+				&nbsp;
+				</h:form>
 			</div>
 			<br />
 
