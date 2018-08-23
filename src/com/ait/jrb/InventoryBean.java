@@ -82,6 +82,12 @@ public class InventoryBean implements Serializable {
 	}
 
 	public String createNewBoat() {
+		for (Boat boat : boats) {
+			if (boat.getType().equalsIgnoreCase(type)) {
+				return "BOAT TYPE EXISTS";
+			}
+			
+		}
 		newBoat = new Boat(type, price, image, quantity, description, link);
 		// BoatBean boatBean = Helper.getBean("boatBean", BoatBean.class);
 		// boatBean.getBoatInventory().add(newBoat);

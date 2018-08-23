@@ -141,7 +141,7 @@ class LoginBeanTest {
 	@Test
 	void testRedirectUser() {
 		loginBean.setPassword("test");
-		assertEquals("/manager/HomeManager", loginBean.redirectUser("test", User.MANAGER));
+		assertEquals("/manager/manager-home.xhtml", loginBean.redirectUser("test", User.MANAGER));
 		assertEquals("/index", loginBean.redirectUser("test", User.CUSTOMER));
 		assertEquals("/index", loginBean.redirectUser("test", User.FRONT_DESK_STAFF));
 		assertEquals("/skipper/SkipperBookings", loginBean.redirectUser("test", User.SKIPPER));

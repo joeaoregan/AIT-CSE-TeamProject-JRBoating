@@ -29,6 +29,7 @@
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+					
 						<p:inputText
 							value="#{userBean.displayType(loginBean.user.getType())}"
 							id="usertype" readonly="true" title="User Type" />
@@ -76,6 +77,7 @@
 
 						<h:commandButton value="Register Now"
 							action="#{registerBean.createUser}" styleClass="formbtn" />
+							
 					</h:panelGrid>
 				</h:form>
 			</div>

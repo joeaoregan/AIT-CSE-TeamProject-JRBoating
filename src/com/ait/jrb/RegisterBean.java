@@ -1,7 +1,9 @@
 package com.ait.jrb;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.ait.objects.User;
 
@@ -44,11 +46,32 @@ public class RegisterBean {
 		message = "";
 	}
 
+	// public String userMessage() {
+	// FacesContext context = FacesContext.getCurrentInstance();
+	// context.addMessage(null, new FacesMessage("Successful", "Add user: " +
+	// firstName + " " + lastName));
+	// // context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,
+	//
+	// return null;
+	// }
+	//
 	public String createUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		FacesContext context = FacesContext.getCurrentInstance();
 		newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
 		message = userBean.addUser(newUser);
+		
+		if (message.equals("USERNAME NOT UNIQUE") || message.equals("INVALID USER")) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", message));
+		}
+		
+		if (message.equals("USER ADDED OK")) {
+			context.addMessage(null, new FacesMessage("Successful", "Add user:\n " + firstName + " " + lastName));
+		}
+		
+
 		resetFormVariables();
+
 		return null;
 	}
 

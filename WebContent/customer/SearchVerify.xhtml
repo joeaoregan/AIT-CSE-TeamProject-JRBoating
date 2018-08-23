@@ -15,37 +15,42 @@
 				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
 						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
 						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
-						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/logged-out.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
-			<!-- Variables -->
-			<h1>Search Results:</h1>
-			<h2>
-				<h:outputText value="#{searchBoatBean.message}" />
-			</h2>
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Search
+					Results</h1>
+				<hr />
+				<!-- 			<h1>Search Results:</h1> -->
+				<h2>
+					<h:outputText value="#{searchBoatBean.message}" />
+				</h2>
 
-			<h:form rendered="#{searchBoatBean.rendered}">
-				<h:graphicImage library="image"
-					name="#{searchBoatBean.getBoat().getImage()}" />
+				<h:form rendered="#{searchBoatBean.rendered}">
+					<h:graphicImage library="image"
+						name="#{searchBoatBean.getBoat().getImage()}" />
 
-				<ul>
-					<li><b>Type:</b> #{searchBoatBean.getBoat().getType()}</li>
-					<li><b>Price Per Day:</b>
-						#{searchBoatBean.getBoat().getPrice()}</li>
-					<li><b>Quantity In Stock:</b>
-						#{searchBoatBean.getBoat().getQuantity()}</li>
-					<li><b>Description:</b>
-						#{searchBoatBean.getBoat().getDescription()}</li>
-				</ul>
+					<ul>
+						<li><b>Type:</b> #{searchBoatBean.getBoat().getType()}</li>
+						<li><b>Price Per Day:</b>
+							#{searchBoatBean.getBoat().getPrice()}</li>
+						<li><b>Quantity In Stock:</b>
+							#{searchBoatBean.getBoat().getQuantity()}</li>
+						<li><b>Description:</b>
+							#{searchBoatBean.getBoat().getDescription()}</li>
+					</ul>
 
-				<h:link value="Go to #{searchBoatBean.boat.type}"
-					outcome="#{searchBoatBean.boat.link}" />
-			</h:form>
-			
+					<h:link value="Go to #{searchBoatBean.boat.type}"
+						outcome="#{searchBoatBean.boat.link}" />
+				</h:form>
+			</div>
+			<br />			
 		</ui:define>
+		
 	</ui:composition>
 </h:body>
 </html>

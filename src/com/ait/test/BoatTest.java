@@ -18,7 +18,7 @@ class BoatTest {
 	@Test
 	void testBoatConstructor() {
 		assertEquals("Cruiser", boat.getType());
-		assertEquals(Double.valueOf(1.23), boat.getPrice());
+		assertEquals(1.23, boat.getPrice());
 		assertEquals("image", boat.getImage());
 		assertEquals(1, boat.getQuantity());
 		assertEquals("description", boat.getDescription());
@@ -32,7 +32,7 @@ class BoatTest {
 	@Test
 	void changePrice() {
 		boat.setPrice(3.25);
-		assertEquals(Double.valueOf(3.25), boat.getPrice());
+		assertEquals(3.25, boat.getPrice());
 	}
 	@Test
 	void testChangeImage() {

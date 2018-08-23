@@ -24,13 +24,13 @@
 				<h1 class="ui-widget-header ui-corner-all" align="center">Add
 					New User</h1>
 				<hr />
-				<!-- 			<div class="regDiv"> -->
-				<!-- 				<h2 class="heading"> -->
-				<!-- 					<h:outputText value="Add New User" /> -->
-				<!-- 				</h2> -->
-				<!-- 				<hr /> -->
 
 				<h:form>
+
+					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+					<p:growl id="growl" showDetail="true" sticky="true" />
+					
+
 					<p:inputText value="#{registerBean.username}" required="true"
 						id="username" requiredMessage="Username required"
 						a:placeholder="Username" a:autofocus="true" />
@@ -38,9 +38,9 @@
 
 					<p:password value="#{registerBean.password}" feedback="true"
 						id="password1" required="true" requiredMessage="Password required"
-						validatorMessage="Password must be 2 or more chars."
+						validatorMessage="Password must be 4 or more characters"
 						a:placeholder="Password">
-						<f:validateLength minimum="2" />
+						<f:validateLength minimum="4" />
 					</p:password>
 					<p:message for="password1" />
 
@@ -72,20 +72,20 @@
 						a:placeholder="Image" />
 					<p:message for="image" />
 
-					<hr />
-
-					<h:commandButton value="Add User"
+					<h:commandButton value="Add User" update="growl"
 						action="#{registerBean.createUser}" styleClass="formbtn" />
+						</h:panelGrid>
 				</h:form>
 			</div>
 
+
+
+
 			<div class="regDiv" id="main">
-				<h1 class="ui-widget-header ui-corner-all" align="center">Edit Existing User</h1>
+				<h1 class="ui-widget-header ui-corner-all" align="center">Edit
+					Existing User</h1>
 				<hr />
-<!-- 			<div align="center"> -->
-<!-- 				<h2 class="heading"> -->
-<!-- 					<h:outputText value="Edit Existing User" /> -->
-<!-- 				</h2> -->
+
 				<div id="editData" align="center">
 					<h:form>
 						<h:dataTable value="#{userBean.userList}" var="row"
@@ -144,23 +144,25 @@
 
 							<h:column>
 								<f:facet name="header">Edit</f:facet>
-								<h:commandLink value="Edit" action="#{userBean.editUser(row)}"
-									rendered="#{!row.canEdit}" />
+								<h:commandButton value="Edit" action="#{userBean.editUser(row)}"
+									rendered="#{!row.canEdit}" styleClass="formbtn rowbtn"  />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Remove</f:facet>
-								<h:commandLink value="Remove"
-									action="#{userBean.deleteUser(row)}" rendered="#{!row.canEdit}" />
+								<h:commandButton value="Remove"
+									action="#{userBean.removeUser(row)}" rendered="#{!row.canEdit}" styleClass="formbtn rowbtn"  />
 							</h:column>
+							
 						</h:dataTable>
 						<br />
 
 						<h:commandButton value="Save Changes"
-							action="#{userBean.saveAction}" styleClass="formbtn" />
+							action="#{userBean.saveAction()}" styleClass="formbtn" />
 					</h:form>
 				</div>
 			</div>
-			<br/>
+			<br />
 		</ui:define>
 
 	</ui:composition>

@@ -263,7 +263,7 @@ table {
 	cursor: pointer;
 	font-size: 110%;
 	height: 40px;
-	padding: 5px 2px;
+	padding: 4px 2px;
 }
 
 /* Overwrites default values above */
@@ -296,7 +296,32 @@ table {
 	width: 20%;
 }
 
+.rowbtn {
+	height: 30px;
+	width: 85px;
+}
+
 .formbtn:hover {
 	color: #0080ff;
 	background-color: LightGrey;
 }
+
+label {
+	width: 10em;
+	padding-right: 1em;
+	float: left;
+}
+
+input {
+	margin-bottom: .5em;
+}
+
+.regDiv {
+	margin: auto;
+	width: 30%;
+	border: 1px solid lightgrey;
+	text-align: center;
+	margin-top: 30px;
+	padding: 10px;
+}
+

@@ -2,8 +2,10 @@ package com.ait.jrb;
 
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.ait.objects.User;
 
@@ -165,14 +167,21 @@ public class LoginBean implements Serializable {
 	}
 
 	public String loginHandler() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		
 		message = "USER NOT FOUND";
+		
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		User user = userBean.getUserByUsername(username);
 
 		if (user != null) {
 			loggedUser = user;
 			return redirectUser(user.getPassword(), user.getType());
-		}
+		}		
+
+		if (message.equals("USER NOT FOUND")) {
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "USERNAME OR PASSWORD INCORRECT"));
+		}		
 
 		return "login";
 	}

@@ -26,12 +26,14 @@ public class SearchBoatBean implements Serializable {
 	}
 
 	public String searchHandler() {
-		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
-			//typeSearched = "";
-			return "/customer/SearchVerify.xhtml";
-		}
-		//typeSearched = "";
-		return null;
+//		if (searchBoat(typeSearched).equals("BOAT FOUND")) {
+//			//typeSearched = "";
+//			return "/customer/SearchVerify.xhtml";
+//		}
+//		//typeSearched = "";
+//		return null;
+		
+		return (searchBoat(typeSearched).equals("BOAT FOUND")) ? "/customer/SearchVerify.xhtml" : null;
 	}
 
 	public String searchBoat(String type) {

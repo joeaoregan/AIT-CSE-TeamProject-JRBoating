@@ -12,7 +12,6 @@
 
 <h:head>
 	<title>#{title}</title>
-	<h:outputStylesheet name="stylesheet.css" library="css" />
 	<h:outputStylesheet name="style.css" library="css" />
 	<h:outputStylesheet name="sample.css" library="css" />
 </h:head>
@@ -37,18 +36,17 @@
 			<ui:include src="/templates/header.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
-			<br/>
+			<br />
 		</ui:insert>
 
-		<h2 style="font-family: cursive; color: steelblue;float:left;margin-top:30px;">JR
+		<h2
+			style="font-family: cursive; color: steelblue; float: left; margin-top: 30px;">JR
 			Boating: #{heading}</h2>
-
-		<!-- 		<h1 class="heading">JR Boating: #{heading}</h1> -->
 	</div>
 	<br />
 
 	<div id="main"
-		style="border-width: 2px; border-color: black; border-style: solid;">
+		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
 		<ui:insert name="content">
 			<ui:include src="/templates/contents.xhtml" />
 		</ui:insert>
@@ -56,7 +54,7 @@
 	<br />
 
 	<div id="search"
-		style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
+		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
 		<ui:insert name="footer">
 			<ui:include src="/templates/search.xhtml" />
 		</ui:insert>

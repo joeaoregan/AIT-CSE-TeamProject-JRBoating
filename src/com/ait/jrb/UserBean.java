@@ -97,17 +97,34 @@ public class UserBean implements Serializable {
 	}
 
 	/*
-	 * Save form update / edit details
+	 * XXXXXXX HELPER XXXXXXXXXXX Save form update / edit details
 	 */
 	public String saveAction() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		for (User user : userBean.getUserList()) {
 			user.setCanEdit(false);
 		}
-
 		return null;
 	}
-
+	
+	public String addUser(User user) {
+		if (user == null) {
+			return "INVALID USER";
+		}
+		
+		if (!checkUniqueUsername(user.getUsername())) {
+			userList.add(user);	
+			return "USER ADDED OK";
+		}
+		
+		return "USERNAME NOT UNIQUE";
+	}
+	
+	public String removeUser(User user) {
+		deleteUser(user);
+		return null;
+	}
+	
 	public String deleteUser(User user) {
 		if (user != null) {
 			userList.remove(user);
@@ -115,7 +132,17 @@ public class UserBean implements Serializable {
 		}
 		return null;
 	}
-
+/*
+	public String deleteUserByUsername(String username) {
+		for (User user : userList) {
+			if (username.equalsIgnoreCase(user.getUsername())) {
+				userList.remove(user);
+				return "USER REMOVED";
+			}
+		}
+		return null;
+	}
+*/
 	public String editUser(User user) {
 		user.setCanEdit(true);
 		return null;
@@ -135,19 +162,6 @@ public class UserBean implements Serializable {
 		return null;
 	}
 	
-	public String addUser(User user) {
-		if (user == null) {
-			return "INVALID USER";
-		}
-		
-		if (!checkUniqueUsername(user.getUsername())) {
-			userList.add(user);	
-			return "USER ADDED OK";
-		}
-		
-		return "USERNAME NOT UNIQUE";
-	}
-
 	public boolean checkUniqueUsername(String username) {
 		for (User user : userList) {
 			if (user.getUsername().equals(username)) {

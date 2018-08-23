@@ -9,7 +9,7 @@ public class Boat {
 	private String description;
 	private String link;
 	
-	public Boat(String type, Double price, String image, int quantity, String description, String link) {
+	public Boat(String type, double price, String image, int quantity, String description, String link) {
 		this.type= type;
 		this.price = price;
 		this.image = image;
@@ -43,10 +43,6 @@ public class Boat {
 		this.type = type;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
 
 	public String getImage() {
 		return image;
@@ -55,10 +51,6 @@ public class Boat {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	//@Override
-	//public String toString() {
-	//	return "ID: " + id + ", Type: " + type + ", Price: " + price;
-	//}
 
 	public boolean isCanEdit() {
 		return canEdit;
@@ -84,6 +76,9 @@ public class Boat {
 		this.link = link;
 	}
 
+	public double getPrice() {
+		return price;
+	}
 	public void setPrice(double price) {
 		this.price = price;
 	}

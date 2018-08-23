@@ -28,11 +28,15 @@
 				<hr />
 
 				<h:form>
+				
+					<p:growl id="growl" showDetail="true" sticky="true" />
+				
+				
 					<p:inputText value="#{loginBean.username}" required="true"
 						id="username" requiredMessage="Username required"
 						a:placeholder="Username" a:autofocus="true"
 						title="Enter your username" />
-					<p:message for="username" />
+<!-- 					<p:message for="username" /> -->
 
 					<p:password class="inpass" value="#{loginBean.password}"
 						feedback="true" id="password" required="true"
@@ -41,7 +45,7 @@
 						a:placeholder="Password" title="Enter your password">
 						<f:validateLength minimum="4" />
 					</p:password>
-					<p:message for="password" />
+<!-- 					<p:message for="password" /> -->
 
 					<h:commandButton value="Login" action="#{loginBean.loginHandler}"
 						styleClass="formbtn" />
@@ -49,16 +53,15 @@
 
 				<br />
 
-				<h4 class="ui-widget-header ui-corner-all" align="center">Would
-					you like to sign up?</h4>
+				<h1 class="ui-widget-header ui-corner-all" align="center">New Member</h1>
 				<hr />
-				
+
 				<h:form>
 					<h:commandButton value="Register" action="/register.xhtml"
 						styleClass="formbtn" />
 				</h:form>
 			</div>
-
+			<br />
 		</ui:define>
 	</ui:composition>
 </h:body>
