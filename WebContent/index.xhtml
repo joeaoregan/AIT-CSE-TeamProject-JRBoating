@@ -50,12 +50,16 @@
 				and choose from our range of
 				<p:link href="/details.jsf" value="Boats" />
 			</p>
-			<ul>
-				<li><p:link outcome="/details.xhtml#canalbarge" value="Canal Barges"/></li>
-				<li><p:link outcome="/details.xhtml#canoe" value="Canoes"/></li>
-				<li><p:link outcome="/details.xhtml#cruiser" value="Cruisers"/></li>
-				<li><p:link outcome="/details.xhtml#sailingboat" value="Salining Boat"/></li>
-			</ul>
+			<h:form>
+					<p:selectOneRadio id="boatListBox"
+						value="#{orderBean.boatType}" onchange="this.form.submit();"
+						title="Boats you can book online today">
+
+						<!-- show all the boats in the inventory to choose from -->
+						<f:selectItems value="#{inventoryBean.boats}" var="boat"
+							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
+					</p:selectOneRadio>
+					</h:form>
 			<br />
 			<br />
 
