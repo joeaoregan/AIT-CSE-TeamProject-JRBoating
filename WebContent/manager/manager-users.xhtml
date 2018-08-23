@@ -18,7 +18,6 @@
 			</ui:include>
 		</ui:define>
 
-
 		<ui:define name="content">
 			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Add
@@ -28,58 +27,56 @@
 				<h:form>
 
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
-					<p:growl id="growl" showDetail="true" sticky="true" />
-					
+						<p:growl id="growl" showDetail="true" sticky="true" />
 
-					<p:inputText value="#{registerBean.username}" required="true"
-						id="username" requiredMessage="Username required"
-						a:placeholder="Username" a:autofocus="true" />
-					<p:message for="username" />
 
-					<p:password value="#{registerBean.password}" feedback="true"
-						id="password1" required="true" requiredMessage="Password required"
-						validatorMessage="Password must be 4 or more characters"
-						a:placeholder="Password">
-						<f:validateLength minimum="4" />
-					</p:password>
-					<p:message for="password1" />
+						<p:inputText value="#{registerBean.username}" required="true"
+							id="username" requiredMessage="Username required"
+							a:placeholder="Username" a:autofocus="true" />
+						<p:message for="username" />
 
-					<p:inputText value="#{registerBean.firstName}" required="true"
-						id="firstName" requiredMessage="First name required"
-						a:placeholder="First Name" />
-					<p:message for="firstName" />
+						<p:password value="#{registerBean.password}" feedback="true"
+							id="password1" required="true"
+							requiredMessage="Password required"
+							validatorMessage="Password must be 4 or more characters"
+							a:placeholder="Password">
+							<f:validateLength minimum="4" />
+						</p:password>
+						<p:message for="password1" />
 
-					<p:inputText value="#{registerBean.lastName}" required="true"
-						id="lastName" requiredMessage="Last name required"
-						a:placeholder="Last name" />
-					<p:message for="lastName" />
+						<p:inputText value="#{registerBean.firstName}" required="true"
+							id="firstName" requiredMessage="First name required"
+							a:placeholder="First Name" />
+						<p:message for="firstName" />
 
-					<p:inputText value="#{registerBean.address}" required="true"
-						id="address" requiredMessage="Address required"
-						a:placeholder="Address" />
-					<p:message for="address" />
+						<p:inputText value="#{registerBean.lastName}" required="true"
+							id="lastName" requiredMessage="Last name required"
+							a:placeholder="Last name" />
+						<p:message for="lastName" />
 
-					<p:inputText value="#{registerBean.phone}" required="true"
-						id="phone" requiredMessage="Phone number required"
-						a:placeholder="Phone Number" />
-					<p:message for="phone" />
+						<p:inputText value="#{registerBean.address}" required="true"
+							id="address" requiredMessage="Address required"
+							a:placeholder="Address" />
+						<p:message for="address" />
 
-					<p:inputText value="#{registerBean.bio}" id="bio"
-						a:placeholder="About" />
-					<p:message for="bio" />
+						<p:inputText value="#{registerBean.phone}" required="true"
+							id="phone" requiredMessage="Phone number required"
+							a:placeholder="Phone Number" />
+						<p:message for="phone" />
 
-					<p:inputText value="#{registerBean.image}" id="image"
-						a:placeholder="Image" />
-					<p:message for="image" />
+						<p:inputText value="#{registerBean.bio}" id="bio"
+							a:placeholder="About" />
+						<p:message for="bio" />
 
-					<h:commandButton value="Add User" update="growl"
-						action="#{registerBean.createUser}" styleClass="formbtn" />
-						</h:panelGrid>
+						<p:inputText value="#{registerBean.image}" id="image"
+							a:placeholder="Image" />
+						<p:message for="image" />
+
+						<h:commandButton value="Add User" update="growl"
+							action="#{registerBean.createUser}" styleClass="formbtn" />
+					</h:panelGrid>
 				</h:form>
 			</div>
-
-
-
 
 			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Edit
@@ -103,37 +100,44 @@
 								<h:inputText value="#{row.password}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.password}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">First Name</f:facet>
 								<h:inputText value="#{row.firstName}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.firstName}"
 									rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Last Name</f:facet>
 								<h:inputText value="#{row.lastName}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.lastName}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Address</f:facet>
 								<h:inputText value="#{row.address}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.address}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Phone</f:facet>
 								<h:inputText value="#{row.phone}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.phone}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">About</f:facet>
 								<h:inputText value="#{row.bio}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.bio}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Image</f:facet>
 								<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
 								<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
 							</h:column>
+
 							<h:column>
 								<f:facet name="header">Price Per Day</f:facet>
 								<h:inputText value="#{row.pricePerDay}"
@@ -145,15 +149,16 @@
 							<h:column>
 								<f:facet name="header">Edit</f:facet>
 								<h:commandButton value="Edit" action="#{userBean.editUser(row)}"
-									rendered="#{!row.canEdit}" styleClass="formbtn rowbtn"  />
+									rendered="#{!row.canEdit}" styleClass="formbtn rowbtn" />
 							</h:column>
 
 							<h:column>
 								<f:facet name="header">Remove</f:facet>
 								<h:commandButton value="Remove"
-									action="#{userBean.removeUserHandler(row)}" rendered="#{!row.canEdit}" styleClass="formbtn rowbtn"  />
+									action="#{userBean.removeUserHandler(row)}"
+									rendered="#{!row.canEdit}" styleClass="formbtn rowbtn" />
 							</h:column>
-							
+
 						</h:dataTable>
 						<br />
 

@@ -21,13 +21,9 @@
 
 		<ui:define name="content">
 			<div class="regDiv" id="main">
-				<h1 class="ui-widget-header ui-corner-all" align="center">Manager '#{loginBean.loggedUser.firstName}' successfully logged in</h1>
+				<h1 class="ui-widget-header ui-corner-all" align="center">Manager
+					'#{loginBean.loggedUser.firstName}' successfully logged in</h1>
 				<hr />
-<!-- 			<div id="centerOnPage" align="center"> -->
-<!-- 				<h2 class="heading">Manager '#{loginBean.loggedUser.firstName}' successfully logged in</h2> -->
-
-				<h:outputText
-					value="This page shows the user details - view user details" />
 
 				<h2 class="heading">Current Users: #{userBean.userCount()}</h2>
 
@@ -52,8 +48,12 @@
 					</h:column>
 				</h:dataTable>
 			</div>
-			<br/>
+			<br />
+
+			<ui:include src="/templates/index-main.xhtml" />
+
 		</ui:define>
+
 	</ui:composition>
 </h:body>
 </html>

@@ -22,20 +22,10 @@
 			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Add
 					Pricing Structures</h1>
-				<hr />
-				<!-- 			<div class="regDiv"> -->
-				<!-- 				<h2 class="heading"> -->
-				<!-- 					<h:outputText value="Add Pricing Structures" /> -->
-				<!-- 				</h2> -->
-				<!-- 				<hr /> -->
 
 				<h4>Requirements</h4>
-				<!-- 				<ul> -->
-				<!-- 					<li> * Number of days is between 1 and 365</li> -->
-				<!-- 					<li> * Percent must be between 1 and 100</li> -->
-				<!-- 				</ul> -->
-				* Number of days is between 1 and 365<br />* Percent must be between
-				1 and 100 <br />
+				* Number of days is between 1 and 365<br />* Percent must be
+				between 1 and 100 <br />
 
 				<h3>Select Boat Type:</h3>
 				<br />
@@ -88,17 +78,17 @@
 				<h1 class="ui-widget-header ui-corner-all" align="center">Current
 					Pricing Structures</h1>
 				<hr />
+
 				<h:form rendered="#{pricingBean.renderTable()}">
-					<!-- 					<h2 class="heading"> -->
-					<!-- 						<h:outputText value="Current Pricing Structures" /> -->
-					<!-- 					</h2> -->
 					<h:dataTable value="#{pricingBean.prices}" var="prices"
 						styleClass="displayTable" headerClass="displayTableHeader"
 						rowClasses="displayTableOddRow,displayTableEvenRow">
+
 						<h:column>
 							<f:facet name="header">Type</f:facet>
 							<h:outputText value="#{prices.type}" />
 						</h:column>
+
 						<h:column>
 							<f:facet name="header">Number Of Days</f:facet>
 							<h:inputText value="#{prices.amount}"
@@ -106,6 +96,7 @@
 							<h:outputText value="#{prices.amount}"
 								rendered="#{!prices.canEdit}" />
 						</h:column>
+
 						<h:column>
 							<f:facet name="header">Discount (%)</f:facet>
 							<h:inputText value="#{prices.percent}"
@@ -113,6 +104,7 @@
 							<h:outputText value="#{prices.percent}"
 								rendered="#{!prices.canEdit}" />
 						</h:column>
+
 						<h:column>
 							<f:facet name="header">Details</f:facet>
 							<h:outputText value="#{prices.toString()}" />
@@ -124,6 +116,7 @@
 								action="#{pricingBean.editPricingStructure(prices)}"
 								rendered="#{!prices.canEdit}" />
 						</h:column>
+
 						<h:column>
 							<f:facet name="header">Remove</f:facet>
 							<h:commandLink value="Remove"

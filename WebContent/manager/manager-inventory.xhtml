@@ -25,9 +25,9 @@
 				<hr />
 
 				<h:form>
-				
+
 					<p:growl id="growl" showDetail="true" sticky="true" />
-					
+
 					<!-- 					<h:outputLabel styleClass="formLabel">Type:</h:outputLabel> -->
 					<p:inputText value="#{inventoryBean.type}" required="true"
 						id="boatType" requiredMessage="Boat Type required"
@@ -72,7 +72,6 @@
 						action="#{inventoryBean.createBoatHandler}" value="Add New Boat"
 						title="Add a new type of boat to boats database" />&nbsp;&nbsp;
 				<br />
-					<!-- 					<h:outputText value="#{inventoryBean.message}" /> -->
 
 				</h:form>
 			</div>
@@ -84,11 +83,6 @@
 			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Edit
 					Current Boat Inventory</h1>
-				<hr />
-				<!-- 			<div align="center"> -->
-				<!-- 				<h2 class="heading"> -->
-				<!-- 					<h:outputText value="Edit Current Boat Inventory" /> -->
-				<!-- 				</h2> -->
 
 				<h:form id="edit">
 					<h:dataTable value="#{inventoryBean.boats}" var="row"
@@ -113,27 +107,24 @@
 							<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
 						</h:column>
 
-
 						<h:column>
 							<f:facet name="header">Quantity</f:facet>
 							<h:inputText value="#{row.quantity}" rendered="#{row.canEdit}" />
 							<h:outputText value="#{row.quantity}" rendered="#{!row.canEdit}" />
 						</h:column>
 
-
 						<h:column>
 							<f:facet name="header">Description</f:facet>
 							<h:inputText value="#{row.description}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.description}" rendered="#{!row.canEdit}" />
+							<h:outputText value="#{row.description}"
+								rendered="#{!row.canEdit}" />
 						</h:column>
-
 
 						<h:column>
 							<f:facet name="header">Link</f:facet>
 							<h:inputText value="#{row.link}" rendered="#{row.canEdit}" />
 							<h:outputText value="#{row.link}" rendered="#{!row.canEdit}" />
 						</h:column>
-
 
 						<h:column>
 							<f:facet name="header">Edit</f:facet>
