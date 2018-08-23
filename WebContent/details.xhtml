@@ -15,74 +15,78 @@
 				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
 						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
 						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
-						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/logged-out.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
-			<!-- Variables -->
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Our
+					Boats</h1>
+				<hr />
+				<br/>
 
+				<p:accordionPanel>
 
+					<p:tab title="Canal Barge" id="canalbarge">
+						<p:tabView>
+							<p:tab title="About">
+								<ui:include src="/boat-details/AboutCanalBarge.xhtml" />
+							</p:tab>
+							<p:tab title="Specification">
+								<ui:include src="/boat-details/SpecificationCanalBarge.xhtml" />
+							</p:tab>
+							<p:tab title="Images">
+								<ui:include src="/boat-details/ImagesCanalBarge.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+
+					<p:tab title="Canoe" id="canoe">
+						<p:tabView dynamic="true">
+							<p:tab title="About">
+								<ui:include src="/boat-details/AboutCanoe.xhtml" />
+							</p:tab>
+							<p:tab title="Specification">
+								<ui:include src="/boat-details/SpecificationCanoe.xhtml" />
+							</p:tab>
+							<p:tab title="Images">
+								<ui:include src="/boat-details/ImagesCanoe.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+
+					<p:tab title="Cruiser" id="cruiser">
+						<p:tabView dynamic="true" cache="false">
+							<p:tab title="About">
+								<ui:include src="/boat-details/AboutCruiser.xhtml" />
+							</p:tab>
+							<p:tab title="Specification">
+								<ui:include src="/boat-details/SpecificationCruiser.xhtml" />
+							</p:tab>
+							<p:tab title="Images">
+								<ui:include src="/boat-details/ImagesCruiser.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+
+					<p:tab title="Sailing Boat" id="sailingboat">
+						<p:tabView dynamic="true" cache="false">
+							<p:tab title="About">
+								<ui:include src="/boat-details/AboutSailingBoat.xhtml" />
+							</p:tab>
+							<p:tab title="Specification">
+								<ui:include src="/boat-details/SpecificationSailingBoat.xhtml" />
+							</p:tab>
+							<p:tab title="Images">
+								<ui:include src="/boat-details/ImagesSailingBoat.xhtml" />
+							</p:tab>
+						</p:tabView>
+					</p:tab>
+				</p:accordionPanel>
+			</div>
 			<br />
-			<p:accordionPanel>
-
-				<p:tab title="Canal Barge" id="canalbarge">
-					<p:tabView>
-						<p:tab title="About">
-							<ui:include src="/boat-details/AboutCanalBarge.xhtml" />
-						</p:tab>
-						<p:tab title="Specification">
-							<ui:include src="/boat-details/SpecificationCanalBarge.xhtml" />
-						</p:tab>
-						<p:tab title="Images">
-							<ui:include src="/boat-details/ImagesCanalBarge.xhtml" />
-						</p:tab>
-					</p:tabView>
-				</p:tab>
-
-				<p:tab title="Canoe" id="canoe">
-					<p:tabView dynamic="true">
-						<p:tab title="About">
-							<ui:include src="/boat-details/AboutCanoe.xhtml" />
-						</p:tab>
-						<p:tab title="Specification">
-							<ui:include src="/boat-details/SpecificationCanoe.xhtml" />
-						</p:tab>
-						<p:tab title="Images">
-							<ui:include src="/boat-details/ImagesCanoe.xhtml" />
-						</p:tab>
-					</p:tabView>
-				</p:tab>
-
-				<p:tab title="Cruiser" id="cruiser">
-					<p:tabView dynamic="true" cache="false">
-						<p:tab title="About">
-							<ui:include src="/boat-details/AboutCruiser.xhtml" />
-						</p:tab>
-						<p:tab title="Specification">
-							<ui:include src="/boat-details/SpecificationCruiser.xhtml" />
-						</p:tab>
-						<p:tab title="Images">
-							<ui:include src="/boat-details/ImagesCruiser.xhtml" />
-						</p:tab>
-					</p:tabView>
-				</p:tab>
-
-				<p:tab title="Sailing Boat" id="sailingboat">
-					<p:tabView dynamic="true" cache="false">
-						<p:tab title="About">
-							<ui:include src="/boat-details/AboutSailingBoat.xhtml" />
-						</p:tab>
-						<p:tab title="Specification">
-							<ui:include src="/boat-details/SpecificationSailingBoat.xhtml" />
-						</p:tab>
-						<p:tab title="Images">
-							<ui:include src="/boat-details/ImagesSailingBoat.xhtml" />
-						</p:tab>
-					</p:tabView>
-				</p:tab>
-			</p:accordionPanel>
 		</ui:define>
 	</ui:composition>
 </h:body>

@@ -16,16 +16,16 @@
 				src="#{(loginBean.loggedInManager) ? '/menus/manager.xhtml' : 
 						(loginBean.loggedInSkipper ? '/menus/skipper.xhtml' : 
 						(loginBean.loggedInFDS ?'/menus/front-desk-staff.xhtml' : 
-						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/loggedOut.xhtml')))}">
+						(loginBean.loggedInCustomer ?'/menus/customer.xhtml' : '/menus/logged-out.xhtml')))}">
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
 
 		<ui:define name="content">
 			<div class="regDiv">
-
-				<h4 class="ui-widget-header ui-corner-all" align="center">New
-					Customer</h4>
+				<h1 class="ui-widget-header ui-corner-all" align="center">New
+					Customer</h1>
+				<hr />
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
@@ -74,84 +74,12 @@
 							a:placeholder="Phone Number" title="Enter Phone Number" />
 						<p:message for="phone" />
 
-						<h:commandButton value="Add User"
+						<h:commandButton value="Register Now"
 							action="#{registerBean.createUser}" styleClass="formbtn" />
 					</h:panelGrid>
 				</h:form>
 			</div>
-
-			<div id="editData" align="center">
-			<h3>Edit Current Users - Remove for Presentation</h3>
-				<h:form>
-					<h:dataTable value="#{userBean.userList}" var="row"
-						styleClass="displayTable" headerClass="displayTableHeader"
-						rowClasses="displayTableOddRow,displayTableEvenRow">
-
-						<h:column>
-							<f:facet name="header">Username</f:facet>
-							<h:inputText value="#{row.username}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.username}" rendered="#{!row.canEdit}" />
-						</h:column>
-
-						<h:column>
-							<f:facet name="header">Password</f:facet>
-							<h:inputText value="#{row.password}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.password}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">First Name</f:facet>
-							<h:inputText value="#{row.firstName}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.firstName}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Last Name</f:facet>
-							<h:inputText value="#{row.lastName}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.lastName}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Address</f:facet>
-							<h:inputText value="#{row.address}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.address}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Phone</f:facet>
-							<h:inputText value="#{row.phone}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.phone}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">About</f:facet>
-							<h:inputText value="#{row.bio}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.bio}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Image</f:facet>
-							<h:inputText value="#{row.image}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.image}" rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Price Per Day</f:facet>
-							<h:inputText value="#{row.pricePerDay}" rendered="#{row.canEdit}" />
-							<h:outputText value="#{row.pricePerDay}"
-								rendered="#{!row.canEdit}" />
-						</h:column>
-
-						<h:column>
-							<f:facet name="header">Edit</f:facet>
-							<h:commandLink value="Edit" action="#{userBean.editUser(row)}"
-								rendered="#{!row.canEdit}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Remove</f:facet>
-							<h:commandLink value="Remove"
-								action="#{userBean.deleteUser(row)}" rendered="#{!row.canEdit}" />
-						</h:column>
-					</h:dataTable>
-					<br />
-
-					<h:commandButton value="Save Changes"
-						action="#{userBean.saveAction}" styleClass="formbtn" />
-				</h:form>
-			</div>
+			<br />
 
 		</ui:define>
 	</ui:composition>
