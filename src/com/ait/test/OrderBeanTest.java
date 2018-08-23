@@ -94,10 +94,7 @@ class OrderBeanTest {
 	@Test
 	void testTotalDeposits() {
 		Order order = new Order();
-		// ArrayList<Order> orders= new ArrayList<Order>(); // Same problem as
-		// testOrderTotal()
 		order.setTotalPricePayNow(10.10);
-		// orders.add(order);
 		orderBean.getAllOrders().add(order);
 		assertEquals(10.10, orderBean.totalDeposits(), 0.0);
 	}
@@ -106,14 +103,9 @@ class OrderBeanTest {
 	@Test
 	void testOrderTotal() {
 		Order order = new Order();
-		// ArrayList<Order> orders= new ArrayList<Order>(); // This array list is HERE,
-		// we need to get the array list from orderBean
-
 		order.setTotalPricePayNow(10.10);
 		order.setRemainingPrice(12.10);
-		// orders.add(order);
 		orderBean.getAllOrders().add(order);
-		// System.out.println("order total: " + orderBean.orderTotal());
 		assertEquals(22.20, orderBean.orderTotal(), 0.0);
 	}
 
@@ -122,7 +114,6 @@ class OrderBeanTest {
 		Order order = new Order();
 		order.setTotalPricePayNow(10.10);
 		order.setRemainingPrice(12.10);
-		// System.out.println(orderBean.totalOrderPrice(order));
 		assertEquals("22.2", orderBean.totalOrderPrice(order));
 	}
 
@@ -135,11 +126,11 @@ class OrderBeanTest {
 		assertEquals(10, orderBean.depositToPay(), 0.0);
 		assertEquals(null, orderBean.selectBoat());
 	}
-	
-	//@Test
-	//void testUseHelper() {
-	//	assertEquals("BOAT NOT FOUND", orderBean.pricePerDay());
-	//}
+
+	// @Test
+	// void testUseHelper() {
+	// assertEquals("BOAT NOT FOUND", orderBean.pricePerDay());
+	// }
 
 	// Helper
 //	
@@ -148,5 +139,5 @@ class OrderBeanTest {
 //		System.out.println(orderBean.quantityInStock());
 //		assertEquals("1", orderBean.quantityInStock());
 //	}
-	
+
 }

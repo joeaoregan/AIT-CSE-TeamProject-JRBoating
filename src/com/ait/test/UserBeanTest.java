@@ -98,7 +98,7 @@ class UserBeanTest {
 	}
 
 	@Test
-	void testUsernameUnique() {		
+	void testUsernameUnique() {
 		User sorcha2 = new User(User.FRONT_DESK_STAFF, "sorcha", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216",
 				"", "profile.jpg", 0.0);
 		userBean.addUser(sorcha2);
@@ -144,7 +144,7 @@ class UserBeanTest {
 
 		userBean.addUser(user);
 		userBean.addUser(sorcha1);
-		
+
 		assertEquals("USERNAME NOT UNIQUE", userBean.addUser(sorcha1));
 	}
 
@@ -177,13 +177,13 @@ class UserBeanTest {
 		userBean.setUserList(userListTest);
 		assertEquals(null, userBean.getUserByUsername("sorcha"));
 	}
-	
+
 	@Test
 	void testEditUser() {
 		assertEquals(null, userBean.editUser(user));
 	}
-	
-	@Test	
+
+	@Test
 	void testDeleteUser() {
 		userBean.addUser(user);
 		assertEquals(7, userBean.userCount()); // 6 users in userbean
@@ -192,7 +192,7 @@ class UserBeanTest {
 		User user2 = null;
 		assertEquals(null, userBean.deleteUser(user2));
 	}
-	
+
 	@Test
 	void testResetLoginInfo() {
 		assertEquals("LOGIN DETAILS RESET", userBean.resetLoginInfo());

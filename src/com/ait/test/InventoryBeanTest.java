@@ -90,7 +90,7 @@ class InventoryBeanTest {
 	void testSaveAction() {
 		assertEquals(null, inventoryBean.saveAction());
 	}
-	
+
 	@Test
 	void testFindBoat() {
 		Boat newboat = new Boat("test", 1.23, "image", 1, "description", "link");
@@ -98,7 +98,7 @@ class InventoryBeanTest {
 		assertEquals(newboat, inventoryBean.findBoat("test"));
 		assertEquals(null, inventoryBean.findBoat("notABoatType"));
 	}
-	
+
 	@Test
 	void testCreateNewBoat() {
 		inventoryBean.setType("test");
@@ -109,7 +109,4 @@ class InventoryBeanTest {
 		inventoryBean.setLink("test");
 		assertEquals(null, inventoryBean.createNewBoat());
 	}
-	
-	
-
 }

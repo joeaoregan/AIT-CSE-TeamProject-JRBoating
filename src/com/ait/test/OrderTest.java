@@ -10,7 +10,7 @@ import com.ait.objects.Order;
 import com.ait.objects.User;
 
 class OrderTest {
-	
+
 	Order order;
 	Order order1;
 	Boat boat; // boat to be hired
@@ -19,15 +19,14 @@ class OrderTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		order1 = new Order();
-		
-		skipper = new User(User.SKIPPER, "skip", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio",
-		"profile.jpg", 0.0);
-		boat = new Boat("Cruiser", 100.0, "image", 1, "description", "link");		
-		
-		order = new  Order("Order1", "joe1", boat, 1, 10, skipper, 5, 100.0, 0.0, 110.0,
-				110, 90);
+
+		skipper = new User(User.SKIPPER, "skip", "pass", "Joe", "O'Regan", "Thurles", "123456", "bio", "profile.jpg",
+				0.0);
+		boat = new Boat("Cruiser", 100.0, "image", 1, "description", "link");
+
+		order = new Order("Order1", "joe1", boat, 1, 10, skipper, 5, 100.0, 0.0, 110.0, 110, 90);
 	}
-	
+
 	@Test
 	void testOrderID() {
 		assertEquals("Order1", order.getId());
@@ -41,7 +40,7 @@ class OrderTest {
 		order.setCustUsername("elaine");
 		assertEquals("elaine", order.getCustUsername());
 	}
-	
+
 	@Test
 	void testOrderGetBoat() {
 		assertEquals(boat, order.getBoat());
@@ -72,62 +71,65 @@ class OrderTest {
 		assertEquals(skipper, order.getSkipper());
 
 		User skipper2 = new User(User.SKIPPER, "kiev", "pass", "Kiev", "Reynolds", "Athlone", "123456", "bio",
-		"profile.jpg", 0.0);
+				"profile.jpg", 0.0);
 		order.setSkipper(skipper2);
 		assertEquals(skipper2, order.getSkipper());
 	}
-	
+
 	@Test
 	void testOrderSkipperDayHired() {
 		assertEquals(5, order.getDayHired());
 		order.setDayHired(6);
 		assertEquals(6, order.getDayHired());
 	}
-	
+
 	@Test
 	void testOrderSkipperCost() {
 		assertEquals(100.0, order.getSkipperCost());
 		order.setSkipperCost(125.0);
 		assertEquals(125.0, order.getSkipperCost());
 	}
-	
+
 	@Test
 	void testOrderDiscountApplied() {
 		assertEquals(Double.valueOf(0.0), order.getDiscount());
 		order.setDiscount(15.0);
 		assertEquals(Double.valueOf(15.0), order.getDiscount());
 	}
-	
+
 	@Test
 	void testOrderDepositToPay() {
 		assertEquals(Double.valueOf(110.0), order.getDeposit());
 		order.setDeposit(150.0);
 		assertEquals(Double.valueOf(150.0), order.getDeposit());
 	}
-	
+
 	@Test
 	void testOrderTotalPricePayNow() {
 		assertEquals(Double.valueOf(110.0), order.getTotalPricePayNow());
 		order.setTotalPricePayNow(150.0);
 		assertEquals(Double.valueOf(150.0), order.getTotalPricePayNow());
 	}
-	
+
 	@Test
 	void testOrderRemainingPrice() {
 		assertEquals(Double.valueOf(90.0), order.getRemainingPrice());
 		order.setRemainingPrice(150.0);
 		assertEquals(Double.valueOf(150.0), order.getRemainingPrice());
 	}
+
 	@Test
 	void testOrderCanEdit() {
 		order.setCanEdit(true);
 		assertEquals(true, order.isCanEdit());
 	}
+
 	@Test
 	void testOrderCantEdit() {
 		order.setCanEdit(false);
 		assertEquals(false, order.isCanEdit());
 	}
+
 	@Test
 	void testTotalPrice() {
 		order.setTotalPricePayNow(12.50);

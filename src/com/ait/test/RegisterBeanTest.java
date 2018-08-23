@@ -57,7 +57,7 @@ class RegisterBeanTest {
 		registerBean.setType(2);
 		assertEquals(2, registerBean.getType());
 	}
-	
+
 	@Test
 	void testGetObscuredPassord() {
 		registerBean.setPassword("Test");
@@ -68,16 +68,19 @@ class RegisterBeanTest {
 	void testRegister2() {
 		assertEquals("/customer/RegistrationVerify.xhtml", registerBean.register2());
 	}
+
 	@Test
 	void testChangeImage() {
 		registerBean.setImage("image");
 		assertEquals("image", registerBean.getImage());
 	}
+
 	@Test
 	void testChangePricePerDay() {
 		registerBean.setPricePerDay(12.56);
 		assertEquals(12.56, registerBean.getPricePerDay());
 	}
+
 	@Test
 	void testNewUser() {
 		User user = new User(User.MANAGER, "root", "admin", "Joe", "Doe", "16 Main Road, Athlone", "123456", "bio",
@@ -85,11 +88,10 @@ class RegisterBeanTest {
 		registerBean.setNewUser(user);
 		assertEquals(user, registerBean.getNewUser());
 	}
+
 	@Test
 	void testChangeBio() {
 		registerBean.setBio("bio");
 		assertEquals("bio", registerBean.getBio());
 	}
-
-	
 }

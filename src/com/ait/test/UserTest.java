@@ -97,17 +97,19 @@ class UserTest {
 		user.setBio("biography");
 		assertEquals("biography", user.getBio());
 	}
+
 	@Test
 	void testUserImageChanged() {
 		user.setImage("profile.jpg");
 		assertEquals("profile.jpg", user.getImage());
 	}
+
 	@Test
 	void testUserSkipperPricePerDayChanged() {
 		user.setPricePerDay(100.0);
 		assertEquals(Double.valueOf(100.0), user.getPricePerDay(), 0.00002);
 	}
-	
+
 	@Test
 	void testEquals() {
 		assertTrue(user.equals("root"));
