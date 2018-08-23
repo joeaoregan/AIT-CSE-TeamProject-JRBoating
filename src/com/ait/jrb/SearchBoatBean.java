@@ -36,16 +36,7 @@ public class SearchBoatBean implements Serializable {
 
 	public String searchBoat(String type) {
 		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-
-		// for (Boat boat : inventoryBean.getBoats()) {
-		// if (type.equalsIgnoreCase(boat.getType())) {
-		// return boatFound(boat);
-		// }
-		// }
-
 		return boatFound(inventoryBean.findBoat(type));
-
-		// return boatNotFound();
 	}
 
 	public String boatFound(Boat boat) {
@@ -58,15 +49,9 @@ public class SearchBoatBean implements Serializable {
 			rendered = "true";
 			message =  "BOAT FOUND";
 		}
-		//boat = null;
+		
 		return message;
 	}
-
-//	public String boatNotFound() {
-//		boat = null;
-//		rendered = "false";
-//		return "BOAT NOT FOUND";
-//	}
 
 	public Boat getBoat() {
 		return boat;

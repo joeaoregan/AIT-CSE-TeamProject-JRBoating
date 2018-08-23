@@ -44,12 +44,13 @@ class PricingStructureTest {
 		pricingStructure.setPercent(1);
 		assertEquals(1, pricingStructure.getPercent());
 	}
-	/*can't figure out how to test SB
+
 	@Test
 	void testToString() {
 		pricingStructure.setType("type");
 		pricingStructure.setAmount(100);
-		pricingStructure.setDiscount(0.01);
-		assertEquals("If type(s) are hired for amount day(s) or more a discount of 1% is applied.", pricingStructure.toString());
-	}*/
+		pricingStructure.setPercent(10);
+		//System.out.println(pricingStructure.toString());
+		assertEquals("If type(s) are hired for 100 day(s) or more a discount of 10% is applied.", pricingStructure.toString());
+	}
 }
