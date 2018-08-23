@@ -13,13 +13,13 @@
 		<h:form class="menuform">
 			<h:commandButton value="Manager Home" action="/manager/HomeManager.xhtml"
 				styleClass="#{(heading=='Manager Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
-        	<h:commandButton value="Manage Users" action="/manager/ManageUsers.xhtml"
+        	<h:commandButton value="Users" action="/manager/ManageUsers.xhtml"
 				styleClass="#{(heading=='Manage Users') ? 'ActionButton2' : 'ActionButton'}" />&nbsp; 
-        	<h:commandButton value="Manage Inventory" action="/manager/ManageInventory.xhtml"
+        	<h:commandButton value="Inventory" action="/manager/ManageInventory.xhtml"
 				styleClass="#{(heading=='Manage Inventory') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
-        	<h:commandButton value="Manage Pricing" action="/manager/ManagePricing.xhtml"
+        	<h:commandButton value="Pricing" action="/manager/ManagePricing.xhtml"
 				styleClass="#{(heading=='Manage Pricing') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Manage Reports" action="/manager/ManageReports.xhtml"
+        	<h:commandButton value="Reports" action="/manager/ManageReports.xhtml"
 				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />

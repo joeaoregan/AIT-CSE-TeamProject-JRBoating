@@ -16,16 +16,16 @@
 <!-- 			</div> -->
 			<div style="float: right;">
 				<h:form>
+					<h:commandButton value="Home" action="/index.xhtml"
+						styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+					<h:commandButton value="Register" action="/register.xhtml"
+						styleClass="#{(heading=='Register') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+	       			<h:commandButton value="Contact" action="/about.xhtml"
+						styleClass="#{(heading=='Contact Us') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
+					<h:commandButton value="Boats" action="/details.xhtml"
+						styleClass="#{(heading=='Boat Details') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 					<h:commandButton value="Login" action="/login.xhtml"
 						styleClass="#{(heading=='Login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-						<h:commandButton value="Register" action="/register.xhtml"
-						styleClass="#{(heading=='Register') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-	       	<h:commandButton value="Contact Us" action="/about.xhtml"
-						styleClass="#{(heading=='Contact Us') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-						 	<h:commandButton value="Boat Details" action="/details.xhtml"
-						styleClass="#{(heading=='Boat Details') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-						<h:commandButton value="Home" action="/index.xhtml"
-						styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				</h:form>
 
 			</div>
