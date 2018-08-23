@@ -6,19 +6,24 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<!-- Top Menu: Skipper Logged In -->
-
 <body>
 	<ui:composition>
 		<h:form class="menuform">
 			<h:commandButton value="Home" action="/index.xhtml"
 				styleClass="#{(heading=='Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Orders" action="/front-desk-staff/fds-manage-orders.xhtml"
+				
+        	<h:commandButton value="Orders"
+				action="/front-desk-staff/fds-manage-orders.xhtml"
 				styleClass="#{(heading=='Manage Orders') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-        	<h:commandButton value="Customers" action="/front-desk-staff/fds-manage-customers.xhtml"
+				
+        	<h:commandButton value="Customers"
+				action="/front-desk-staff/fds-manage-customers.xhtml"
 				styleClass="#{(heading=='Staff Manage Customers') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
-        	<h:commandButton value="Acount" action="/front-desk-staff/fds-account.xhtml"
+				
+        	<h:commandButton value="Acount"
+				action="/front-desk-staff/fds-account.xhtml"
 				styleClass="#{(heading=='Staff Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;	
+				
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>

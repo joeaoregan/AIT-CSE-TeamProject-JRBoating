@@ -24,20 +24,3 @@
 	</ui:composition>
 </body>
 </html>
-<!-- 
-
-	<div align="right">
-		<h:form rendered="#{not loginBean.userLoggedIn}">
-			<h:commandButton value="Login" action="/login.xhtml"
-				styleClass="#{(page=='login') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
-			<br />
-		</h:form>
-
-		<h:form rendered="#{loginBean.userLoggedIn}">
-			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
-				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
-			<br />
-			<h:outputText value="Logged in as: #{loginBean.displayType()}" />
-		</h:form>
-		</div>
-		 -->

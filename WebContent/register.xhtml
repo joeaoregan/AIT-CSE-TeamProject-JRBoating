@@ -29,11 +29,7 @@
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
-					<p:growl id="growl" showDetail="true" sticky="true" />
-					
-						<p:inputText
-							value="#{userBean.displayType(loginBean.user.getType())}"
-							id="usertype" readonly="true" title="User Type" />
+						<p:growl id="growl" showDetail="true" sticky="true" />
 
 						<p:inputText value="#{registerBean.username}" required="true"
 							id="username" requiredMessage="Username required"
@@ -78,7 +74,7 @@
 
 						<h:commandButton value="Register Now"
 							action="#{registerBean.createUser}" styleClass="formbtn" />
-							
+
 					</h:panelGrid>
 				</h:form>
 			</div>

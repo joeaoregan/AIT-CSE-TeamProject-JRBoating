@@ -11,65 +11,62 @@
 
 <body>
 	<ui:composition>
-
-	
-			<div class="regDiv" id="main">
-				<h1 class="ui-widget-header ui-corner-all" align="center">Jack
-					Reilly Boating</h1>
-				<hr />
-				<br />
-				<div id="indexImage" align="center">
-					<p:imageSwitch effect="shuffle" id="fadeEffect">
-						<ui:repeat var="image" value="#{imageView.images}"
-							id="fadeEffectImages">
-							<p:graphicImage style="height:400px; width:95%;"
-								value="/resources/image/#{image}" />
-						</ui:repeat>
-					</p:imageSwitch>
-				</div>
-
-				<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
-				<p>
-					Located on the banks of the river Shannon, we here at JR Boating
-					have everything you need to make your trip down the river Shannon a
-					luxurious and enjoyable experience. From the convenience of your
-					home,
-					<p:link outcome="/register.xhtml" value="Register" />
-					with us today and
-
-					<!-- There is code here to switch page depending on logged in or not -->
-
-					<p:link
-						outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}"
-						value="Book Online" />
-					and choose from our range of
-					<p:link href="/details.jsf" value="Boats" />
-				</p>
-				<p:link outcome="/details.xhtml#canalbarge" value="Canal Barges" />
-				<br />
-				<p:link outcome="/details.xhtml#canoe" value="Canoes" />
-				<br />
-				<p:link outcome="/details.xhtml#cruiser" value="Cruisers" />
-				<br />
-				<p:link outcome="/details.xhtml#sailingboat" value="Salining Boat" />
-				<br /> <br />
-
-				<p>
-					Never sailed before? No problem! We have experienced Skippers
-					available to join you for a day of your trip and help you learn
-					everything you need to know to make your trip down the river
-					Shannon a trip to remember.
-
-					<!-- There is code here to switch page depending on logged in or not -->
-
-					<p:link
-						outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}"
-						value="Book Online" />
-					or contact us today to start your adventure with us.
-				</p>
-			</div>
+		<div class="regDiv" id="main">
+			<h1 class="ui-widget-header ui-corner-all" align="center">Jack
+				Reilly Boating</h1>
+			<hr />
 			<br />
-	
+			<div id="indexImage" align="center">
+				<p:imageSwitch effect="shuffle" id="fadeEffect">
+					<ui:repeat var="image" value="#{imageView.images}"
+						id="fadeEffectImages">
+						<p:graphicImage style="height:400px; width:95%;"
+							value="/resources/image/#{image}" />
+					</ui:repeat>
+				</p:imageSwitch>
+			</div>
+
+			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
+			<p>
+				Located on the banks of the river Shannon, we here at JR Boating
+				have everything you need to make your trip down the river Shannon a
+				luxurious and enjoyable experience. From the convenience of your
+				home,
+				<p:link outcome="/register.xhtml" value="Register" />
+				with us today and
+
+				<!-- There is code here to switch page depending on logged in or not -->
+
+				<p:link
+					outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}"
+					value="Book Online" />
+				and choose from our range of
+				<p:link href="/details.jsf" value="Boats" />
+			</p>
+			<p:link outcome="/details.xhtml#canalbarge" value="Canal Barges" />
+			<br />
+			<p:link outcome="/details.xhtml#canoe" value="Canoes" />
+			<br />
+			<p:link outcome="/details.xhtml#cruiser" value="Cruisers" />
+			<br />
+			<p:link outcome="/details.xhtml#sailingboat" value="Salining Boat" />
+			<br /> <br />
+
+			<p>
+				Never sailed before? No problem! We have experienced Skippers
+				available to join you for a day of your trip and help you learn
+				everything you need to know to make your trip down the river Shannon
+				a trip to remember.
+
+				<!-- There is code here to switch page depending on logged in or not -->
+
+				<p:link
+					outcome="#{(loginBean.userLoggedIn) ? '/customer/CustomerBooking.xhtml' : '/login.xhtml'}"
+					value="Book Online" />
+				or contact us today to start your adventure with us.
+			</p>
+		</div>
+		<br />
 	</ui:composition>
 
 </body>

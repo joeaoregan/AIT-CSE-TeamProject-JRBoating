@@ -17,14 +17,18 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<h2 class="heading">Staff Account</h2>
-			<h2 class="heading">View / Edit Account Details</h2>
+			<div class="regDiv">
+				<h1 class="ui-widget-header ui-corner-all" align="center">#{loginBean.loggedUser.firstName}
+					#{loginBean.loggedUser.lastName} Account</h1>
+				<hr />
+				<h2 class="heading">View / Edit Account Details</h2>
 
-			<ui:include src="/forms/user-account-form.xhtml">
-				<ui:param name="defaultHeader" value="JR Boating" />
-			</ui:include>
+				<ui:include src="/forms/user-account-form.xhtml">
+					<ui:param name="defaultHeader" value="JR Boating" />
+				</ui:include>
+			</div>
 		</ui:define>
-		
+
 	</ui:composition>
 </h:body>
 </html>

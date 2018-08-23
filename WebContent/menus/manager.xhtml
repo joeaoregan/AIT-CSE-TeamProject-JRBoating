@@ -6,30 +6,32 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<!-- Top Menu: Manager Logged In -->
-
 <body>
 	<ui:composition>
 		<h:form class="menuform">
 			<h:commandButton value="Home" action="/manager/manager-home.xhtml"
 				styleClass="#{(heading=='Manager Home') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
-        	<h:commandButton value="Users" action="/manager/manager-users.xhtml"
+        	<h:commandButton value="Users"
+				action="/manager/manager-users.xhtml"
 				styleClass="#{(heading=='Manage Users') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
-        	<h:commandButton value="Inventory" action="/manager/manager-inventory.xhtml"
+        	<h:commandButton value="Inventory"
+				action="/manager/manager-inventory.xhtml"
 				styleClass="#{(heading=='Manage Inventory') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
-        	<h:commandButton value="Pricing" action="/manager/manager-pricing.xhtml"
+        	<h:commandButton value="Pricing"
+				action="/manager/manager-pricing.xhtml"
 				styleClass="#{(heading=='Manage Pricing') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
-        	<h:commandButton value="Reports" action="/manager/manager-reports.xhtml"
+        	<h:commandButton value="Reports"
+				action="/manager/manager-reports.xhtml"
 				styleClass="#{(heading=='Manage Reports') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 				
 			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
-		</h:form>	
-		
+		</h:form>
+
 	</ui:composition>
 </body>
 </html>

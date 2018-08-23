@@ -17,11 +17,12 @@
 				<ui:param name="defaultHeader" value="JR Boating" />
 			</ui:include>
 		</ui:define>
-		
+
 		<ui:define name="content">
-			<div id="regDiv">
-			
-				<h4>New Customer</h4>
+
+			<div class="regDiv">
+				<h1 class="ui-widget-header ui-corner-all" align="center">New
+					Customer</h1>
 				<hr />
 
 				<h:form>
@@ -72,10 +73,12 @@
 						action="#{registerBean.createUser}" styleClass="formbtn" />
 				</h:form>
 			</div>
-			
-			<h4>Edit Existing Customer</h4>
 
-			<div id="editData" align="center">
+			<div class="regDiv" id="main">
+				<h1 class="ui-widget-header ui-corner-all" align="center">Edit
+					Existing Customer</h1>
+				<hr />
+
 				<h:form>
 					<h:dataTable value="#{userBean.userList}" var="row"
 						styleClass="displayTable" headerClass="displayTableHeader"
@@ -147,7 +150,7 @@
 				</h:form>
 			</div>
 		</ui:define>
-		
+
 	</ui:composition>
 </h:body>
 </html>
