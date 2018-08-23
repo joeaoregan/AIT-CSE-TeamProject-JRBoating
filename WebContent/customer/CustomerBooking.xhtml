@@ -18,7 +18,7 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<div id="main">
+			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Select
 					A Boat</h1>
 
@@ -38,64 +38,64 @@
 				</h:form>
 			</div>
 			<br />
-			<h:form>
-				<!-- Display the type of boat to add to the cart -->
 
-				<h3>Boat Information</h3>
+			<!-- Display the type of boat to add to the cart -->
 
-				<p:outputLabel for="orderBoatType" value="Type of Boat:" />
-				<h:inputText id="orderBoatType" size="3"
-					value="#{orderBean.boatType}" readonly="true"
-					title="Type of boat to hire" />
-				<br />
+			<div class="regDiv" id="main">
+				<h:form>
+					<h1 class="ui-widget-header ui-corner-all" align="center">Boat
+						Information</h1>
 
-				<p:outputLabel for="orderQuantityInStock" value="Quantity in Stock:" />
-				<h:inputText id="orderQuantityInStock" size="3"
-					value="#{orderBean.quantityInStock()}" readonly="true"
-					title="Number of boats in stock" />
-				<br />
+					<p:outputLabel for="orderBoatType" value="Type of Boat:" />
+					<h:inputText id="orderBoatType" size="3"
+						value="#{orderBean.boatType}" readonly="true"
+						title="Type of boat to hire" />
+					<br />
 
-				<p:outputLabel for="pricePerDay" value="Price Per Day:" />
-				<h:inputText id="pricePerDay" size="3"
-					value="#{orderBean.pricePerDay()}" readonly="true"
-					title="Cost to hire boat per day" />
-				<br />
+					<p:outputLabel for="orderQuantityInStock"
+						value="Quantity in Stock:" />
+					<h:inputText id="orderQuantityInStock" size="3"
+						value="#{orderBean.quantityInStock()}" readonly="true"
+						title="Number of boats in stock" />
+					<br />
 
-				<p:outputLabel for="description" value="Description:" />
-				<h:inputText id="description" size="3"
-					value="#{orderBean.selectedBoat.description}" readonly="true"
-					title="Description for the selected boat" />
-				<br />
+					<p:outputLabel for="pricePerDay" value="Price Per Day:" />
+					<h:inputText id="pricePerDay" size="3"
+						value="#{orderBean.pricePerDay()}" readonly="true"
+						title="Cost to hire boat per day" />
+					<br />
 
-
-
-
-
-
+					<p:outputLabel for="description" value="Description:" />
+					<h:inputText id="description" size="3"
+						value="#{orderBean.selectedBoat.description}" readonly="true"
+						title="Description for the selected boat" />
+					<br />
 
 
-				<h3>Enter Details</h3>
+					<h3>Enter Details</h3>
 
-				<p:outputLabel for="quantityRequired" value="Quantity Required:" />
-				<h:inputText id="quantityRequired" size="3"
-					value="#{orderBean.formQuantity}" title="Enter quantity required" />
-				<br />
+					<p:outputLabel for="quantityRequired" value="Quantity Required:" />
+					<h:inputText id="quantityRequired" size="3"
+						value="#{orderBean.formQuantity}" title="Enter quantity required" />
+					<br />
 
-				<p:outputLabel for="numberOfDays" value="Number Of Days:" />
-				<h:inputText id="numberOfDays" size="3"
-					value="#{orderBean.formQuantity}"
-					title="Enter number of days to hire" />
-				<br />
+					<p:outputLabel for="numberOfDays" value="Number Of Days:" />
+					<h:inputText id="numberOfDays" size="3"
+						value="#{orderBean.formQuantity}"
+						title="Enter number of days to hire" />
+					<br />
 
-				<p:outputLabel for="deposit" value="Deposit Required: " />
-				<h:inputText id="deposit" size="3" value="#{orderBean.formDeposit}"
-					readonly="true" title="Description for the selected boat" />
-				<br />
+					<p:outputLabel for="deposit" value="Deposit Required: " />
+					<h:inputText id="deposit" size="3" value="#{orderBean.formDeposit}"
+						readonly="true" title="Description for the selected boat" />
+					<br />
 
-				<h:commandButton value="Select Boat"
-					action="#{orderBean.selectBoat()}" styleClass="formbtn" />&nbsp;
+					<h:commandButton value="Select Boat"
+						action="#{orderBean.selectBoat()}" styleClass="formbtn" />&nbsp;
 			</h:form>
-
+			</div>
+			<br/>
+			
 		</ui:define>
 	</ui:composition>
 </h:body>
