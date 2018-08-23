@@ -1,0 +1,53 @@
+/* BUTTONS STYLESHEET */
+
+/* Common to all buttons */
+.registerbtn, .ActionButton, .ActionButton2, .formbtn {
+	color: white;
+	border-radius: 15px;
+	margin-top: 10px;
+	background-color: grey;
+	cursor: pointer;
+	font-size: 110%;
+	height: 40px;
+	padding: 4px 2px;
+}
+
+/* Overwrites default values above */
+.registerbtn {
+	width: 60%;
+	opacity: 0.9;
+}
+
+.formbtn {
+	opacity: 0.9;
+	width: 300px;
+}
+
+.ActionButton, .ActionButton2 {
+	width: 120px;
+	background-color: #0080ff; /*type of blue*/
+}
+
+.ActionButton2 {
+	background-color: #a6dbdb; /*type of light blue*/
+	color: DarkSlateGray;
+}
+
+.ActionButton:hover {
+	background-color: white;
+	color: #0080ff;
+}
+
+.searchbtn {
+	width: 20%;
+}
+
+.rowbtn {
+	height: 30px;
+	width: 85px;
+}
+
+.formbtn:hover {
+	color: #0080ff;
+	background-color: LightGrey;
+}

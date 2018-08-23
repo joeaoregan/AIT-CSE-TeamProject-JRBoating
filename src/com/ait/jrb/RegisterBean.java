@@ -1,5 +1,7 @@
 package com.ait.jrb;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -9,7 +11,9 @@ import com.ait.objects.User;
 
 @ManagedBean(name = "registerBean")
 @SessionScoped
-public class RegisterBean {
+public class RegisterBean implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int type;
 	private String username;
 	private String password;
@@ -60,15 +64,14 @@ public class RegisterBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
 		message = userBean.addUser(newUser);
-		
+
 		if (message.equals("USERNAME NOT UNIQUE") || message.equals("INVALID USER")) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", message));
 		}
-		
+
 		if (message.equals("USER ADDED OK")) {
 			context.addMessage(null, new FacesMessage("Successful", "Add user:\n " + firstName + " " + lastName));
 		}
-		
 
 		resetFormVariables();
 
