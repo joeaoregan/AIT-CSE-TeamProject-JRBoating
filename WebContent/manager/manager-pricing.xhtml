@@ -34,7 +34,7 @@
 					<h:selectOneMenu styleClass="selectOne" id="boatlist"
 						value="#{pricingBean.type}" onchange="this.form.submit();">
 						<f:selectItem itemValue="#{null}"
-							itemLabel="-- Select the boat to apply new pricing structure to --" />
+							itemLabel="-- Select boat to apply pricing structure --" />
 						<f:selectItems value="#{inventoryBean.boats}" var="boat"
 							itemValue="#{boat.type}" itemLabel="#{boat.type}" />
 					</h:selectOneMenu>
@@ -112,16 +112,16 @@
 
 						<h:column>
 							<f:facet name="header">Edit</f:facet>
-							<h:commandLink value="Edit"
+							<h:commandButton value="Edit"
 								action="#{pricingBean.editPricingStructure(prices)}"
-								rendered="#{!prices.canEdit}" />
+								rendered="#{!prices.canEdit}" styleClass="formbtn rowbtn" />
 						</h:column>
 
 						<h:column>
 							<f:facet name="header">Remove</f:facet>
-							<h:commandLink value="Remove"
+							<h:commandButton value="Remove"
 								action="#{pricingBean.deletePricingStructure(prices)}"
-								rendered="#{!prices.canEdit}" />
+								rendered="#{!prices.canEdit}" styleClass="formbtn rowbtn" />
 						</h:column>
 					</h:dataTable>
 					<br />

@@ -1,0 +1,24 @@
+/* TABLES */
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.displayTableOddRow {
+	text-align: center;
+	background: none repeat scroll 0 0 #FFFFFFF;
+}
+
+.displayTableEvenRow {
+	text-align: center;
+	background: none repeat scroll 0 0 #D3D3D3;
+}
+
+.displayTable tr:hover {
+	background-color: #4CAF50;
+}
+
+#footer .tr {
+	padding: 20 20 20 20 ;
+}

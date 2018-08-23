@@ -13,6 +13,7 @@
 <h:head>
 	<title>#{title}</title>
 	<h:outputStylesheet name="style.css" library="css" />
+	<h:outputStylesheet name="style-tables.css" library="css" />
 	<h:outputStylesheet name="style-buttons.css" library="css" />
 </h:head>
 
@@ -24,9 +25,7 @@
 	</div>
 	<br />
 
-	<div id="header2"
-		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
-
+	<div id="header">
 		<div style="float: left;">
 			<h:graphicImage library="image" name="boat.jpg"
 				style="height:100px; width:100px;" />
@@ -45,8 +44,7 @@
 	</div>
 	<br />
 
-	<div id="main"
-		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
+	<div id="main">
 		<ui:insert name="content">
 			<ui:include src="/templates/contents.xhtml" />
 		</ui:insert>
@@ -54,14 +52,13 @@
 	<br />
 
 	<div id="search"
-		style="border-width: 2px; border-color: LightGrey; border-style: solid;">
+		style="border-style: solid;">
 		<ui:insert name="footer">
 			<ui:include src="/templates/search.xhtml" />
 		</ui:insert>
 	</div>
 
-	<div id="footer"
-		style="border-width: 2px; border-color: DarkGrey; border-style: solid;">
+	<div id="footer">
 		<ui:insert name="footer">
 			<ui:include src="/templates/footer.xhtml" />
 		</ui:insert>
