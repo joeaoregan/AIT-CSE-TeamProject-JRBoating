@@ -83,7 +83,7 @@ public class UserBean implements Serializable {
 	/*
 	 * Displays a string instead of using the integer user type
 	 */
-	public String displayType(int type) {
+	public String displayType(int type) {		
 		switch (type) {
 		case User.MANAGER:
 			return "Manager";

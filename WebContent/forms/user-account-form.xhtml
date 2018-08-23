@@ -9,13 +9,13 @@
 <body>
 	<ui:composition>
 
-		<h:graphicImage library="images"
+		<h:graphicImage library="image"
 			name="#{loginBean.loggedUser.getImage()}" />
 			
 		<h:form>
 			<h:outputLabel styleClass="formLabel">User Type:</h:outputLabel>
 			<h:inputText id="boatID" size="20"
-				value="#{userBean.displayType(loginBean.user.type)}"
+				value="#{userBean.displayType(loginBean.user.getType())}"
 				readonly="true" title="ID for your selected product" />
 			<br />
 			

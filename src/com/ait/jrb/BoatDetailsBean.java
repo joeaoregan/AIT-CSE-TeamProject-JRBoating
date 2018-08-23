@@ -11,7 +11,6 @@ import javax.faces.bean.SessionScoped;
 public class BoatDetailsBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	//private String[] actions = {"DetailsCanalBarge.jsf", "DetailsCanoe.jsf", "DetailsCruiser.jsf", "DetailsSailingBoat.jsf"};
 	private String[] actions = {"DetailsCanalBarge", "DetailsCanoe", "DetailsCruiser", "DetailsSailingBoat"};
 	private String[] pageName = {"Canal Barge", "Canoe", "Cruiser", "Sailing Boat"};
 	private String title;
@@ -37,7 +36,6 @@ public class BoatDetailsBean implements Serializable {
 		}
 
 		return "BoatDetails";
-		//return null;
 	}
 	
 	public String nextButton() {
@@ -48,29 +46,8 @@ public class BoatDetailsBean implements Serializable {
 		}
 
 		return "BoatDetails";
-		//return null;
-	}
-	/*
-	public String previousButton() {
-		index--;
-		
-		if (index < 0) {
-			index = actions.length-1;
-		}
-
-		return actions[index];
 	}
 	
-	public String nextButton() {
-		index++;
-		
-		if (index >= actions.length) {
-			index = 0;
-		}
-
-		return actions[index];
-	}
-*/
 	public int getIndex() {
 		return index;
 	}
@@ -86,13 +63,4 @@ public class BoatDetailsBean implements Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-/*
-	public static int getIndex() {
-		return index;
-	}
-
-	public static void setIndex(int index) {
-		BoatDetailsBean.index = index;
-	}
-*/
 }

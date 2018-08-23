@@ -24,7 +24,7 @@ public class LoginBean implements Serializable {
 
 	private User loggedUser;
 
-	private Boolean userLoggedIn; // Show the login top menu
+	private Boolean userLoggedIn;
 
 	private Boolean loggedInCustomer;
 	private Boolean loggedInManager;
@@ -49,7 +49,6 @@ public class LoginBean implements Serializable {
 	}
 
 	public int passwordLength() {
-		// return Integer.toString(PASSWORD_FIELD_LENGTH);
 		return PASSWORD_FIELD_LENGTH;
 	}
 
@@ -70,17 +69,6 @@ public class LoginBean implements Serializable {
 		}
 		return null;
 	}
-/*
-	public String showLoginPage() {
-		if (loggedUser != null) {
-			resetVars();
-			loggedUser = getUser();
-			return "/login";
-		}
-
-		return null;
-	}
-*/
 
 	public String setUserLoggedIn(int type) {
 		String message = null;
