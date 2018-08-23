@@ -23,21 +23,24 @@
 
 		<ui:define name="content">
 			<div id="regDiv">
-				<h4>New Customer</h4>
-				<hr />
+
+				<h4 class="ui-widget-header ui-corner-all" align="center">New
+					Customer</h4>
 
 				<h:form>
-					<p:inputText
-						value="#{userBean.displayType(loginBean.user.getType())}"
-						id="usertype" readonly="true" title="User Type" /><br/>
-
-					<p:inputText value="#{registerBean.username}" required="true"
-						id="username" requiredMessage="Username required"
-						a:placeholder="Username" a:autofocus="true" title="Enter Username"
-						rendered="#{not loginBean.userLoggedIn}" />
-					<p:message for="username" />
-
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
+						<p:inputText
+							value="#{userBean.displayType(loginBean.user.getType())}"
+							id="usertype" readonly="true" title="User Type" />
+						<br />
+
+						<p:inputText value="#{registerBean.username}" required="true"
+							id="username" requiredMessage="Username required"
+							a:placeholder="Username" a:autofocus="true"
+							title="Enter Username" rendered="#{not loginBean.userLoggedIn}" />
+						<p:message for="username" />
+
+
 
 						<p:password id="password1" value="#{registerBean.password}"
 							feedback="true" requiredMessage="Password required"
@@ -53,32 +56,31 @@
 							<f:validateLength minimum="#{loginBean.passwordLength()}" />
 						</p:password>
 						<p:message for="password2" />
+
+
+						<p:inputText value="#{registerBean.firstName}" required="true"
+							id="firstName" requiredMessage="First name required"
+							a:placeholder="First Name" title="Enter First Name" />
+						<p:message for="firstName" />
+
+						<p:inputText value="#{registerBean.lastName}" required="true"
+							id="lastName" requiredMessage="Last name required"
+							a:placeholder="Last name" title="Enter Last Name" />
+						<p:message for="lastName" />
+
+						<p:inputText value="#{registerBean.address}" required="true"
+							id="address" requiredMessage="Address required"
+							a:placeholder="Address" title="Enter Address" />
+						<p:message for="address" />
+
+						<p:inputText value="#{registerBean.phone}" required="true"
+							id="phone" requiredMessage="Phone number required"
+							a:placeholder="Phone Number" title="Enter Phone Number" />
+						<p:message for="phone" />
+
+						<h:commandButton value="Add User"
+							action="#{registerBean.createUser}" styleClass="formbtn" />
 					</h:panelGrid>
-
-					<p:inputText value="#{registerBean.firstName}" required="true"
-						id="firstName" requiredMessage="First name required"
-						a:placeholder="First Name" title="Enter First Name" />
-					<p:message for="firstName" />
-
-					<p:inputText value="#{registerBean.lastName}" required="true"
-						id="lastName" requiredMessage="Last name required"
-						a:placeholder="Last name" title="Enter Last Name" />
-					<p:message for="lastName" />
-
-					<p:inputText value="#{registerBean.address}" required="true"
-						id="address" requiredMessage="Address required"
-						a:placeholder="Address" title="Enter Address" />
-					<p:message for="address" />
-
-					<p:inputText value="#{registerBean.phone}" required="true"
-						id="phone" requiredMessage="Phone number required"
-						a:placeholder="Phone Number" title="Enter Phone Number" />
-					<p:message for="phone" />
-
-					<hr />
-
-					<h:commandButton value="Add User"
-						action="#{registerBean.createUser}" styleClass="formbtn" />
 				</h:form>
 			</div>
 
