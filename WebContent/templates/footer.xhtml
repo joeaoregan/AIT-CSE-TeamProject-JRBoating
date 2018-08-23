@@ -10,22 +10,34 @@
 	<ui:composition>
 		<div align="center">
 			<h:form>
-				<table>
+				<table width="80%">
 					<tr>
-						<td><h:commandLink action="/index.xhtml">Home</h:commandLink>
-							&nbsp;&nbsp; <br /> <h:commandLink action="/register.xhtml">Register</h:commandLink>
+						<td>
+							<div align="center">
+								<h:commandLink action="/index.xhtml">Home</h:commandLink>
+								<br />
+								<h:commandLink action="/register.xhtml">Register</h:commandLink>
+								<br />
+								<h:commandLink action="/contact.xhtml">Contact</h:commandLink>
+								<br />
+								<h:commandLink action="/details.xhtml">Boats</h:commandLink>
+								<br />
+								<h:commandLink action="/login.xhtml">Login</h:commandLink>
+							</div>
 						</td>
-						<td><b>Phone:</b> (090) 6412345 <br /> <b>Email:</b>
-							info@jrboating.ie</td>
+						<td>
+							<div align="center">
+								<br /> &copy;JRBoating (2018)<br /> <a
+									href="${additionalInfoBean.originalPage}">Back to
+									${additionalInfoBean.originalPage}</a>
+							</div>
+						</td>
+						<td style="text-align: left;"><br/><b>Phone:</b> (090) 6412345 <br />
+							<b>Email:</b> info@jrboating.ie</td>
 					</tr>
 				</table>
 				<br />
 
-				<div align="center">
-					&copy;JRBoating (2018)<br /> <a
-						href="${additionalInfoBean.originalPage}">Back to
-						${additionalInfoBean.originalPage}</a><br />
-				</div>
 
 			</h:form>
 		</div>
