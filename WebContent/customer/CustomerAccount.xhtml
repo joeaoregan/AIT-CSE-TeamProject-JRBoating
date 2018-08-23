@@ -18,15 +18,22 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<h2 class="heading">Customer Account</h2>
-			<h2 class="heading">View / Edit Account Details</h2>
+			<div class="regDiv">
+				<!-- 			<div class="regDiv" id="main"> -->
+				<h1 class="ui-widget-header ui-corner-all" align="center">#{loginBean.loggedUser.firstName}
+					#{loginBean.loggedUser.lastName} Account</h1>
+				<hr />
+				<!-- 			<h2 class="heading">Customer Account</h2> -->
+				<!-- 			<h2 class="heading">View / Edit Account Details</h2> -->
 
-			<!-- Use form in file ViewAndEditUserDetails.xhtml for all user account pages -->
-			<ui:include src="/forms/user-account-form.xhtml">
-				<ui:param name="defaultHeader" value="JR Boating" />
-			</ui:include>
+				<!-- Use form in file ViewAndEditUserDetails.xhtml for all user account pages -->
+				<ui:include src="/forms/user-account-form.xhtml">
+					<ui:param name="defaultHeader" value="JR Boating" />
+				</ui:include>
+			</div>
+			<br />
 		</ui:define>
-		
+
 	</ui:composition>
 </h:body>
 </html>

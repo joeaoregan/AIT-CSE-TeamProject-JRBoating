@@ -21,7 +21,7 @@
 			<div class="regDiv" id="main">
 				<h1 class="ui-widget-header ui-corner-all" align="center">Select
 					A Boat</h1>
-
+				<hr />
 				<h:graphicImage library="image"
 					name="#{orderBean.getSelectedBoat().getImage()}" width="400"
 					height="300" />
@@ -45,6 +45,7 @@
 				<h:form>
 					<h1 class="ui-widget-header ui-corner-all" align="center">Boat
 						Information</h1>
+					<hr />
 
 					<p:outputLabel for="orderBoatType" value="Type of Boat:" />
 					<h:inputText id="orderBoatType" size="3"
@@ -94,8 +95,8 @@
 						action="#{orderBean.selectBoat()}" styleClass="formbtn" />&nbsp;
 			</h:form>
 			</div>
-			<br/>
-			
+			<br />
+
 		</ui:define>
 	</ui:composition>
 </h:body>

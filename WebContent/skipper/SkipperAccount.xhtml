@@ -17,30 +17,39 @@
 		</ui:define>
 
 		<ui:define name="content">
-			<h2 class="heading">View / Edit Basic Account Details</h2>
+			<div class="regDiv">
+				<!-- 			<div class="regDiv" id="main"> -->
+				<h1 class="ui-widget-header ui-corner-all" align="center">View
+					/ Edit Basic Account Details</h1>
+				<hr />
+				<!-- 				<h2 class="heading">View / Edit Basic Account Details</h2> -->
 
-			<!-- Use form in file ViewAndEditUserDetails.xhtml for all user account pages -->
-			<ui:include src="/forms/user-account-form.xhtml">
-				<ui:param name="defaultHeader" value="JR Boating" />
-			</ui:include>
+				<!-- Use form in file ViewAndEditUserDetails.xhtml for all user account pages -->
+				<ui:include src="/forms/user-account-form.xhtml">
+					<ui:param name="defaultHeader" value="JR Boating" />
+				</ui:include>
 
-			<h:form>
-				<h2 class="heading">Additional Skipper Details</h2>
+				<h:form>
+					<h1 class="ui-widget-header ui-corner-all" align="center">Additional
+						Skipper Details</h1>
+					<hr />
+<!-- 					<h2 class="heading">Additional Skipper Details</h2> -->
 
-				<h:outputLabel styleClass="formLabel">Price Per Day:</h:outputLabel>
-				<h:inputText id="price" value="#{loginBean.loggedUser.pricePerDay}"
-					title="Cost To Hire For Day" />
-				<br />
-				
-				<h:outputLabel styleClass="formLabel">Bio:</h:outputLabel>
-				<h:inputTextarea id="bio" value="#{loginBean.loggedUser.bio}"
-					title="Update Bio" rows="6" cols="40" />
-				<br />
-				
-				<h:commandButton value="Save Changes"
-					action="#{userBean.saveAction}" styleClass="formbtn" />
-			</h:form>
+					<h:outputLabel styleClass="formLabel">Price Per Day:</h:outputLabel>
+					<h:inputText id="price" value="#{loginBean.loggedUser.pricePerDay}"
+						title="Cost To Hire For Day" />
+					<br />
 
+					<h:outputLabel styleClass="formLabel">Bio:</h:outputLabel>
+					<h:inputTextarea id="bio" value="#{loginBean.loggedUser.bio}"
+						title="Update Bio" rows="6" cols="40" />
+					<br />
+
+					<h:commandButton value="Save Changes"
+						action="#{userBean.saveAction}" styleClass="formbtn" />
+				</h:form>
+			</div>
+			<br />
 		</ui:define>
 
 	</ui:composition>
