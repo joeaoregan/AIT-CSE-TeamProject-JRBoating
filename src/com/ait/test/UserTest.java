@@ -1,6 +1,8 @@
 package com.ait.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -104,5 +106,11 @@ class UserTest {
 	void testUserSkipperPricePerDayChanged() {
 		user.setPricePerDay(100.0);
 		assertEquals(Double.valueOf(100.0), user.getPricePerDay(), 0.00002);
+	}
+	
+	@Test
+	void testEquals() {
+		assertTrue(user.equals("root"));
+		assertFalse(user.equals("Joe"));
 	}
 }

@@ -37,7 +37,7 @@ public class User {
 		if (this.username == username) {
 			return true;
 		}
-		else return false;
+		return false;
 	}
 	
 	public String getUsername() {
