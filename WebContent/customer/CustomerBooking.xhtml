@@ -25,7 +25,6 @@
 				<h:graphicImage library="image"
 					name="#{orderBean.getSelectedBoat().getImage()}" width="400"
 					height="300" />
-
 				<h:form>
 					<p:selectOneRadio id="boatListBox" layout="pageDirection"
 						value="#{orderBean.boatType}" onchange="this.form.submit();"
@@ -64,18 +63,13 @@
 
 				<p:outputLabel for="description" value="Description:" />
 				<h:inputText id="description" size="3"
-					value="#{orderBean.selectedBoat.description}"
-					readonly="true" title="Description for the selected boat" />
-				<br />
-
-
-
-
-				<p:outputLabel for="deposit" value="Deposit Required: " />
-				<h:inputText id="deposit" size="3"
-					value="#{orderBean.formDeposit}" readonly="true"
+					value="#{orderBean.selectedBoat.description}" readonly="true"
 					title="Description for the selected boat" />
 				<br />
+
+
+
+
 
 
 
@@ -92,10 +86,14 @@
 					value="#{orderBean.formQuantity}"
 					title="Enter number of days to hire" />
 				<br />
-				
-				
-				<h:commandButton value="Select Boat" action="#{orderBean.selectBoat()}"
-					styleClass="formbtn" />&nbsp;
+
+				<p:outputLabel for="deposit" value="Deposit Required: " />
+				<h:inputText id="deposit" size="3" value="#{orderBean.formDeposit}"
+					readonly="true" title="Description for the selected boat" />
+				<br />
+
+				<h:commandButton value="Select Boat"
+					action="#{orderBean.selectBoat()}" styleClass="formbtn" />&nbsp;
 			</h:form>
 
 		</ui:define>

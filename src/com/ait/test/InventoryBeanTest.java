@@ -110,12 +110,6 @@ class InventoryBeanTest {
 		assertEquals(null, inventoryBean.createNewBoat());
 	}
 	
-	/*
-	@Test
-	void testFindBoat() {
-		ArrayList boats= new ArrayList<Boat>();
-		boats.add(boat);
-		assertEquals("Cruiser", inventoryBean.findBoat("Cruiser"));
-	}*/
+	
 
 }
