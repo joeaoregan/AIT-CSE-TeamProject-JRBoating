@@ -17,10 +17,24 @@ class UserBeanTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		userBean = new UserBean();
-		user = new User(User.FRONT_DESK_STAFF, "sorcha2", "asdf", "Sorcha", "Bruton", "Athlone", "0870481216", "",
+		user = new User(User.FRONT_DESK_STAFF, "sorcha2", "asdf", "Sorcha", "Bruton", "Athlone", "0871234567", "",
 				"profile.jpg", 0.0);
 	}
 
+	@Test
+	void testConstructor() {
+		assertEquals(User.CUSTOMER, userBean.getType());
+		assertEquals("", userBean.getUsername());
+		assertEquals("", userBean.getPassword());
+		assertEquals("", userBean.getFirstName());
+		assertEquals("", userBean.getLastName());
+		assertEquals("", userBean.getAddress());
+		assertEquals("", userBean.getPhone());
+		assertEquals("", userBean.getBio());
+		assertEquals("", userBean.getImage());
+		assertEquals(Double.valueOf(0.0), userBean.getPricePerDay());		
+	}
+	
 	@Test
 	void testChangeFirstName() {
 		userBean.setFirstName("Jbloggs");
@@ -190,11 +204,24 @@ class UserBeanTest {
 		assertEquals("USER REMOVED", userBean.deleteUser(user));
 		assertEquals(6, userBean.userCount());
 		User user2 = null;
-		assertEquals(null, userBean.deleteUser(user2));
+		assertEquals(null, userBean.deleteUser(user2));		
+	}
+	
+	@Test
+	void testRemoveUserHandler() {
+		userBean.addUser(user);
+		assertEquals(7, userBean.userCount());
+		assertEquals(null, userBean.removeUserHandler(user));
+		assertEquals(6, userBean.userCount());
 	}
 
 	@Test
 	void testResetLoginInfo() {
 		assertEquals("LOGIN DETAILS RESET", userBean.resetLoginInfo());
+	}
+	
+	@Test
+	void saveAction() {
+		assertEquals(null, userBean.saveAction());
 	}
 }

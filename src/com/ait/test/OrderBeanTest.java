@@ -25,9 +25,18 @@ class OrderBeanTest {
 		orderBean = new OrderBean();
 		boat = new Boat("Cruiser", 1.23, "image", 1, "description", "link");
 	}
+	
+	@Test
+	void testConstructor() {
+		assertEquals(null, orderBean.getBoatSelected());
+		assertEquals(null, orderBean.getSkipper());
+		assertEquals("Cruiser", orderBean.getBoatType());
+		assertEquals(null, orderBean.getCurrentOrder());
+		assertEquals(new ArrayList<Order>(), orderBean.getAllOrders());
+	}
 
 	@Test
-	void testChangeCartType() {
+	void testChangeCartType(){
 		orderBean.setBoatType("BoatType");
 		assertEquals("BoatType", orderBean.getBoatType());
 	}
@@ -123,9 +132,15 @@ class OrderBeanTest {
 		orderBean.setFormNumDays(10);
 		assertEquals(10, orderBean.getFormQuantity());
 		assertEquals(10, orderBean.getFormNumDays());
-		assertEquals(10, orderBean.depositToPay(), 0.0);
+		orderBean.setBoatSelected(boat);
+		assertEquals(boat, orderBean.getBoatSelected());
+		//System.out.println(orderBean.depositToPay());
+		assertEquals(12.3, orderBean.depositToPay(), 0.0);
 		assertEquals(null, orderBean.selectBoat());
+		assertEquals("12.3", orderBean.displayDeposit());
+		//assertEquals("1.23", orderBean.pricePerDay());
 	}
+	
 
 	// @Test
 	// void testUseHelper() {

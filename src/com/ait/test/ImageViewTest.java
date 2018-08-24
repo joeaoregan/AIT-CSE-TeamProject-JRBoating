@@ -3,7 +3,6 @@ package com.ait.test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ class ImageViewTest {
 	
 	@Test
 	void testImages() {
-		List<String> images = new ArrayList<String>();
+		ArrayList<String> images = new ArrayList<String>();
 		imageView.setImages(images);
 		assertEquals(images, imageView.getImages());
 	}

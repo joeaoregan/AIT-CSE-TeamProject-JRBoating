@@ -28,18 +28,30 @@ public class OrderBean implements Serializable {
 	private int formDayHired;
 	private double formDeposit;
 	private double formTotalCost;
-		
+
 	public OrderBean() {
 		boatSelected = null;
 		skipper = null;
-		
+
 		boatType = "Cruiser"; // Selects the Cruiser as default radio button
-		currentOrder = new Order();
+		currentOrder = null;
 		allOrders = new ArrayList<Order>();
-		
-		//addTestOrder();		 // Affects code coverage, uses Helper
+
+		// addTestOrder(); // Affects code coverage, uses Helper
 	}
 	
+	// Add orders to test forms
+
+//	public void addTestOrder() {
+//		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
+//		UserBean userBean = Helper.getBean("userBean", UserBean.class);
+//
+//		allOrders.add(new Order("Order1", "elaine", inventoryBean.findBoat("Canoe"), 1, 5,
+//				userBean.getUserByUsername("kiev"), 3, 50.0, 0.0, 65.0, 65.0, 120.0));
+//		allOrders.add(new Order("Order2", "elaine", inventoryBean.findBoat("Canoe"), 1, 3,
+//				userBean.getUserByUsername("kiev"), 2, 50.0, 0.0, 60.0, 60.0, 100.0));
+//	}
+
 	public double orderTotal() {
 		double total = 0.0;
 		for (Order order : allOrders) {
@@ -47,6 +59,7 @@ public class OrderBean implements Serializable {
 		}
 		return total;
 	}
+
 	public double totalDeposits() {
 		double total = 0.0;
 		for (Order order : allOrders) {
@@ -54,43 +67,38 @@ public class OrderBean implements Serializable {
 		}
 		return total;
 	}
-	
+
 	public String totalOrderPrice(Order order) {
 		return Double.toString(order.getTotalPricePayNow() + order.getRemainingPrice());
 	}
-	
+
 	// Must be return type string for form
 	public String selectBoat() {
 		formDeposit = depositToPay();
 		return null;
 	}
-	
+
 	public double depositToPay() {
-		formDeposit = (double) boatSelected.getPrice() * formQuantity * formNumDays * 0.1; // 10% deposit required for boats
-		//return "€" + Double.toString(total);
-		return formDeposit;	// format as currency
+		formDeposit = (double) boatSelected.getPrice() * formQuantity * formNumDays * 0.1; // 10% deposit required for
+																							// boats
+		// return "€" + Double.toString(total);
+		return formDeposit; // format as currency
 	}
-	
+
 	public String displayDeposit() {
 		return Double.toString(depositToPay());
 	}
 
 	public String pricePerDay() {
-		//boatSelected = getSelectedBoat();
-		//if (boatSelected != null) {
-		if ((boatSelected = getSelectedBoat()) != null) {
-			return Double.toString(boatSelected.getPrice());
-		}
+		// boatSelected = getSelectedBoat();
+		// if (boatSelected != null) {
+//		if ((boatSelected = getSelectedBoat()) != null) {
+//			return Double.toString(boatSelected.getPrice());
+//		}
+//
+//		return "BOAT NOT FOUND";
 
-		return "BOAT NOT FOUND";
-	}
-
-	public void addTestOrder() {
-		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		
-		allOrders.add(new Order("Order1", "elaine", inventoryBean.findBoat("Canoe"), 1, 5, userBean.getUserByUsername("kiev"), 3, 50.0, 0.0, 65.0, 65.0, 120.0));
-		allOrders.add(new Order("Order2", "elaine", inventoryBean.findBoat("Canoe"), 1, 3, userBean.getUserByUsername("kiev"), 2, 50.0, 0.0, 60.0, 60.0, 100.0));	
+		return (boatSelected = getSelectedBoat()) != null ? Double.toString(boatSelected.getPrice()) : "BOAT NOT FOUND";
 	}
 
 	public Boat getSelectedBoat() {
@@ -99,17 +107,19 @@ public class OrderBean implements Serializable {
 	}
 
 	public String quantityInStock() {
-		//System.out.println("test");
-		boatSelected = getSelectedBoat();
-		
-		if (boatSelected != null) {
-			return Integer.toString(boatSelected.getQuantity());
-		}
+		// System.out.println("test");
+		// boatSelected = getSelectedBoat();
 
-		return "BOAT NOT FOUND";
+//		if ((boatSelected = getSelectedBoat())!= null) {
+//			return Integer.toString(boatSelected.getQuantity());
+//		}
+//
+//		return "BOAT NOT FOUND";
+
+		return (boatSelected = getSelectedBoat()) != null ? Integer.toString(boatSelected.getQuantity())
+				: "BOAT NOT FOUND";
 	}
-	
-	
+
 	public ArrayList<Order> getAllOrders() {
 		return allOrders;
 	}

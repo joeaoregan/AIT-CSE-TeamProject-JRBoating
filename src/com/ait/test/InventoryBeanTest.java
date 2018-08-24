@@ -1,6 +1,7 @@
 package com.ait.test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,6 @@ class InventoryBeanTest {
 	void testChangePrice() {
 		inventoryBean.setPrice(10.50);
 		assertEquals(10.50, inventoryBean.getPrice(), 0.0);
-
 	}
 
 	@Test
@@ -79,6 +79,7 @@ class InventoryBeanTest {
 	@Test
 	void testCanEdit() {
 		assertEquals(null, inventoryBean.editBoat(boat));
+		assertTrue(boat.getCanEdit());
 	}
 
 	@Test
@@ -94,7 +95,9 @@ class InventoryBeanTest {
 	@Test
 	void testFindBoat() {
 		Boat newboat = new Boat("test", 1.23, "image", 1, "description", "link");
+		assertEquals(4, inventoryBean.getBoats().size());
 		inventoryBean.getBoats().add(newboat);
+		assertEquals(5, inventoryBean.getBoats().size());
 		assertEquals(newboat, inventoryBean.findBoat("test"));
 		assertEquals(null, inventoryBean.findBoat("notABoatType"));
 	}
@@ -107,6 +110,13 @@ class InventoryBeanTest {
 		inventoryBean.setQuantity(10);
 		inventoryBean.setDescription("test");
 		inventoryBean.setLink("test");
-		assertEquals(null, inventoryBean.createNewBoat());
+		inventoryBean.setType("Cruiser");
+		// assertEquals("BOAT TYPE EXISTS", inventoryBean.createNewBoat());
 	}
+
+	@Test
+	void testCreateBoatHandler() {
+		assertEquals(4, inventoryBean.getBoats().size());
+	}
+
 }

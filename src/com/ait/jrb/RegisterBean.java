@@ -46,7 +46,7 @@ public class RegisterBean implements Serializable {
 		// Skipper Only
 		bio = "";
 		pricePerDay = 0.0; // Skipper
-		image = ""; // Change in user account
+		image = "profile.jpg"; // Change in user account
 		message = "";
 	}
 
@@ -62,8 +62,8 @@ public class RegisterBean implements Serializable {
 	public String createUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
 		FacesContext context = FacesContext.getCurrentInstance();
-		newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
-		message = userBean.addUser(newUser);
+		//newUser = new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay);
+		message = userBean.addUser(new User(type, username, password, firstName, lastName, address, phone, bio, image, pricePerDay));
 
 		if (message.equals("USERNAME NOT UNIQUE") || message.equals("INVALID USER")) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", message));
@@ -181,5 +181,13 @@ public class RegisterBean implements Serializable {
 
 	public void setNewUser(User newUser) {
 		this.newUser = newUser;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 }

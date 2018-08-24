@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import com.ait.objects.Boat;
+//import com.ait.objects.Boat;
 import com.ait.objects.PricingStructure;
 
 @ManagedBean(name = "pricingBean")
@@ -30,13 +30,6 @@ public class PricingBean implements Serializable {
 	}
 
 	public String addPricingHandler() {
-		InventoryBean inventoryBean = Helper.getBean("inventoryBean", InventoryBean.class);
-		for (Boat boat : inventoryBean.getBoats()) {
-			if (boat.equals(type)) {
-				this.type = boat.getType();
-			}
-		}
-		// prices.add(new PricingStructure(id, name, amount, discount));
 		addPricing(type, amount, percent);
 
 		resetFormVariables();

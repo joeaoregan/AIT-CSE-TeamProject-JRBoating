@@ -15,6 +15,23 @@ class RegisterBeanTest {
 	void setUp() {
 		registerBean = new RegisterBean();
 	}
+	
+	@Test
+	void testConstructor() {
+		assertEquals(null, registerBean.getNewUser());
+		assertEquals(User.CUSTOMER, registerBean.getType());
+		assertEquals("", registerBean.getUsername());
+		assertEquals("", registerBean.getPassword());
+		assertEquals("", registerBean.getFirstName());
+		assertEquals("", registerBean.getLastName());
+		assertEquals("", registerBean.getAddress());
+		assertEquals("", registerBean.getPhone());
+		assertEquals("", registerBean.getBio());
+		assertEquals("", registerBean.getImage());
+		assertEquals(0.0, registerBean.getPricePerDay());
+		assertEquals("", registerBean.getImage());
+		assertEquals("", registerBean.getMessage());
+	}
 
 	@Test
 	void testChangeFirstName() {
@@ -56,6 +73,12 @@ class RegisterBeanTest {
 	void testChangeType() {
 		registerBean.setType(2);
 		assertEquals(2, registerBean.getType());
+	}
+	
+	@Test
+	void testChangeMessage() {
+		registerBean.setMessage("test");
+		assertEquals("test", registerBean.getMessage());
 	}
 
 	@Test

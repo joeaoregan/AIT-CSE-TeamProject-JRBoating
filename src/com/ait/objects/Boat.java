@@ -52,7 +52,7 @@ public class Boat {
 		this.image = image;
 	}
 
-	public boolean isCanEdit() {
+	public boolean getCanEdit() {
 		return canEdit;
 	}
 

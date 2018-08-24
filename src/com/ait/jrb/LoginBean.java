@@ -123,14 +123,12 @@ public class LoginBean implements Serializable {
 
 	public User getUser() {
 		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-
-		for (User user : userBean.getUserList()) {
-			if (user.equals(username)) {
-				return user;
-			}
-		}
-
-		return null;
+//		for (User user : userBean.getUserList()) {
+//			if (user.equals(username)) {
+//				return user;
+//			}
+//		}
+		return userBean.getUserByUsername(username);
 	}
 
 	public String loginHandler() {

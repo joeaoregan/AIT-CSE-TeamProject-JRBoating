@@ -75,4 +75,9 @@ class PricingBeanTest {
 		pricingBean.addPricing("test", 10, 20);
 		assertEquals(1, pricingBean.getPrices().size());
 	}
+	
+	@Test
+	void testAddPricingHandler() {
+		assertEquals(null, pricingBean.addPricingHandler());
+	}
 }

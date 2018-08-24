@@ -97,11 +97,10 @@ public class InventoryBean implements Serializable {
 				context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "BOAT TYPE EXISTS"));
 				return "BOAT TYPE EXISTS";
 			}
-
 		}
 
-		newBoat = new Boat(type, price, image, quantity, description, link);
-		boats.add(newBoat);
+		//newBoat = new Boat(type, price, image, quantity, description, link);
+		boats.add(new Boat(type, price, image, quantity, description, link));
 		context.addMessage(null, new FacesMessage("Successful", "Added Type: " + type));
 		if (quantity == 0) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "FYI!", "QUANTITY = ZERO"));
@@ -113,6 +112,10 @@ public class InventoryBean implements Serializable {
 
 		return "BOAT ADDED";
 	}
+	
+	//public void message(String message) {
+		
+	//}
 
 	public String getType() {
 		return type;

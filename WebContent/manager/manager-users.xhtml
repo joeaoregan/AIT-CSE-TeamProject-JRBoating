@@ -161,7 +161,7 @@
 						</h:dataTable>
 						<br />
 
-						<h:commandButton value="Save Changes"
+						<h:commandButton value="Save Changes" actionListener="#{userBean.successMessage('Details Saved')}"
 							action="#{userBean.saveAction()}" styleClass="formbtn" />
 					</h:form>
 				</div>

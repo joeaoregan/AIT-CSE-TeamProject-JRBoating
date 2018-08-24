@@ -145,7 +145,7 @@ class LoginBeanTest {
 		assertEquals("/index", loginBean.redirectUser("test", User.CUSTOMER));
 		assertEquals("/index", loginBean.redirectUser("test", User.FRONT_DESK_STAFF));
 		assertEquals("/skipper/SkipperBookings", loginBean.redirectUser("test", User.SKIPPER));
-		assertEquals("USER NOT FOUND", loginBean.redirectUser("test", 5));
+		assertEquals("login", loginBean.redirectUser("test", 5));
 	}
 
 //

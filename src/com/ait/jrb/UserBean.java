@@ -102,15 +102,21 @@ public class UserBean implements Serializable {
 	 * XXXXXXX HELPER XXXXXXXXXXX Save form update / edit details
 	 */
 	public String saveAction() {
-		FacesContext context = FacesContext.getCurrentInstance();
-		context.addMessage(null, new FacesMessage("Successful", "Details Saved"));
+		//FacesContext context = FacesContext.getCurrentInstance();
+		//context.addMessage(null, new FacesMessage("Successful", "Details Saved"));
 		
-		UserBean userBean = Helper.getBean("userBean", UserBean.class);
-		for (User user : userBean.getUserList()) {
+		//UserBean userBean = Helper.getBean("userBean", UserBean.class);
+		//for (User user : userBean.getUserList()) {
+		for (User user : userList) {
 			user.setCanEdit(false);
 		}
 		
 		return null;
+	}
+	
+	public void successMessage(String message) {
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.addMessage(null, new FacesMessage("Successful", message));
 	}
 	
 	public String addUser(User user) {
@@ -269,5 +275,5 @@ public class UserBean implements Serializable {
 
 	public void setUserList(ArrayList<User> userList) {
 		this.userList = userList;
-	}
+	}	
 }
