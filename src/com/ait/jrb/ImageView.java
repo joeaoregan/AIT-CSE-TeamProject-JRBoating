@@ -1,14 +1,14 @@
 package com.ait.jrb;
 
 import java.util.ArrayList;
-import java.util.List;
+//import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class ImageView {
-	private List<String> images;
+	private ArrayList<String> images;
     
     @PostConstruct
     public void init() {
@@ -18,11 +18,11 @@ public class ImageView {
         }
     }
  
-    public List<String> getImages() {
+    public ArrayList<String> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(ArrayList<String> images) {
     	this.images =images;
     }
 }

@@ -30,7 +30,7 @@
 				action="/customer/CustomerAccount.xhtml"
 				styleClass="#{(heading=='Customer Account') ? 'ActionButton2' : 'ActionButton'}" />&nbsp;
 							
-			<h:commandButton value="Logout: #{loginBean.loggedUser.firstName}"
+			<h:commandButton value="Logout"
 				action="#{loginBean.logoutHandler()}" styleClass="ActionButton" />
 		</h:form>
 	</ui:composition>

@@ -25,12 +25,18 @@
 	</div>
 	<br />
 
+	<div style="z-index: 11;position: fixed;top: 4%;right:3.25%; color: grey;">
+		<h4>
+			<h:outputText value="Welcome, #{loginBean.loggedUser.firstName}" rendered="#{loginBean.userLoggedIn}"/>
+		</h4>
+	</div>
+	
 	<div id="header">
 		<div style="float: left;">
-			<h:graphicImage library="image" name="boat.jpg"
-				style="height:100px; width:100px;" />
-
+			<h:graphicImage library="image" name="boatlogo.png"
+				style="height:70px; width:100px;margin-top:10px" />
 		</div>
+
 		<ui:insert name="menu">
 			<ui:include src="/templates/header.xhtml">
 				<ui:param name="defaultHeader" value="JR Boating" />
@@ -39,8 +45,11 @@
 		</ui:insert>
 
 		<h2
-			style="font-family: cursive; color: steelblue; float: left; margin-top: 30px;">JR
+			style="font-family: cursive; color: steelblue; float: left; margin-top: 30px; margin-right: 10px;">JR
 			Boating: #{heading}</h2>
+
+
+
 	</div>
 	<br />
 
@@ -51,14 +60,18 @@
 	</div>
 	<br />
 
-	<div id="search"
-		style="border-style: solid;">
+	<div id="search" style="border-style: solid;">
 		<ui:insert name="footer">
 			<ui:include src="/templates/search.xhtml" />
 		</ui:insert>
 	</div>
 
 	<div id="footer">
+		<div style="float: right;">
+			<h:graphicImage library="image" name="boatlogo.png"
+				style="height:100px; width:140px;margin-top:10px;margin-right:20px;" />
+
+		</div>
 		<ui:insert name="footer">
 			<ui:include src="/templates/footer.xhtml" />
 		</ui:insert>

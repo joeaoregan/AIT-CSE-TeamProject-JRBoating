@@ -17,13 +17,21 @@
 			<hr />
 			<br />
 			<div id="indexImage" align="center">
+			
+<!-- 				<p:imageSwitch effect="shuffle"> -->
+<!-- 					<ui:repeat value="#{imageView.images}" var="image"> -->
+<!-- 						<p:graphicImage value="/resources/image/#{image}" /> -->
+<!-- 					</ui:repeat> -->
+<!-- 				</p:imageSwitch> -->
+				
 				<p:imageSwitch effect="shuffle" id="fadeEffect">
 					<ui:repeat var="image" value="#{imageView.images}"
 						id="fadeEffectImages">
-						<p:graphicImage style="height:400px; width:95%;"
+						<p:graphicImage style="height:420px; width:100%;"
 							value="/resources/image/#{image}" />
 					</ui:repeat>
 				</p:imageSwitch>
+
 			</div>
 
 			<h2 class="heading">Welcome to Jack Reilly Boat Hire</h2>
