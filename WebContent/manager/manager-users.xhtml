@@ -26,45 +26,23 @@
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
-						<p:growl id="growl" showDetail="true" sticky="true" />
+						<h:form>
+							<h:selectOneMenu styleClass="selectOne" id="usertypelist"
+								value="#{registerBean.type}">
+								<f:selectItem itemValue="#{null}"
+									itemLabel="-- Select user type to add to database --" />
+								<f:selectItem itemValue="0" itemLabel="Customer" />
+								<f:selectItem itemValue="1" itemLabel="Manager" />
+								<f:selectItem itemValue="2" itemLabel="Skipper" />
+								<f:selectItem itemValue="3" itemLabel="Front Desk Staff" />
+							</h:selectOneMenu>
+						</h:form>
+						<br />
 
+						<ui:include src="/forms/user-register-form.xhtml" />
 
-						<p:inputText value="#{registerBean.username}" required="true"
-							id="username" requiredMessage="Username required"
-							a:placeholder="Username" a:autofocus="true" />
-						<p:message for="username" />
-
-						<p:password value="#{registerBean.password}" feedback="true"
-							id="password1" required="true"
-							requiredMessage="Password required"
-							validatorMessage="Password must be 4 or more characters"
-							a:placeholder="Password">
-							<f:validateLength minimum="4" />
-						</p:password>
-						<p:message for="password1" />
-
-						<p:inputText value="#{registerBean.firstName}" required="true"
-							id="firstName" requiredMessage="First name required"
-							a:placeholder="First Name" />
-						<p:message for="firstName" />
-
-						<p:inputText value="#{registerBean.lastName}" required="true"
-							id="lastName" requiredMessage="Last name required"
-							a:placeholder="Last name" />
-						<p:message for="lastName" />
-
-						<p:inputText value="#{registerBean.address}" required="true"
-							id="address" requiredMessage="Address required"
-							a:placeholder="Address" />
-						<p:message for="address" />
-
-						<p:inputText value="#{registerBean.phone}" required="true"
-							id="phone" requiredMessage="Phone number required"
-							a:placeholder="Phone Number" />
-						<p:message for="phone" />
-
-						<p:inputText value="#{registerBean.bio}" id="bio"
-							a:placeholder="About" />
+						<p:inputTextarea value="#{registerBean.bio}" id="bio"
+							a:placeholder="About" cols="34" rows="6" />
 						<p:message for="bio" />
 
 						<p:inputText value="#{registerBean.image}" id="image"
@@ -87,6 +65,13 @@
 						<h:dataTable value="#{userBean.userList}" var="row"
 							styleClass="displayTable" headerClass="displayTableHeader"
 							rowClasses="displayTableOddRow,displayTableEvenRow">
+
+							<h:column>
+								<f:facet name="header">Type</f:facet>
+								<h:inputText value="#{row.type}" rendered="#{row.canEdit}" />
+								<h:outputText value="#{userBean.displayType(row.type)}"
+									rendered="#{!row.canEdit}" />
+							</h:column>
 
 							<h:column>
 								<f:facet name="header">Username</f:facet>
@@ -161,7 +146,8 @@
 						</h:dataTable>
 						<br />
 
-						<h:commandButton value="Save Changes" actionListener="#{userBean.successMessage('Details Saved')}"
+						<h:commandButton value="Save Changes"
+							actionListener="#{userBean.successMessage('Details Saved')}"
 							action="#{userBean.saveAction()}" styleClass="formbtn" />
 					</h:form>
 				</div>

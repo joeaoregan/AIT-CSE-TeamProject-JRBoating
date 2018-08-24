@@ -9,6 +9,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.ait.objects.Boat;
+import com.ait.objects.User;
 
 @ManagedBean(name = "inventoryBean")
 @SessionScoped

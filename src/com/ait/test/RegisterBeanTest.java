@@ -27,9 +27,8 @@ class RegisterBeanTest {
 		assertEquals("", registerBean.getAddress());
 		assertEquals("", registerBean.getPhone());
 		assertEquals("", registerBean.getBio());
-		assertEquals("", registerBean.getImage());
+		assertEquals("profile.jpg", registerBean.getImage());
 		assertEquals(0.0, registerBean.getPricePerDay());
-		assertEquals("", registerBean.getImage());
 		assertEquals("", registerBean.getMessage());
 	}
 

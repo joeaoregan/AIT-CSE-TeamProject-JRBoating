@@ -29,49 +29,9 @@
 
 				<h:form>
 					<h:panelGrid columns="1" id="matchGrid" cellpadding="0">
-						<p:growl id="growl" showDetail="true" sticky="true" />
 
-						<p:inputText value="#{registerBean.username}" required="true"
-							id="username" requiredMessage="Username required"
-							a:placeholder="Username" a:autofocus="true"
-							title="Enter Username" rendered="#{not loginBean.userLoggedIn}" />
-						<p:message for="username" />
-
-						<p:password id="password1" value="#{registerBean.password}"
-							feedback="true" requiredMessage="Password required"
-							required="true" a:placeholder="Password" match="password2"
-							label="Password 1" title="Enter Password">
-						</p:password>
-						<p:message for="password1" />
-
-						<p:password value="#{registerBean.password}" feedback="true"
-							id="password2" required="true" a:placeholder="Confirm Password"
-							label="Password 2" title="Confirm Password"
-							validatorMessage="#{loginBean.passwordLengthMessage()}">
-							<f:validateLength minimum="#{loginBean.passwordLength()}" />
-						</p:password>
-						<p:message for="password2" />
-
-						<p:inputText value="#{registerBean.firstName}" required="true"
-							id="firstName" requiredMessage="First name required"
-							a:placeholder="First Name" title="Enter First Name" />
-						<p:message for="firstName" />
-
-						<p:inputText value="#{registerBean.lastName}" required="true"
-							id="lastName" requiredMessage="Last name required"
-							a:placeholder="Last name" title="Enter Last Name" />
-						<p:message for="lastName" />
-
-						<p:inputText value="#{registerBean.address}" required="true"
-							id="address" requiredMessage="Address required"
-							a:placeholder="Address" title="Enter Address" />
-						<p:message for="address" />
-
-						<p:inputText value="#{registerBean.phone}" required="true"
-							id="phone" requiredMessage="Phone number required"
-							a:placeholder="Phone Number" title="Enter Phone Number" />
-						<p:message for="phone" />
-
+						<ui:include src="/forms/user-register-form.xhtml" />
+						
 						<h:commandButton value="Register Now"
 							action="#{registerBean.createUser}" styleClass="formbtn" />
 

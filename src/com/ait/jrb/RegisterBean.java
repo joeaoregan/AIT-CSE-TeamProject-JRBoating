@@ -14,6 +14,7 @@ import com.ait.objects.User;
 public class RegisterBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	private int type;
 	private String username;
 	private String password;
