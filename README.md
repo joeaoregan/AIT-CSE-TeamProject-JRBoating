@@ -1,39 +1,44 @@
 # Certificate in Software Engineering
-## Team Project: JR Boating
-### Joe O'Regan A00258304
-### Elaine Santos G Ottero A00248619
-### Ademola Alade A00212817
-### Kiev Reynolds A00258306
-### Sorcha Bruton A00258344
-### 16/08/2018
+### Team Project: JR Boating
+### 10/08/2018
+---
+## Team Members
+| Name: | Student No: |
+| --- | --- |
+| **Joe O'Regan** | A00258304 |
+| **Elaine Santos G Ottero** | A00248619 |
+| **Ademola Alade** | A00212817 |
+| **Kiev Reynolds** | A00258306 |
+| **Sorcha Bruton** | A00258344 |
+---
+## Screenshots
 
-![JR Boating](Screenshots/JRB1.png "JR Boating")
-###### JR Boating
-![JR Boating: Pricing Structures](Screenshots/Pricing.png "JR Boating: Pricing Structures")
-###### JR Boating: Pricing Structures
-
-![JR Boating: Manage Inventory](Screenshots/ManageInventory.png "JR Boating: Manage Inventory")
-###### JR Boating: Manage Inventory
-![JR Boating: Manage Pricing](Screenshots/ManagePricing.png "JR Boating: Manage Pricing")
-###### JR Boating: Manage Pricing
-![JR Boating: Manage Reports](Screenshots/ManageReports.png "JR Boating: Manage Reports")
-###### JR Boating: Manage Reports
-![JR Boating: Manage Users](Screenshots/ManageUsers.png "JR Boating: Manage Users")
-###### JR Boating: Manage Users
-![JR Boating: Manager Login](Screenshots/ManagerLogin.png "JR Boating: Manager Login")
-###### JR Boating: Manager Login
-![JR Boating: Customer Register](Screenshots/CustomerRegister.png "JR Boating: Customer Register")
-###### JR Boating: Customer Register
-![JR Boating: Customer Login](Screenshots/CustomerLogin.png "JR Boating: Customer Login")
-###### JR Boating: Customer Login
-![JR Boating: Customer Account](Screenshots/CustomerAccount.png "JR Boating: Customer Account")
-###### JR Boating: Customer Account
-![JR Boating: Skipper Login](Screenshots/HookLogin.png "JR Boating: Skipper Login")
-###### JR Boating: Skipper Login
+![JR Boating: Home](Screenshots/index.jpg "JR Boating: Home")
+###### JR Boating: Home
+![JR Boating: Register](Screenshots/register.jpg "JR Boating: Register")
+###### JR Boating: Register
+![JR Boating: Boat Details](Screenshots/boats.jpg "JR Boating: Boat Details")
+###### JR Boating: Boat Details
+![JR Boating: Login](Screenshots/login.jpg "JR Boating: Login")
+###### JR Boating: Login
+![JR Boating: Manager Home](Screenshots/manager-home.jpg "JR Boating: Manager Home")
+###### JR Boating: Manager Home
+![JR Boating: Manage users](Screenshots/manager-users.jpg "JR Boating: Manage users")
+###### JR Boating: Manage users
+![JR Boating: Manage inventory](Screenshots/manager-inventory.jpg "JR Boating: Manage inventory")
+###### JR Boating: Manage inventory
 
 ---
+## Definition of Done
+* For a user story to be declared done unit testing must be fully developed and pass all unit tests. 
+* Unit testing code coverage must be at least 85%.
+* All acceptance criteria must be tested and passed. 
+* All documentation relating to the user story must be completed, including the unit test template, the user guide and the bug list (if applicable).
 
-# Sprint 1:
+---
+## Sprints
+
+### Sprint 1:
 
 |  | User Story | Planned | In Progress | Done
 | --- | --- |---| ---| ---|
@@ -48,7 +53,25 @@
 | 9 | **Customer: Book boat** | Code, Unit Test, User Guide, System Test | - | **Joe**: Code |
 | 10 | **Customer: Pay boat deposit** | Code, Unit Test, User Guide, System Test | - | - |
 
+
+![JR Boating: Sprint 1: Burn Down Chart](Screenshots/sprint1-burndown.png "JR Boating: Sprint 1: Burn Down Chart")
+###### JR Boating: Sprint 1: Burn Down Chart
 ---
 
-# Sprint 2:
+### Sprint 2:
+
+#### Sprint 2: Goal
+* A registered customer will be able to search the site, reserve a boat, edit boat bookings and pay a deposit.
+* The manager will be able to create employee accounts and facilitate adding account details, boat prices and the pricing structure.
+* The site will be intuitive to navigate and have a pleasant appearance.
+* The front desk staff and skipper will be able to login and out of the site.
+
+![JR Boating: Sprint 2: Burn Down Chart](Screenshots/sprint2-burndown.png "JR Boating: Sprint 2: Burn Down Chart")
+###### JR Boating: Sprint 2: Burn Down Chart 
+
+---
+## Code Coverage
+
+![JR Boating: Code Coverage](Screenshots/sprint2-burndown.png "JR Boating: Code Coverage")
+###### JR Boating: Code Coverage 
 
