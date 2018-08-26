@@ -72,6 +72,6 @@
 ---
 ## Code Coverage
 
-![JR Boating: Code Coverage](Screenshots/sprint2-burndown.png "JR Boating: Code Coverage")
+![JR Boating: Code Coverage](Screenshots/code-coverage.png "JR Boating: Code Coverage")
 ###### JR Boating: Code Coverage 
 
