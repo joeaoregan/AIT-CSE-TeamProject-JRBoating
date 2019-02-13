@@ -1,7 +1,12 @@
 # Certificate in Software Engineering
-### Team Project: JR Boating
-### 10/08/2018
+## Team Project - Project
+### Joe O'Regan (A00258304)
+#### 10/08/2018
+
 ---
+
+## JR Boating
+
 ## Team Members
 | Name: | Student No: |
 | --- | --- |
